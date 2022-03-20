@@ -30,7 +30,7 @@ body{
     border-radius: 10px;
     box-shadow: inset 0 0 1em #2A056A;
     background-color: #2A356A;
-    
+    padding-right: 30px;
 }
 .container{
     height: 100%;
@@ -42,6 +42,7 @@ body{
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+
 }
 #arrowleft{
     width: 100%;
