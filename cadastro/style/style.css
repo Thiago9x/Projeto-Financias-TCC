@@ -19,22 +19,25 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2A356A;
+    background-color: #c4c4c4;
 }
 #main{
     height: 768px;
-    width: 1024px;
+    width: 75%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aquamarine;
+    border-radius: 10px;
+    box-shadow: inset 0 0 1em #2A056A;
+    background-color: #2A356A;
+    
 }
 .container{
     height: 100%;
     width: 49%;
     padding: 10px;
     /* border: solid 1px black; */
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,7 +55,7 @@ body{
 #principal{
     height: 90%;
     width: 100%;
-    margin-top: 7.5%;
+    margin-top: 5%;
     background-color: white;
     border-radius: 10px;
     display: flex;
@@ -79,4 +82,13 @@ input{
     height: 40px;
     border-radius: 6px;
     margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+#button{
+    width: 70%;
+    height: 40px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 18px;
 }
