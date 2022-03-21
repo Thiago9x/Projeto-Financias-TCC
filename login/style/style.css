@@ -12,7 +12,21 @@
 h1{
     font-size: 28px;
 }
-
+h3{
+    font-size:18px;
+}
+h4{
+    font-size:14px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
 body{
     height: 100vh;
     width: 100%;
@@ -45,10 +59,7 @@ body{
     justify-content: space-between;
 
 }
-#arrowleft{
-    width: 100%;
-    height: auto;
-}
+
 #fotoCadastro{
     height: 60%;
     width: 100%;
@@ -72,14 +83,23 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
+#tituloPrincipal{
+    height: 90px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 #principalInputs{
-    height: 50%;
+    height: 30%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left:40px; 
     padding-right: 40px;
+    /* background-color: aqua; */
 }
 label{
     font-size: 16px;
@@ -90,14 +110,47 @@ input{
     border: solid 2px #2A356A;
     height: 40px;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     padding-left: 10px;
 }
-
+#recursosPrincipal{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#checkbox{
+    height: 16px;
+    width: auto;
+    display: flex;
+    /* border: solid 1px black; */
+}
+#chxInput{
+    height: 16px;
+    width: auto;
+    margin-right: 5px;
+}
 #button{
     width: 70%;
     height: 40px;
     background-color: #2A356A;
     color: white;
     font-size: 18px;
+}
+#googlePrincipal{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#cinza{
+    color: #c4c4c4;
+    margin-bottom: 5px;
+}
+#google{
+    width: 120px;
 }
