@@ -71,6 +71,7 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+
 #principalInputs{
     height: 30%;
     width: 100%;
@@ -81,7 +82,18 @@ body{
     padding-right: 40px;
     /* background-color: aqua; */
 }
-
+#senhas{
+    height: auto;
+    width: inherit;
+    display: flex;
+}
+.editarIcone{
+    width: 25px;
+    height: 25px;
+    margin-left: -35px;
+    margin-top: 7px;
+    cursor: pointer;
+}
 #recursosPrincipal{
     height: auto;
     width: 100%;

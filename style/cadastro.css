@@ -73,4 +73,18 @@ body{
     padding-right: 40px;
 }
 
+.senha2{
 
+        height: auto;
+        width: inherit;
+        display: flex;
+}
+
+.editarIcones{
+
+        width: 25px;
+        height: 25px;
+        margin-left: -35px;
+        margin-top: 10px;
+        cursor: pointer;
+}

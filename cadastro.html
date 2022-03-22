@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo-RF.jpeg"> 
+    <script type="text/javascript" src="js/cadastro.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/cadastro.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -42,11 +43,22 @@
                     <label for="">
                         Senha
                     </label>
-                    <input type="password" placeholder="Digite sua senha" maxlength="500">
+
+                    <div class="senha2">
+                        <input type="password" placeholder="Digite sua senha" maxlength="500" class="senhaCadastro">
+                        <img src="img/MostrarSenha.svg" class="editarIcones btnOlho"> 
+                    
+                    </div>
+                    
                     <label for="">
                         Confirmar Senha
                     </label>
-                    <input type="password" placeholder="Confirme sua senha" maxlength="500">
+
+                    <div class="senha2">
+                        <input type="password" placeholder="Confirme sua senha" maxlength="500" class="senhaCadastro">
+                        <img src="img/MostrarSenha.svg" class="editarIcones btnOlho"> 
+                    </div>
+                       
                 </div>
                     <input id="button" type="button" value="Cadastrar">
             </form>
