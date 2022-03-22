@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:Roboto, sans-serif;
+}
+
+#royalfinance{
+    font-family: 'Baskervvile';
+    font-size: 24px;
+    color: white;
+}
+h1{
+    font-size: 28px;
+}
+h2{
+    font-size: 24px;
+}
+h3{
+    font-size:20px;
+}
+h4{
+    font-size:16px;
+    font-weight: none;
+    text-decoration: none;
+}
+label{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input{
+    border: solid 2px #2A356A;
+    height: 40px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+#button{
+    width: 70%;
+    height: 40px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 18px;
+}
