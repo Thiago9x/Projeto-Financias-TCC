@@ -43,10 +43,11 @@ main{
 
 #label{
     width: 30%;
+    min-width: 300px;
     height: 3%;
     text-align: center;
     padding-top: 5px;
-    font-size: 1.8rem;
+    font-size: 28px;
     font-weight: 400;
 }
 
@@ -67,11 +68,18 @@ main{
 }
 .botao{
     width: 500px;
-    height: 63px;
+    max-width: 500px;
+    height: 60px;
     background-color: var(--cor-Principal);
-    border: none;
-    border-radius: none;
     color: white;
     font-size: 1.5rem;
 
+}
+#arrowleft{
+
+    width: 100%;
+    height: auto;
+    margin-top: -95px;
+    margin-left: 20px;
+  
 }
