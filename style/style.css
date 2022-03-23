@@ -34,7 +34,7 @@ input{
     border: solid 2px #2A356A;
     height: 40px;
     width: 100%;
-    border-radius: 6px;
+    border-radius: 5px;
     margin-bottom: 20px;
     padding-left: 10px;
 }
@@ -44,4 +44,10 @@ input{
     background-color: #2A356A;
     color: white;
     font-size: 18px;
+}
+:root{
+    --cor-Principal: #2A356A;
+}
+body{
+   background-color: var(--cor-Principal);
 }
