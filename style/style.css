@@ -45,3 +45,9 @@ input{
     color: white;
     font-size: 18px;
 }
+:root{
+    --cor-Principal: #2A356A;
+}
+body{
+   background-color: var(--cor-Principal);
+}
