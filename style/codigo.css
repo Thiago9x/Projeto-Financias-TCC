@@ -26,7 +26,7 @@ main{
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: column;
     margin-top: 2%;
 
@@ -64,7 +64,9 @@ main{
     background-color: whitesmoke;
     border-radius: 10px;
     border: solid 1px black;
-   
+    padding-left: none;
+    text-align: center;
+    font-size: 4rem;
 }
 .botao{
     width: 500px;
@@ -73,13 +75,11 @@ main{
     background-color: var(--cor-Principal);
     color: white;
     font-size: 1.5rem;
-
+    margin-bottom: 25%;
 }
 #arrowleft{
-
     width: 100%;
-    height: auto;
-    margin-top: -95px;
+    height: 40px;
     margin-left: 20px;
-  
+    margin-top: 20px;
 }

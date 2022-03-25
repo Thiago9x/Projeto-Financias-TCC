@@ -79,4 +79,10 @@ main{
     flex-direction: column;
     justify-content: center;
 }
-
+#buttonA{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

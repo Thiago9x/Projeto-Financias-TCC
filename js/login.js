@@ -5,14 +5,14 @@ const btn = document.querySelector('.btn');
 
 btn.onclick = () => 
 {
-    if(senha.type === 'password')
+    if(senha.type === 'text')
     {
-        senha.type = 'text'
+        senha.type = 'password'
         btn.src = 'img/Hide.svg'
     }
     else
     {
-        senha.type = 'password'
+        senha.type = 'text'
         btn.src = 'img/MostrarSenha.svg'
     }
 }
