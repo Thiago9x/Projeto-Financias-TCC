@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/logo-RF.jpeg"> 
+    <script type="text/javascript" src="js/redefinicaoSenha.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/redefinicaoSenha.css">
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -31,17 +32,30 @@
                 <h1>Nova Senha</h1>
                     <p>Por favor digite a nova senha</p>
                 </div>    
-            <div id="inputs">
-                <div class="textInput">
-                    <label>Nova senha</label>
-                    <input type="text" name="" id="" placeholder="Digite sua nova senha">
-                </div>   
-                <div class="textInput">
-                    <label>Confirme sua senha</label>
-                    <input type="text" name="" id="" placeholder="**********">
-                </div>     
-            </div>
-            <input id="button"type="button" value="Confirmar">
+            <div id="principalInputs">
+                <label for="">
+                    Nova Senha
+                </label>
+
+                <div class="senha2">
+                    <input type="password" placeholder="Digite sua senha" maxlength="500" class="senha">
+                    <img src="img/Hide.svg" class="editarIcones button1"> 
+                
+                </div>
+                
+                <label for="">
+                    Confirmar Senha
+                </label>
+
+                <div class="senha2">
+                    <input type="password" placeholder="Confirme sua senha" maxlength="500" class="senhaOption2">
+                    <img src="img/Hide.svg" class="editarIcones button2"> 
+                </div>
+                </div>
+            <a href="senhaConfirmada.html" 
+            id="buttonA">
+                <input id="botao"type="button" value="Confirmar">
+            </a>
         </form>
         </div>
     </main>
