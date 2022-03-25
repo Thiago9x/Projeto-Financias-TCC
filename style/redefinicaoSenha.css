@@ -73,30 +73,46 @@ h1{
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: -20%;
 }
-#inputs{
+#principalInputs{
     height: 20%;
-    width: 80%;
-    /* background-color: violet; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-top: -10vh;
-    
-}
- 
-.textInput{
-    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #2A356A;
+    padding-left:40px; 
+    padding-right: 40px;
+}
+#botao{
+    background-color: #2A356A;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 60%;
+    margin-top: -15%;
 }
 
-#button{
-    width: 50%;
-    margin-top: -15vh;
-   
+.senha2{
+
+    height: auto;
+    width: inherit;
+    display: flex;
+}
+
+.editarIcones{
+
+    width: 25px;
+    height: 25px;
+    margin-left: -35px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#buttonA{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
