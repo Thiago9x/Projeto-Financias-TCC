@@ -1,3 +1,5 @@
+mostrarForca(0);
+
 function validarSenhaForca(){
     var senha = document.getElementById('senhaForca').value;
     var forca = 0;
@@ -30,8 +32,9 @@ function validarSenhaForca(){
 function mostrarForca(forca){
     /*imprimir a forca*/
    /* document.getElementById("impForcaSenha").innerHTML = "Forca: " + forca;*/
-
-    if((forca >= 0) && (forca < 40)){
+   if(forca === 0){
+    document.getElementById("erroSenhaForca").innerHTML = '<div class="progress"><div class="progress-bar bg-light" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div></div>'; 
+   }else if((forca > 0) && (forca < 40)){
         document.getElementById("erroSenhaForca").innerHTML = '<div class="progress"><div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div></div>'; 
     }else if((forca >= 40) && (forca < 70)){
         document.getElementById("erroSenhaForca").innerHTML = '<div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div>'; 
