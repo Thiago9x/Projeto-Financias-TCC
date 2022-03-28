@@ -116,3 +116,10 @@ h1{
     align-items: center;
     justify-content: center;
 }
+
+#barra{
+
+    width: 100%;
+    height: auto;
+    margin-left: 43%;
+}
