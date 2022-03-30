@@ -1,10 +1,9 @@
-
-a{
+a {
     color: black;
     text-decoration: none;
 }
 
-body{
+body {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -12,7 +11,8 @@ body{
     justify-content: center;
     background-color: #2A356A;
 }
-#main{
+
+#main {
     max-width: 1440px;
     height: inherit;
     width: inherit;
@@ -23,7 +23,8 @@ body{
     /* background-color: #2A356A; */
     padding-right: 30px
 }
-.container{
+
+.container {
     height: 100%;
     max-height: 960px;
     width: 49%;
@@ -34,24 +35,27 @@ body{
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-
 }
-#arrowleft{
+
+#arrowleft {
     width: 100%;
     height: auto;
 }
-#fotoCadastro{
+
+#fotoCadastro {
     height: 60%;
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20%;
     /* background-color: aqua; */
 }
-#foto{
+
+#foto {
     height: 100%;
     width: 100%;
 }
-#principal{
+
+#principal {
     height: 90%;
     max-height: 960px;
     width: 100%;
@@ -63,28 +67,27 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
-#principalInputs{
+
+#principalInputs {
     height: 50%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left:40px; 
+    padding-left: 40px;
     padding-right: 40px;
 }
 
-.senha2{
-
-        height: auto;
-        width: inherit;
-        display: flex;
+.senha2 {
+    height: auto;
+    width: inherit;
+    display: flex;
 }
 
-.editarIcones{
-
-        width: 25px;
-        height: 25px;
-        margin-left: -35px;
-        margin-top: 10px;
-        cursor: pointer;
+.editarIcones {
+    width: 25px;
+    height: 25px;
+    margin-left: -35px;
+    margin-top: 10px;
+    cursor: pointer;
 }
