@@ -1,4 +1,4 @@
-body{
+body {
     width: 100%;
     height: 100vh;
     background-color: #2A356A;
@@ -6,7 +6,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-main{
+
+main {
     width: 100%;
     height: 80%;
     max-width: 1440px;
@@ -17,13 +18,15 @@ main{
     align-items: center;
     flex-direction: column;
 }
-#arrowleft{
+
+#arrowleft {
     width: 100%;
     height: auto;
     margin-left: 20px;
     margin-top: 10px;
 }
-#principal{
+
+#principal {
     height: 90%;
     width: 100%;
     /* background-color: aqua; */
@@ -32,17 +35,20 @@ main{
     justify-content: space-between;
     align-items: center;
 }
-#royalfinance{
+
+#royalfinance {
     color: #2A356A;
     font-size: 30px;
 }
-#senhaModificada{
+
+#senhaModificada {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
 }
-h1{
+
+h1 {
     width: 30%;
     min-width: 300px;
     height: 3%;
@@ -51,11 +57,17 @@ h1{
     font-size: 28px;
     font-weight: 400;
 }
-#senha{
-    width: 80%;
-    height: 80%;
+
+#senha {
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    max-width: 700px;
+    min-height: 200px;
+    max-height: 700px;
 }
-#foto{
+
+#foto {
     width: 100%;
     height: 100%;
 }
