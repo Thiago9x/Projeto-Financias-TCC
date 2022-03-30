@@ -7,7 +7,9 @@ body{
     background-color: white;
 }
 main{
-    width: 25%;
+    width: 100%;
+    min-width: 500px;
+    max-width: 560px;
     height: 60%;
     border: solid 1px black;
 }
@@ -56,7 +58,9 @@ h3{
     display: flex;
     flex-direction: column;
 }
-
+label{
+    color: rgb(142, 128, 128)
+}
 #valorData{
     display: flex;
     justify-content: space-between;
@@ -96,4 +100,26 @@ h3{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: solid 2px #2A356A;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    background: url(../img/select.png) no-repeat center right #FFF;
+    font-size: 15px;
+    padding-right: 20px;
+}
+/*.date{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(../img/calendario.png) no-repeat center right #FFF;
+    font-size: 15px;
+    padding-right: 20px;
 }
