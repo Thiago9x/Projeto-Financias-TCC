@@ -78,12 +78,15 @@ body {
     padding-right: 40px;
 }
 
-.senha2 {
+.senha2 , .senha22{
     height: auto;
     width: inherit;
     display: flex;
 }
 
+.senha22{
+    margin-top: -30px;
+}
 .editarIcones {
     width: 25px;
     height: 25px;
@@ -95,4 +98,5 @@ body {
     width: 100%;
     height: auto;
     margin-left: 43%;
+    margin-top: -10px;
 }
