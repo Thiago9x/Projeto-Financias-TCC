@@ -91,3 +91,8 @@ body {
     margin-top: 10px;
     cursor: pointer;
 }
+#barra{ 
+    width: 100%;
+    height: auto;
+    margin-left: 43%;
+}
