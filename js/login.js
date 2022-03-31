@@ -16,3 +16,37 @@ btn.onclick = () =>
         btn.src = 'img/MostrarSenha.svg'
     }
 }
+
+//FUNÇAO DE VALIDACAO PARA FAZER O POST
+const Login = () => {
+
+    const manterLogin = document.getElementById('chxInput').checked;
+    const email = document.getElementById('email').value;
+    const senha = document.querySelector('.senha').value;
+
+    const confirmacaoCampos = document.getElementById('principal').reportValidity();
+    if(confirmacaoCampos == true){
+
+    let url = 'http://10.107.144.12:8080/royal/contas';
+
+        console.log(fetch(url, {method: 'POST', headers: {
+            // 'content-type': 'application/json', 
+        }, body:JSON.stringify( {email: email,  senha: senha, manter: manterLogin}),
+        })
+        .then((resposta) => resposta.json())
+        .then((data) => { if(data.status === Status.OK){
+            alert("Cadastro efetuado com sucesso")
+        }
+        else{
+            alert('ERRO:Aconteceu algum erro')
+        }
+        })
+        ); 
+}
+else{
+    alert('OS CAMPOS NÃO FORAM PREENCHIDOS');
+}
+
+
+}
+document.getElementById("button").addEventListener("click", Login);

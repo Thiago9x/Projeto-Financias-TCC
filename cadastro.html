@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo-RF.png">
     <script type="text/javascript" src="js/cadastro.js" defer></script>
+    <script type="text/javascript" src="js/status.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/cadastro.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -37,17 +38,17 @@
                     <label for="">
                         Nome
                     </label>
-                    <input type="text" placeholder="Digite seu nome" maxlength="500">
+                    <input type="text" placeholder="Digite seu nome" maxlength="200" id="nome" required>
                     <label for="">
                         Email
                     </label>
-                    <input type="text" placeholder="Digite seu nome" maxlength="500">
+                    <input type="email" placeholder="Digite seu nome" maxlength="100" id="email" required>
                     <label for="">
                         Senha
                     </label>
 
                     <div class="senha2">
-                        <input type="password" placeholder="Digite sua senha" maxlength="500" class="senhaCadastro">
+                        <input type="password" placeholder="Digite sua senha" maxlength="100" class="senhaCadastro" required>
                         <img src="img/Hide.svg" class="editarIcones btnOlho">
                     </div>
 
@@ -66,12 +67,12 @@
                     </label>
 
                     <div class="senha2">
-                        <input type="password" placeholder="Confirme sua senha" maxlength="500" class="senhaCadastro2">
+                        <input type="password" placeholder="Confirme sua senha" maxlength="100" class="senhaCadastro2" required>
                         <img src="img/Hide.svg" class="editarIcones btnOlho2">
                     </div>
 
                 </div>
-                <input id="button" type="button" value="Cadastrar">
+                <input id="button" type="button" value="Cadastrar" >
             </form>
         </div>
     </div>
