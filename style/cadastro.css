@@ -69,7 +69,7 @@ body {
 }
 
 #principalInputs {
-    height: 50%;
+    height: 65%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -84,8 +84,9 @@ body {
     display: flex;
 }
 
-.senha22{
-    margin-top: -30px;
+
+#confirmarSenha{
+    margin-bottom: 10px;
 }
 .editarIcones {
     width: 25px;
