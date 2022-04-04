@@ -10,7 +10,8 @@ main{
     width: 100%;
     min-width: 500px;
     max-width: 560px;
-    height: 60%;
+    max-height: 100%;
+    min-height: 60%;
     border: solid 1px black;
 }
 #borda{
@@ -78,7 +79,7 @@ label{
     align-items: center;
     justify-content: space-evenly;
     margin-left: 5%;
-    margin-top: -5%;
+    margin-top: 5%;
 }
 .bolinhas{
     height: 80px;
@@ -100,6 +101,7 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10%;
 }
 select{
     appearance: none;
@@ -115,11 +117,79 @@ select{
     font-size: 15px;
     padding-right: 20px;
 }
-/*.date{
+/* .date{
     appearance: none;
+    background-position: absolute;
+    padding-right: 10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     background: url(../img/calendario.png) no-repeat center right #FFF;
     font-size: 15px;
     padding-right: 20px;
+} */
+
+
+ /* do js */
+.repeticao{
+    display: none;  
+}
+.observacao{
+  display: none; 
+}
+.anexo{
+   display: none; 
+}
+.aparecer{
+    display: flex;
+}
+
+/* css de repetição*/
+
+#conteudo2{
+    width: 90%;
+    height: 35%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.caixa3{
+    height: 60px;
+    margin-top: 4%;
+}
+#duracaoData{
+    display: flex;
+    justify-content: space-between;
+}
+.duracao{
+    width: 150%;
+}
+
+/* css de observação*/
+
+#conteudo3{
+    width: 90%;
+    height: 35%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.obs{
+    margin-top: 2%;
+}
+
+/* css de Anexo*/
+
+#conteudo4{
+    width: 90%;
+    height: 35%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+form input {
+    margin-top: 2%;
+   border: #FFF; 
 }

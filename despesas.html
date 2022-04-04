@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/despesas.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
     <title>Royal Finance</title>
@@ -17,6 +18,8 @@
             </div>
         <input id="pendente" type="button" value="Pendente">
         <input id="pago" type="button" value="Pago">
+
+            <!-- conteudo da nova despesa -->
         <div id="conteudo">
                 <label>Descrição</label>
                 <input type="text" placeholder="" maxlength="500" class="descricao">
@@ -38,28 +41,87 @@
               <option>teste</option>
               <option>teste</option>
             </select>
-        </div>
+           </div>
+           
+           <!-- Div dos Botões -->
+
         <div id="botao">
              <div class="bolinhas">
-                <img src="./img/repetir.svg" alt="" class="repetir">  
+                <img src="./img/repetir.svg" alt="" class="repetir" id="repetir-button">  
                  <p>Repetir</p>
              </div>
              <div class="bolinhas">
-                <img src="./img/observacao.svg" alt=""  class="repetir">  
+                <img src="./img/observacao.svg" alt=""  class="repetir" id="observacao-button">  
                  <p>Observação</p>
              </div>
              <div class="bolinhas">
-                <img src="./img/anexo.svg" alt class="repetir">  
+                <img src="./img/anexo.svg" alt class="repetir" id="anexo-button">  
                  <p>Anexo</p>
              </div>
              <div class="bolinhas">
-                <img src="./img/favorito.svg" alt="" class="repetir">  
+                <img src="./img/favorito.svg" alt="" class="repetir" id="favorito-button">  
                  <p>Favoritos</p>
              </div>
         </div>
+
+            <!-- Inicio dos conteudos dos botões -->
+
+            <!-- conteudo de repetição -->
+        <div class="repeticao" id="repeticao">
+               <div id="conteudo2">
+                    <h4>Repetição</h4>
+                    <div class="caixa3">
+                <label>Data de Inicio</label>
+                <input type="date" placeholder="" maxlength="500" class="dateInicio" >
+                </div>
+                <div class="caixa3">
+                    <label >Frequencia de repetição</label>
+                    <select>
+                      <option></option>
+                      <option>teste</option>
+                      <option>teste</option>
+                      <option>teste</option>
+                      <option>teste</option>
+                    </select>
+                </div>
+                <div id="duracaoData">
+                    <div class="caixa3">
+                    <label>Duração</label>
+                    <input type="text" placeholder="" maxlength="500" class="duracao">
+                    </div>
+                    <div class="caixa3">
+                    <label>data</label>
+                    <input type="date" placeholder="" maxlength="500" class="date">
+                    </div>
+                </div>
+               </div>
+         </div>
+
+            <!-- conteudo de observação -->
+         <div class="observacao" id="observacao"> 
+              <div  id="conteudo3">
+                <div>
+                    <h4>Observação</h4>
+                    <input type="text" placeholder="" maxlength="500" class="obs">
+                    </div>
+              </div>
+         </div>
+            <!-- conteudo do anexo -->
+         <div class="anexo" id="anexo">
+            <div  id="conteudo4">
+                <h4>Anexo</h4>
+                <form> 
+                     <input type="file" name="image" id="format">
+                </form>
+            </div>
+       </div>
+
+            <!-- botão de confirmacão -->
         <div id="confirmar">
             <img src="./img/concluir.svg" alt="" class="concluir">  
          </div>
     </main>
 </body>
 </html>
+
+<!-- enctype="multipart/form-data" -->
