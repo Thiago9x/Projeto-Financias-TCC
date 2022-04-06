@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/preto.svg">
     <script type="text/javascript" src="" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/dashboard.css">
     <script type="text/javascript" src="js/dashboard.js"></script>
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -62,6 +63,11 @@
                 </div>
             </div>
         </div>
-    
+    <script>
+        $(`#menuList>ul>li`).click(function(){
+            $(`#menuList>ul>li`).css("border-left", "none");
+            $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css("border-left", "solid 3px #fff");
+        })
+    </script>
     </body>
 </html>
