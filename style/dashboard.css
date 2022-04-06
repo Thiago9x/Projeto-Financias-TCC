@@ -14,6 +14,7 @@ body{
     width: 100%;
 }
 
+/***************** INICIO ESTILIZACOES MENU ***********************/
 ul li{
     display: flex;
   
@@ -130,8 +131,55 @@ li:hover{
  #branco{
      color: white;
  }
- main{
+/********************** FIM ESTILIZACOES MENU ********************************/
+
+/********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
+
+main{
     width: 100%;
     height: 100%;
-    background-color: aqua;
+    background-color: whitesmoke;
+    display: flex;
+    padding: 2%;
+}
+#acessoRapido{
+    width: 100%;
+    min-height: 150px;
+    height: 14%;
+    background-color: #FCFCFC;
+    border-radius: 8px;
+    display: flex;
+   
+}
+.divideAcesso{
+    width: 50%;
+    height: 100%;
+    background-color: tomato;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+#saudacao{
+    width:50%;
+    height: 25%;
+    background-color: bisque;
+    padding: 10px;
+    
+}
+#clima{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#informacoes{
+    width: 100%;
+    height: 75%;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divisaoInformacoes{
+    width: 30%;
+    height: 100%;
+    background-color: yellow;
 }
