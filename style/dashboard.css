@@ -9,7 +9,11 @@
 }
 body{
     background-color: whitesmoke;
+    display: flex;
+    height: 100vh;
+    width: 100%;
 }
+
 ul li{
     display: flex;
   
@@ -17,7 +21,7 @@ ul li{
 .menu{
    
     width: 8%;
-    min-width: 190px;
+    min-width: 200px;
     height: 100vh;
     min-height: 1024px;
     display: flex;
@@ -58,17 +62,17 @@ li {
     display: flex;
     align-items: center;
     padding-left: 10px;
-    /* box-shadow: 0 4px 6px -2px #000000; */
+    box-shadow: 0 4px 6px -2px #000000;
     border-top: none;
-    
     
 }
 
 li:hover{
-    background-color:  rgba(255, 255, 255, 0.48);
+    background-color:  rgba(255, 255, 255, 0.308);
     transition-duration: 1s;
     cursor: pointer;
     border-left: 5px;
+   
 
 }
 .on{
@@ -106,7 +110,8 @@ li:hover{
     width: 35%;
     height: 70%;
     border-radius: 100%;
-    border: 4px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    margin-left: 5%;
 }
  #perfilTexto{
     display: flex;
@@ -125,3 +130,8 @@ li:hover{
  #branco{
      color: white;
  }
+ main{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
