@@ -86,3 +86,7 @@ main{
     align-items: center;
     justify-content: center;
 }
+
+#buttoA:hover{
+    cursor: pointer;
+}
