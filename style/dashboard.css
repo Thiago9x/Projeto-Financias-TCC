@@ -148,23 +148,23 @@ main{
     width: 100%;
     min-height: 150px;
     height: 14%;
-    background-color: #FCFCFC;
     border-radius: 8px;
     display: flex;
-    border: 1px solid black;
     justify-content: center;
     gap: 2%;
+    box-shadow: 0 0 0.5em rgb(184, 203, 223);
+    background-image: linear-gradient(to top right, rgb(235, 235, 235),  rgb(255, 255, 255));
    
 }
 .divideAcesso, .divideAcesso1{
     width: 60%;
     height: 100%;
-    border-radius: 8px;
-    border: 1px solid black;
+   
 }
 #saudacao{
     width:50%;
     height:25%;
+    padding-top: 2%;
     
 }
 #clima{
@@ -176,12 +176,54 @@ main{
     height: 75%;
     display: flex;
     justify-content: space-evenly;
+    gap: 1%;
 }
 .divisaoInformacoes{
-    width: 30%;
-    height: 100%;
-    background-color: yellow;
+    width: 20%;
+    height: 90%;
+    position: relative;
 }
+
+.campoInfImagem,.campoInfImagem1{
+
+    width: 38%;
+    height: 78%;
+    position: absolute;
+    background-color: #32A40A;
+    border-radius: 100%;
+    margin-top: 4.5%;
+    
+}
+
+.campoInfImagem1{
+    width: 43%;
+    height: 80%;
+}
+
+.campoInf, .campoInf1{
+
+    width: 90%;
+    height:60%;
+    margin-top: 8%;
+    border-top-left-radius: 11em;
+    border-bottom-left-radius: 11em;
+    border-top-right-radius: 11em;
+    border-bottom-right-radius: 11em;
+    background-color: rgb(7, 118, 128);
+    box-shadow: 0 0 0.9em rgb(141, 157, 174);
+    
+
+}
+
+.campoInf1{
+
+    width: 100%;
+    height: 74%;
+    margin-top: 6%;
+}
+
+
+/* ACESSO RAPIDO */
 
 #saudacao1{
 
@@ -197,6 +239,7 @@ main{
 .divideAcesso1{
     width: 33%;
     padding-left: 3%;
+    border-left: 1px solid;
 }
 #informacoes1{
   
@@ -213,5 +256,32 @@ main{
     margin: 2%;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 0.2em rgb(192, 215, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
+}
+
+.cont{
+    width: 90%;
+    height: 90%;
+}
+
+.titutoInf{
+    width: 100%;
+    height: 18%;
+    font-size: 10px;
+    text-align: center;
+    font-weight: 500;
+    color: #444444;
+    padding-top: 5px;
+}
+
+.imagem{
+
+    width: 100%;
+    height: 82%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
