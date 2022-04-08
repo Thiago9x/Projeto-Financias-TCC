@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,11 @@
 </head>
 <body>
     <main>
-        <div id="borda"> </div>
+        <div id="borda"> 
+            <img src="./img/x.svg" alt="" class="fotoX">  
+        </div>
             <div id="text"> 
-               <img src="./img/x.svg" alt="" class="fotoX">  
+               
             <h3>Nova despesa</h3>
             </div>
         <input id="pendente" type="button" value="Pendente">
@@ -45,30 +47,32 @@
            </div>
            
            <!-- Div dos Botões -->
-
-        <div id="botao">
-             <div class="bolinhas">
-                <img src="./img/repetir.svg" alt="" class="repetir" id="repetir-button">  
-                 <p>Repetir</p>
-             </div>
-             <div class="bolinhas">
-                <img src="./img/observacao.svg" alt=""  class="repetir" id="observacao-button">  
-                 <p>Observação</p>
-             </div>
-             <div class="bolinhas">
-                <img src="./img/anexo.svg" alt class="repetir" id="anexo-button">  
-                 <p>Anexo</p>
-             </div>
-             <div class="bolinhas">
-                <img src="./img/favorito.svg" alt="" class="repetir" id="favorito-button">  
-                 <p>Favoritos</p>
-             </div>
+       
+           <div id="botao">
+                <div id="bolinhas">
+                    <img src="./img/repetir.svg" alt="" class="repetir btnImg1" id="repetir-button">
+                    <p>Repetir</p>
+                </div>
+                <div id="bolinhas">
+                     <img src="./img/observacao.svg" alt=""  class="repetir btnImg2" id="observacao-button">
+                     <p id="obsp"> Observação</p>
+                </div>
+                <div id="bolinhas">
+                     <img src="./img/anexo.svg" alt class="repetir btnImg3" id="anexo-button">    
+                     <p>Anexo</p>
+                </div>
+                <div id="bolinhas">
+                    <img src="./img/favorito.svg" alt="" class="repetir btnImg4" id="favorito-button">  
+                    <p>Favoritos</p>
+                </div>
+           </div>
+         <div>
         </div>
 
             <!-- Inicio dos conteudos dos botões -->
 
             <!-- conteudo de repetição -->
-        <div class="repeticao" id="repeticao">
+        <div class="repeticao" id="repeticao"> 
                <div id="conteudo2">
                     <h4>Repetição</h4>
                     <div class="caixa3">
@@ -103,7 +107,7 @@
               <div  id="conteudo3">
                 <div>
                     <h4>Observação</h4>
-                    <input type="text" placeholder="" maxlength="500" class="obs">
+                    <input type="text" placeholder="" maxlength="500" class="obs" size="20">
                     </div>
               </div>
          </div>

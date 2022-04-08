@@ -20,10 +20,10 @@ main{
     background-color: #2A356A;
 }
 .fotoX{
-    width: 15px;
+    width: 25px;
     float: right;
     margin-right: 10px;
-    margin-top: -10px;
+    margin-top: 6px;
 }
 h3{
     margin-top: 20px;
@@ -86,7 +86,17 @@ label{
     height: 80px;
     width: 80px;
     text-align: center;
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#obsp{
+    margin-left: -7px;
+}
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .repetir{
     width: 65px;
@@ -102,7 +112,7 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 17%;
     margin-bottom: 3%;
 }
 select{
@@ -115,20 +125,21 @@ select{
     border-radius: 5px;
     margin-bottom: 20px;
     padding-left: 10px;
-    background: url(../img/select.png) no-repeat center right #FFF;
+    background: url(../img/select.svg) no-repeat center right #FFF;
     font-size: 15px;
-    padding-right: 20px;
+    background-position-x: 98% ;
 }
 .date{
     appearance: none;
     background-position: absolute;
-    padding-right: 10px;
+    padding-right: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url(../img/calendario.png) no-repeat center right #FFF;
+    background: url(../img/calendario.svg) no-repeat center right #FFF;
     font-size: 15px;
-    padding-right: 20px;
-    background-position-x: 95% ;
+    padding-right: 10px;
+    background-position-x: 98% ;
+    background-position-y: 99%;
 } 
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -136,16 +147,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -webkit-appearance: none;
     opacity: 0;
 }
+.dateInicio{
+    appearance: none;
+    background-position: absolute;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(../img/calendario.svg) no-repeat center right #FFF;
+    font-size: 15px;
+    padding-right: 10px;
+    background-position-x: 99% ;
+    background-position-y: 99%;
+} 
+
 
  /* do js */
 .repeticao{
+    min-height: 300px;
     display: none;  
 }
 .observacao{
-  display: none; 
+    min-height: 100px;
+    display: none; 
 }
 .anexo{
-   display: none; 
+    min-height: 100px;
+    display: none; 
 }
 .aparecer{
     display: flex;
@@ -199,5 +226,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 form input {
     margin-top: 2%;
-   border: #FFF; 
+    border: #FFF; 
 }
