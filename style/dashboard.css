@@ -151,6 +151,7 @@ main{
     border-radius: 8px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 2%;
     box-shadow: 0 0 0.5em rgb(184, 203, 223);
     background-image: linear-gradient(to top right, rgb(235, 235, 235),  rgb(255, 255, 255));
@@ -239,7 +240,11 @@ main{
 .divideAcesso1{
     width: 33%;
     padding-left: 3%;
-    border-left: 1px solid;
+}
+#linha{
+    width: 1px;
+    height: 70%;
+    background-color: #c4c4c4;
 }
 #informacoes1{
   
