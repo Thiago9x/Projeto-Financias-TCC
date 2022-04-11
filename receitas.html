@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/preto.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/receitas.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/receitas.css">
+    <title>Royal Finance</title>
+</head>
+<body>
+    <main>
+        <div id="borda"> 
+            <img src="./img/x.svg" alt="" class="fotoX">  
+        </div>
+            <div id="text"> 
+               
+            <h3>Nova receita</h3>
+            </div>
+        <input id="pendente" type="button" value="Pendente">
+        <input id="pago" type="button" value="Pago">
+
+            <!-- conteudo da nova despesa -->
+        <div id="conteudo">
+                <label>Descrição</label>
+                <input type="text" placeholder="" maxlength="500" class="descricao">
+            <div id="valorData">
+                <div class="caixa2">
+                <label>Valor</label>
+                <input type="text" placeholder="" maxlength="500" class="valor">
+                </div>
+                <div class="caixa2">
+                <label>Data</label>
+                <input type="date" placeholder="" maxlength="500" class="date">
+                </div>
+            </div>
+                <label >Categoria</label>
+            <select>
+              <option></option>
+              <option>teste</option>
+              <option>teste</option>
+              <option>teste</option>
+              <option>teste</option>
+            </select>
+           </div>
+           
+           <!-- Div dos Botões -->
+       
+           <div id="botao">
+                <div id="bolinhas">
+                    <img src="./img/repetir.svg" alt="" class="repetir btnImg1" id="repetir-button">
+                    <p>Repetir</p>
+                </div>
+                <div id="bolinhas">
+                     <img src="./img/observacao.svg" alt=""  class="repetir btnImg2" id="observacao-button">
+                     <p id="obsp"> Observação</p>
+                </div>
+                <div id="bolinhas">
+                     <img src="./img/anexo.svg" alt class="repetir btnImg3" id="anexo-button">    
+                     <p>Anexo</p>
+                </div>
+                <div id="bolinhas">
+                    <img src="./img/favorito.svg" alt="" class="repetir btnImg4" id="favorito-button">  
+                    <p>Favoritos</p>
+                </div>
+           </div>
+         <div>
+        </div>
+
+            <!-- Inicio dos conteudos dos botões -->
+
+            <!-- conteudo de repetição -->
+        <div class="repeticao" id="repeticao"> 
+               <div id="conteudo2">
+                    <h4>Repetição</h4>
+                    <div class="caixa3">
+                <label>Data de Inicio</label>
+                <input type="date" placeholder="" maxlength="500" class="dateInicio" >
+                </div>
+                <div class="caixa3">
+                    <label >Frequencia de repetição</label>
+                    <select>
+                      <option></option>
+                      <option>teste</option>
+                      <option>teste</option>
+                      <option>teste</option>
+                      <option>teste</option>
+                    </select>
+                </div>
+                <div id="duracaoData">
+                    <div class="caixa3">
+                    <label>Duração</label>
+                    <input type="text" placeholder="" maxlength="500" class="duracao">
+                    </div>
+                    <div class="caixa3">
+                    <label>data</label>
+                    <input type="date" placeholder="" maxlength="500" class="date">
+                    </div>
+                </div>
+               </div>
+         </div>
+
+            <!-- conteudo de observação -->
+         <div class="observacao" id="observacao"> 
+              <div  id="conteudo3">
+                <div>
+                    <h4>Observação</h4>
+                    <input type="text" placeholder="" maxlength="500" class="obs" size="20">
+                    </div>
+              </div>
+         </div>
+            <!-- conteudo do anexo -->
+         <div class="anexo" id="anexo">
+            <div  id="conteudo4">
+                <h4>Anexo</h4>
+                <form> 
+                     <input type="file" name="image" id="format">
+                </form>
+            </div>
+       </div>
+
+            <!-- botão de confirmacão -->
+        <div id="confirmar">
+            <img src="./img/concluir.svg" alt="" class="concluir">  
+         </div>
+    </main>
+</body>
+</html>
+
+<!-- enctype="multipart/form-data" -->

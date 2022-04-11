@@ -1,9 +1,3 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family:Roboto, sans-serif;
-}
 :root{
     --cor-Principal: #2A356A;
 }
@@ -14,33 +8,99 @@ body{
     width: 100%;
 }
 
-/***************** INICIO ESTILIZACOES MENU ***********************/
-ul li{
-    display: flex;
-  
-}
-.menu{
-    width: 8%;
-    min-width: 170px;
+
+.menu {
+    width: 6%;
+    min-width: 150px;
     height: 100vh;
     min-height: 1024px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--cor-Principal);
-  
+}
+#editMenu{
+    width: 100px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 370%;
 }
 .flecha{
-    width: 30px;
-    margin-left: 10px;
+    width: 25px;
+    margin-left: 15px;
     margin-top: 10px;
+}
+.formarImg{
+    width: 90px;
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: blue; */
+}
+#categorias{
+    width: 85%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+}
+h2{
+    margin-top: 15px;
+    font-size: 1.8em;
+}
+#paiSelect{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: aquamarine; */
+    margin-top: 50px;
+}
+.formatSelect{
+    width: 215px;
+    height: inherit;
+    background-color: #2A356A;
+}
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: solid 2px #2A356A;
+    color: #FFF;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    background: url(../img/selectbranco.svg) no-repeat center right #FFF;
+    font-size: 15px;
+    background-position-x: 95% ;
 }
 #conteudo{
     width: 80%;
-    height: 90%;
-    margin-right: 10px;
-    margin-left: auto;
-    margin-right: auto;   
-    margin-top: 5%;
-    background-color: #bdb5b5;
+    height: 75%;
+    overflow-y: scroll;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-flow: row wrap;
+    
+}
+.caixa1{
+    width: 65%;
+    height: 100px;
+    background-color: white;
+    margin-top: 45px;
+    border: solid 1px whitesmoke;
+    border-radius: 15px;
 }
