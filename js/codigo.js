@@ -27,3 +27,6 @@ else{
 
 document.getElementById("button").addEventListener("click", pesquisarEmail);
 
+// CODIGO DE EXEMPLO
+// let codigo = '';
+// document.querySelectorAll(".quadradinhos > *").forEach((t) => codigo += t.value)

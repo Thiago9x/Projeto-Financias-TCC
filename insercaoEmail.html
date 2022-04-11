@@ -7,7 +7,8 @@ x
     <link rel="icon" href="img/preto.svg">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/insercaoEmail.css">
-    <script type="text/javascript" src="js/insercaoEmail.js"></script>
+    <script src="js/status.js"></script>
+    <script type="text/javascript" src="js/insercaoEmail.js" defer></script>
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
@@ -35,9 +36,9 @@ x
             </div>
             <div id="inputsPrincipal">
                 <label>Email</label>
-                <input type="text" name="" id="" placeholder="joao@gmail.com">
+                <input type="email" name="" id="email" placeholder="joao@gmail.com" required>
             </div>      
-            <a id="buttonA"href="./codigo.html"><input id="button"type="button" value= "Enviar Código"></a>
+            <input id="button"type="button" value= "Enviar Código">
         </form>
     </div>
     </main>
