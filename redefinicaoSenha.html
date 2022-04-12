@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/preto.svg"> 
     <script type="text/javascript" src="js/redefinicaoSenha.js" defer></script>
+    <script type="text/javascript" src="js/status.js" ></script>
 
     <script type="text/javascript" src="js/boostrapBarra.js"></script>
     <script type="text/javascript" src="js/popperBarra.js"></script>
@@ -55,7 +56,7 @@
                            
                           
                             <div class="senha2" >
-                                <input type="password" placeholder="Digite sua senha" maxlength="500" class="senha" id="senhaForca" onkeyup="validarSenhaForca()">
+                                <input type="password" placeholder="Digite sua senha" maxlength="500" class="senha" id="senhaForca" required onkeyup="validarSenhaForca()">
                                 <img src="img/Hide.svg" class="editarIcones button1"> 
                             
                             </div> 
@@ -75,14 +76,11 @@
                             </label>
 
                             <div class="senha2">
-                                <input type="password" placeholder="Confirme sua senha" maxlength="500" class="senhaOption2">
+                                <input type="password" placeholder="Confirme sua senha" maxlength="500" class="senhaOption2" required>
                                 <img src="img/Hide.svg" class="editarIcones button2"> 
                             </div>
                             </div>
-                        <a href="senhaConfirmada.html" 
-                        id="buttonA">
                             <input id="botao"type="button" value="Confirmar">
-                        </a>
                     </form>
                     </div>
                 </main>

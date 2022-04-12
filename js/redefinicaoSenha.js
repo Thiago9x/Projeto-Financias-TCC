@@ -31,3 +31,41 @@ button2.onclick = () =>
         button2.src = 'img/MostrarSenha.svg'
     }
 }
+
+const resetarSenha = () => {
+    const email = new URLSearchParams(window.location.search).get('email');
+    const senhaValor = document.querySelector('.senha').value;
+    const senhaValor2 = document.querySelector('.senhaOption2').value;
+
+    const confirmacaoCampos = document.getElementById('Principal').reportValidity();
+    if(confirmacaoCampos == true){
+        if(senhaValor === senhaValor2){
+
+            let url = 'http://10.107.144.22:8080/royal/resetar';
+
+            console.log(fetch(url, {method: 'POST', headers: {
+                // 'content-type': 'application/json', 
+            }, body:JSON.stringify( {email: email, senha:senhaValor, tipo: "MUDAR"}),
+            })
+            .then((resposta) => resposta.json())
+            .then((data) => {
+                if(data.status === Status.OK){
+                   window.location.href = '../senhaConfirmada.html';
+                }
+                else{
+                    alert('ERRO:Aconteceu algum erro')
+                }
+            })
+            ); 
+        }
+        else{
+            alert('AS SENHAS NÃO ESTÃO IGUAIS')
+        }
+    }
+    else{
+        alert('OS CAMPOS NÃO FORAM PREENCHIDOS CORRETAMENTE');
+    }
+
+}
+
+document.getElementById("botao").addEventListener("click", resetarSenha);
