@@ -2,13 +2,14 @@
     --cor-Principal: #2A356A;
 }
 body{
-    background-color: whitesmoke;
     display: flex;
     height: 100vh;
     width: 100%;
 }
-
-
+main{
+    background-color: white;
+    border-radius:  60px 0px 0px 60px;
+}
 .menu {
     width: 6%;
     min-width: 150px;
@@ -27,9 +28,9 @@ body{
     margin-bottom: 370%;
 }
 .flecha{
-    width: 25px;
+    width: 30px;
     margin-left: 15px;
-    margin-top: 10px;
+    margin-top: 18px;
 }
 .formarImg{
     width: 90px;
@@ -68,6 +69,10 @@ h2{
     height: inherit;
     background-color: #2A356A;
 }
+/* .formatSelect option::hover{
+background-color: aqua;
+} */
+
 select{
     appearance: none;
     -webkit-appearance: none;
@@ -85,22 +90,43 @@ select{
     background-position-x: 95% ;
 }
 #conteudo{
-    width: 80%;
+    width: 70%;
     height: 75%;
     overflow-y: scroll;
-    background-color: rgb(230, 230, 230);
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-flow: row wrap;
-    
+    border-radius: 10px;
 }
 .caixa1{
-    width: 65%;
-    height: 100px;
+    width: 75%;
+    height: 140px;
     background-color: white;
     margin-top: 45px;
     border: solid 1px whitesmoke;
     border-radius: 15px;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    /* display: none; */
 }
+/* format da barra de rolagem */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #E9E9E9 whitesmoke;
+  }
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: orgb(230, 230, 230);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #E9E9E9;
+    border-radius: 20px;
+    border: 3px solid whitesmoke;
+  }
+
