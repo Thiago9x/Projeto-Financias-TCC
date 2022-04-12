@@ -1,5 +1,4 @@
-
-"use scrict"
+"use strict"
 
 const senhaCadastro = document.querySelector('.senhaCadastro');
 const senhaCadastro2 = document.querySelector('.senhaCadastro2');
@@ -28,7 +27,7 @@ btnOlho2.onclick = () => {
 // barra de forca da senha
 
 function validarSenhaForca() {
-    var senha = document.querySelector('.senhaCadastro').value;
+    let senha = document.querySelector('.senhaCadastro').value;
     var forca = 0;
     // document.getElementById('impSenha').innerHTML = "Senha: " + senha;
 

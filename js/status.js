@@ -22,5 +22,9 @@ Object.defineProperties(Status,
             value: 43,
             writable: false
         },
+        REQUISICAO_INVALIDA: {
+            value: 69,
+            writable: false
+        },
      }
 );

@@ -27,7 +27,7 @@ const Login = () => {
     const confirmacaoCampos = document.getElementById('principal').reportValidity();
     if(confirmacaoCampos == true){
 
-    let url = 'http://10.107.144.12:8080/royal/contas';
+    let url = 'http://10.107.144.22:8080/royal/contas';
 
         console.log(fetch(url, {method: 'POST', headers: {
             // 'content-type': 'application/json', 
@@ -35,7 +35,7 @@ const Login = () => {
         })
         .then((resposta) => resposta.json())
         .then((data) => { if(data.status === Status.OK){
-            alert("Cadastro efetuado com sucesso")
+            alert("Login efetuado com sucesso")
         }
         else{
             alert('ERRO:Aconteceu algum erro')

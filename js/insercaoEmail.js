@@ -16,8 +16,7 @@ const pesquisarEmail = () => {
         })
         );
         
-        
-        window.location.href = "../codigo.html";
+        window.location.href = "../codigo.html?email="+email;
     }
 
 else{
