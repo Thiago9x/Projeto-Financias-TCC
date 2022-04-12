@@ -7,7 +7,7 @@ const enviarCodigo = () => {
 
     const confirmacaoCampos = document.getElementById('main').reportValidity();
     if(confirmacaoCampos == true){
-    
+        if(codigo.isInteger){
     
     let url = 'http://10.107.144.22:8080/royal/resetar';
 
@@ -29,6 +29,10 @@ const enviarCodigo = () => {
     }
     })
     ); 
+    }
+    else{
+        alert("CARACTERES INVALIDOS");
+    }
 }
 
 else{
@@ -37,4 +41,30 @@ else{
 }
 
 document.querySelector(".botao").addEventListener("click", enviarCodigo);
+const digitacao = ({target, data}) => {
+    if(target.previousElementSibling === null){
+        let val = target.value;
 
+        
+        if(/^\d+$/.test(val)){
+            do{
+                target.value = val.charAt(0);
+                val = val.substr(1);
+                target = target.nextElementSibling;
+
+                console.log(val)
+            } while(val !== '');
+            return;
+        } 
+    }
+
+    if(/\d/.test(data)){
+            target.nextElementSibling?.focus();
+        } else {
+            target.value = '';
+        }
+
+    
+}
+document.querySelectorAll(".quadradinhos > *").forEach((quadrado) => {
+    quadrado.addEventListener('input', digitacao)});
