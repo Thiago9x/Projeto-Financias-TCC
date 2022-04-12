@@ -7,59 +7,121 @@ body{
     background-color: white;
 }
 main{
-    width: 100%;
+    width: 90%;
+    height: 60%;
     min-width: 500px;
-    max-width: 750px;
-    max-height: 100%;
+    max-width: 800px;
     min-height: 60%;
+    overflow-y: scroll;
     border: solid 1px whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 #conteudoModal{
+    width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+   margin-top: 10px;
 }
-#caixas{
-    width: 70%;
-    height: 580px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10%;
-    /* border: solid 1px black; */
+.estrela{
+    margin-left: 47%;
+    margin-top: -10px;
+}
+h3{
+   width: 90%;
+   height: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#formatAdd{
+    width: 20%;
+    height: 100px;
+    margin-left: 80%;
+    margin-top: -13%;
+}
+.editarIcone{
+    width: 35%;
+    height: 40%;
+    margin-left: 50%;
+    margin-top: 10px;
+}
+p{
+    text-align: center;
+    margin-left: 40%;
+    margin-top: -10%
+}
+.edit{
+    margin-left: 40%;
+    margin-top: -0%
 }
 input{
     height: 20%;
     border: solid 1px white;
 }
-.img{
-    height: 15%;
+#caixas{
+    width: 80%;
+    height: auto;
+    min-height: 580;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    display: flex;
+    flex-flow: row wrap;
 }
-#button {
+.caixa1{
+    width: 90%;
+    height: 100px;
+    margin-top: 45px;
+    border: solid 1px whitesmoke;
+    border-radius: 15px;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+}
+#editImgExcluir{
+    width: 10px;
+    height: 50px;
+    margin-left: 95%;
+    margin-top: -9%;
+}
+#button1{
     width: 15%;
-}
-.voltar{
-    margin-left: 2%;
-}
-.confirmar{
-    margin-left: 63%;
-}
-.editarMais{
-    width: 35%;
-    margin-left: 180%;
-    margin-top: -10%;
-}
-p{
+    height: 50px;
+    background-color: white;
+    color: #2A356A;
+    font-size: 15px;
+    border: solid 1px whitesmoke;
+    margin-left: 7%;
+    margin-top: 10%;
     text-align: center;
-    margin-left: 180%;
-    margin-top: -10%
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
-.edit{
-    margin-left: 182%;
-    margin-top: -0%
+#button2{
+    width: 15%;
+    height: 50px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 15px;
+    margin-left: 57%;
+    text-align: center;
 }
-#editImg{
-    width: 10%;
-    margin-left: 103%;
-    margin-top: -15%;
-}
+
+/* format da barra de rolagem */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #E9E9E9 whitesmoke;
+  }
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: orgb(230, 230, 230);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #E9E9E9;
+    border-radius: 20px;
+    border: 3px solid whitesmoke;
+  }
+
