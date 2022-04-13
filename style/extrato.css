@@ -89,6 +89,13 @@ select{
     font-size: 15px;
     background-position-x: 95% ;
 }
+
+.formatSelect option {
+    height: 50px;
+    width: 50px;
+    background-color: aqua;
+}
+
 #conteudo{
     width: 70%;
     height: 75%;
