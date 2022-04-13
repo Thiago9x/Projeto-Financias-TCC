@@ -11,7 +11,9 @@ body{
             height: 100%;
             background-color: rgb(255, 255, 255);
             display: flex;
-            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: -5px;
             padding: 2%;
             padding-left: 5%;
             overflow: scroll;
@@ -357,4 +359,102 @@ body{
         }
 
 
-/********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
+/* CONTEUDO CONTA */
+
+.divisaoConta{
+    width: 25%;
+    height: 90%;
+  
+}
+
+.localInfo{
+    width: 80%;
+    height: 4%;
+    min-height: 20px;
+    min-width: 100px;
+    margin-left: 100px;
+    border-radius: 10px;
+    margin-top: 15px;
+    background-color: #3C9E1A;
+    box-shadow: 0 0 0.5em rgb(123, 121, 121);
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    overflow: scroll;
+    padding: 5px;
+}
+
+.localCont{
+    width: 100%;
+    height: 90%;
+    min-width: 200px;
+    min-height: 100px;
+    margin-top: 10%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10%;
+    gap: 15px;
+    flex-direction: column;
+    background-color: #F5F1F1;
+}
+
+.cardSeparado{
+
+    width: 80%;
+    height: 25%;
+    min-width: 100px;
+    min-height: 100px;
+    gap: -5px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 5px 8px -2px rgb(182, 221, 243);
+    overflow: auto;
+}
+
+.teste1{
+    width: 85%;
+    height: 20%;
+    margin-top: 0.9%;
+    margin-left: 2%;
+    border: 1px solid black;
+}
+
+.subTeste{
+    width: 40%;
+    height: 100%;
+    display: flex;
+}
+
+.t1{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.t2{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.editXis{
+    width: 100%;
+    height: 6%;
+    margin-top: 5px;
+    margin-left: -5px;
+    display: flex;
+    justify-content: end;
+}
