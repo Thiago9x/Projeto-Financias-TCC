@@ -34,7 +34,7 @@ p{
 label{
     font-size: 16px;
     /*font-weight: bold;*/
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 input{
@@ -63,7 +63,6 @@ ul li{
 
 }
 .menu{
-
     width: 8%;
     min-width: 200px;
     height: 100vh;
@@ -72,6 +71,7 @@ ul li{
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--cor-Principal);
+    padding-bottom: 50px;
 }
 #nomeEmpresa{
     width: 100%;
@@ -79,37 +79,35 @@ ul li{
     color: white;
     font-size: 2.1rem;
     text-align: center;
-    padding-top: 20%;
+    margin-top: 20%;
     font-weight: bold;
+
 }
 
 #menuList{
     display: flex;
     width: 100%;
     height: 50%;
-    float:right;
-    
+
 }
 
 ul {
 
     width: 100%;
     height: 500px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 }
 
 li {
     width: 100%;
     height: 10%;
-    margin-bottom: 25px;
-    margin-top: 45px;
     z-index: 1;
     display: flex;
     align-items: center;
     padding-left: 10px;
-    box-shadow: 0 4px 6px -2px #000000;
-    border-top: none;
-    
+
 }
 
 li:hover{
@@ -117,20 +115,14 @@ li:hover{
     transition-duration: 1s;
     cursor: pointer;
     border-left: 5px;
-
-
 }
 .on{
 color: white;
 font-size: 16px;
-text-align: center;
-padding: 10px;
-font-family: 'Roboto';
 font-weight: 40px;
-padding-left: 15px;
-padding-top: 14px;
-z-index: 10;
 cursor: pointer;
+margin-bottom: 0px;
+margin-left: 8px;
 }
 
 .img{
@@ -143,11 +135,12 @@ cursor: pointer;
 .perfil{
 
     width: 100%;
-    height: 8%;
-    margin-bottom: 20%;
+    height: 80px;
+    padding-left: 5px;
+    padding-right: 5px;
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
 
 #perfilFoto{
@@ -156,9 +149,10 @@ cursor: pointer;
     height: 70%;
     max-width: 60px;
     max-height: 60px;
-    border-radius: 100%;
+    border-radius: 50%;
     border: 2px solid rgb(255, 255, 255);
-    margin-left: 5%;
+    margin-left: 8px;
+
 }
 #perfilTexto{
     display: flex;
@@ -167,7 +161,6 @@ cursor: pointer;
     flex-direction: column;
     width: 55%;
     height: 100%;
-    padding-bottom: 12%;
 }
 
 #cinza{
