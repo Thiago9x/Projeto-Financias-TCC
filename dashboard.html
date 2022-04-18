@@ -9,13 +9,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/dashboard.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
-    <script type="text/javascript" src="js/dashboard.js"></script>
+    <script type="text/javascript" src="js/dashboard.js" defer></script>
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
-    <link rel="stylesheet" href="style/uldropdown.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/uldropdown.js"></script>
+    <script src="js/chart.js"></script>
     <title>Royal Finance</title>
 </head>
     <html>
@@ -99,7 +97,7 @@
                                         <div id="conteudo">
 
                                             <div class="sobreConteudo">
-                                                 Receita
+                                                 Receita 
                                             </div>
  
                                             <div class="valorConteudo">
@@ -136,7 +134,7 @@
                                         <div id="conteudo">
                                             
                                             <div class="sobreConteudo">
-                                                 Despesa
+                                                 Despesa 
                                             </div>
  
                                             <div class="valorConteudo">
@@ -165,7 +163,7 @@
                                         </div>
 
                                         <div class="imagem">
-                                            <img src="img/adicionar.svg" width="55%" height="80%">
+                                            <img src="img/adicionar.svg">
                                         </div>
 
                                   </div>
@@ -178,7 +176,7 @@
                                         </div>
 
                                         <div class="imagem">
-                                            <img src="img/estrela.svg" width="70%" height="80%">
+                                            <img src="img/estrela.svg">
                                         </div>
 
                                   </div>
@@ -191,7 +189,7 @@
                                         </div>
 
                                         <div class="imagem">
-                                            <img src="img/diminuir.svg" width="50%" height="80%">
+                                            <img src="img/diminuir.svg" >
                                         </div>
 
                                   </div>
@@ -204,7 +202,7 @@
                                         </div>
 
                                         <div class="imagem">
-                                            <img src="img/extratoAzul.svg" width="50%" height="60%">
+                                            <img src="img/extratoAzul.svg" >
                                         </div>
 
                                   </div>
@@ -218,7 +216,7 @@
                     <!-- GRÁFICO -->
                     <div id="graficoPrincipal">
 
-                        <!-- SELCTS E TITULO -->
+                        <!-- SELECTS E TITULO -->
 
                         <div id="campoSelects">
 
@@ -237,20 +235,16 @@
                             <div id="selects">
                                 <div id="campoSelect">
 
-                                    <div class="divisao">
                                         <select class="formaSelects">
                                             <option>MES</option>                         
                                         </select>
-                                    
-                                    </div>
-
-                                    <div class="divisao">
+                        
 
                                         <select class="formaSelects">
                                             <option>TIPO TRANSF.</option>                         
                                         </select>
                                     
-                                    </div>
+                                
                                 </div>
                             </div>
 
@@ -258,10 +252,12 @@
 
                         <!-- GRÁFICO PURO -->
 
-                        <div id="graficoPuro">
+                        <canvas id="graficoPuro">
                             
-                        </div>
-
+                            
+                        </canvas>
+                        
+                    </div>
                         <!-- INFORMACOES ADICIONAIS -->
                         <div id="infAdicionais">
                             <div class="cardInf">
@@ -280,7 +276,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    
 
 
                 </main>
