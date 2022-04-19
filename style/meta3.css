@@ -122,7 +122,7 @@ h2{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 150px;
+    padding-left: 190px;
     padding-right: 260px;
     
 }
@@ -136,7 +136,7 @@ h2{
         justify-content: space-between;
         align-items: center;
         padding-left: 150px;
-        padding-right: 260px;
+        padding-right: 150px;
         padding-top: 50px;
     }
 }
