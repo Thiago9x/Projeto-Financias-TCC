@@ -7,33 +7,30 @@ const enviarCodigo = () => {
 
     const confirmacaoCampos = document.getElementById('main').reportValidity();
     if(confirmacaoCampos == true){
-        if(codigo.isInteger){
-    
-    let url = 'http://10.107.144.22:8080/royal/resetar';
 
-    console.log(fetch(url, {method: 'POST', headers: {
-        // 'content-type': 'application/json', 
-    }, body:JSON.stringify( {email: email,  codigo: codigo, tipo: 'USAR'}),
-    })
-    .then((resposta) => resposta.json())
-    .then((data) => { if(data.status === Status.OK){
-        if(data.reset == true){
-            window.location.href = "../redefinicaoSenha.html?email="+email;
+    
+        let url = 'http://10.107.144.11:8080/royal/resetar';
+
+        console.log(fetch(url, {method: 'POST', headers: {
+            // 'content-type': 'application/json', 
+        }, body:JSON.stringify( {email: email,  codigo: codigo, tipo: 'USAR'}),
+        })
+        .then((resposta) => resposta.json())
+        .then((data) => { if(data.status === Status.OK){
+            if(data.reset == true){
+                window.location.href = "../redefinicaoSenha.html?email="+email;
+            }
+            else{
+                alert("O código inserido é invalido ")
+            }
         }
         else{
-            alert("O código inserido é invalido ")
+            alert('ERRO:Aconteceu algum erro')
         }
-    }
-    else{
-        alert('ERRO:Aconteceu algum erro')
-    }
-    })
-    ); 
-    }
-    else{
-        alert("CARACTERES INVALIDOS");
-    }
-}
+        })
+        ); 
+    
+    }   
 
 else{
     alert('OS CAMPOS NÃO FORAM PREENCHIDOS CORRETAMENTE');
@@ -42,21 +39,21 @@ else{
 
 document.querySelector(".botao").addEventListener("click", enviarCodigo);
 const digitacao = ({target, data}) => {
-    if(target.previousElementSibling === null){
-        let val = target.value;
+    // if(target.previousElementSibling === null){
+    //     let val = target.value;
 
         
-        if(/^\d+$/.test(val)){
-            do{
-                target.value = val.charAt(0);
-                val = val.substr(1);
-                target = target.nextElementSibling;
+    //     if(/^\d+$/.test(val)){
+    //         do{
+    //             target.value = val.charAt(0);
+    //             val = val.substr(1);
+    //             target = target.nextElementSibling;
 
-                console.log(val)
-            } while(val !== '');
-            return;
-        } 
-    }
+    //             console.log(val)
+    //         } while(val !== '');
+    //         return;
+    //     } 
+    // }
 
     if(/\d/.test(data)){
             target.nextElementSibling?.focus();

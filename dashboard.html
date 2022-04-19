@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
     <script src="js/chart.js"></script>
+    <script src="js/chart-plugin-datalabels.js"></script>
     <title>Royal Finance</title>
 </head>
     <html>
@@ -100,7 +101,7 @@
                                                  Receita 
                                             </div>
  
-                                            <div class="valorConteudo">
+                                            <div class="valorConteudo" id="receita">
                                              
                                             </div>
                                         </div>
@@ -119,7 +120,7 @@
                                                 Saldo
                                            </div>
 
-                                           <div class="valorConteudo">
+                                           <div class="valorConteudo" id="saldoGeral">
                                             
                                            </div>
                                        </div>
@@ -137,7 +138,7 @@
                                                  Despesa 
                                             </div>
  
-                                            <div class="valorConteudo">
+                                            <div class="valorConteudo" id="despesa">
                                              
                                             </div>
                                         </div>
@@ -225,7 +226,7 @@
                             <div id="tituloSelect">
 
                                 <span id="tituloInfor">
-                                   Lista de gastos Categoria/Mensal
+                                   Lista de maiores despesas 
                                 </span>
 
                             </div>
@@ -262,9 +263,9 @@
                         <div id="infAdicionais">
                             <div class="cardInf">
 
-                                <div class="card">
+                                <canvas class="card">
 
-                                </div>
+                                </canvas>
 
                             </div>
                             <div class="cardInf1">
