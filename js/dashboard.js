@@ -2,11 +2,17 @@
 // CONSUMIR A API DA DASHBOARD
 const token = new URLSearchParams(window.location.search).get('token');
 let url = 'http://10.107.144.11:8080/royal/dashboard?k=' + token;
+const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
+
+ws.onmessage = ({data}) => {
+    console.log(data);
+}
 
 
 console.log(fetch(url)
     .then((resposta) => resposta.json())
     .then((data) => {
+        
         const saldo = data.saldo;
         const receita = data.saldo;
         const despesa = data.saldo;
@@ -157,3 +163,8 @@ const myChartSecundario = new Chart(ctxSecundario, {
         }
     },
 });
+
+document.getElementById('receitaCont').addEventListener('click', () => {window.location.href="./receitas.html?k=" + token})
+document.getElementById('despesaCont').addEventListener('click', () => {window.location.href="./despesas.html?k=" + token})
+document.getElementById('favoritosCont').addEventListener('click', () => {window.location.href="./favoritos.html?k=" + token})
+document.getElementById('extratoCont').addEventListener('click', () => {window.location.href="./extrato.html?k=" + token})
