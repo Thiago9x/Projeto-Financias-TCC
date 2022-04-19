@@ -1,0 +1,133 @@
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+main{
+    width: 90%;
+    height: auto;
+    min-width: 500px;
+    max-width: 800px;
+    min-height: 60%;
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    display: inline-block;
+}
+#usuario{
+    width: 50%;
+    height: 150px;
+    margin-top: 50px;
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    margin-bottom: 10%;
+}
+.usuarioFoto{
+    width: 50px;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+h4{
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: -40px;
+}
+.foto{
+    width: 70%;
+    height: 40px;
+    background-color: #E0E0E0;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+}
+.fotoUsuario{
+    background-color: #E0E0E0;
+    border: 0;
+}
+#conteudo{
+    width: 70%;
+    height: 10%;
+    /* background-color: cadetblue; */
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
+.edit{
+    width: 100%;
+    height: 50px;
+    background-color: #E0E0E0;
+    border: none;
+    box-shadow: 0px 2px #003159;
+    border-radius: 0;
+    margin-top: 10px;
+}
+.checkbox{
+    width: 30px;
+}
+#conteudo2{
+    width: 70%;
+    height: 20%;
+    /* background-color: cadetblue; */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.format{
+    margin-top: 10px;
+}
+h3{
+    font-size: 1.1em;
+    margin-top: -9%;
+    margin-left: 8%
+}
+#buttonSenha{
+    width: 150px;
+    height: 45px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+#conteudo3{
+    width: 85%;
+    height: 20%;
+    /* background-color: cadetblue; */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.usuarioImg{
+    width: 25%;
+}
+#button1{
+    width: 25%;
+    height: 50px;
+    background-color: white;
+    color: #2A356A;
+    font-size: 15px;
+    border: solid 1px whitesmoke;
+    text-align: center;
+    margin-left: 10%;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+}
+#button2{
+    width: 25%;
+    height: 50px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 10%;
+}

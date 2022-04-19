@@ -8,7 +8,7 @@ const pesquisarEmail = () => {
     if(confirmacaoCampos == true){
     
     
-    let url = 'http://10.107.144.22:8080/royal/resetar';
+    let url = 'http://10.107.144.11:8080/royal/resetar';
 
         console.log(fetch(url, {method: 'POST', headers: {
             // 'content-type': 'application/json', 

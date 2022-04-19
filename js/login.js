@@ -3,15 +3,12 @@
 const senha = document.querySelector('.senha');
 const btn = document.querySelector('.btn');
 
-btn.onclick = () => 
-{
-    if(senha.type === 'text')
-    {
+btn.onclick = () => {
+    if (senha.type === 'text') {
         senha.type = 'password'
         btn.src = 'img/Hide.svg'
     }
-    else
-    {
+    else {
         senha.type = 'text'
         btn.src = 'img/MostrarSenha.svg'
     }
@@ -25,27 +22,32 @@ const Login = () => {
     const senha = document.querySelector('.senha').value;
 
     const confirmacaoCampos = document.getElementById('principal').reportValidity();
-    if(confirmacaoCampos == true){
+    if (confirmacaoCampos == true) {
 
-    let url = 'http://10.107.144.22:8080/royal/contas';
+        let url = 'http://10.107.144.11:8080/royal/contas';
 
-        console.log(fetch(url, {method: 'POST', headers: {
-            // 'content-type': 'application/json', 
-        }, body:JSON.stringify( {email: email,  senha: senha, manter: manterLogin}),
+        console.log(fetch(url, {
+            method: 'POST', headers: {
+                // 'content-type': 'application/json', 
+            }, body: JSON.stringify({ email: email, senha: senha, manter: manterLogin }),
         })
-        .then((resposta) => resposta.json())
-        .then((data) => { if(data.status === Status.OK){
-            alert("Login efetuado com sucesso")
-        }
-        else{
-            alert('ERRO:Aconteceu algum erro')
-        }
-        })
-        ); 
-}
-else{
-    alert('OS CAMPOS NÃO FORAM PREENCHIDOS');
-}
+            .then((resposta) => resposta.json())
+            .then((data) => {
+                if (data.status === Status.OK) {
+                    if(data.found === true){
+                        window.location.href='../dashboard.html?token='+ data.token
+
+                    }
+                }
+                else {
+                    alert('ERRO:Aconteceu algum erro')
+                }
+            })
+        );
+    }
+    else {
+        alert('OS CAMPOS NÃO FORAM PREENCHIDOS');
+    }
 
 
 }
