@@ -10,10 +10,10 @@ body{
 }
 main{
     width: 100%;
-    height: 60%;
+    height: auto;
     min-width: 500px;
-    max-width: 1400px;
-    min-height: 60%;
+    max-width: 1100px;
+    min-height: 50%;
     border: solid 1px whitesmoke;
     border-radius: 10px;
     background-color: white;
@@ -34,6 +34,7 @@ h2{
 .fotoX{
     width: 30px;
     height: 50px;
+    margin-right: 10px;
 }
 .caixa{
     width: 100%;
@@ -44,7 +45,7 @@ h2{
 }
 .formatCaixa{
     width: 60%;
-    height: 70px;
+    height: 80px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -57,7 +58,7 @@ h2{
     margin-left: 35px;
 }
 h4{
-  margin-left: 120px;
+  margin-left: 45px;
 }
 #conteudoMeta{
     width: 75%;
@@ -105,10 +106,11 @@ h4{
 }
 #BtnAvancar{
     width: 15%;
-    height: 80%;
+    height: 50px;
     background-color: #2A356A;
     color: white;
     font-size: 15px;
     text-align: center;
     margin-left: 40%;
+    margin-top: 10%;
 }
