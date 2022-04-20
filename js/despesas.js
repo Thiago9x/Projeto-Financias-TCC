@@ -25,7 +25,8 @@ document.getElementById('anexo-button').addEventListener('click', opcao3)
 // document.getElementById('repetir-button').addEventListener('click', trocarimg1)
 
 
-"use scrict"
+"use strict"
+console.log('sdfs')
 
 const trocaimg1 = document.getElementById('repetir-button');
 const btnImg1 = document.querySelector('.btnImg1');
@@ -86,3 +87,7 @@ const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
 ws.onmessage = ({data}) => {
     console.log(data);
 }
+
+
+
+
