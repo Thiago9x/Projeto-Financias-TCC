@@ -131,3 +131,37 @@ h3{
     text-align: center;
     margin-left: 10%;
 }
+
+
+/* formatacão do type file */
+
+input[type='file'] {
+    display: none
+  }
+  
+  .input-wrapper label {
+    background-color: #2A356A;
+    border-radius: 5px;
+    color: #fff;
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+  }
+  
+  .input-wrapper label:hover {
+    background-color: #2A356A
+  }
+  .input-wrapper{
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: #2A356A;*/
+  }
+  label h4{
+      font-size: 1.1em;
+      margin-top: 6px;
+  }

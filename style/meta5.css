@@ -9,11 +9,11 @@ body{
     background-color: #2A356A;
 }
 main{
-    width: 70%;
-    height: 60%;
+    width: 100%;
+    height: auto;
     min-width: 200px;
     max-width: 1100px;
-    min-height: 60%;
+    min-height: 50%;
     border-radius: 10px;
     background-color: white;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
@@ -106,23 +106,23 @@ h4{
 }
 
 #button1{
-    width: 200px;
+    width: 330%;
     height: 50px;
     background-color: white;
     color: #2A356A;
     font-size: 15px;
     border: solid 1px whitesmoke;
     text-align: center;
-    margin-left: 30%;
+    margin-left: 80%;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 #button2{
-    width: 200px;
+    width: 250%;
     height: 50px;
     background-color: #2A356A;
     color: white;
     font-size: 15px;
-    margin-left: 325%;
+    margin-left: 1200%;
     text-align: center;
 }
 
@@ -133,5 +133,5 @@ h4{
     /* justify-content: space-evenly; */
     align-items: center;
     /* gap: 10;  */
-    padding-top: 9%;
+    padding-top: 7%;
 }
