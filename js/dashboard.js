@@ -1,8 +1,8 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
 const token = new URLSearchParams(window.location.search).get('token');
-let url = 'http://10.107.144.11:8080/royal/dashboard?k=' + token;
-const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
+let url = 'http://10.107.144.16:8080/royal/dashboard?k=' + token;
+const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
 
 ws.onmessage = ({ data }) => {
     console.log(data);
@@ -13,8 +13,8 @@ console.log(fetch(url)
     .then((data) => {
 
         const saldo = data.saldo;
-        const receita = data.saldo;
-        const despesa = data.saldo;
+        const receita = data.receita;
+        const despesa = data.despesa;
 
         document.getElementById('saldoGeral').innerText = `R$ ${saldo.toFixed(2)}`;
         document.getElementById('receita').innerText = `R$ ${receita.toFixed(2)}`;
@@ -173,6 +173,7 @@ const modalDespesa = () => {
 
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
     <div id='main'>
+    <form id='requires'> 
     <div id="borda"> 
         <img src="./img/x.svg" alt="" class="fotoX">  
     </div>
@@ -180,21 +181,27 @@ const modalDespesa = () => {
            
         <h3>Nova despesa</h3>
         </div>
-    <input id="pendente" type="button" value="Pendente">
-    <input id="pago" type="button" value="Pago">
-
+        <div id='pendente'>
+        <h3 id='verde'>Pago</h3>
+        <!-- Rounded switch -->
+        <label class="switch">
+          <input id='pendencia' type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <h3 id='vermelho'>Pendente</h3>
+        </div>
         <!-- conteudo da nova despesa -->
     <div id="conteudo">
             <label>Descrição</label>
-            <input type="text" placeholder="" maxlength="500" class="descricao">
+            <input type="text" placeholder="" maxlength="500" class="descricao estilizacao" required>
         <div id="valorData">
             <div class="caixa2">
             <label>Valor</label>
-            <input type="text" placeholder="" maxlength="500" class="valor">
+            <input type="text" value="R$ 0,00" maxlength="500" class="valor estilizacao" required>
             </div>
             <div class="caixa2">
             <label>Data</label>
-            <input type="date" placeholder="" maxlength="500" class="date">
+            <input type="date" placeholder="" maxlength="500" class="date estilizacao" required>
             </div>
         </div>
             <label >Categoria</label>
@@ -205,6 +212,10 @@ const modalDespesa = () => {
           <option>teste</option>
           <option>teste</option>
         </select>
+        <div id='pendenciaNone'>
+       <label>Data Pendencia</label>
+       <input type="date" placeholder="Até qual o ultimo dia que você quer pagar?" maxlength="500" class="date estilizacao" id='dataPendente'>
+       </div>
        </div>
        
        <!-- Div dos Botões -->
@@ -238,7 +249,7 @@ const modalDespesa = () => {
                 <h4>Repetição</h4>
                 <div class="caixa1">
             <label>Data de Inicio</label>
-            <input type="date" placeholder="" maxlength="500" class="dateInicio" >
+            <input type="date" placeholder="" maxlength="500" class="dateInicio estilizacao" >
             </div>
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
@@ -253,11 +264,11 @@ const modalDespesa = () => {
             <div id="duracaoData">
                 <div class="caixa3">
                 <label>Duração</label>
-                <input type="text" placeholder="" maxlength="500" class="duracao">
+                <input type="text" placeholder="" maxlength="500" class="duracao estilizacao">
                 </div>
                 <div class="caixa3">
-                <label>data</label>
-                <input type="date" placeholder="" maxlength="500" class="date">
+                <label>Data</label>
+                <input type="date" placeholder="" maxlength="500" class="date estilizacao">
                 </div>
             </div>
            </div>
@@ -268,7 +279,7 @@ const modalDespesa = () => {
           <div  id="conteudo3">
             <div>
                 <h4>Observação</h4>
-                <input type="text" placeholder="" maxlength="500" class="obs" size="20">
+                <input type="text" placeholder="" maxlength="500" class="obs estilizacao" size="20">
                 </div>
           </div>
      </div>
@@ -276,9 +287,9 @@ const modalDespesa = () => {
      <div class="anexo" id="anexo">
         <div  id="conteudo4">
             <h4>Anexo</h4>
-            <form> 
-                 <input type="file" name="image" id="format">
-            </form>
+            
+                 <input type="file" name="image" id="format" >
+           
         </div>
    </div>
 
@@ -286,7 +297,8 @@ const modalDespesa = () => {
     <div id="confirmar">
         <img src="./img/concluir.svg" alt="" class="concluir">  
      </div>
-</main>
+     </form>
+</div>
 `)
     abrirModal()
 
@@ -368,19 +380,65 @@ const modalDespesa = () => {
     document.getElementById('anexo-button').addEventListener('click', opcao3)
 
 
-    let pendente = false;
-const btnPendente = () => {
-    
-    if(pendente){
-    pendente= false;
-    console.log('pendente')}
-    else{
-        pendente = true; 
-        console.log('pago')
+
+
+    const pendencia = (event) => {
+        const pagoTxt = document.getElementById('verde')
+        const pendenteTxt = document.getElementById('vermelho')
+
+
+        if (event.currentTarget.checked) {
+            pagoTxt.style.color = '#c4c4c4'
+            pendenteTxt.style.color = '#e70000'
+            document.getElementById('pendenciaNone').style.display = 'block'
+        }
+        else if (!event.currentTarget.checked) {
+            pendenteTxt.style.color = '#c4c4c4'
+            pagoTxt.style.color = '#32a40a'
+            document.getElementById('pendenciaNone').style.display = 'none'
+        }
+
+
     }
 
-}
-document.getElementById('pendente').addEventListener('click', btnPendente);
+    const format = (e) => {
+        console.log(e)
+
+        let value = e.target.value;
+        value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
+
+        const options = { minimumFractionDigits: 2 }
+        const result = new Intl.NumberFormat('pt-BR', options).format(
+            parseFloat(value) / 100
+        )
+
+        
+
+        e.target.value = 'R$ ' + result.replace('NaN','0,00');
+    }
+
+    const enviar = () => {
+        const valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
+        const data = document.querySelector('.date').value
+        const pendente = document.getElementById('dataPendente').value 
+        const descricao = document.querySelector('.descricao').value
+
+        const confirmacaoCampos = document.getElementById('requires').reportValidity();
+        if (confirmacaoCampos == true) {
+            ws.send(JSON.stringify({
+                metodo:'despesa',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:1
+            }));
+        }
+    }
+
+    document.querySelector('.fotoX').addEventListener('click', fecharModal);
+
+    document.getElementById('pendencia').addEventListener('change', pendencia);
+
+    document.querySelector('.valor').addEventListener('input', format);
+
+    document.querySelector('.concluir').addEventListener('click', enviar);
+
 }
 document.getElementById('despesaCont').addEventListener('click', modalDespesa)
 

@@ -80,14 +80,4 @@ btnImg4.onclick = () => {
 // JS de inserão de anexo de imagens
 
 
-const token = new URLSearchParams(window.location.search).get('token');
-let url = 'http://10.107.144.11:8080/royal/dashboard?k=' + token;
-const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
-
-ws.onmessage = ({data}) => {
-    console.log(data);
-}
-
-
-
 
