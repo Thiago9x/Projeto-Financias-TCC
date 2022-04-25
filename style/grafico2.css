@@ -8,9 +8,10 @@ body{
         /********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
 
         main{
-            width: 100%;
-            min-width: 1000px;
-            height: 100%;
+            width: auto;
+            min-width: 2350px;
+            min-height: 100vh;
+            height: auto;
             background-color: rgb(255, 255, 255);
             display: flex;
             flex-direction: column;
@@ -20,8 +21,10 @@ body{
         }
 
         #PrimeiraCaixa{
-            width: 90%;
-            height: 200px;
+            min-width: 1000px;
+            width: 96%;
+            min-height: 200px;
+            height: auto;
             background-color: white;
             border-radius: 10px;
             border: solid 1px whitesmoke;
@@ -104,7 +107,7 @@ body{
             display: flex;
             margin-left: auto;
             margin-right: auto;
-            margin-top: -8%;
+            margin-top: -7%;
             justify-content: center;
         }
         .formatLabel{
@@ -164,8 +167,7 @@ body{
        }
        #editSelect{
             display: flex;
-            margin-left: 25%;
-            /* justify-content: center; */
+            margin-left: 13.5%;
             align-items: center;
             gap: 100px;
        }
@@ -174,7 +176,7 @@ body{
 
        #formatInput2{
         width: 50%;
-        height: 70px;
+        height: 85px;
         /* background-color: aqua; */
         display: flex;
         justify-content: center;
@@ -187,7 +189,7 @@ body{
         height: 40px;
         font-size: 1.3em;
         /* background-color: beige; */
-        margin-left: -47%;
+        margin-left: -45%;
         display: flex;
         align-items: center;
        }
@@ -197,8 +199,115 @@ body{
 
        /* Grafico  */
 
+       #editDivs{
+           width: 100%;
+           height: 70%;
+           display: flex;
+           gap: 70px;
+       }
        #grafico{
-           width: 90%;
-           height: 60%;
+           width: 55%;
+           height:  100%;
            background-color: #2A356A;
        }
+       #receita{
+           min-width: 640px;
+           width: auto;
+           min-height: 55vh;
+           height: auto;
+           margin-left: 8%;
+           background-color: white;
+           border-radius: 10px;
+           border: solid 1px whitesmoke;
+           box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding: 10px;
+       }
+       h2{
+         display: flex;
+         justify-content: center;  
+       }
+
+       /* Caixa 1 */
+
+       #caixa1{
+           width: 90%;
+           height: 95%;
+           /* background-color: aqua; */
+       }
+       #conteudoCaixa1{
+           width: 100%;
+           height: 50px;
+           border-radius: 5px;
+           margin-top: 8%;
+           border: solid 1px whitesmoke;
+           display: flex;
+           align-items: center;
+           box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+       }
+      .textEdit1{
+          color: black;
+          font-size: 1.4em;
+          margin-left: 5%;
+      }
+      .textEdit2{
+        color: black;
+        font-size: 1.4em;
+        margin-left: 65%;
+    }
+
+    /* Caixa 2 */
+
+    #caixa2{
+        width: 100%;
+        height: 75%;
+        /* background-color: aqua; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+    .editImg{
+        height: 50px;
+    }
+    .editImg2{
+        margin-left: -12px;
+        height: 45px;
+    }
+    .icone1{
+        display: flex;
+        margin-top: 50px;
+    }
+    #conteudoCaixa2 p{
+        color: #2A356A;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 1.3em;
+    }
+    #conteudoCaixa2 h4{
+        color: #2A356A;
+        margin-left: 50%;
+        display: flex;
+        align-items: center;
+        font-size: 1.1em;
+    }
+
+    /* Caixa 3 */
+
+    #caixa3{
+        width: 100%;
+        height: 3px;
+        background-color: #2A356A;
+        margin-top: 25%;
+    }
+    .icone3{
+        display: flex;
+        margin-top: 50px;
+    }
+    .editImg3{
+       margin-left: 40px;
+       margin-top: 20px;
+       height: 45px;
+    }

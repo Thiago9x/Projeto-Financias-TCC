@@ -7,7 +7,7 @@
     <link rel="icon" href="img/logo_financas_2.svg">
     <script type="text/javascript" src="" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./style/graficos.css">
+    <link rel="stylesheet" type="text/css" href="./style/grafico2.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <!-- <script type="text/javascript" src="js/dashboard.js" defer></script> -->
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -17,7 +17,7 @@
     <script src="js/chart-plugin-datalabels.js"></script>
     <title>Royal Finance</title>
 </head>
-    <>
+
         <body>
 
                          <!-- INICIO MENU LATERAL -->
@@ -129,6 +129,9 @@
                         <select class="select">
                              <option>Ano</option>
                         </select>
+                        <select class="select">
+                            <option>mês</option>
+                       </select>
                     </div>
 
                     <div id="formatInput2">
@@ -136,12 +139,40 @@
                         <input type="radio" class="editar"> <h3>Favoritas</h3>
                     </div>
 
-                    <div id="grafico">
+                    <div id="editDivs">
+                        <div id="grafico">
 
-                    </div>
-                    <div class="final">
+                        </div>
+                        <div id="receita">
+                           <div id="caixa1">
+                            <h2>Receita</h2>
+                            <div id="conteudoCaixa1">
+                                <p class="textEdit1">Categoria</p>
+                                <p class="textEdit2">Valor</p>
+                            </div>
+                            <div id="caixa2">
+                                <div id="conteudoCaixa2">
+                                    <div class="icone1"><img src="img/salario.svg" class="editImg">
+                                        <p>Salario</p>  <h4>R$ 230,00</h4>
+                                    </div>
+                                    <div class="icone1"><img src="img/outros.svg" class="editImg2">
+                                        <p>Outros</p>  <h4>R$ 230,00</h4>
+                                    </div>
+                                    <div class="icone1"><img src="img/salario.svg" class="editImg">
+                                        <p>Invest.</p>  <h4>R$ 230,00</h4>
+                                    </div>
+                                    <div id="caixa3">
+                                        <div class="icone3"><img src="img/salario.svg" class="editImg3">
+                                            <p>Total</p>  <h4>R$ 690,00</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                        </div>
                        
                     </div>
+                   
                     
                 </main>
     </body>
