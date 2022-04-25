@@ -13,28 +13,94 @@ h3{
     margin-top: 20px;
     margin-left: 20px;
 }
-
+/* The switch - the box around the slider */
 #pendente{
-    width: 20%;
-    margin-top: 20px;
-    float: right;
-    margin-right: 15px;
-    padding: 0%;
-    background-color: #F27373;
-    font-size: 1.0em;
-    color: white;
-    border: none;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 10px;
+    /* background-color: aqua; */
 }
-#pago{
-    width: 20%;
-    margin-top: 20px;
-    float: right;
-    margin-right: 15px;
-    padding: 0%;
-    background-color: #92DA79;
-    color: white;
-    font-size: 1.0em;
-    border: none;
+#verde{
+    color: #32a40a;
+    font-size: 1em;
+    margin: 0px;
+    margin-right: 10px;
+}
+#vermelho{
+    color: #c4c4c4;
+    font-size: 1em;
+    margin: 0px;
+    margin-left: 10px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 35px;
+    margin: 0px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #32a40a;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #e70000;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #e70000;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+ 
+#pendenciaNone{
+    display: none;
+    width: 100%;
 }
 #conteudo{
     width: 90%;
@@ -51,6 +117,9 @@ label{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.estilizacao{
+    border:solid 2px #2A356A;
 }
 .caixa2{
     width: 49%;
@@ -219,3 +288,4 @@ form input {
     margin-top: 2%;
     border: #FFF; 
 }
+
