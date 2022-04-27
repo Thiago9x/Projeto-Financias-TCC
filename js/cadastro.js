@@ -90,10 +90,10 @@ const fazerCadastro = () => {
     
     var senhaFinal = senhaCadastrovalue;
     
-    let url = 'http://10.107.144.11:8080/royal/cadastro';
+    let url = 'https://tomcat.studiotr.io/royal/cadastro';
     
         console.log(fetch(url, {method: 'POST', headers: {
-            // 'content-type': 'application/json', 
+            'content-type': 'application/json', 
         }, body:JSON.stringify( {email: email,  nome: nome, senha:senhaFinal}),
         })
         .then((resposta) => resposta.json())

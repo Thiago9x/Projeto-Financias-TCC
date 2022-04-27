@@ -9,7 +9,7 @@ const enviarCodigo = () => {
     if(confirmacaoCampos == true){
 
     
-        let url = 'http://10.107.144.11:8080/royal/resetar';
+        let url = 'https://tomcat.studiotr.io/royal/resetar';
 
         console.log(fetch(url, {method: 'POST', headers: {
             // 'content-type': 'application/json', 
