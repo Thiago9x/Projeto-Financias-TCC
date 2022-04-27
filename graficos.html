@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
-    <!-- <script type="text/javascript" src="js/dashboard.js" defer></script> -->
+    <script type="text/javascript" src="js/dashboard.js" defer></script>
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
@@ -17,7 +17,7 @@
     <script src="js/chart-plugin-datalabels.js"></script>
     <title>Royal Finance</title>
 </head>
-    <>
+
         <body>
 
                          <!-- INICIO MENU LATERAL -->
@@ -104,36 +104,72 @@
                             <label class="formatLabel">Por favor, selecione um tipo de Gráfico</label>
                         </div>
                        <div id="formatInput">
-                            <input type="radio" class="anual"> <h3>Gráfico Anua</h3>
-                            <input type="radio" class="mensal"> <h3>Gráfico Mensal</h3>
+
+                           <div class="inpu1">
+                                <input id="graficoAnual" class="input" type="radio" name="opcao">
+                                <label for="teste1" class="label">Gráfico Anual</label>
+                           </div>
+                           <div class="inpu1">
+                               <input id="graficoMensal" class="input" type="radio" name="opcao" >
+                               <label for="teste2" class="label">Gráfico Mensal</label>
+                           </div>      
+                            
                        </div>
                     </div>
 
                     <!-- Selects -->
 
                     <div id="formatSelect">
-                        <select class="select"> 
+
+                        <select class="select">
+
                             <option>Categoria</option>
+
                         </select>
+
                         <select class="select">
+
                             <option>Tipo Transferencia</option>
+
                         </select>
+
                         <select class="select">
+
                             <option>Valor Maximo</option>
+
                         </select>
+
                     </div>
+
                     <div id="editSelect" >
+
                         <select class="select"> 
+
                             <option>Valor Minimo</option>
+
                         </select>
+
                         <select class="select">
+
                              <option>Ano</option>
+
                         </select>
+
                     </div>
 
                     <div id="formatInput2">
-                        <input type="radio" class="editar"> <h3>Dispesa Padrão</h3>
-                        <input type="radio" class="editar"> <h3>Favoritas</h3>
+
+
+                        <div class="inpu1">
+                            <input id="dispesaPadrao" class="input" type="radio" name="opcao">
+                            <label class="label">Dispesa Padrão</label>
+                       </div>
+
+                       <div class="inpu1">
+                           <input id="favoritos" class="input" type="radio" name="opcao" >
+                           <label class="label">Favoritos</label>
+                       </div>    
+
                     </div>
 
                     <div id="grafico">

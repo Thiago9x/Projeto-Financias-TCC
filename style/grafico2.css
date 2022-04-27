@@ -112,6 +112,8 @@ body{
         }
         .formatLabel{
             font-size: 1.7em;
+            color: #444444;
+            font-weight: 500;
         }
        #formatInput{
            width: 40%;
@@ -133,24 +135,60 @@ body{
            display: flex;
            align-items: center;
        }
+
+       .inpu1{
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .label{
+    
+      margin-left: 10px;
+      color: #444444;
+      font-weight: 600;
+      font-size: 1.2rem;
+    
+    }
+    
+    .input{
+    
+        height: 32px;
+        width: 11%;
+        border: solid 2px #2A356A;
+        border-radius: 5px;
+        margin-top: 14px;
+    
+    }
        
        /* Selects */
 
        #formatSelect{
-           width: 90%;
+           width: 50%;
            height: 100px;
-           /* background-color: aqua; */
            margin-top: 2%;
            display: flex;
            justify-content: center;
            gap: 70px;
+           margin-left: 20%;
        }
+       #editSelect1{
+        width: 50%;
+        height: 100px;
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+        gap: 70px;
+        margin-left: 20%;
+   }
        .select{
            background-color: #2A356A;
        }
        select{
-            width: 380px;
-            height: 40px;
+            width: 310px;
+            height: 50px;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -159,17 +197,11 @@ body{
             text-align: center;
             border-radius: 5px;
             margin-bottom: 20px;
-            padding-left: 10px;
+            padding-left: 15px;
             background: url(../img/selectbranco.svg) no-repeat center right #FFF;
-            font-size: 15px;
+            font-size: 1rem;
             background-position-x: 95% ;
            
-       }
-       #editSelect{
-            display: flex;
-            margin-left: 13.5%;
-            align-items: center;
-            gap: 100px;
        }
 
        /* input 2 */
