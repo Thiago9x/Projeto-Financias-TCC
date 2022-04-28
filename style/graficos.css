@@ -34,6 +34,9 @@ main{
     align-items: center;
     margin-left: 5%;
 }
+/* estilizacao radio */
+
+/* fim da estilizacao */
 .campoInf, .campoInf1{
 
     width: 80%;
@@ -48,7 +51,7 @@ main{
     height: 80px;
 }
 .formImg{
-    /* background-color: blue; */
+  
     height: 70px;
     width: 70px;
 }
@@ -65,7 +68,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: darkorange; */
+
 }
 
 .sobreConteudo{
@@ -78,7 +81,7 @@ main{
     color: #999999;
     font-family: roboto;
     font-size: 16px;
-    /* background-color: yellow; */
+   
 }
 
 .valorConteudo{
@@ -88,7 +91,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: tomato; */
+  
 }
 .sobreConteudo h3{
     font-size: 1.5em;
@@ -165,6 +168,21 @@ main{
 }
 .select{
     background-color: #2A356A;
+}
+option{
+    background-color: #E9EEFF;
+    color: #858585;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: 5%;
+   
+   
+}
+
+select:focus{
+    border: 0 none;
+    outline: 0;
+    box-shadow: 0 0 0 0;
 }
 select{
 
