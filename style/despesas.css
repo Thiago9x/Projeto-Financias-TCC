@@ -170,7 +170,7 @@ p{
     margin-top: 17%;
     margin-bottom: 3%;
 }
-#select{
+#selectCat{
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -178,9 +178,12 @@ p{
     height: 40px;
     width: 100%;
     border-radius: 5px;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    text-align: left;
     padding-left: 10px;
-    background: url(../img/select.svg) no-repeat center right #FFFf;
+    color: #2A356A;
+    background: url(../img/select.svg) no-repeat  right #FFFf;
     font-size: 15px;
     background-position-x: 98% ;
 }

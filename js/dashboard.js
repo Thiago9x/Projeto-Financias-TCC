@@ -1,11 +1,69 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
 const token = new URLSearchParams(window.location.search).get('token');
-let url = 'https://tomcat.studiotr.io/royal/dashboard?k=' + token;
-const ws = new WebSocket('wss://tomcat.studiotr.io/royal/dashboard/' + token);
+let url = 'http://10.107.144.16:8080/royal/dashboard?k=' + token;
+const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
+let categoriaReceita;
+let categoriaDespesa;
+let enviouDespesa = false;
+let enviouReceita = false;
 
 ws.onmessage = ({ data }) => {
-    console.log(data);
+
+    //toda vez que vc receber aquela mensagem do log, melhor n, ja te explico, vo fazer essa parte ou quer fazer?
+
+    const json = JSON.parse(data);
+
+    console.log(json);
+
+    switch(json.metodo){
+        case 'despesa':{  
+            switch(json.arg){
+                case 'remover': {
+                    const saldoGeral = document.getElementById('saldoGeral');
+                    const despesaGeral = document.getElementById('despesa');
+
+                    const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+                    const valorDespesa = parseFloat(despesaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+
+                    saldoGeral.innerText = (valorSaldo - json.valor);
+                    despesaGeral.innerText = (valorDespesa + json.valor);
+
+                    if(enviouDespesa === true){
+                        fecharModal();
+                        enviouDespesa = false;
+                    }
+
+                    break;
+                }
+            }
+            break; 
+        }
+    }
+    switch(json.metodo){
+        case 'receita':{  
+            switch(json.arg){
+                case 'adicionar': {
+                    const saldoGeral = document.getElementById('saldoGeral');
+                    const receitaGeral = document.getElementById('receita');
+
+                    const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+                    const valorReceita = parseFloat(receitaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+
+                    saldoGeral.innerText = (valorSaldo + json.valor);
+                    receitaGeral.innerText = (valorReceita + json.valor);
+
+                    if(enviouReceita === true){
+                        fecharModal();
+                        enviouReceita = false;
+                    }
+
+                    break;
+                }
+            }
+            break; 
+        }
+    }
 }
 
 console.log(fetch(url)
@@ -15,10 +73,13 @@ console.log(fetch(url)
         const saldo = data.saldo;
         const receita = data.receita;
         const despesa = data.despesa;
+        categoriaReceita = data.categorias.receitas;
+        categoriaDespesa =  data.categorias.despesas;
 
-        document.getElementById('saldoGeral').innerText = `R$ ${saldo.toFixed(2)}`;
+        document.getElementById('saldoGeral').innerText = `R$ ${saldo.toFixed(2)}`; //pra fazer o inverso pegar R$ 32,00 pra virar 32.0? replace onde?
         document.getElementById('receita').innerText = `R$ ${receita.toFixed(2)}`;
         document.getElementById('despesa').innerText = `R$ ${despesa.toFixed(2)}`;
+        
     })
 );
 
@@ -205,12 +266,8 @@ const modalDespesa = () => {
             </div>
         </div>
             <label >Categoria</label>
-        <select id='select'>
+        <select id='selectCat'>
           <option></option>
-          <option>teste</option>
-          <option>teste</option>
-          <option>teste</option>
-          <option>teste</option>
         </select>
         <div id='pendenciaNone'>
        <label>Data Final da Pendencia</label>
@@ -253,12 +310,8 @@ const modalDespesa = () => {
             </div>
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
-                <select id='select'>
+                <select id='selectFR'>
                   <option></option>
-                  <option>teste</option>
-                  <option>teste</option>
-                  <option>teste</option>
-                  <option>teste</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -302,6 +355,16 @@ const modalDespesa = () => {
 `)
     abrirModal()
 
+    const selectCat = document.getElementById("selectCat");
+
+    categoriaDespesa.forEach(categoria => {
+        const option = document.createElement("option");
+        option.value = categoria.idCategoria;
+        option.innerText = categoria.nome;
+
+        selectCat.appendChild(option);
+    });
+        
     const btnImg1 = document.querySelector('.btnImg1');
 
     const btnImg2 = document.querySelector('.btnImg2');
@@ -422,11 +485,14 @@ const modalDespesa = () => {
         const data = document.querySelector('.date').value
         const pendente = document.getElementById('dataPendente').value 
         const descricao = document.querySelector('.descricao').value
+        let idCategoria = parseInt(document.querySelector('#selectCat').value);
 
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
         if (confirmacaoCampos == true) {
+            enviouDespesa = true;
+
             ws.send(JSON.stringify({
-                metodo:'despesa',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:1
+                metodo:'despesa',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:idCategoria
             }));
         }
     }
@@ -481,12 +547,8 @@ const modalReceita = () => {
             </div>
         </div>
             <label >Categoria</label>
-        <select id='select'>
+        <select id='selectCat'>
           <option></option>
-          <option>teste</option>
-          <option>teste</option>
-          <option>teste</option>
-          <option>teste</option>
         </select>
         <div id='pendenciaNone'>
        <label>Data Final da Pendencia</label>
@@ -531,10 +593,6 @@ const modalReceita = () => {
                 <label >Frequencia de repetição</label>
                 <select id='select'>
                   <option></option>
-                  <option>teste</option>
-                  <option>teste</option>
-                  <option>teste</option>
-                  <option>teste</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -577,6 +635,18 @@ const modalReceita = () => {
 </div>
 `)
     abrirModal()
+   
+   
+
+    const selectCat = document.getElementById("selectCat");
+
+    categoriaReceita.forEach(categoria => {
+        const option = document.createElement("option");
+        option.value = categoria.idCategoria;
+        option.innerText = categoria.nome;
+
+        selectCat.appendChild(option);
+    });
 
     const btnImg1 = document.querySelector('.btnImg1');
 
@@ -590,7 +660,6 @@ const modalReceita = () => {
     let observado = false;
     let anexado = false;
     let favoritado = false;
-
 
     btnImg1.onclick = () => {
         if (repetido) {
@@ -698,12 +767,17 @@ const modalReceita = () => {
         const data = document.querySelector('.date').value
         const pendente = document.getElementById('dataPendente').value 
         const descricao = document.querySelector('.descricao').value
+        let idCategoria = parseInt(document.querySelector('#selectCat').value)
 
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
         if (confirmacaoCampos == true) {
+            enviouReceita = true;
             ws.send(JSON.stringify({
-                metodo:'receita',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:1
+                metodo:'receita',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:idCategoria
             }));
+
+
+
         }
     }
 

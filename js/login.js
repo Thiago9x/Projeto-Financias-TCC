@@ -24,7 +24,7 @@ const Login = () => {
     const confirmacaoCampos = document.getElementById('principal').reportValidity();
     if (confirmacaoCampos == true) {
 
-        let url = 'https://tomcat.studiotr.io/royal/contas';
+        let url = 'http://10.107.144.16:8080/royal/contas';
 
         console.log(fetch(url, {
             method: 'POST', headers: {
