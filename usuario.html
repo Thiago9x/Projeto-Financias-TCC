@@ -12,36 +12,45 @@
 <body>
     <main>
        <div id="usuario">
-            <img src="./img/usuarioPerfil.svg" alt class="usuarioFoto">
-            <h4>Usuario</h4>
-            <!-- <div class="foto">
-               <input type="file"  class="fotoUsuario">
-            </div> -->
 
+        <div class="containers">
+             <img src="./img/usuarioPerfil.svg" class="usuarioFoto">
+        </div>
+        <div class="containers1">
+
+            <h4>Usuário</h4>
 
             <div class='input-wrapper'>
+
                 <label for='input-file'>
-                 <h4>Selecionar uma foto</h4> 
+                   
+                    <h4 class="h4">
+                        Selecione uma foto
+                    </h4> 
                 </label>
+
                 <input id='input-file' type='file' value='' />
                 <span id='file-name'></span>
-              </div>
+                    
+            </div>
 
-
-
+        </div>
 
        </div>
-       <div id="conteudo">
-           <h7>Nome Completo</h7>
-             <input type="text" class="edit"> 
-         </div>
+        <div id="conteudo">
+            <h7 class="h7">Nome Completo</h7>
+            <input type="text" class="edit" placeholder="digite seu nome"> 
+        </div>
 
-       <div id="conteudo">
-        <h7>Email</h7>
-         <input type="text" class="edit"> 
-      </div>
+        <div id="conteudo">
+            <h7 class="h7">Email</h7>
+            <input type="text" class="edit" placeholder="fulano@gmail.com"> 
+        </div>
+
         <div id="conteudo2">
-            <h7>Segurança</h7>
+
+            <h7 class="h7">Segurança</h7>
+
             <div class="format">
                 <input type="checkbox" class="checkbox">
                 <h3>verificação de duas etapas</h3>
@@ -51,6 +60,7 @@
 
         </div>
         <div id="conteudo3">
+
             <img src="./img/usuario2.svg" alt class="usuarioImg">
 
             <input id="button1" type="button" value="Cancelar">
