@@ -219,3 +219,34 @@ input{
 h4{
     margin-left: 25px;
   }
+
+
+  /* estilizacao radio */
+
+.custom-radio input {
+    display: none;
+}
+
+
+.custom-radio input + label:before {
+
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    background-color: white;
+}
+
+.custom-radio input:checked + label:before {
+
+    background-color: white;
+    border: 8px solid #2A356A;
+    box-sizing: border-box;
+    padding: 5px;
+}
+/* fim da estilizacao */

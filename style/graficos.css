@@ -57,10 +57,10 @@ main{
 
 .custom-radio input:checked + label:before {
 
-    background-color: white;
-    border: 8px solid #2A356A;
+    background-color: #5AD4AB;
+    border: 8px solid #5AD4AB;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 3px;
 }
 /* fim da estilizacao */
 
@@ -265,7 +265,12 @@ select{
 #grafico{
     width: 90%;
     height: 60%;
-    background-color: #2A356A;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
     
