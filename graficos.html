@@ -85,7 +85,9 @@
                 <!-- INICIO CONTEUDO Grafico -->
                 <main>
                     <div id="PrimeiraCaixa">
-                        <div class="divisaoInformacoes">
+
+
+                        <div class="ilustrationGraphic">
 
                             <div class="campoInf1">
                                 <img src="img/saldoImg.svg" class="formImg1">
@@ -96,37 +98,102 @@
                                    </div>
 
                                    <div class="valorConteudo" id="saldoGeral">
-                                    
+
                                    </div>
                                </div>
                             </div>
-                        </div>
-                        <div id="format">
-                            <label class="formatLabel">Por favor, selecione um tipo de Gráfico</label>
-                        </div>
-                       <div id="formatInput">
 
-                        <div class="inpu">
-                            <div class="custom-radio">
-                                <input id="radio-1" name="question" value="0" type="radio" >
-                                <label for="radio-1" class="label">Gráfico Anual</label>
-                           </div>
                         </div>
-                           
-                        <div class="inpu">
-                            <div class="custom-radio">
-                                <input id="radio-2" name="question" value="1" type="radio" >
-                                <label for="radio-2" class="label">Gráfico Mensal</label>
-                           </div>
-                        </div>
-                           
+
+                        <div class="ilustrationIformation">
+
+                            <div class="divInforLetra">
+
+                                <div id="formatacaoLetra">
+                                     Por favor, selecione um tipo de Gráfico
+                                </div>                          
+
+                            </div>
+
+                            <div class="divInforRadios">
+
+                                <div id="formatacaoRadio">
+
+                                     <div class="inpu">
+                                        <div class="custom-radio">
+
+                                            <input id="radio-1" name="question" value="0" type="radio" >
+                                            <label for="radio-1" class="label">Gráfico Anual</label>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="inpu">
+                                        <div class="custom-radio">
+
+                                            <input id="radio-2" name="question" value="1" type="radio">
+                                            <label for="radio-2" class="label">Gráfico Mensal</label>
+
+                                        </div>
+                                    </div>  
+                                    
+                                </div>
                             
-                       </div>
+                            </div>
+
+                        </div>
+
                     </div>
 
                     <!-- Selects -->
 
-                    <div id="formatSelect">
+                    <div id="responsiveSelects">
+                        <div id="formatSelect">
+
+                            <select class="select">
+    
+                                <option>Categoria</option>
+                                <option>Categoria1</option>
+                                <option>Categoria2</option>
+                                <option>Categoria3</option>
+    
+    
+                            </select>
+    
+                            <select class="select">
+    
+                                <option>Tipo Transferência</option>
+    
+                            </select>
+    
+                            <select class="select">
+    
+                                <option>Ano</option>
+    
+                            </select>
+    
+                        </div>
+
+                        
+                        <div id="editSelect" >
+
+                            <select class="select"> 
+    
+                                <option>Valor Mínimo</option>
+    
+                            </select>
+    
+                            <select class="select">
+    
+                                 <option>Valor Máximo</option>
+    
+                            </select>
+    
+                        </div>
+    
+
+                    </div>
+                    <!-- <div id="formatSelect">
 
                         <select class="select">
 
@@ -140,40 +207,40 @@
 
                         <select class="select">
 
-                            <option>Tipo Transferencia</option>
+                            <option>Tipo Transferência</option>
 
                         </select>
 
                         <select class="select">
 
-                            <option>Valor Maximo</option>
+                            <option>Ano</option>
 
                         </select>
 
-                    </div>
+                    </div> -->
 
-                    <div id="editSelect" >
+                    <!-- <div id="editSelect" >
 
                         <select class="select"> 
 
-                            <option>Valor Minimo</option>
+                            <option>Valor Mínimo</option>
 
                         </select>
 
                         <select class="select">
 
-                             <option>Ano</option>
+                             <option>Valor Máximo</option>
 
                         </select>
 
-                    </div>
+                    </div> -->
 
                     <div id="formatInput2">
 
                         <div class="inpu">
                             <div class="custom-radio">
                                 <input id="radio-3" name="question" value="3" type="radio" >
-                                <label for="radio-3" class="label">Despesa padrao</label>
+                                <label for="radio-3" class="label">Despesa padrão</label>
                            </div>
                         </div>
                            
@@ -187,13 +254,7 @@
                     </div>
 
                     <div id="grafico">
-                        <div class="cardInf">
-
-                            <canvas class="card">
-
-                            </canvas>
-
-                        </div>
+                        
 
                     </div>
                     <div class="final">

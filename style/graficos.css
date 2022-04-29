@@ -9,31 +9,119 @@ body{
 
 main{
     width: 100%;
-    min-width: 1000px;
+    min-width: 1300px;
     height: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    padding: 2%;
+    padding: 1%;
     padding-left: 5%;
     overflow: scroll;
 }
 
 #PrimeiraCaixa{
     width: 90%;
-    height: 200px;
+    height: 180px;
+    border-radius: 8px;
     background-color: white;
-    border-radius: 10px;
+    justify-content: center;
     border: solid 1px whitesmoke;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    display: flex;
 }
 .divisaoInformacoes{
     width: 30%;
-    height: 90%;
+    height: 100%;
     display: flex;
     align-items: center;
-    margin-left: 5%;
+    justify-content: center;
+
 }
+
+
+.ilustrationGraphic{
+
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}   
+
+.ilustrationIformation{
+
+    width: 70%;
+    height: 100%;
+
+}
+.divInforLetra, .divInforRadios{
+
+    width: 100%;
+    height: 50%;
+    margin-left: 100px;
+
+}
+
+#formatacaoLetra{
+    width: 50%;
+    height: 100%;
+    min-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #444444;
+ 
+}
+
+#formatacaoRadio{
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+/*  conteudos da PrimeiraCaixa  */
+
+#format{
+   
+    width: 70px;
+    height: 10%;
+    background-color: #2e9a00;
+
+ 
+}
+
+
+/* .inpu{
+
+    width: 50%;
+    height: 30%;
+    background-color: cadetblue;
+    border: 1px solid black;
+
+} */
+
+.inpu1{
+    width: 50%;
+    height: 100%;
+  
+}
+
+
+.input{
+
+    height: 32px;
+    width: 11%;
+    border: solid 2px #2A356A;
+    border-radius: 5px;
+    margin-top: 14px;
+
+}
+
+/*  fim conteudos da PrimeiraCaixa  */
+
 /* estilizacao radio */
 
 .custom-radio input {
@@ -126,36 +214,19 @@ main{
     margin-left: -30px;
 }
 
-/*  conteudos da PrimeiraCaixa  */
-
-#format{
-    width: 50%;
-    height: 40px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -8%;
-    justify-content: center;
-}
-.formatLabel{
-    font-size: 1.7em;
-    color: #444444;
-    font-weight: 500;
-}
-
 #formatInput{
-    width: 40%;
-    height: 30%;
+    width: 85%;
+    height: 28%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 60px;
 
 }
 
 .inpu{
-    width: 45%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -226,11 +297,11 @@ select{
     -moz-appearance: none;
     border: solid 2px #2A356A;
     color: #FFF;
-    border-radius: 5px;
+    border-radius: 6px;
     margin-bottom: 20px;
     text-align: center;
     background: url(../img/selectbranco.svg) no-repeat center right #FFF;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     background-position-x: 95% ;
     
 }
@@ -246,6 +317,15 @@ select{
     gap: 100px;
 }
 
+#responsiveSelects{
+    width: 90%;
+    height: 20%;
+    min-width: 500px;   
+    padding-top: 32px;
+    padding-left: 190px;
+}
+
+
     /* input 2 */
 
 #formatInput2{
@@ -254,8 +334,7 @@ select{
     height: 70px;
     display: flex;
     justify-content: center;
-    margin-left: 18%;
-    margin-top: 1.2%;
+    margin-left: 22%;
 
 }
 
@@ -265,12 +344,11 @@ select{
 #grafico{
     width: 90%;
     height: 60%;
-    border: 1px solid black;
+    box-shadow: 0 0 0.5em rgb(175, 208, 241);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFF;
 }
 
 
-
-    
