@@ -2,12 +2,17 @@
 // CONSUMIR A API DA DASHBOARD
 const token = new URLSearchParams(window.location.search).get('token');
 let url = 'http://10.107.144.16:8080/royal/dashboard?k=' + token;
+const monthNow = new Date().getUTCMonth();
+const yearNow = new Date().getUTCFullYear();
+let urlGraReceita = 'http://10.107.144.16:8080/royal/grafico/?k=' + token + '/receita/' + yearNow + '/' + monthNow;
 const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
 let enviouDespesa = false;
 let enviouReceita = false;
+const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+//FECHAR MODAIS E ENVIAR INFORMACOES PARA A DASHBOARD
 ws.onmessage = ({ data }) => {
 
     //toda vez que vc receber aquela mensagem do log, melhor n, ja te explico, vo fazer essa parte ou quer fazer?
@@ -26,8 +31,8 @@ ws.onmessage = ({ data }) => {
                     const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
                     const valorDespesa = parseFloat(despesaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
 
-                    saldoGeral.innerText = (valorSaldo - json.valor);
-                    despesaGeral.innerText = (valorDespesa + json.valor);
+                    saldoGeral.innerText = 'R$ '+(valorSaldo - json.valor).toFixed(2).replace('.',',');
+                    despesaGeral.innerText = 'R$ '+(valorDespesa + json.valor).toFixed(2).replace('.',',');
 
                     if(enviouDespesa === true){
                         fecharModal();
@@ -50,8 +55,8 @@ ws.onmessage = ({ data }) => {
                     const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
                     const valorReceita = parseFloat(receitaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
 
-                    saldoGeral.innerText = (valorSaldo + json.valor);
-                    receitaGeral.innerText = (valorReceita + json.valor);
+                    saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.',',');
+                    receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.',',');
 
                     if(enviouReceita === true){
                         fecharModal();
@@ -76,9 +81,9 @@ console.log(fetch(url)
         categoriaReceita = data.categorias.receitas;
         categoriaDespesa =  data.categorias.despesas;
 
-        document.getElementById('saldoGeral').innerText = `R$ ${saldo.toFixed(2)}`; //pra fazer o inverso pegar R$ 32,00 pra virar 32.0? replace onde?
-        document.getElementById('receita').innerText = `R$ ${receita.toFixed(2)}`;
-        document.getElementById('despesa').innerText = `R$ ${despesa.toFixed(2)}`;
+        document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`; 
+        document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
+        document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
         
     })
 );
@@ -270,7 +275,7 @@ const modalDespesa = () => {
           <option></option>
         </select>
         <div id='pendenciaNone'>
-       <label>Data Final da Pendencia</label>
+       <label>Data de Validade</label>
        <input type="date" placeholder="Até qual o ultimo dia que você quer pagar?" maxlength="500" class="date estilizacao" id='dataPendente'>
        </div>
        </div>
@@ -311,7 +316,15 @@ const modalDespesa = () => {
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
                 <select id='selectFR'>
-                  <option></option>
+                    <option value="" selected="" disabled="">Escolha uma opcao</option>
+                    <option>Dias</option>
+                    <option>Semanas</option>
+                    <option>Quinzenas</option>
+                    <option>Meses</option>
+                    <option>Bimestres</option>
+                    <option>Trimestres</option>
+                    <option>Semestres</option>
+                    <option>Anos</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -355,6 +368,7 @@ const modalDespesa = () => {
 `)
     abrirModal()
 
+    //SELECAO DE CATEGORIA
     const selectCat = document.getElementById("selectCat");
 
     categoriaDespesa.forEach(categoria => {
@@ -364,7 +378,8 @@ const modalDespesa = () => {
 
         selectCat.appendChild(option);
     });
-        
+    //FIM SELECAO CATEGORIA 
+    //BOTOES REDONDOS FUNCOES EXTRAS
     const btnImg1 = document.querySelector('.btnImg1');
 
     const btnImg2 = document.querySelector('.btnImg2');
@@ -441,10 +456,10 @@ const modalDespesa = () => {
         document.getElementById('anexo').classList.add('aparecer')
     }
     document.getElementById('anexo-button').addEventListener('click', opcao3)
+    //FIM FUNCAO EXTRA
 
 
-
-
+    //PENDENCIA DESPESA
     const pendencia = (event) => {
         const pagoTxt = document.getElementById('verde')
         const pendenteTxt = document.getElementById('vermelho')
@@ -463,7 +478,8 @@ const modalDespesa = () => {
 
 
     }
-
+    //FIM PENDENCIA DESPESA
+    //FOMATACAO DE VALOR DA DESPESA 
     const format = (e) => {
         console.log(e)
 
@@ -479,7 +495,8 @@ const modalDespesa = () => {
 
         e.target.value = 'R$ ' + result.replace('NaN','0,00');
     }
-
+    //FIM DA FORMATACAO DESPESA
+    //CONFIRMACAO DESPESA
     const enviar = () => {
         const valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
         const data = document.querySelector('.date').value
@@ -496,7 +513,7 @@ const modalDespesa = () => {
             }));
         }
     }
-
+    //FIM CONFIRMACAO DESPESA
     document.querySelector('.fotoX').addEventListener('click', fecharModal);
 
     document.getElementById('pendencia').addEventListener('change', pendencia);
@@ -548,7 +565,7 @@ const modalReceita = () => {
         </div>
             <label >Categoria</label>
         <select id='selectCat'>
-          <option></option>
+        <option value="" selected="" disabled="">Escolha uma opcao</option>
         </select>
         <div id='pendenciaNone'>
        <label>Data Final da Pendencia</label>
@@ -591,8 +608,16 @@ const modalReceita = () => {
             </div>
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
-                <select id='select'>
-                  <option></option>
+                <select id='selectFR'>
+                <option value="" selected="" disabled="">Escolha uma opcao</option>
+                <option>Dias</option>
+                    <option>Semanas</option>
+                    <option>Quinzenas</option>
+                    <option>Meses</option>
+                    <option>Bimestres</option>
+                    <option>Trimestres</option>
+                    <option>Semestres</option>
+                    <option>Anos</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -602,7 +627,7 @@ const modalReceita = () => {
                 </div>
                 <div class="caixa3">
                 <label>Data</label>
-                <input type="date" placeholder="" maxlength="500" class="date estilizacao">
+                <input type="date" placeholder="" maxlength="500" class="dateFim estilizacao">
                 </div>
             </div>
            </div>
@@ -636,7 +661,7 @@ const modalReceita = () => {
 `)
     abrirModal()
    
-   
+   //SELECIONAR CATEGORIA RECEITA
 
     const selectCat = document.getElementById("selectCat");
 
@@ -647,6 +672,7 @@ const modalReceita = () => {
 
         selectCat.appendChild(option);
     });
+    //PARTES DAS BOLINHAS BOTOES
 
     const btnImg1 = document.querySelector('.btnImg1');
 
@@ -724,9 +750,17 @@ const modalReceita = () => {
     }
     document.getElementById('anexo-button').addEventListener('click', opcao3)
 
+    let dataFR = document.getElementById('selectFR').value;
+    let dataInicio = document.querySelector('.dateInicio');
+    let dataFim = document.querySelector('.dateFim');
 
+    let dataMif = dataInicio.valueAsDate.getUTCDate() + 7 * document.querySelector('.duracao').value;
 
+    dataFim.valueAsDate = new Date(dataMif);
 
+    //FIM DOS BOTOES
+
+    //PENDENTE E PAGO
     const pendencia = (event) => {
         const pagoTxt = document.getElementById('verde')
         const pendenteTxt = document.getElementById('vermelho')
@@ -745,15 +779,16 @@ const modalReceita = () => {
 
 
     }
+    //FIM PENDENTE PAGO
 
+    //FORMATACAO DO VALOR
     const format = (e) => {
         console.log(e)
 
         let value = e.target.value;
         value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
 
-        const options = { minimumFractionDigits: 2 }
-        const result = new Intl.NumberFormat('pt-BR', options).format(
+        const result = formatador.format(
             parseFloat(value) / 100
         )
 
@@ -761,21 +796,24 @@ const modalReceita = () => {
 
         e.target.value = 'R$ ' + result.replace('NaN','0,00');
     }
-
+    //FIM DA FORMATACAO
+    
+    //CONFIRMAR A RECEITA
     const enviar = () => {
         const valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
         const data = document.querySelector('.date').value
         const pendente = document.getElementById('dataPendente').value 
         const descricao = document.querySelector('.descricao').value
         let idCategoria = parseInt(document.querySelector('#selectCat').value)
-
+       
+        
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
-        if (confirmacaoCampos == true) {
+        if (confirmacaoCampos == true && !isNaN(idCategoria)) {
             enviouReceita = true;
             ws.send(JSON.stringify({
                 metodo:'receita',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:idCategoria
             }));
-
+            
 
 
         }
@@ -790,6 +828,7 @@ const modalReceita = () => {
     document.querySelector('.concluir').addEventListener('click', enviar);
 
 }
+    //FIM DA CONFIRMACAO RECEITA
 document.getElementById('receitaCont').addEventListener('click', modalReceita)
 
 //MODAL FAVORITOS

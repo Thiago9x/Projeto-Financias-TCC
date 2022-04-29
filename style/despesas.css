@@ -101,6 +101,7 @@ h3{
 #pendenciaNone{
     display: none;
     width: 100%;
+    margin-top: 20px;
 }
 #conteudo{
     width: 90%;
@@ -182,7 +183,24 @@ p{
     align-items: center;
     text-align: left;
     padding-left: 10px;
-    color: #2A356A;
+    color: black;
+    background: url(../img/select.svg) no-repeat  right #FFFf;
+    font-size: 15px;
+    background-position-x: 98% ;
+}
+#selectFR{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: solid 2px #2A356A;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding-left: 10px;
+    color: black;
     background: url(../img/select.svg) no-repeat  right #FFFf;
     font-size: 15px;
     background-position-x: 98% ;
