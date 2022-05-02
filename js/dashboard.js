@@ -1,7 +1,7 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
 const token = new URLSearchParams(window.location.search).get('token');
-let url = 'http://10.107.144.16:8080/royal/dashboard?k=' + token;
+let url = 'http://10.107.144.16:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
 let urlGraReceita = 'http://10.107.144.16:8080/royal/grafico/?k=' + token + '/receita/' + yearNow + '/' + monthNow;
@@ -317,14 +317,14 @@ const modalDespesa = () => {
                 <label >Frequencia de repetição</label>
                 <select id='selectFR'>
                     <option value="" selected="" disabled="">Escolha uma opcao</option>
-                    <option>Dias</option>
-                    <option>Semanas</option>
-                    <option>Quinzenas</option>
-                    <option>Meses</option>
-                    <option>Bimestres</option>
-                    <option>Trimestres</option>
-                    <option>Semestres</option>
-                    <option>Anos</option>
+                    <option value='DIAS'>Dias</option>
+                    <option value='SEMANAS'>Semanas</option>
+                    <option value='QUIZENAS'>Quinzenas</option>
+                    <option value='MESES'>Meses</option>
+                    <option value='BIMESTRES'>Bimestres</option>
+                    <option value='TRIMESTRES'>Trimestres</option>
+                    <option value='SEMESTRES'>Semestres</option>
+                    <option value='ANOS'>Anos</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -610,14 +610,14 @@ const modalReceita = () => {
                 <label >Frequencia de repetição</label>
                 <select id='selectFR'>
                 <option value="" selected="" disabled="">Escolha uma opcao</option>
-                <option>Dias</option>
-                    <option>Semanas</option>
-                    <option>Quinzenas</option>
-                    <option>Meses</option>
-                    <option>Bimestres</option>
-                    <option>Trimestres</option>
-                    <option>Semestres</option>
-                    <option>Anos</option>
+                    <option value='DIAS'>Dias</option>
+                    <option value='SEMANAS'>Semanas</option>
+                    <option value='QUIZENAS'>Quinzenas</option>
+                    <option value='MESES'>Meses</option>
+                    <option value='BIMESTRES'>Bimestres</option>
+                    <option value='TRIMESTRES'>Trimestres</option>
+                    <option value='SEMESTRES'>Semestres</option>
+                    <option value='ANOS'>Anos</option>
                 </select>
             </div>
             <div id="duracaoData">
@@ -626,7 +626,7 @@ const modalReceita = () => {
                 <input type="text" placeholder="" maxlength="500" class="duracao estilizacao">
                 </div>
                 <div class="caixa3">
-                <label>Data</label>
+                <label>Data Fim</label>
                 <input type="date" placeholder="" maxlength="500" class="dateFim estilizacao">
                 </div>
             </div>
@@ -696,6 +696,159 @@ const modalReceita = () => {
             repetido = true;
             btnImg1.src = './img/repetirr.svg'
             document.getElementById('repeticao').style.display = 'block';
+
+            let dataFR = document.getElementById('selectFR'); 
+            let dataInicio = document.querySelector('.dateInicio');
+            let dataFim = document.querySelector('.dateFim');
+            let duracao = document.querySelector('.duracao');
+
+            dataInicio.onchange = e => {
+                console.log('teste')
+
+                switch(dataFR.value){
+                    case 'DIAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'SEMANAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(7 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'QUINZENAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(15 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }case 'MESES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth (parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }case 'BIMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(2 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }  case 'TRIMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(3 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'SEMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(6 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'ANOS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCFullYear( parseInt(duracao.value) + dataObjeto.getUTCFullYear());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                }
+            }
+
+            dataFR.onchange = () => dataInicio.onchange();
+            duracao.oninput = () => dataInicio.onchange();
+
+            const DIA = 1000* 60 * 60 * 24;
+
+            dataFim.onchange = () => {
+                switch(dataFR.value){
+                    case 'DIAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'SEMANAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'QUINZENAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'MESES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth();
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'BIMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'TRIMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'SEMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'ANOS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = data.getUTCFullYear() - 1970;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                  
+                }
+            }
         }
     }
 
@@ -749,14 +902,6 @@ const modalReceita = () => {
         document.getElementById('anexo').classList.add('aparecer')
     }
     document.getElementById('anexo-button').addEventListener('click', opcao3)
-
-    let dataFR = document.getElementById('selectFR').value;
-    let dataInicio = document.querySelector('.dateInicio');
-    let dataFim = document.querySelector('.dateFim');
-
-    let dataMif = dataInicio.valueAsDate.getUTCDate() + 7 * document.querySelector('.duracao').value;
-
-    dataFim.valueAsDate = new Date(dataMif);
 
     //FIM DOS BOTOES
 
