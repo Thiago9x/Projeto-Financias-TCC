@@ -8,6 +8,7 @@
     <script type="text/javascript" src="" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/grafico2.css">
+    <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <!-- <script type="text/javascript" src="js/dashboard.js" defer></script> -->
     <link rel="stylesheet" href="./font/baskervville.css">
@@ -84,121 +85,277 @@
                 <!-- INICIO CONTEUDO Grafico -->
                 <main>
                     <div id="PrimeiraCaixa">
-                        <div class="divisaoInformacoes">
+
+                        <div id="ilustrationGraphic">
 
                             <div class="campoInf1">
                                 <img src="img/saldoImg.svg" class="formImg1">
-                               <div id="conteudo">
+                                <div id="conteudo">
                                
                                    <div class="sobreConteudo">
                                        <h3>Gráfico</h3> 
                                    </div>
 
-                                   <div class="valorConteudo" id="saldoGeral">
-                                    
-                                   </div>
-                               </div>
+                                </div>
                             </div>
+
                         </div>
-                        <div id="format">
-                            <label class="formatLabel">Por favor, selecione um tipo de Gráfico</label>
+
+                        <div class="ilustrationIformation">
+
+                            <div class="divInforLetra">
+
+                                <div id="formatacaoLetra">
+                                     Por favor, selecione um tipo de Gráfico
+                                </div>                          
+
+                            </div>
+
+                            <div class="divInforRadios">
+
+                                <div id="formatacaoRadio">
+
+                                     <div class="inpu">
+                                        <div class="custom-radio">
+
+                                            <input id="radio-1" name="question" value="0" type="radio" >
+                                            <label for="radio-1" class="label">Gráfico Anual</label>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="inpu">
+                                        <div class="custom-radio">
+
+                                            <input id="radio-2" name="question" value="1" type="radio">
+                                            <label for="radio-2" class="label">Gráfico Mensal</label>
+
+                                        </div>
+                                    </div>  
+                                    
+                                </div>
+                            
+                            </div>
+
                         </div>
-                       <div id="formatInput">
 
-                        <div class="inpu1">
-                            <input id="graficoAnual" class="input" type="radio" name="opcao">
-                            <label for="teste1" class="label">Gráfico Anual</label>
-                       </div>
+                        </div>
 
-                       <div class="inpu1">
 
-                           <input id="graficoMensal" class="input" type="radio" name="opcao" >
-                           <label for="teste2" class="label">Gráfico Mensal</label>
-
-                       </div>   
-                       </div>
                     </div>
 
                     <!-- Selects -->
   
-                    <div id="formatSelect">
-                        <select class="select"> 
-                            <option>Categoria</option>
-                        </select>
-                        <select class="select">
-                            <option>Tipo Transferencia</option>
-                        </select>
-                        <select class="select">
-                            <option>Valor Maximo</option>
-                        </select>
-                    </div>
-                    <div id="editSelect1" >
+                    <div id="agregaConteudoSelects">
+                        <div class="containerSeletcs">
 
-                        <select class="select"> 
+                            <div class="formatSelect">
 
-                            <option>Valor Minimo</option>
-
-                        </select>
-
-                        <select class="select">
-
-                             <option>Ano</option>
-
-                        </select>
-
-                        <select class="select">
-
-                            <option>mês</option>
-
-                       </select>
-                    </div>
-
-                    <div id="formatInput2">
-                        <div class="inpu1">
-                            <input id="dispesaPadrao" class="input" type="radio" name="opcao">
-                            <label class="label">Dispesa Padrão</label>
-                       </div>
-
-                       <div class="inpu1">
-                           <input id="favoritos" class="input" type="radio" name="opcao" >
-                           <label class="label">Favoritos</label>
-                       </div>    
-                    </div>
-
-                    <div id="editDivs">
-                        <div id="grafico">
+                                <select class="select"> 
+                                    <option>Categoria</option>
+                                </select>
+                                <select class="select">
+                                    <option>Valor Mínimo </option>
+                                </select>
+                                <select class="select">
+                                    <option>Valor Máximo</option>
+                                </select>
+                            </div>
 
                         </div>
-                        <div id="receita">
-                           <div id="caixa1">
-                            <h2>Receita</h2>
-                            <div id="conteudoCaixa1">
-                                <p class="textEdit1">Categoria</p>
-                                <p class="textEdit2">Valor</p>
+                        
+                        <div class="containerSeletcs">
+
+                            <div class="formatSelect">
+    
+                                <select class="select"> 
+        
+                                    <option>Tipo Transferência</option>
+        
+                                </select>
+        
+                                <select class="select">
+        
+                                     <option>Ano</option>
+        
+                                </select>
+        
+                                <select class="select">
+        
+                                    <option>Mês</option>
+        
+                               </select>
+                            </div> 
+
+                        </div>
+                        
+                        <!-- CONTEUDO GRAFICO -->
+
+                        <div id="formatInput2">
+
+                            <div class="inpu">
+                                <div class="custom-radio">
+                                    <input id="radio-3" name="question" value="3" type="radio" >
+                                    <label for="radio-3" class="label">Despesa padrão</label>
+                               </div>
                             </div>
-                            <div id="caixa2">
-                                <div id="conteudoCaixa2">
-                                    <div class="icone1"><img src="img/salario.svg" class="editImg">
-                                        <p>Salario</p>  <h4>R$ 230,00</h4>
-                                    </div>
-                                    <div class="icone1"><img src="img/outros.svg" class="editImg2">
-                                        <p>Outros</p>  <h4>R$ 230,00</h4>
-                                    </div>
-                                    <div class="icone1"><img src="img/salario.svg" class="editImg">
-                                        <p>Invest.</p>  <h4>R$ 230,00</h4>
-                                    </div>
-                                    <div id="caixa3">
-                                        <div class="icone3"><img src="img/salario.svg" class="editImg3">
-                                            <p>Total</p>  <h4>R$ 690,00</h4>
+                               
+                            <div class="inpu">
+                                <div class="custom-radio">
+                                    <input id="radio-4" name="question" value="4" type="radio" >
+                                    <label for="radio-4" class="label">Favoritos</label>
+                               </div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- informacoes -->
+
+                        <div id="editDivs">
+
+                            <div class="lugarGrafico">
+                               
+                            </div>
+
+                            <div id="receita">
+                               <div id="caixaParaCentralizar">
+                                        <div class="titulo">
+                                            Receitas
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                           </div>
+        
+                                    <div class="dividir">
+
+                                        <div class="agregaInformacoes">
+
+                                            <div id="cardTitulo">
+                                                Categoria
+                                            </div>
+
+                                            <div id="cardTitulo">
+                                                Valor
+                                            </div>
+        
+                                        </div>
+
+                                            <div class="agregaValores">
+
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             
+                                            <div class="agregaValores">
+    
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <img src="img/salario.svg" width="40px" height="20px" class="imagem">
+                                                        <p class="p">Salario</p>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="teste">
+                                                    <div class="info">
+                                                        <h4 class="h4">R$ 230,00</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                               </div>
+
+
+                             
+                           
                         </div>
-                       
+
                     </div>
-                   
                     
                 </main>
     </body>

@@ -25,7 +25,7 @@ main{
     border-radius: 8px;
     background-color: white;
     justify-content: center;
-    border: solid 1px whitesmoke;
+    border:transparent;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     display: flex;
 }
@@ -90,25 +90,13 @@ main{
     height: 10%;
     background-color: #2e9a00;
 
- 
 }
-
-
-/* .inpu{
-
-    width: 50%;
-    height: 30%;
-    background-color: cadetblue;
-    border: 1px solid black;
-
-} */
 
 .inpu1{
     width: 50%;
     height: 100%;
   
 }
-
 
 .input{
 
