@@ -69,9 +69,6 @@ h2{
     height: inherit;
     background-color: #2A356A;
 }
-/* .formatSelect option::hover{
-background-color: aqua;
-} */
 
 select{
     appearance: none;
@@ -108,6 +105,58 @@ select{
     flex-flow: row wrap;
     border-radius: 10px;
 }
+
+.containerInfo{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    margin: 10px;
+}
+
+.containerImagem{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.containerText{
+
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.textCategoria, .textLugar, .textValor{
+    width: 100%;
+    height: 20%;
+}
+
+.textLugar{
+    color: #999999;
+}
+
+.textValor{
+
+    color: #E70000;
+}
+
+.dataFormatacao{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 30px;
+    color: #CCCCCC;
+}
 .caixa1{
     width: 75%;
     height: 140px;
@@ -115,8 +164,9 @@ select{
     margin-top: 45px;
     border: solid 1px whitesmoke;
     border-radius: 15px;
+    display: flex;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
-    /* display: none; */
+   
 }
 /* format da barra de rolagem */
 * {

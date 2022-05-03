@@ -32,6 +32,9 @@ main{
     height: 100%;
     padding-top: 30px;
     padding-left: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #444444;
 
 }
 
@@ -94,7 +97,7 @@ h4{
     height: 50px;
     background-color: white;
     color: #2A356A;
-    font-size: 15px;
+    font-size: 1rem;
     border: solid 1px whitesmoke;
     text-align: center;
     margin-left: 100%;
@@ -105,7 +108,7 @@ h4{
     height: 50px;
     background-color: #2A356A;
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
     text-align: center;
 }
 .t1{

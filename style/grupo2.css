@@ -30,6 +30,8 @@ main{
 .t3{
     width: 25%;
     height: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
     padding-top: 17px;
     padding-left: 20px;
     color: #444444;
