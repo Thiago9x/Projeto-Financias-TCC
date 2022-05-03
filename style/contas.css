@@ -1,392 +1,408 @@
-body{
+body {
     background-color: whitesmoke;
     display: flex;
     height: 100vh;
     width: 100%;
 }
 
-        main{
-            width: 100%;
-            height: 100%;
-            background-color: rgb(235, 235, 235);
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-    
-        }
-        #acessoRapido{
-            width: 100%;
-            min-height: 150px;
-            height: 14%;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2%;
-            box-shadow: 0 0 0.5em rgb(184, 203, 223);
-            background-image: linear-gradient(to top right, rgb(235, 235, 235),  rgb(255, 255, 255));
-        
-        }
-        .divideAcesso, .divideAcesso1{
-            width: 60%;
-            height: 100%;
-        
-        }
-        #saudacao{
-            width:50%;
-            height:25%;
-            padding-top: 2%;
-            
-        }
-        #clima{
-            font-size: 16px;
-            font-weight: bold;
-        }
-        #informacoes{
-            width: 100%;
-            height: 75%;
-            display: flex;
-            justify-content: space-around;
+main {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
-        }
-        .divisaoInformacoes{
-            width: 20%;
-            height: 90%;
-            position: relative;
-            /* background-color: aqua; */
+}
 
-        }
+#acessoRapido {
+    width: 100%;
+    min-height: 150px;
+    height: 14%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    box-shadow: 0 0 0.5em rgb(184, 203, 223);
+    background-image: linear-gradient(to top right, rgb(235, 235, 235), rgb(255, 255, 255));
 
-        .campoInfImagem,.campoInfImagem1{
+}
 
-            width: 35%;
-            height: 75%;
-            min-width: 55px;
-            min-height: 55px;
-            max-width: 70px;
-            max-height: 70px;
-            position: absolute;
-            background-color: #32A40A;
-            border-radius: 100%;
-            margin-top: 7%;
-        }
+.divideAcesso,
+.divideAcesso1 {
+    width: 60%;
+    height: 100%;
 
-        .campoInfImagem1{
-            width: 43%;
-            height: 80%;
-            min-width: 90px;
-            min-height: 90px;
-            margin-top: 5.5%;
-        }
+}
 
-        .campoInf, .campoInf1{
+#saudacao {
+    width: 50%;
+    height: 25%;
+    padding-top: 2%;
 
-            width: 90%;
-            height:73%;
-            margin-top: 8%;
-            border-radius: 9em;
-            background-color: #FFFFFF;
-            box-shadow: 0 0 0.5em rgb(165, 180, 195);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        
+}
 
-        }
+#clima {
+    font-size: 16px;
+    font-weight: bold;
+}
 
-        .campoInf1{
+#informacoes {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-around;
 
-            width: 100%;
-            height: 80%;
-            margin-top: 6%;
-            
-        }
+}
 
-        #conteudo{ 
-            width: 50%;
-            height: 80%;
-            margin-left: 30%;
-        }
+.divisaoInformacoes {
+    width: 20%;
+    height: 90%;
+    position: relative;
+    /* background-color: aqua; */
 
-        .sobreConteudo{
+}
 
-            width: 100%;
-            height: 25%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999999;
-            font-family: roboto;
-            font-size: 16px;
-            margin-top: 4%;
-        }
+.campoInfImagem,
+.campoInfImagem1 {
 
-        .valorConteudo{
+    width: 35%;
+    height: 75%;
+    min-width: 55px;
+    min-height: 55px;
+    max-width: 70px;
+    max-height: 70px;
+    position: absolute;
+    background-color: #32A40A;
+    border-radius: 100%;
+    margin-top: 7%;
+}
 
-            width: 100%;
-            height: 60%;
-            margin-top: 2%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ededed;
-        }
-        /* ACESSO RAPIDO */
+.campoInfImagem1 {
+    width: 43%;
+    height: 80%;
+    min-width: 90px;
+    min-height: 90px;
+    margin-top: 5.5%;
+}
 
-        #saudacao1{
+.campoInf,
+.campoInf1 {
 
-            width:50%;
-            height:15%;
-            font-size: 16px;
-            color: #444444;
-            font-weight: 500;
-            margin-top: 2%;
-            margin-left: 5%;
-        }
-
-        .divideAcesso1{
-            width: 33%;
-            padding-left: 3%;
-        }
-        #linha{
-            width: 1px;
-            height: 70%;
-            background-color: #c4c4c4;
-        }
-        #informacoes1{
-        
-            width: 85%;
-            height: 75%;
-            display: flex;
-        }
-
-        .divAceInf{
-
-            width: 20%;
-            height: 85%;
-            border-radius: 4%;
-            margin: 2%;
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0 0 0.2em rgb(192, 215, 241);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        
-        }
-
-        .cont{
-            width: 90%;
-            height: 90%;
-            min-width: 400px;
-        }
-
-        .titutoInf{
-            width: 100%;
-            height: 18%;
-            font-size: 10px;
-            text-align: center;
-            font-weight: 500;
-            color: #444444;
-            padding-top: 5px;
-        }
-
-        .imagem{
-
-            width: 100%;
-            height: 82%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .formImg{
-
-            margin-top: 25%;
-            margin-left: 15%;
-        }
-
-        .formImg1{
-
-            margin-top: 20%;
-            margin-left: 25%;
-        }
-
-        .corFundo{
-            background-color: #E70000;
-        }
-
-        .corFundo2{
-            background-color: #4D64B1;
-        }
-        /* formatacao grafico */
-
-        #graficoPrincipal{
-            width: 100%;
-            height: auto;
-            min-height: 100%;
-            margin-top: 2%;
-            border-radius: 8px;
-            box-shadow: 0 0 1em rgb(208, 237, 244)
-        
-        }
-
-        #campoSelects{
-
-            width: 100%;
-            height: 10%;
-            display: flex;
-
-        }
-
-        #tituloSelect{
-            
-            width: 20%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-        }
-        #selects{
-
-            width: 80%;
-            height: 100%;
-            display: flex;
-            
-        }
-
-        #campoSelect{
-            width: 40%;
-            height: 100%;
-            display: flex;
-            padding-top: 2%;
-        }
-
-        .divisao{
-            width: 50%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .formaSelects{
-
-            width: 80%;
-            height: 60%;
-            background-color: var(--cor-Principal);
-            color: white;
-            font-size: 18px;
-            box-shadow: 0 0 0.5em rgb(145, 149, 154);
-            border: 0;
-
-        }
-
-        select{
-
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border: solid 2px #2A356A;
-            color: #FFF;
-            text-align: center;
-            background: url(../img/selectbranco.svg) no-repeat center right #FFF;
-            background-color: #2A356A;
-            font-size: 15px;
-            background-position-x: 95%;
-            border-radius: 5px;
-        }
+    width: 90%;
+    height: 73%;
+    margin-top: 8%;
+    border-radius: 9em;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0.5em rgb(165, 180, 195);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 
-        #tituloInfor{
+}
 
-            width: 100%;
-            height: 30%;
-            margin-left: 10%;
-            text-align: start;
-            font-weight: bold;
-            font-size: 20px;
+.campoInf1 {
 
-        }
+    width: 100%;
+    height: 80%;
+    margin-top: 6%;
 
-        /* PARTE DO GRAFICO DASHBOARD */
+}
 
-        #graficoPuro{
-            width: 100%;
-            height: 60%;
-            margin-top: 1%;
-            background-color: yellow;
-        }
+#conteudo {
+    width: 50%;
+    height: 80%;
+    margin-left: 30%;
+}
 
-        #infAdicionais{
-            width: 100%;
-            height: 20%;
-            display: flex;
-            gap: 5px;
-            align-items: center;
-            margin-top: 1%;
-            margin-bottom: 1%;
-        }
+.sobreConteudo {
 
-        .cardInf , .cardInf1{
-            width: 50%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .cardInf1{
-            width: 40%;
-            height: 100%;
-            display: flex;
-            justify-content: start;
-        }
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999999;
+    font-family: roboto;
+    font-size: 16px;
+    margin-top: 4%;
+}
 
-        .card, .card1{
-            width: 75%;
-            height: 70%;
-            margin-left: 8%;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 0 0.5em rgb(202, 222, 247);
-        }
+.valorConteudo {
 
-        .titulo{
-            margin: 15px;
-        }
+    width: 100%;
+    height: 60%;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+}
+
+/* ACESSO RAPIDO */
+
+#saudacao1 {
+
+    width: 50%;
+    height: 15%;
+    font-size: 16px;
+    color: #444444;
+    font-weight: 500;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+.divideAcesso1 {
+    width: 33%;
+    padding-left: 3%;
+}
+
+#linha {
+    width: 1px;
+    height: 70%;
+    background-color: #c4c4c4;
+}
+
+#informacoes1 {
+
+    width: 85%;
+    height: 75%;
+    display: flex;
+}
+
+.divAceInf {
+
+    width: 20%;
+    height: 85%;
+    border-radius: 4%;
+    margin: 2%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 0.2em rgb(192, 215, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cont {
+    width: 90%;
+    height: 90%;
+    min-width: 400px;
+}
+
+.titutoInf {
+    width: 100%;
+    height: 18%;
+    font-size: 10px;
+    text-align: center;
+    font-weight: 500;
+    color: #444444;
+    padding-top: 5px;
+}
+
+.imagem {
+
+    width: 100%;
+    height: 82%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formImg {
+
+    margin-top: 25%;
+    margin-left: 15%;
+}
+
+.formImg1 {
+
+    margin-top: 20%;
+    margin-left: 25%;
+}
+
+.corFundo {
+    background-color: #E70000;
+}
+
+.corFundo2 {
+    background-color: #4D64B1;
+}
+
+/* formatacao grafico */
+
+#graficoPrincipal {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-top: 2%;
+    border-radius: 8px;
+    box-shadow: 0 0 1em rgb(208, 237, 244)
+}
+
+#campoSelects {
+
+    width: 100%;
+    height: 10%;
+    display: flex;
+
+}
+
+#tituloSelect {
+
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#selects {
+
+    width: 80%;
+    height: 100%;
+    display: flex;
+
+}
+
+#campoSelect {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    padding-top: 2%;
+}
+
+.divisao {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.formaSelects {
+
+    width: 80%;
+    height: 60%;
+    background-color: var(--cor-Principal);
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 0 0.5em rgb(145, 149, 154);
+    border: 0;
+
+}
+
+select {
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: solid 2px #2A356A;
+    color: #FFF;
+    text-align: center;
+    background: url(../img/selectbranco.svg) no-repeat center right #FFF;
+    background-color: #2A356A;
+    font-size: 15px;
+    background-position-x: 95%;
+    border-radius: 5px;
+}
+
+
+#tituloInfor {
+
+    width: 100%;
+    height: 30%;
+    margin-left: 10%;
+    text-align: start;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+/* PARTE DO GRAFICO DASHBOARD */
+
+#graficoPuro {
+    width: 100%;
+    height: 60%;
+    margin-top: 1%;
+    background-color: yellow;
+}
+
+#infAdicionais {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.cardInf,
+.cardInf1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardInf1 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.card,
+.card1 {
+    width: 75%;
+    height: 70%;
+    margin-left: 8%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 0.5em rgb(202, 222, 247);
+}
+
+.titulo {
+    margin: 15px;
+}
 
 
 /* CONTEUDO CONTA */
 
 
 
-.divisaoConta{
+.divisaoConta {
     width: 25%;
     height: 90%;
-  
+
 }
 
-.localInfo, .localInfoPen{
+.localInfo,
+.localInfoPen {
     width: 80%;
     height: 4%;
     min-height: 20px;
     min-width: 100px;
     margin-left: 50px;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #3C9E1A;
-    box-shadow: 0 0 0.5em rgb(123, 121, 121);
     color: white;
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: 400;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
 }
 
-.localInfoPen{
+.localInfoPen {
 
     background-color: #E70000;
 }
 
-.localArmazanamento{
+.localArmazanamento {
     width: 100%;
     height: 90%;
     min-width: 200px;
@@ -399,7 +415,7 @@ body{
     background-color: #F5F1F1;
     overflow-y: scroll;
     padding-top: 20px;
-   
+
 }
 
 /* INICIO ESTILIZACAO DA SCROLL */
@@ -407,25 +423,25 @@ body{
 * {
     scrollbar-width: thin;
     scrollbar-color: #E9E9E9 whitesmoke;
-  }
+}
 
 *::-webkit-scrollbar {
     width: 10px;
 
 }
-  
+
 *::-webkit-scrollbar-track {
     background: transparent;
 
 }
-  
+
 *::-webkit-scrollbar-thumb {
-background-color: #E7E1E1;
-border-radius: 2px;
+    background-color: #E7E1E1;
+    border-radius: 2px;
 }
 
-  /* FIM ESTILIZACAO DA SCROLL */
-.cardSeparado{
+/* FIM ESTILIZACAO DA SCROLL */
+.cardSeparado {
 
     width: 85%;
     height: 25%;
@@ -434,21 +450,18 @@ border-radius: 2px;
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0 5px 8px -2px rgb(182, 221, 243);
     margin-bottom: 20px;
 }
 
-.containerMenor{
+.containerMenor {
     width: 90%;
     height: 20%;
-    margin-top: 3px;
     margin-left: 16px;
-    border: 1px solid black;
-
 }
 
-.conteudoContainerMenor{
+.conteudoContainerMenor {
     width: inherit;
     height: 100%;
     display: flex;
@@ -456,43 +469,43 @@ border-radius: 2px;
 
 }
 
-.cardImagem{
+.cardImagem {
     width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
-.tituloAssociado{
+.tituloAssociado {
     width: 25%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: black;
-    font-size: 12px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
-.valor{
+.valor {
 
-    width: 45%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 1rem;
     font-weight: 500;
     color: #858585;
 }
 
-.editXis{
+.editXis {
     width: 100%;
     height: 6%;
-    margin-top: 5px;
-    margin-left: -5px;
+    margin-top: 15px;
+    margin-left: -15px;
     display: flex;
     justify-content: end;
 }

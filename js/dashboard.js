@@ -319,7 +319,7 @@ const modalDespesa = () => {
                     <option value="" selected="" disabled="">Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
-                    <option value='QUIZENAS'>Quinzenas</option>
+                    <option value='QUINZENAS'>Quinzenas</option>
                     <option value='MESES'>Meses</option>
                     <option value='BIMESTRES'>Bimestres</option>
                     <option value='TRIMESTRES'>Trimestres</option>
@@ -368,6 +368,12 @@ const modalDespesa = () => {
 `)
     abrirModal()
 
+    //PARTE DE REPETICAO
+    let dataFR = document.getElementById('selectFR'); 
+    let dataInicio = document.querySelector('.dateInicio');
+    let dataFim = document.querySelector('.dateFim');
+    let duracao = document.querySelector('.duracao');
+    
     //SELECAO DE CATEGORIA
     const selectCat = document.getElementById("selectCat");
 
@@ -403,6 +409,153 @@ const modalDespesa = () => {
             repetido = true;
             btnImg1.src = './img/repetirr.svg'
             document.getElementById('repeticao').style.display = 'block';
+            dataInicio.onchange = e => {
+                console.log('teste')
+
+                switch(dataFR.value){
+                    case 'DIAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'SEMANAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(7 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'QUINZENAS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCDate(15 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }case 'MESES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth (parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }case 'BIMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(2 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }  case 'TRIMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(3 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'SEMESTRES': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCMonth(6 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                    case 'ANOS': {
+                        let dataObjeto = dataInicio.valueAsDate;
+
+                        dataObjeto.setUTCFullYear( parseInt(duracao.value) + dataObjeto.getUTCFullYear());
+
+                        dataFim.valueAsDate = dataObjeto;
+                        break;
+                    }
+                }
+            }
+
+            dataFR.onchange = () => dataInicio.onchange();
+            duracao.oninput = () => dataInicio.onchange();
+
+            const DIA = 1000* 60 * 60 * 24;
+
+            dataFim.onchange = () => {
+                switch(dataFR.value){
+                    case 'DIAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'SEMANAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'QUINZENAS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15);
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'MESES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth();
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'BIMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'TRIMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'SEMESTRES': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                    case 'ANOS': {
+                        if(dataFim.valueAsNumber >= dataInicio.valueAsNumber){
+                            const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+                            duracao.value = data.getUTCFullYear() - 1970;
+                        } else {
+                            duracao.value = 0;
+                        }
+                        break;
+                    }
+                  
+                }
+            }
         }
     }
 
@@ -503,13 +656,15 @@ const modalDespesa = () => {
         const pendente = document.getElementById('dataPendente').value 
         const descricao = document.querySelector('.descricao').value
         let idCategoria = parseInt(document.querySelector('#selectCat').value);
+        let observacao = document.querySelector('.obs').value
 
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
         if (confirmacaoCampos == true) {
             enviouDespesa = true;
 
             ws.send(JSON.stringify({
-                metodo:'despesa',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:idCategoria
+                metodo:'despesa',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,
+                inicioRepeticao: dataInicio.value, totalParcelas: duracao.value, nomeFrequencia: dataFR.value, observacao:observacao, idCategoria:idCategoria
             }));
         }
     }
@@ -612,7 +767,7 @@ const modalReceita = () => {
                 <option value="" selected="" disabled="">Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
-                    <option value='QUIZENAS'>Quinzenas</option>
+                    <option value='QUINZENAS'>Quinzenas</option>
                     <option value='MESES'>Meses</option>
                     <option value='BIMESTRES'>Bimestres</option>
                     <option value='TRIMESTRES'>Trimestres</option>
@@ -660,7 +815,11 @@ const modalReceita = () => {
 </div>
 `)
     abrirModal()
-   
+   //PARTE DE REPETICAO
+    let dataFR = document.getElementById('selectFR'); 
+    let dataInicio = document.querySelector('.dateInicio');
+    let dataFim = document.querySelector('.dateFim');
+    let duracao = document.querySelector('.duracao');
    //SELECIONAR CATEGORIA RECEITA
 
     const selectCat = document.getElementById("selectCat");
@@ -697,10 +856,6 @@ const modalReceita = () => {
             btnImg1.src = './img/repetirr.svg'
             document.getElementById('repeticao').style.display = 'block';
 
-            let dataFR = document.getElementById('selectFR'); 
-            let dataInicio = document.querySelector('.dateInicio');
-            let dataFim = document.querySelector('.dateFim');
-            let duracao = document.querySelector('.duracao');
 
             dataInicio.onchange = e => {
                 console.log('teste')
@@ -945,22 +1100,20 @@ const modalReceita = () => {
     
     //CONFIRMAR A RECEITA
     const enviar = () => {
-        const valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
-        const data = document.querySelector('.date').value
-        const pendente = document.getElementById('dataPendente').value 
-        const descricao = document.querySelector('.descricao').value
+        let valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
+        let data = document.querySelector('.date').value
+        let pendente = document.getElementById('dataPendente').value 
+        let descricao = document.querySelector('.descricao').value
         let idCategoria = parseInt(document.querySelector('#selectCat').value)
-       
+        let observacao = document.querySelector('.obs').value
         
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
         if (confirmacaoCampos == true && !isNaN(idCategoria)) {
             enviouReceita = true;
             ws.send(JSON.stringify({
-                metodo:'receita',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado,idCategoria:idCategoria
+                metodo:'receita',arg:'inserir',valor:valor,data:data,pendente:pendente !== '' ? pendente : null,descricao:descricao,favorito:favoritado, 
+                inicioRepeticao: dataInicio.value, totalParcelas: duracao.value, nomeFrequencia: dataFR.value, observacao:observacao, idCategoria:idCategoria
             }));
-            
-
-
         }
     }
 

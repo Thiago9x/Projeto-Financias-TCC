@@ -25,6 +25,7 @@ main{
     display: flex;
     justify-content: space-between;
 }
+
 h2{
     width: auto;
     height: auto;
@@ -44,11 +45,12 @@ h2{
 }
 
 .caixa{
-    width: 100%;
+    width: 80%;
     height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 90px;
 }
 .formatCaixa{
     width: 50%;
@@ -60,17 +62,19 @@ h2{
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 .duracao{
-    width: 35px;
+    width: 38px;
     margin-left: 35px;
-    margin-top: 10px;
-   
+    margin-top: 5px;
 }
 .h4{
-  margin-left: 10px;
-  font-size: 0.9em;
-  text-align: center;
-  font-weight: 500;
-  margin-top: 13px;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px;
 }
 #conteudoMeta{
     width: 75%;
@@ -94,36 +98,41 @@ h2{
     margin-top: -25px;
 }
 
-#button1{
-    width: 340%;
+/* #button1{
+    width: 100%;
     height: 50px;
     background-color: white;
     color: #2A356A;
     font-size: 15px;
     border: solid 1px whitesmoke;
     text-align: center;
-    /* margin-left: 110%; */
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 #button2{
-    width: 260%;
+    width: 100%;
     height: 50px;
     background-color: #2A356A;
     color: white;
-    font-size: 15px;
+    font-size: 1.1rem;
     text-align: center;
-    margin-left: 1100%;
-}
+    margin-left: 100px;
+} */
 
+#button2, #button1{
+
+    width: 130px;
+    height: 50px;
+   
+}
 .t1{
+
     width: 100%;
     height: 10%;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    padding-left: 60px; 
-    /* padding-right: 260px;  */
-    padding-top: 70px;
+    justify-content: space-evenly;
+    background-color: aqua;
+    margin-top: 50px;
 }
 
 .date{
