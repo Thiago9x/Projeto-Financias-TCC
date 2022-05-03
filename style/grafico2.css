@@ -294,117 +294,107 @@ select {
     height: 100%;
     display: flex;
     margin-top: 50px;
-    background-color: #5AD4AB;
+   
 }
 
-.espacoInformacoes{
+.lugarGrafico{
+  
     width: 50%;
     height: 100%;
-    background-color: pink;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#grafico{
-    width: 10%;
-    height: 100px;
-    background-color: red;
-    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     border-radius: 10px;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+
 }
 #receita {
     min-width: 640px;
-    width: auto;
+    width:50%;
     min-height: 55vh;
-    height: auto;
+    height: 100%;
     margin-left: 8%;
-    background-color: white;
+    background-color: #FAFAFA;
     border-radius: 10px;
-    border: solid 1px whitesmoke;
-    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    border: transparent;
+    box-shadow: 0 4px 5px 2px rgb(182, 195, 238);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
 
-h2 {
-    display: flex;
-    justify-content: center;
+.titulo{
+    
+    width: 100%;
+    height: 10%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
 }
 
-/* Caixa 1 */
+.dividir{
+    width: 100%;
+    height: 100%;
+    display: flex;
 
-#caixa1 {
+}
+
+.teste{
+    width: 50%;
+    height: 90%;
+
+}
+#caixaParaCentralizar {
     width: 90%;
     height: 95%;
-    /* background-color: aqua; */
 }
 
-#conteudoCaixa1 {
+#cardTitulo {
     width: 100%;
-    height: 50px;
+    height: 40px;
     border-radius: 5px;
-    margin-top: 8%;
     border: solid 1px whitesmoke;
     display: flex;
-    align-items: center;
-    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
-}
-
-.textEdit1 {
-    color: black;
-    font-size: 1.4em;
-    margin-left: 5%;
-}
-
-.textEdit2 {
-    color: black;
-    font-size: 1.4em;
-    margin-left: 65%;
-}
-
-/* Caixa 2 */
-
-#caixa2 {
-    width: 100%;
-    height: 75%;
-    /* background-color: aqua; */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-}
-
-.editImg {
-    height: 50px;
-}
-
-.editImg2 {
-    margin-left: -12px;
-    height: 45px;
-}
-
-.icone1 {
-    display: flex;
-    margin-top: 50px;
-}
-
-#conteudoCaixa2 p {
     color: #2A356A;
+    font-weight: 500;
+    font-size: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 5px -2px rgb(190, 205, 255);
+}
+
+.info{
+    width: 100%;
+    height: 15%;
+    margin-top: 15px;
+    display: flex;
+}
+.h4 {
+    width: inherit;
+    height: inherit;
+    color: #2A356A;
+    display: flex;
+    justify-content: end;
+    font-size: 1.4em;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+.imagem{
+    width: 15%;
+    height: 100%;
+    margin: 8px;
+}
+ .p{
+    color: black;
+    padding-top: 10px;
     margin-left: 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 1.3em;
 }
 
-#conteudoCaixa2 h4 {
-    color: #2A356A;
-    margin-left: 50%;
-    display: flex;
-    align-items: center;
-    font-size: 1.1em;
-}
+
 
 /* Caixa 3 */
 
