@@ -1,0 +1,79 @@
+
+#mainPrincipal{
+
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#principalModal{
+
+    width: 70%;
+    height: 98%;
+    min-width: 100px;
+    background-color: white;
+    box-shadow: 0 4px 5px -2px rgb(148, 168, 236);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.suasMetas{
+    width: 100%;
+    height: 110px;
+    border-radius: 10px 10px 0 0px;
+    background-color: rgb(233, 233, 233);
+}
+.imgMeta{
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+h2{
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    margin-top: -2.7%;
+    margin-left: -70%;
+}
+.metas{
+    width: 99%;
+    height: 20vh;
+    margin-top: 20px;
+    /* background-color: aqua; */
+    margin-left: auto;
+}
+.caixaMetas{
+    width: 98%;
+    height: 1px;
+    background-color: black;
+    margin-left: auto;
+    margin-top: 15px;
+}
+.imgCifraoMeta{
+    height: 55px;
+    
+}
+.textMeta{
+    width: 300px;
+    margin-left: 6%;
+    margin-top: -45px;
+}
+.addMeta{
+    width: 100%;
+    height: 90px;
+    margin-top: 42%;
+    border-radius: 0 0 10px 0px;
+    background-color: rgb(233, 233, 233);
+}
+.imgAddMeta{
+    height: 55px;
+    margin-top: 15px;
+    margin-left: 40%;
+}
+.addMeta h2{
+    margin-left: 5%;
+}
