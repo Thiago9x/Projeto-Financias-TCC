@@ -4,7 +4,8 @@ const token = new URLSearchParams(window.location.search).get('token');
 let url = 'http://10.107.144.16:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
-let urlGraReceita = 'http://10.107.144.16:8080/royal/grafico/' + token + '/receita/' + yearNow + '/' + monthNow;
+let selectTransferencia = document.getElementById('selectTrans').value
+let urlGrafico = 'http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia + '/' + yearNow + '/' + monthNow;
 const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
@@ -33,7 +34,7 @@ ws.onmessage = ({ data }) => {
                     saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
                     despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
 
-                    
+
 
                     break;
                 }
@@ -54,7 +55,7 @@ ws.onmessage = ({ data }) => {
                     saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
                     receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
 
-                   
+
 
                     break;
                 }
@@ -204,7 +205,7 @@ const modalTransferencia = (transferencia) => {
     let dataInicio = document.querySelector('.dateInicio');
     let dataFim = document.querySelector('.dateFim');
     let duracao = document.querySelector('.duracao');
-    
+
     //SELECIONAR CATEGORIA TRANSFERENCIA
     const selectCat = document.getElementById("selectCat");
     if (transferencia === 'receita') {
@@ -546,73 +547,81 @@ console.log(fetch(url)
 );
 
 // GRAFICO PINCIPAL DE BARRA
+const grafico = console.log(fetch(urlGrafico)
+    .then((resposta) => resposta.json())
+    .then((data) => {
+        let labels = [];
+        let dataGrafico = [];
+        let corGrafico = [];
+        Object.entries(data).forEach((categorias) => {
+            let idCategorias = categorias[0];
+            const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
+            labels.push(categoriaDespesas.nome)
+            dataGrafico.push(categorias[1])
+            corGrafico.push('#' + categoriaDespesas.cor)
+        });
+        console.log(labels, dataGrafico, corGrafico)
+        const ctx = document.getElementById('graficoPuro').getContext('2d');
+        const dataChart = {
 
-const ctx = document.getElementById('graficoPuro').getContext('2d');
-const data = {
+            labels: labels,
+            datasets: [{
 
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Orange', 'Orange', 'Orange', 'Orange'],
-    datasets: [{
-
-        data: [9, 19, 3, 5, 2, 3, 7, 8, 9, 10],
-        backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ]
-    }]
-};
-const myChart = new Chart(ctx, {
-    plugins: [ChartDataLabels],
-    type: 'bar',
-    data: data,
-    options: {
-        scales: {
-            x: {
-                grid: {
-                    display: false
+                data: dataGrafico,
+                backgroundColor: corGrafico
+            }]
+        };
+        const myChart = new Chart(ctx, {
+            plugins: [ChartDataLabels],
+            type: 'bar',
+            data: dataChart,
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                indexAxis: 'y',
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each horizontal bar to be 2px wide
+                elements: {
+                    bar: {
+                        borderWidth: 2,
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                        position: 'right',
+                    },
+                    datalabels: {
+                        color: '#ffffff',
+                        anchor: 'end',
+                        align: 'start',
+                        offset: 24,
+                        font: {
+                            size: '24px',
+                            weight: 'bold'
+                        }
+                    }
                 }
             },
-            y: {
-                grid: {
-                    display: false
-                }
-            }
-        },
-        indexAxis: 'y',
-        // Elements options apply to all of the options unless overridden in a dataset
-        // In this case, we are setting the border of each horizontal bar to be 2px wide
-        elements: {
-            bar: {
-                borderWidth: 2,
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false,
-                position: 'right',
-            },
-            datalabels: {
-                color: '#ffffff',
-                anchor: 'end',
-                align: 'start',
-                offset: 24,
-                font: {
-                    size: '24px',
-                    weight: 'bold'
-                }
-            }
-        }
-    },
-});
+        });
+
+
+
+
+    })
+);
 
 // grafico inferior de barra 
 
