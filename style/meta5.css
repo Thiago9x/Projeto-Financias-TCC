@@ -92,14 +92,20 @@ h4{
 }
 
 .t5, .valor{
-    width: 50%;
+    width: 45%;
     height: 100%;
-    padding: 10px;
+    padding: 5px;
     font-size: 1em;
     color: #999999;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+.t5{
+    margin-left: 135px;
+}
 .valor{
     text-align: end;
     color: black;

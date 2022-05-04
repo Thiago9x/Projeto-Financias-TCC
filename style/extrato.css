@@ -42,7 +42,7 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background-color: blue; */
+   
 }
 #categorias{
     width: 85%;
@@ -61,11 +61,10 @@ h2{
     height: 40px;
     display: flex;
     justify-content: space-evenly;
-    /* background-color: aquamarine; */
     margin-top: 50px;
 }
 .formatSelect{
-    width: 215px;
+    width: 270px;
     height: inherit;
     background-color: #2A356A;
 }
@@ -83,7 +82,7 @@ select{
     margin-bottom: 20px;
     padding-left: 10px;
     background: url(../img/selectbranco.svg) no-repeat center right #FFF;
-    font-size: 15px;
+    font-size: 1.1rem;
     background-position-x: 95% ;
 }
 
