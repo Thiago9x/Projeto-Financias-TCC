@@ -13,33 +13,45 @@
     <main>
         <div class="container">
              <h2>Nova Meta</h2>
-            <img src="./img/xpreto.svg" alt="" class="fotoX">   
+            <img src="./img/xpreto.svg" class="fotoX">   
         </div>
         <div class="caixa">
             <div class="formatCaixa">
-                <img src="./img/meta.svg" alt="" class="meta"> 
-                <h4>Vamos lá, comece nos dizendo sobre o que é a sua nova meta!</h4>  
+                <img src="./img/meta.svg" class="meta"> 
+                <h4>Vamos lá, comece nos dizendo sobre a sua nova meta!</h4>  
             </div>
         </div>
         <div id="conteudoMeta">
-            <img src="./img/lupa.svg" alt="" class="lupa"> 
+            <img src="./img/lupa.svg" class="lupa"> 
             <h4>Insira a descrição da meta</h4>
             <input type="text" placeholder="Insira a descrição" maxlength="500" class="inputDescricao">
 
-            <img src="./img/lupa.svg" alt="" class="lupa"> 
+            <img src="./img/lupa.svg" class="lupa"> 
             <h4>Qual o tipo da meta?</h4>
             <div class="editInput">
-                 <input type="radio" class="inputMeta"> <p>Para despesas</p>
-                 <input type="radio" class="inputMeta2"> <p>Para receitas</p>
+
+                <div class="divideInput">
+                    <div class="custom-radio">
+                        <input id="radio-1" name="question" value="0" type="radio" class="inputMeta"> 
+                        <label for="radio-1">Despesas</label>
+                    </div>
+                </div>
+
+                <div class="divideInput">
+                    <div  class="custom-radio">
+                        <input id="radio-2" name="question" value="1" type="radio" class="inputMeta2"> 
+                        <label for="radio-2">Receitas</label>
+                    </div>
+                </div>
+                           
             </div>
          </div>
 
-         <div class="t1">
-
-                <a href="/meta2.html">
-                    <input id="BtnAvancar" type="button" value="Avançar" >
-                </a> 
-         </div>
+        <div class="t1">
+            <a href="/meta2.html">
+                <input id="BtnAvancar" type="button" value="Avançar" >
+            </a> 
+        </div>
             
     </main>
 </body>

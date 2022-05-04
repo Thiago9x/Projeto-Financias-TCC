@@ -55,13 +55,15 @@ h2{
 .h4{
 
     margin: 20px;
+    font-size: 1.2rem;
 }
+
 #conteudoMeta{
     width: 75%;
     height: 40%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4%;
+    margin-top: 80px;
 }
 .inputCategoria{
     display: flex;
@@ -87,41 +89,49 @@ select{
     background-position-x: 98% ;
 }
 #conteudoMeta h4{
+
     margin-left: 30px;
     margin-top: -25px;
 }
 .checkbox{
-    width: 30px;
+    width: 20px;
 }
 .edith4{
-    margin-left: 50px;
+
+    margin-left: 30px;
     margin-top: -50px;
+    font-weight: 500;
     color: rgb(83, 83, 83);
 }
 #button1{
-    width: 300%;
-    height: 50px;
+    
+    width: 200px;
+    height: 60px;
     background-color: white;
     color: #2A356A;
-    font-size: 15px;
-    border: solid 1px whitesmoke;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: transparent;
     text-align: center;
-    margin-left: 100%;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 #button2{
-    width: 210%;
-    height: 50px;
+
+    width: 200px;
+    height: 60px;
+    font-weight: 600;
     background-color: #2A356A;
     color: white;
-    font-size: 15px;
+    font-size: 1.1rem;
     text-align: center;
 }
 .t1{
+
     width: 90%;
     height: 10%;
     display: flex;
     align-items: center;
-    margin-top: 20%;
-    justify-content: space-between;
+    margin-top: 50px;
+    justify-content: space-evenly;
+
 }

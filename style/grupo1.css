@@ -7,6 +7,10 @@ body{
     justify-content: center;
     background-color: #2A356A;
 }
+::-webkit-input-placeholder  { 
+
+    font-size: 1.1rem;
+ }
 main{
     width: 1000px;
     height: 60px;
@@ -60,7 +64,7 @@ main{
 }
 .formatCaixa{
     width: 50%;
-    height: 55px;
+    height: 60px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -74,6 +78,7 @@ main{
 
 h4{
     margin-left: 25px;
+    font-size: 1.1rem;
   }
 
 #conteudoImagem{
@@ -88,27 +93,29 @@ h4{
 #img{
     width: 15%;
     height: 68%;
-    background-color: aqua;
-    border-radius: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #button1{
-    width: 300%;
-    height: 50px;
+    width: 200px;
+    height: 60px;
     background-color: white;
     color: #2A356A;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     border: solid 1px whitesmoke;
     text-align: center;
-    margin-left: 100%;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 #button2{
-    width: 210%;
-    height: 50px;
+    width: 200px;
+    height: 60px;
     background-color: #2A356A;
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-align: center;
 }
 .t1{
@@ -116,7 +123,7 @@ h4{
     height: 10%;
     display: flex;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 15px;
     justify-content: space-evenly;
 }
 #conteudoMeta{

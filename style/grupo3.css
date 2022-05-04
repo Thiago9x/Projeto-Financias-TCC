@@ -51,8 +51,7 @@ main{
     height: 10%;
     display: flex;
     margin-top: 30px;
-    margin-left: 60px;
-    margin-right: 25px;
+    padding-left: 90px;
 }
 
 #input{
@@ -99,7 +98,7 @@ input{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-   
+  
 }
 
 #containerFilho{
@@ -111,15 +110,18 @@ input{
 
 .teste{
     width: 100%;
-    height: 10%;
+    height: 15%;
     display: flex;
 }
 
 .tes1, .te1{
     width: 50%;
     height: 100%;
-    padding-left: 100px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+
 }
 
 .te1{
@@ -129,14 +131,12 @@ input{
 }
 #armaCont{
 
-    width: 90%;
+    width: 100%;
     height: 80%;
-    margin: 20px;
-    margin-top: -2px;
     border-radius: 4px;
     background-color: transparent;
     display: flex;
-    border: 1px solid black;
+
 }
 
 .div{
@@ -144,8 +144,9 @@ input{
     height: 100%;
     overflow-y: scroll;
     padding-left: 20px;
-    
-
+    border: transparent;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    border-radius: 6px;
 }
 
 .testes{
@@ -155,6 +156,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
 .checkbox, .informacao{
@@ -166,8 +168,8 @@ input{
 .informacao, .informacaoNome{
     width: 90%;
     color: #444444;
-    font-size: 12px;
-    text-align: center;
+    font-size: 1.1rem;
+    text-align: end;
 
 }
 .informacaoNome{
@@ -200,12 +202,12 @@ input[type=checkbox]{
   /* FIM ESTILIZACAO DA SCROLL */
 
 #button1{
-    width: 175px;
-    height: 38px;
+    width: 200px;
+    height: 45px;
     background-color: #f80000;
     border: 1px solid transparent;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 1.1rem;
     text-align: center;
    
 }

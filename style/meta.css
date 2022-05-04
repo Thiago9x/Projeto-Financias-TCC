@@ -34,7 +34,8 @@ h2{
 .fotoX{
     width: 30px;
     height: 50px;
-    margin-right: 10px;
+    margin-top: 20px;
+    margin-right: 30px;
 }
 .caixa{
     width: 100%;
@@ -59,13 +60,14 @@ h2{
 }
 h4{
   margin-left: 45px;
+  font-size: 1.2rem;
 }
 #conteudoMeta{
     width: 75%;
     height: 40%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6%;
+    margin-top: 50px;
 }
 .inputDescricao{
     height: 50px;
@@ -81,36 +83,83 @@ h4{
     height: 50px;
     width: 100%;
     border-radius: 5px;
-    padding-left: 10px;
     margin-top: 10px;
+    
 }
-.inputMeta{
+
+.inputMeta, .inputMeta2{
     width: 25px;
-    margin-top: 5px;
-    margin-left: 10%;
 }
-.inputMeta2{
-    width: 25px;
-    margin-top: 5px;
-    margin-left: 50%;
+
+.divideInput{
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
+
 .editInput p{
-    margin-top: 17px;
+    margin-top: 11px;
     margin-left: 10px;
+    font-size: 1rem;
     color: rgb(83, 83, 83);
 }
 .t1{
     width: 100%;
     height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
 }
 #BtnAvancar{
-    width: 15%;
+    width: 200px;
     height: 50px;
     background-color: #2A356A;
     color: white;
-    font-size: 15px;
+    font-size: 1.1rem;
     text-align: center;
-    margin-left: 40%;
-    margin-top: 10%;
+    font-weight: 600;
+    margin-top: 25px;
 }
+
+::-webkit-input-placeholder  { 
+
+    font-size: 1.1rem;
+}
+
+/* estilizacao radio */
+
+.custom-radio input {
+    display: none;
+}
+
+
+.custom-radio input + label:before {
+
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    background-color: white;
+}
+
+.custom-radio input:checked + label:before {
+
+    background-color: #5AD4AB;
+    border: 8px solid #5AD4AB;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.custom-radio{
+    margin-top: 10px;
+}
+/* fim da estilizacao */
