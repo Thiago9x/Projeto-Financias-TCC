@@ -4,8 +4,8 @@ const token = new URLSearchParams(window.location.search).get('token');
 let url = 'http://10.107.144.16:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
-let selectTransferencia = document.getElementById('selectTrans').value
-let urlGrafico = 'http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia + '/' + yearNow + '/' + monthNow;
+let selectTransferencia = document.getElementById('selectTrans')
+let urlGrafico = 'http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia.value + '/' + yearNow + '/' + monthNow;
 const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
@@ -616,13 +616,13 @@ const grafico = console.log(fetch(urlGrafico)
                 }
             },
         });
-
+        chart.update();
 
 
 
     })
 );
-
+document
 // grafico inferior de barra 
 
 const ctxSecundario = document.querySelector('.card').getContext('2d');

@@ -15,7 +15,6 @@ body{
             display: flex;
             flex-direction: column;
             padding: 2%;
-            padding-left: 5%;
             overflow: scroll;
         }
         #acessoRapido{
