@@ -10,63 +10,141 @@
 }
 
 #titulo{
-    
-    width: 80vw;
+
+    width: 88vw;
     min-height: 120px;
     height: auto;
     min-width: 100px;
-    background-color: white;
-    box-shadow: 0 4px 5px -2px rgb(148, 168, 236);
-    border-radius: 10px;
+    margin-top: -15px;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-}
-#formatConteudoTitulo{
-
-    height: 100%;
-    width: auto;
-    min-width: 500px;
-    display: flex;
-    align-items: center;
-}
-.imgMeta{
-    height: 80px;
-    margin-left: 20px;
+    justify-content: space-between;
 }
 h1{
+    font-size: 2.3em;
     margin-left: 30px;
 }
-#caixasMetas{
-    width: auto;
-    min-width: 80vw;
-    height: auto;
-    min-height: 65vh;
-    background-color: white;
-    box-shadow: 0 4px 5px -2px rgb(148, 168, 236);
-    border-radius: 10px;
-    margin-bottom: 50px;
-}
-#botao{
-    
-    width: 30vw;
-    min-height: 100px;
-    height: auto;
-    min-width: 100px;
-    background-color: #2A356A;
-    color: white;
-    box-shadow: 0 4px 5px -2px rgb(148, 168, 236);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 60px;
-}
-#formatConteudoBotao{
-    min-height: 100px;
-    height: auto;
-    width: auto;
-    min-width: 100px;
+#criarMeta{
+    width: 110px;
+    height: 120px;
+    background-color: aqua;  
     display: flex;
     align-items: center;
+    flex-direction: column; 
+    padding: 10px; 
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+}
+.imgAddMeta{
+    padding: 10px;
+}
+
+/* Formatação das caixa despesas e receitas */
+    .tipoMeta{
+        width: 65vw;
+        height: 100px;
+        /* background-color: aqua; */
+        margin-top: 3%;
+        margin-bottom: 30px;
+    }
+    #formatCaixas{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+    }
+    #conteudoMeta{
+        width: 80vw;
+        height: 70vh;
+        /* background-color: aqua; */
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+/* formatação da caixa de despesas */
+
+.despesas{
+    width: 400px;
+    height: 60px;
+    background-color: #2A356A;
+    border-radius: 5px;
+}
+
+.despesas h4{
+    font-size: 1.5em;
+    color: white;
+    display: flex;
     justify-content: center;
+    margin-top: 15px;
+}
+
+.conteudoDespesa{
+    overflow-y: scroll;
+    width: 35vw;
+    height: 67vh;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background-color: rgb(233, 233, 233);
+}
+
+.caixaDespesas{
+    width: 25vw;
+    height: 20vh;
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+}
+.formatImgs{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.formatText{
+    display: flex;
+    flex-direction: column;
+}
+.tituloMeta{
+    display: flex;
+    margin-left: 40%;
+    margin-top: 10px;
+    flex-direction: column;
+}
+.tituloMeta p{
+    margin-left: 45px;
+}
+.editConteudos{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 12px;
+}
+
+ /* Formatacão da caixa de receitas */
+
+ .receita{
+    width: 400px;
+    height: 60px;
+    background-color: #2A356A;
+    border-radius: 5px;
+}
+
+.receita h4{
+    font-size: 1.5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+ 
+.conteudoReceita{
+    width: 35vw;
+    height: 67vh;
+    border-radius: 4px;
+    background-color: rgb(233, 233, 233);
 }
