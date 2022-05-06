@@ -290,10 +290,7 @@ body{
             background-position-x: 95%;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-
-        
+        }      
 
         /* PARTE DO GRAFICO DASHBOARD */
 
@@ -346,3 +343,4 @@ body{
             /* background-color: greenyellow; */
         }
 
+        
