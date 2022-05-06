@@ -8,10 +8,10 @@ body{
 }
 main{
     background-color: white;
-    border-radius:  60px 0px 0px 60px;
+   
 }
 .menu {
-    width: 6%;
+    width: 8%;
     min-width: 150px;
     height: 100vh;
     min-height: 1024px;

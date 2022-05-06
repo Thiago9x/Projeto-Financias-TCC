@@ -5,17 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="img/logo_financas_2.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/extrato.css">
     <title>Royal Finance</title>
 </head>
 <body>
+        <!-- INICIO MENU LATERAL -->
         <div class="menu">
-            <img src="img/flecha.svg" class="flecha"> 
-            <div id="editMenu">
-                <img src="img/extrato.svg" class="formarImg"> 
+
+            <div id="nomeEmpresa">
+            Royal </br>Finance
+            </div>
+
+            <div id="menuList">
+                <ul>
+                    <li class="list">
+                        <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
+                        <label class="on"> Visão Geral </label>
+                    </li>
+
+                    <li>
+                        <img src="img/iconeExtrato.svg" class="img"  width="10px"/> 
+                        <label class="on"> Extratos </label>
+                    </li>
+
+                    <li>
+                        <img src="img/iconeConta.svg" class="img" /> 
+                        <label class="on"> Contas </label>
+                    </li>
+
+                    <li>
+                        <img src="img/iconeMeta.svg" class="img"  width="10px"/> 
+                        <label class="on"> Metas </label>
+                    </li>
+
+                    <li>
+                        <img src="img/iconeGrafico.svg" class="img"/> 
+                        <label class="on"> Gráficos </label>
+                            
+                    </li>
+
+                    <li>
+                        <img src="img/iconeGrupo.svg" class="img"/> 
+                        <label class="on">Grupos</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="perfil">
+                <div id="perfilFoto"></div>
+                <div id="perfilTexto">
+                    <h4 id="branco">Nome Usuario</h4>
+                    <p id="cinza">Ver perfil</p>
+                </div>
             </div>
         </div>
+                        <!-- FIM MENU LATERAL -->
+
+               <!-- INICIO DO SCRIPT PARA A ANIMACAO DO MENU -->
+                <script>
+                    $(`#menuList>ul>li`).click(function(){
+                        $(`#menuList>ul>li`).css("border-left", "none");
+                        $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css({"border-left": "solid 3px #fff", "transition" : "0.1s"});
+                    })
+                </script>
+        <!-- FIM DO SCRIPT PARA A ANIMACAO DO MENU -->
     <main>
         <div id="categorias">
             <h2>Extratos</h2>
