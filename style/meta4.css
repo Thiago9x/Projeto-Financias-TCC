@@ -24,6 +24,7 @@ main{
     background-color: transparent;
     display: flex;
     justify-content: space-between;
+
 }
 
 h2{
@@ -125,7 +126,7 @@ h2{
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 150px;
+    margin-top: 101px;
    
 }
 
