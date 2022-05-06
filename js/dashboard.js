@@ -1,6 +1,6 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
-const token = new URLSearchParams(window.location.search).get('token');
+const token = Cookies.get('token');
 let url = 'http://10.107.144.16:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
@@ -774,4 +774,4 @@ const modalFavoritos = () => {
 }
 
 document.getElementById('favoritosCont').addEventListener('click', modalFavoritos)
-document.getElementById('extratoCont').addEventListener('click', () => { window.location.href = "./extrato.html?k=" + token })
+document.getElementById('extratoCont').addEventListener('click', () => { window.location.href = "./extrato.html"})
