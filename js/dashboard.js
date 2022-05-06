@@ -1,11 +1,12 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
-const token = new URLSearchParams(window.location.search).get('token');
+const token = Cookies.get('token');
 let url = 'http://10.107.144.16:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
-let urlGrafico = 'http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia.value + '/' + yearNow + '/' + monthNow;
+const selectMes = document.getElementById('selectMes');
+document.querySelector('#selectMes > option[value="' + (monthNow + 1) + '"]').selected = true;
 const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
@@ -178,7 +179,7 @@ const modalTransferencia = (transferencia) => {
           <div  id="conteudo3">
             <div>
                 <h4>Observação</h4>
-                <input type="text" placeholder="" maxlength="500" class="obs estilizacao" size="20">
+                <textarea placeholder="" maxlength="500" class="obs estilizacao"></textarea>
                 </div>
           </div>
      </div>
@@ -543,87 +544,123 @@ console.log(fetch(url)
         document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
         document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
 
+
+        updateChart();
+
     })
 );
 
 // GRAFICO PINCIPAL DE BARRA
-const grafico = console.log(fetch(urlGrafico)
-    .then((resposta) => resposta.json())
-    .then((data) => {
-        let labels = [];
-        let dataGrafico = [];
-        let corGrafico = [];
-        Object.entries(data).forEach((categorias) => {
-            let idCategorias = categorias[0];
-            const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
-            labels.push(categoriaDespesas.nome)
-            dataGrafico.push(categorias[1])
-            corGrafico.push('#' + categoriaDespesas.cor)
-        });
-        console.log(labels, dataGrafico, corGrafico)
-        const ctx = document.getElementById('graficoPuro').getContext('2d');
-        const dataChart = {
+const nomeGrafico = () => {
+    let nome = document.getElementById('tituloInfor');
+    nome.innerText = 'Lista de maiores ' + selectTransferencia.value + 's'
+}
+document.getElementById('selectTrans').addEventListener('change', nomeGrafico)
 
-            labels: labels,
-            datasets: [{
 
-                data: dataGrafico,
-                backgroundColor: corGrafico
-            }]
-        };
-        const myChart = new Chart(ctx, {
-            plugins: [ChartDataLabels],
-            type: 'bar',
-            data: dataChart,
-            options: {
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        grid: {
-                            display: false
-                        }
-                    }
-                },
-                indexAxis: 'y',
-                // Elements options apply to all of the options unless overridden in a dataset
-                // In this case, we are setting the border of each horizontal bar to be 2px wide
-                elements: {
-                    bar: {
-                        borderWidth: 2,
-                    }
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                        position: 'right',
-                    },
-                    datalabels: {
-                        color: '#ffffff',
-                        anchor: 'end',
-                        align: 'start',
-                        offset: 24,
-                        font: {
-                            size: '24px',
-                            weight: 'bold'
-                        }
-                    }
+
+const ctx = document.getElementById('graficoPuro').getContext('2d');
+
+const myChart = new Chart(ctx, {
+    plugins: [ChartDataLabels],
+    type: 'bar',
+    data: {
+
+        labels: [],
+        datasets: [{
+
+            data: [],
+            backgroundColor: []
+        }]
+    },
+    options: {
+        scales: {
+            x: {
+                grid: {
+                    display: false
                 }
             },
+            y: {
+                grid: {
+                    display: false
+                }
+            }
+        },
+        indexAxis: 'y',
+        // Elements options apply to all of the options unless overridden in a dataset
+        // In this case, we are setting the border of each horizontal bar to be 2px wide
+        elements: {
+            bar: {
+                borderWidth: 2,
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+                position: 'right',
+            },
+            datalabels: {
+                color: '#ffffff',
+                anchor: 'end',
+                formatter: function (value) {
+                    return "R$ " + formatador.format(value);
+                },
+                align: 'start',
+                offset: 24,
+                font: {
+                    size: '24px',
+                    weight: 'bold'
+                }
+            }
+        }
+    },
+});
+
+const updateChart = () => {
+    fetch('http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia.value + '/' + yearNow + '/' + selectMes.value)
+        .then((resposta) => resposta.json())
+        .then((data) => {
+            let labels = [];
+            let dataGrafico = [];
+            let corGrafico = [];
+
+            Object.entries(data).forEach((categorias) => {
+                let idCategorias = categorias[0];
+                console.log(idCategorias)
+                if (selectTransferencia.value === 'despesa') {
+                    const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
+                    labels.push(categoriaDespesas.nome)
+                    dataGrafico.push(categorias[1])
+                    corGrafico.push('#' + categoriaDespesas.cor)
+                }
+                else if (selectTransferencia.value === 'receita') {
+                    const categoriaReceitas = categoriaReceita.find(categoria => categoria.idCategoria == idCategorias);
+                    labels.push(categoriaReceitas.nome)
+                    dataGrafico.push(categorias[1])
+                    corGrafico.push('#' + categoriaReceitas.cor)
+                }
+
+            });
+
+
+            myChart.data.labels = labels;
+            myChart.data.datasets[0].data = dataGrafico;
+            myChart.data.datasets[0].backgroundColor = corGrafico;
+
+            myChart.update()
+
+            console.log(labels, dataGrafico, corGrafico)
         });
-        chart.update();
+};
 
+selectTransferencia.addEventListener('change', updateChart)
 
+selectMes.addEventListener('change', updateChart)
+// FIM GRAFICO MENSAL
 
-    })
-);
-document
-// grafico inferior de barra 
+// GRAFICO SECUNDARIO
 
 const ctxSecundario = document.querySelector('.card').getContext('2d');
 const dataSecundario = {
@@ -695,6 +732,7 @@ const myChartSecundario = new Chart(ctxSecundario, {
     },
 });
 
+// FIM GRAFICO SECUNDARIO
 
 
 //MODAL FAVORITOS
@@ -736,4 +774,4 @@ const modalFavoritos = () => {
 }
 
 document.getElementById('favoritosCont').addEventListener('click', modalFavoritos)
-document.getElementById('extratoCont').addEventListener('click', () => { window.location.href = "./extrato.html?k=" + token })
+document.getElementById('extratoCont').addEventListener('click', () => { window.location.href = "./extrato.html"})

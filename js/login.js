@@ -35,7 +35,8 @@ const Login = () => {
             .then((data) => {
                 if (data.status === Status.OK) {
                     if(data.found === true){
-                        window.location.href='../dashboard.html?token='+ data.token
+                        Cookies.set('token', data.token);
+                        window.location.href='../dashboard.html';
 
                     }
                 }
