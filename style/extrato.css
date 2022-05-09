@@ -6,35 +6,7 @@ body{
     height: 100vh;
     width: 100%;
 }
-main{
-    background-color: white;
-   
-}
-.menu {
-    width: 8%;
-    min-width: 150px;
-    height: 100vh;
-    min-height: 1024px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--cor-Principal);
-}
-#editMenu{
-    width: 100px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 370%;
-}
-.flecha{
-    width: 30px;
-    margin-left: 15px;
-    margin-top: 18px;
-}
-.formarImg{
-    width: 90px;
-}
+
 main{
     height: 100%;
     width: 100%;
@@ -42,7 +14,7 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-   
+    background-color: white;
 }
 #categorias{
     width: 85%;
@@ -102,7 +74,6 @@ select{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex-flow: row wrap;
     border-radius: 10px;
 }
 
@@ -116,6 +87,7 @@ select{
 .containerImagem{
     width: 20%;
     height: 100%;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,9 +114,12 @@ select{
     color: #999999;
 }
 
-.textValor{
-
+.vermelho{
     color: #E70000;
+}
+
+.verde {
+    color: #32A40A;
 }
 
 .dataFormatacao{
@@ -153,12 +128,13 @@ select{
     height: 100%;
     display: flex;
     justify-content: end;
+    text-align: center;
     align-items: center;
     padding-right: 30px;
     color: #CCCCCC;
 }
 .caixa1{
-    width: 75%;
+    width: 95%;
     height: 140px;
     background-color: white;
     margin-top: 45px;

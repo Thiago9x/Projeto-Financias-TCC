@@ -7,7 +7,7 @@ const yearNow = new Date().getUTCFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow + 1) + '"]').selected = true;
-const ws = new WebSocket('ws://10.107.144.16:8080/royal/dashboard/' + token);
+const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
 
