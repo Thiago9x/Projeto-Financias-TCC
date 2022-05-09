@@ -1,14 +1,11 @@
-document.getelementbyid('menuDash').
-addEventListener('click', () => {window.location.href='../dashboard.html'});
+document.getElementById('menuDash').addEventListener('click', () => {window.location.href='../dashboard.html'});
 
-document.getelementbyid('menuExtratos').
-addEventListener('click', () => {window.location.href='../extrato.html'});
+document.getElementById('menuExtratos').addEventListener('click', () => {window.location.href='../extrato.html'});
 
-document.getelementbyid('menuMetas').
-addEventListener('click', () => {window.location.href='../dashboardMeta.html'});
+document.getElementById('menuMetas').addEventListener('click', () => {window.location.href='../dashboardMeta.html'});
 
-document.getelementbyid('menuGraficos').
-addEventListener('click', () => {window.location.href='../graficos.html'});
+document.getElementById('menuContas').addEventListener('click', () => {window.location.href='../contas.html'});
 
-document.getelementbyid('menuGrupos').
-addEventListener('click', () => {window.location.href='../grupo.html'});
+document.getElementById('menuGraficos').addEventListener('click', () => {window.location.href='../graficos.html'});
+
+document.getElementById('menuGrupos').addEventListener('click', () => {window.location.href='../grupo.html'});

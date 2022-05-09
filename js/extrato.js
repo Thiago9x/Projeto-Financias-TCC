@@ -2,7 +2,7 @@
 const monthNow = new Date().getUTCMonth() + 1;
 const yearNow = new Date().getUTCFullYear();
 const token = Cookies.get('token');
-const url = 'http://10.107.144.16:8080/royal/data/' + token + '/extrato-mes?ano=' + yearNow + '&mes=' + monthNow;
+const url = 'http://10.107.144.11:8080/royal/data/' + token + '/extrato-mes?ano=' + yearNow + '&mes=' + monthNow;
 
 console.log(fetch(url)
     .then((resposta) => resposta.json())
