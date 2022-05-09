@@ -1,14 +1,14 @@
 document.getelementbyid('menuDash').
-addEventListener('click', () => {window.locatio.href='../dashboard.html'});
+addEventListener('click', () => {window.location.href='../dashboard.html'});
 
 document.getelementbyid('menuExtratos').
-addEventListener('click', () => {window.locatio.href='../extrato.html'});
+addEventListener('click', () => {window.location.href='../extrato.html'});
 
 document.getelementbyid('menuMetas').
-addEventListener('click', () => {window.locatio.href='../dashboardMeta.html'});
+addEventListener('click', () => {window.location.href='../dashboardMeta.html'});
 
 document.getelementbyid('menuGraficos').
-addEventListener('click', () => {window.locatio.href='../graficos.html'});
+addEventListener('click', () => {window.location.href='../graficos.html'});
 
 document.getelementbyid('menuGrupos').
-addEventListener('click', () => {window.locatio.href='../grupo.html'});
+addEventListener('click', () => {window.location.href='../grupo.html'});
