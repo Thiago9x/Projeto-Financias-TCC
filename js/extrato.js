@@ -34,4 +34,3 @@ console.log(fetch(url)
         }
     })
 );
-
