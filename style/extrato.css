@@ -187,3 +187,7 @@ select{
     border: 3px solid whitesmoke;
   }
 
+#menuExtratos{
+    border-left: solid 3px #fff;
+    transition : 0.1s;
+}

@@ -341,4 +341,7 @@ select{
     background-color: #FFF;
 }
 
-
+#menuGraficos{
+    border-left: solid 3px #fff;
+    transition : 0.1s;
+}

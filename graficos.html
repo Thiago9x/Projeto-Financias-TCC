@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo_financas_2.svg">
-    <script type="text/javascript" src="" defer></script>
-    <script src="./js/jqueryMenu.js"></script>
     <script src="/js/menuBar.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
@@ -31,7 +29,7 @@
 
             <div id="menuList">
                 <ul>
-                    <li class="list" id="menuDash">
+                    <li id="menuDash">
                         <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
                         <label class="on"> Visão Geral </label>
                     </li>
@@ -72,17 +70,6 @@
             </div>
         </div>
                         <!-- FIM MENU LATERAL -->
-
-                <!-- INICIO DO SCRIPT PARA A ANIMACAO DO MENU -->
-                    <script>
-                        $(`#menuList>ul>li`).click(function(){
-                            $(`#menuList>ul>li`).css("border-left", "none");
-                            $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css({"border-left": "solid 3px #fff", "transition" : "0.1s"});
-                        })
-                    </script>
-                <!-- FIM DO SCRIPT PARA A ANIMACAO DO MENU -->
-
-    
                 <!-- INICIO CONTEUDO Grafico -->
                 <main>
                     <div id="PrimeiraCaixa">

@@ -522,3 +522,8 @@ select {
     display: flex;
     justify-content: end;
 }
+
+#menuContas{
+    border-left: solid 3px #fff;
+    transition : 0.1s;
+}

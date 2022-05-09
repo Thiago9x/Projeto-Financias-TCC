@@ -379,12 +379,6 @@ select {
     margin-top: 2px;
     background-color: #32A40A;
 }
-
-.meioAmeio{
-
-    
-}
-
 .icone{
     width: 10%;
     height: 100%;
@@ -732,4 +726,7 @@ select {
             /* background-color: greenyellow; */
         }
 
-        
+        #menuDash{
+            border-left: solid 3px #fff;
+            transition : 0.1s;
+        }
