@@ -10,6 +10,7 @@ body{
     height: auto;
     background-color: whitesmoke ;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 main{
@@ -207,7 +208,6 @@ h1{
     flex-direction: column;
     background-color: rgb(233, 233, 233);
 }
-<<<<<<< HEAD
 .caixaReceita{
     min-width: 100px;
     width: 620px;
@@ -228,10 +228,8 @@ h1{
     /* background-color: #2A356A; */
     margin-left: 12px;
 }
-=======
 
 #menuMetas{
     border-left: solid 3px #fff;
     transition : 0.1s;
 }
->>>>>>> 6cde9985744f67aec0156b4e1fccf8665a3994bb
