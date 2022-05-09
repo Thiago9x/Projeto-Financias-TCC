@@ -8,6 +8,7 @@ body {
 main {
     width: 100%;
     height: 100%;
+    min-width: 1250px;
     background-color: rgb(235, 235, 235);
     display: flex;
     justify-content: space-evenly;
@@ -386,12 +387,12 @@ select {
     width: 80%;
     height: 4%;
     min-height: 20px;
-    min-width: 100px;
+    min-width: 20px;
     margin-left: 50px;
     border-radius: 8px;
     background-color: #3C9E1A;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
     text-align: center;
     padding: 10px;
@@ -459,28 +460,31 @@ select {
     width: 90%;
     height: 20%;
     margin-left: 16px;
+
 }
 
 .conteudoContainerMenor {
     width: inherit;
     height: 100%;
     display: flex;
-    min-width: 110px;
+    min-width: 100px;
 
 }
 
 .cardImagem {
-    width: 20%;
+    width: 5%;
     height: 100%;
     display: flex;
+    min-width: 55px;
     justify-content: center;
     align-items: center;
-
+    
 }
 
 .tituloAssociado {
     width: 25%;
     height: 100%;
+    min-width: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -491,14 +495,23 @@ select {
 
 .valor {
 
-    width: 40%;
+    width: 75%;
     height: 100%;
+    min-width: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
     font-weight: 500;
     color: #858585;
+}
+@media screen and (min-width: 50px)
+{
+    .valor{
+      
+     
+      margin-left: 50px;
+    }
 }
 
 .editXis {
@@ -508,4 +521,9 @@ select {
     margin-left: -15px;
     display: flex;
     justify-content: end;
+}
+
+#menuContas{
+    border-left: solid 3px #fff;
+    transition : 0.1s;
 }

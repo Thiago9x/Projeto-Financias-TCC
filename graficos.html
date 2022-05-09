@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo_financas_2.svg">
-    <script type="text/javascript" src="" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/menuBar.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <script type="text/javascript" src="js/dashboard.js" defer></script>
@@ -30,33 +29,33 @@
 
             <div id="menuList">
                 <ul>
-                    <li class="list">
+                    <li id="menuDash">
                         <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
                         <label class="on"> Visão Geral </label>
                     </li>
 
-                    <li>
+                    <li id="menuExtratos">
                         <img src="img/iconeExtrato.svg" class="img"  width="10px"/> 
                         <label class="on"> Extratos </label>
                     </li>
 
-                    <li>
+                    <li id="menuContas">
                         <img src="img/iconeConta.svg" class="img" /> 
                         <label class="on"> Contas </label>
                     </li>
 
-                    <li>
+                    <li id="menuMetas">
                         <img src="img/iconeMeta.svg" class="img"  width="10px"/> 
                         <label class="on"> Metas </label>
                     </li>
 
-                    <li>
+                    <li id="menuGraficos">
                         <img src="img/iconeGrafico.svg" class="img"/> 
                         <label class="on"> Gráficos </label>
                             
                     </li>
 
-                    <li>
+                    <li id="menuGrupos">
                         <img src="img/iconeGrupo.svg" class="img"/> 
                         <label class="on">Grupos</label>
                     </li>
@@ -71,17 +70,6 @@
             </div>
         </div>
                         <!-- FIM MENU LATERAL -->
-
-                <!-- INICIO DO SCRIPT PARA A ANIMACAO DO MENU -->
-                    <script>
-                        $(`#menuList>ul>li`).click(function(){
-                            $(`#menuList>ul>li`).css("border-left", "none");
-                            $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css({"border-left": "solid 3px #fff", "transition" : "0.1s"});
-                        })
-                    </script>
-                <!-- FIM DO SCRIPT PARA A ANIMACAO DO MENU -->
-
-    
                 <!-- INICIO CONTEUDO Grafico -->
                 <main>
                     <div id="PrimeiraCaixa">

@@ -1,7 +1,7 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
 const token = Cookies.get('token');
-let url = 'http://10.107.144.16:8080/royal/data/' + token;
+let url = 'http://10.107.144.11:8080/royal/data/' + token;
 const monthNow = new Date().getUTCMonth();
 const yearNow = new Date().getUTCFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
@@ -619,7 +619,7 @@ const myChart = new Chart(ctx, {
 });
 
 const updateChart = () => {
-    fetch('http://10.107.144.16:8080/royal/grafico/' + token + '/' + selectTransferencia.value + '/' + yearNow + '/' + selectMes.value)
+    fetch('http://10.107.144.11:8080/royal/grafico/' + token + '/' + selectTransferencia.value + '/' + yearNow + '/' + selectMes.value)
         .then((resposta) => resposta.json())
         .then((data) => {
             let labels = [];

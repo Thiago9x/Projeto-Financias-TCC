@@ -90,7 +90,7 @@ const fazerCadastro = () => {
     
     var senhaFinal = senhaCadastrovalue;
     
-    let url = 'http://10.107.144.16:8080/royal/cadastro';
+    let url = 'http://10.107.144.11:8080/royal/cadastro';
     
         console.log(fetch(url, {method: 'POST', headers: {
             'content-type': 'application/json', 
