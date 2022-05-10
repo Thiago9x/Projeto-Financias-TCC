@@ -62,7 +62,7 @@ select{
 .formatSelect option {
     height: 50px;
     width: 50px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 #conteudo{
@@ -93,7 +93,11 @@ select{
     align-items: center;
 
 }
-
+#anoAtual{
+    color: #ffff;
+    font-size: 1.2em;
+    text-align: center;
+}
 .containerText{
 
     width: 40%;
@@ -166,4 +170,57 @@ select{
 #menuExtratos{
     border-left: solid 3px #fff;
     transition : 0.1s;
+}
+
+#anoAtual{
+    height: 40px;
+    width: 270px;
+    /* background-color: #E70000; */
+    display: flex;
+}
+/* input de ano  */
+input[type="number"] {
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+  }
+  input[type="number"]{
+
+  height: 36px;
+
+  background-color: #2A356A;
+  color: white;
+    font-size: larger;
+    border-bottom-right-radius:0px ;
+    border-top-right-radius: 0px;
+    text-align: center;
+    padding-left: 30px;
+    outline: none;
+  }
+  label, input, button {
+      font-size: inherit;
+
+      -moz-box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+  }
+  button{
+  height:40px;
+
+  background-color: #2A356A;
+  border: none;
+  padding-left:2%;
+  padding-right:4%;
+  outline:none;
+  cursor: pointer;
+  color: white;
+
+  }
+.b{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }

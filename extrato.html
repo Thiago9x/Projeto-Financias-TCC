@@ -5,17 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="img/logo_financas_2.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
-=======
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
->>>>>>> Stashed changes
     <script src="/js/extrato.js" defer></script>
     <script src="/js/menuBar.js" defer></script>
     <script src="/js/js.cookie.min.js"></script>
-<<<<<<< Updated upstream
-=======
     <link rel="stylesheet" href="./font/icon.css">
->>>>>>> Stashed changes
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/extrato.css">
     <title>Royal Finance</title>
@@ -71,47 +65,31 @@
             </div>
         </div>
                         <!-- FIM MENU LATERAL -->
-<<<<<<< Updated upstream
-=======
-
-
-               <!-- INICIO DO SCRIPT PARA A ANIMACAO DO MENU -->
-                <script>
-                    $(`#menuList>ul>li`).click(function(){
-                        $(`#menuList>ul>li`).css("border-left", "none");
-                        $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css({"border-left": "solid 3px #fff", "transition" : "0.1s"});
-                    })
-                </script>
-        <!-- FIM DO SCRIPT PARA A ANIMACAO DO MENU -->
->>>>>>> Stashed changes
     <main>
         <div id="categorias">
             <h2>Extratos</h2>
             <div id="paiSelect">
-            <select class="formatSelect">
-                <option>MÊS</option>
-                <option>Janeiro</option>
-                <option>Fevereiro</option>
-                <option>Março</option>
-                <option>Abril</option>
-                <option>Maio</option>
-                <option>Junho</option>
-                <option>Julho</option>
-                <option>Agosto</option>
-                <option>Setembro</option>
-                <option>Outubro</option>
-                <option>Novembro</option>
-                <option>Dezembro</option>
+            <select class="formatSelect" id="selectMes">
+                <option value="1">JANEIRO</option>
+                <option value="2">FEVEREIRO</option>
+                <option value="3">MARÇO</option>
+                <option value="4">ABRIL</option>
+                <option value="5">MAIO</option>
+                <option value="6">JUNHO</option>
+                <option value="7">JULHO</option>
+                <option value="8">AGOSTO</option>
+                <option value="9">SETEMBRO</option>
+                <option value="10">OUTUBRO</option>
+                <option value="11">NOVEMBRO</option>
+                <option value="12">DEZEMBRO</option>
             </select>
-            <select class="formatSelect">
-                <option>ANO</option>
-                <option>teste</option>
-              </select>
-              <select class="formatSelect">
-                <option>CATEGORIA</option>
-                <option>teste</option>
-                <option>teste</option>
-                <option>teste</option>
+            <div id="anoAtual">
+                <input min=0 max="9999" id="total" type="number"><button onclick="menos()" class="a">-</button><button onclick="mais()" class="b">+</button>
+            </div>
+              
+              <select class="formatSelect" id="selectCat">
+                <option selected value="" disabled>CATEGORIA</option>
+                
               </select>
             </div>
         </div>

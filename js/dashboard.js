@@ -514,6 +514,7 @@ const modalTransferencia = (transferencia) => {
                 nomeFrequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria
             }));
             fecharModal();
+            updateChart();
         }
     }
 
