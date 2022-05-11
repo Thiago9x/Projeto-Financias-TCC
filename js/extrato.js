@@ -53,9 +53,12 @@ const getShortMonthName = function (date) {
     return monthNames[date.getMonth()].substring(0, 3);
 }
 const extratos = () => {
-
-
-    const url = 'http://10.107.144.11:8080/royal/data/' + token + '/extrato-mes?ano=' + atual.value + '&mes=' + selectMes.value;
+    let url = 'http://10.107.144.11:8080/royal/data/' + token + '/extrato-mes?ano=' + atual.value + '&mes=' + selectMes.value ;
+    if(selectCat.value > 0){
+        url = url + '&cat=' + selectCat.value;
+        console.log(url)
+    }
+    
     const boxConteudo = document.querySelector('#conteudo');
     boxConteudo.innerHTML = '';
 

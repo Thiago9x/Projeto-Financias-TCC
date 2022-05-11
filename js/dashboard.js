@@ -10,7 +10,12 @@ document.querySelector('#selectMes > option[value="' + (monthNow + 1) + '"]').se
 const ws = new WebSocket('ws://10.107.144.11:8080/royal/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
-
+const monthNames = ["Janeiro", "Feevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
+];
+const getNameMonth = function (date) {
+    return monthNames[date.getMonth()];
+}
 const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 //FECHAR MODAIS E ENVIAR INFORMACOES PARA A DASHBOARD
@@ -667,6 +672,11 @@ const ctxSecundario = document.querySelector('.card').getContext('2d');
 fetch(urlSec)
         .then((resposta) => resposta.json())
         .then((data) => {console.log(data)
+        const saldoMensal = document.getElementById('saldoMesValor');
+        saldoMensal.innerText = 'R$ '+formatador.format(data.saldo);
+        const saldoMensalTXT = document.getElementById('saldo-mensal');
+        saldoMensalTXT.innerText = 'Saldo Mensal';
+        
 const dataSecundario = {
     labels: ['Receitas', 'Despesas'],
     datasets: [{
@@ -716,13 +726,14 @@ const myChartSecundario = new Chart(ctxSecundario, {
             },
             title: {
                 display: true,
-                text: 'Grafico de Despesa e Receita do mês atual',
+                text: 'Grafico de Despesa e Receita do mês de ' + getNameMonth((new Date())),
                 font: { weight: 'bold', size: '16em' },
                 align: 'start',
                 color: 'black',
                 padding: '10'
             },
             datalabels: {
+                display: false,
                 color: '#000000',
                 anchor: 'end',
                 formatter: function (value) {
