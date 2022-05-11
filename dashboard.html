@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,303 +17,308 @@
     <link rel="stylesheet" href="./font/icon.css">
     <script src="js/modal.js"></script>
     <script src="js/js.cookie.min.js"></script>
-    <script src="js/chart.js"></script> 
+    <script src="js/chart.js"></script>
     <script src="js/chart-plugin-datalabels.js"></script>
     <title>Royal Finance</title>
 </head>
-    <html>
-        <body>
+<html>
 
-                         <!-- INICIO MENU LATERAL -->
-        <div class="menu">
+<body>
 
-            <div id="nomeEmpresa">
+    <!-- INICIO MENU LATERAL -->
+    <div class="menu">
+
+        <div id="nomeEmpresa">
             Royal </br>Finance
-            </div>
+        </div>
 
-            <div id="menuList">
-                <ul>
-                    <li id="menuDash">
-                        <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
-                        <label class="on"> Visão Geral </label>
-                    </li>
+        <div id="menuList">
+            <ul>
+                <li id="menuDash">
+                    <img src="img/iconeCasinha.svg" class="img" width="10px" />
+                    <label class="on"> Visão Geral </label>
+                </li>
 
-                    <li id="menuExtratos">
-                        <img src="img/iconeExtrato.svg" class="img"  width="10px"/> 
-                        <label class="on"> Extratos </label>
-                    </li>
+                <li id="menuExtratos">
+                    <img src="img/iconeExtrato.svg" class="img" width="10px" />
+                    <label class="on"> Extratos </label>
+                </li>
 
-                    <li id="menuContas">
-                        <img src="img/iconeConta.svg" class="img" /> 
-                        <label class="on"> Contas </label>
-                    </li>
+                <li id="menuContas">
+                    <img src="img/iconeConta.svg" class="img" />
+                    <label class="on"> Contas </label>
+                </li>
 
-                    <li id="menuMetas">
-                        <img src="img/iconeMeta.svg" class="img"  width="10px"/> 
-                        <label class="on"> Metas </label>
-                    </li>
+                <li id="menuMetas">
+                    <img src="img/iconeMeta.svg" class="img" width="10px" />
+                    <label class="on"> Metas </label>
+                </li>
 
-                    <li id="menuGraficos">
-                        <img src="img/iconeGrafico.svg" class="img"/> 
-                        <label class="on"> Gráficos </label>
-                            
-                    </li>
+                <li id="menuGraficos">
+                    <img src="img/iconeGrafico.svg" class="img" />
+                    <label class="on"> Gráficos </label>
 
-                    <li id="menuGrupos">
-                        <img src="img/iconeGrupo.svg" class="img"/> 
-                        <label class="on">Grupos</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="perfil">
-                <div id="perfilFoto"></div>
-                <div id="perfilTexto">
-                    <h4 id="branco">Nome Usuario</h4>
-                    <p id="cinza">Ver perfil</p>
-                </div>
+                </li>
+
+                <li id="menuGrupos">
+                    <img src="img/iconeGrupo.svg" class="img" />
+                    <label class="on">Grupos</label>
+                </li>
+            </ul>
+        </div>
+        <div class="perfil">
+            <div id="perfilFoto"></div>
+            <div id="perfilTexto">
+                <h4 id="branco">Nome Usuario</h4>
+                <p id="cinza">Ver perfil</p>
             </div>
         </div>
-                        <!-- FIM MENU LATERAL -->
+    </div>
+    <!-- FIM MENU LATERAL -->
 
-                <!-- INICIO CONTEUDO DASHBOARD -->
+    <!-- INICIO CONTEUDO DASHBOARD -->
 
-                <main>
-                    <div id="acessoRapido">
+    <main>
+        <div id="acessoRapido">
 
-                        <div class="divideAcesso">
-                            <div id="saudacao">
-                               <label id="clima">Boa tarde, </label>
-                               <label id="nomeCliente">nomedaPessoa</label>
-                            </div>
+            <div class="divideAcesso">
+                <div id="saudacao">
+                    <label id="clima">Boa tarde, </label>
+                    <label id="nomeCliente">nomedaPessoa</label>
+                </div>
 
-                            <div id="informacoes">
-                                <div class="divisaoInformacoes">
-                                    <div class="campoInf">
-                                        <img src="img/receitaImg.svg" width="60%" height="40%" class="formImg">
-                                        <div id="conteudo33">
+                <div id="informacoes">
+                    <div class="divisaoInformacoes">
+                        <div class="campoInf">
+                            <img src="img/receitaImg.svg" width="60%" height="40%" class="formImg">
+                            <div id="conteudo33">
 
-                                            <div class="sobreConteudo">
-                                                 Receita 
-                                            </div>
- 
-                                            <div class="valorConteudo" id="receita">
-                                             
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    
+                                <div class="sobreConteudo">
+                                    Receita
                                 </div>
 
-                                <div class="divisaoInformacoes">
-
-                                    <div class="campoInf1">
-                                        <img src="img/saldoImg.svg" class="formImg1">
-                                       <div id="conteudo33">
-                                       
-                                           <div class="sobreConteudo">
-                                                Saldo
-                                           </div>
-
-                                           <div class="valorConteudo" id="saldoGeral">
-                                            
-                                           </div>
-                                       </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="divisaoInformacoes">
-                                    
-                                    <div class="campoInf">
-                                        <img src="img/despesaImg.svg"  width="60%" height="40%" class="formImg"> 
-                                        <div id="conteudo33">
-                                            
-                                            <div class="sobreConteudo">
-                                                 Despesa 
-                                            </div>
- 
-                                            <div class="valorConteudo" id="despesa">
-                                             
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="valorConteudo" id="receita">
 
                                 </div>
                             </div>
                         </div>
-                        <DIV id="linha"></DIV>
-                        <!-- ACESSO RAPIDO  -->
-                        <div class="divideAcesso1">
-                            
-                           <div id="saudacao1">
-                               Acesso rápido
-                           </div>
-                           <div id="informacoes1">
 
-                                <div class="divAceInf">
-                                  <div class="cont" id="receitaCont">
 
-                                        <div class="titutoInf">
-                                            RECEITAS
-                                        </div>
-
-                                        <div class="imagem">
-                                            <img src="img/adicionar.svg">
-                                        </div>
-
-                                  </div>
-                                </div>
-                                <div class="divAceInf">
-                                    <div class="cont" id="favoritosCont">
-
-                                        <div class="titutoInf">
-                                            FAVORITOS
-                                        </div>
-
-                                        <div class="imagem">
-                                            <img src="img/estrela.svg">
-                                        </div>
-
-                                  </div>
-                                </div>
-                                <div class="divAceInf">
-                                    <div class="cont" id="despesaCont">
-
-                                        <div class="titutoInf">
-                                           DESPESAS
-                                        </div>
-
-                                        <div class="imagem">
-                                            <img src="img/diminuir.svg" >
-                                        </div>
-
-                                  </div>
-                                </div>
-                                <div class="divAceInf">
-                                    <div class="cont" id="extratoCont">
-
-                                        <div class="titutoInf">
-                                            EXTRATOS
-                                        </div>
-
-                                        <div class="imagem">
-                                            <img src="img/extratoAzul.svg" >
-                                        </div>
-
-                                  </div>
-                                </div>
-
-                           </div>
-                        </div>
-                 
                     </div>
 
-                    <!-- GRÁFICO -->
-                    <div id="graficoPrincipal">
+                    <div class="divisaoInformacoes">
 
-                        <!-- SELECTS E TITULO -->
+                        <div class="campoInf1">
+                            <img src="img/saldoImg.svg" class="formImg1">
+                            <div id="conteudo33">
 
-                        <div id="campoSelects">
+                                <div class="sobreConteudo">
+                                    Saldo
+                                </div>
 
-                            <!-- TITULO -->
+                                <div class="valorConteudo" id="saldoGeral">
 
-                            <div id="tituloSelect">
+                                </div>
+                            </div>
+                        </div>
 
-                                <span id="tituloInfor">
-                                    Lista de maiores despesas
-                                </span>
+                    </div>
 
+                    <div class="divisaoInformacoes">
+
+                        <div class="campoInf">
+                            <img src="img/despesaImg.svg" width="60%" height="40%" class="formImg">
+                            <div id="conteudo33">
+
+                                <div class="sobreConteudo">
+                                    Despesa
+                                </div>
+
+                                <div class="valorConteudo" id="despesa">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <DIV id="linha"></DIV>
+            <!-- ACESSO RAPIDO  -->
+            <div class="divideAcesso1">
+
+                <div id="saudacao1">
+                    Acesso rápido
+                </div>
+                <div id="informacoes1">
+
+                    <div class="divAceInf">
+                        <div class="cont" id="receitaCont">
+
+                            <div class="titutoInf">
+                                RECEITAS
                             </div>
 
-                            <!-- SELECTS -->
-
-                            <div id="selects">
-                                <div id="campoSelect">
-
-                                        <select class="formaSelect" id="selectMes">
-                                            <option selected value="" disabled>MES</option>
-                                            <option value="1">Janeiro</option>
-                                            <option value="2">Fevereiro</option>
-                                            <option value="3">Março</option>
-                                            <option value="4">Abril</option>
-                                            <option value="5">Maio</option>
-                                            <option value="6">Junho</option>
-                                            <option value="7">Julho</option>
-                                            <option value="8">Agosto</option>
-                                            <option value="9">Setembro</option>
-                                            <option value="10">Outubro</option>
-                                            <option value="11">Novembro</option>
-                                            <option value="12">Dezembro</option>                         
-                                        </select>
-                        
-
-                                        <select class="formaSelect" id="selectTrans">
-                                            <option  value="receita">Receitas</option>
-                                            <option selected value="despesa">Despesas</option>                         
-                                        </select>
-                                    
-                                
-                                </div>
+                            <div class="imagem">
+                                <img src="img/adicionar.svg">
                             </div>
 
                         </div>
-
-                        <!-- GRÁFICO PURO -->
-
-                        <canvas id="graficoPuro">
-                            
-                            
-                        </canvas>
-                        
                     </div>
-                        <!-- INFORMACOES ADICIONAIS -->
-                        <div id="infAdicionais">
-                            <div class="cardInf">
+                    <div class="divAceInf">
+                        <div class="cont" id="favoritosCont">
 
-                                <canvas class="card">
-
-                                </canvas>
-
+                            <div class="titutoInf">
+                                FAVORITOS
                             </div>
-                            <div class="cardInf1">
 
-                                <div class="card1">
-                                    <h4 class="titulo">Despesas pendentes</h4>
+                            <div class="imagem">
+                                <img src="img/estrela.svg">
+                            </div>
 
-                                    <div class="despesaPendente">
+                        </div>
+                    </div>
+                    <div class="divAceInf">
+                        <div class="cont" id="despesaCont">
 
-                                        <div class="meioAmeio">
+                            <div class="titutoInf">
+                                DESPESAS
+                            </div>
 
-                                        </div>
+                            <div class="imagem">
+                                <img src="img/diminuir.svg">
+                            </div>
 
-                                        <!-- <div class="icone">
+                        </div>
+                    </div>
+                    <div class="divAceInf">
+                        <div class="cont" id="extratoCont">
+
+                            <div class="titutoInf">
+                                EXTRATOS
+                            </div>
+
+                            <div class="imagem">
+                                <img src="img/extratoAzul.svg">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- GRÁFICO -->
+        <div id="graficoPrincipal">
+
+            <!-- SELECTS E TITULO -->
+
+            <div id="campoSelects">
+
+                <!-- TITULO -->
+
+                <div id="tituloSelect">
+
+                    <span id="tituloInfor">
+                        Lista de maiores despesas
+                    </span>
+
+                </div>
+
+                <!-- SELECTS -->
+
+                <div id="selects">
+                    <div id="campoSelect">
+
+                        <select class="formaSelect" id="selectMes">
+                            <option selected value="" disabled>MES</option>
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+
+
+                        <select class="formaSelect" id="selectTrans">
+                            <option value="receita">Receitas</option>
+                            <option selected value="despesa">Despesas</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICO PURO -->
+
+            <canvas id="graficoPuro">
+
+
+            </canvas>
+
+        </div>
+        <!-- INFORMACOES ADICIONAIS -->
+        <div id="infAdicionais">
+            <div class="cardInf">
+                <div id="graf2">
+                    <canvas class="card">
+                        
+                    </canvas>
+                </div>
+                <div id="saldoMes">
+
+                </div>
+            </div>
+            <div class="cardInf1">
+
+                <div class="card1">
+                    <h4 class="titulo">Despesas pendentes</h4>
+
+                    <div class="despesaPendente">
+
+                        <div class="meioAmeio">
+
+                        </div>
+
+                        <!-- <div class="icone">
                                             <div class="icons">
                                                 noise_control_off
                                             </div>
                                         </div> -->
-                                    </div>
-
- 
-                                   
-                                </div>
-
-                            </div>
-                        </div>
-
-                    
+                    </div>
 
 
-                </main>
 
-           
-            
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+
+
 
     <div id="modalGigante">
         <div>
-            
+
         </div>
     </div>
 
-    </body>
+</body>
+
 </html>

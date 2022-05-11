@@ -10,8 +10,41 @@ const token = Cookies.get('token');
 const urlCat = 'http://10.107.144.11:8080/royal/data/' + token + '/categorias';
 let categoriaDespesa;
 let categoriaReceita;
+console.log(fetch(urlCat)
+    .then((resposta) => resposta.json())
+    .then((data1) => {
+        categoriaReceita = data1.receitas;
+        categoriaDespesa = data1.despesas;
+        let validacaoCat = false;
+        if (validacaoCat === false) {
+
+            const selectCat = document.getElementById("selectCat");
+            const optionReceita = document.createElement('optgroup')
+            optionReceita.label = "Receitas"
+            const optionDespesa = document.createElement('optgroup')
+            optionDespesa.label = 'Despesas'
+            categoriaReceita.forEach(categoria => {
+                const option = document.createElement("option");
+                option.value = categoria.idCategoria;
+                option.innerText = categoria.nome;
+
+                optionReceita.appendChild(option);
+
+            })
 
 
+            categoriaDespesa.forEach(categoria => {
+                const option = document.createElement("option");
+                option.value = categoria.idCategoria;
+                option.innerText = categoria.nome;
+
+                optionDespesa.appendChild(option);
+            })
+            selectCat.append(optionReceita, optionDespesa);
+            validacaoCat = true;
+        }
+    })
+)
 const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const monthNames = ["Janeiro", "Feevereiro", "Março", "Abril", "Maio", "Junho",
     "Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
@@ -25,57 +58,30 @@ const extratos = () => {
     const url = 'http://10.107.144.11:8080/royal/data/' + token + '/extrato-mes?ano=' + atual.value + '&mes=' + selectMes.value;
     const boxConteudo = document.querySelector('#conteudo');
     boxConteudo.innerHTML = '';
-    console.log(fetch(urlCat)
+
+    fetch(url)
         .then((resposta) => resposta.json())
-        .then((data1) => {
-            categoriaReceita = data1.receitas;
-            categoriaDespesa = data1.despesas;
-            fetch(url)
-                .then((resposta) => resposta.json())
-                .then((data2) => {
-                    let categoria;
-                    console.log(data2)
-                    const selectCat = document.getElementById("selectCat");
-                    const optionReceita = document.createElement('optgroup')
-                    optionReceita.label = "Receitas"
-                    const optionDespesa = document.createElement('optgroup')
-                    optionDespesa.label = 'Despesas'
-                    categoriaReceita.forEach(categoria => {
-                        const option = document.createElement("option");
-                        option.value = categoria.idCategoria;
-                        option.innerText = categoria.nome;
+        .then((data2) => {
+            let categoria;
+            console.log(data2)
 
-                        optionReceita.appendChild(option);
+            for (let i = 0; i < data2.length; i++) {
+                let descricao = data2[i].descricao;
+                let idcategoria = data2[i].categoria;
+                let valor = data2[i].valor;
+                let cor;
+                let mesData = getShortMonthName(new Date(data2[i].data));
 
-                    })
+                if (valor < 0) {
+                    categoria = categoriaDespesa.find(categor => idcategoria == categor.idCategoria);
+                    cor = "vermelho";
+                }
+                else if (valor > 0) {
+                    categoria = categoriaReceita.find(categor => idcategoria == categor.idCategoria);
+                    cor = "verde";
+                }
 
-
-                    categoriaDespesa.forEach(categoria => {
-                        const option = document.createElement("option");
-                        option.value = categoria.idCategoria;
-                        option.innerText = categoria.nome;
-
-                        optionDespesa.appendChild(option);
-                    })
-                    selectCat.append(optionReceita, optionDespesa);
-
-                    for (let i = 0; i < data2.length; i++) {
-                        let descricao = data2[i].descricao;
-                        let idcategoria = data2[i].categoria;
-                        let valor = data2[i].valor;
-                        let cor;
-                        let mesData = getShortMonthName(new Date(data2[i].data));
-
-                        if (valor < 0) {
-                            categoria = categoriaDespesa.find(categor => idcategoria == categor.idCategoria);
-                            cor = "vermelho";
-                        }
-                        else if (valor > 0) {
-                            categoria = categoriaReceita.find(categor => idcategoria == categor.idCategoria);
-                            cor = "verde";
-                        }
-
-                        boxConteudo.innerHTML += `
+                boxConteudo.innerHTML += `
                 <div class="caixa1">
 
                 <div class="containerInfo">
@@ -93,11 +99,9 @@ const extratos = () => {
                 </div>
 
             </div>`
-                    }
-                })
+            }
         })
-    );
-}
+};
 
 selectMes.addEventListener('change', extratos);
 atual.addEventListener('input', extratos);

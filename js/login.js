@@ -39,6 +39,9 @@ const Login = () => {
                         window.location.href='../dashboard.html';
 
                     }
+                    else{
+                        alert('Email ou senha incorretos !!!')
+                    }
                 }
                 else {
                     alert('ERRO:Aconteceu algum erro')

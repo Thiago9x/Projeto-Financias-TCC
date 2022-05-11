@@ -603,15 +603,15 @@ const myChart = new Chart(ctx, {
                 position: 'right',
             },
             datalabels: {
-                color: '#ffffff',
+                color: '#000',
                 anchor: 'end',
                 formatter: function (value) {
                     return "R$ " + formatador.format(value);
                 },
-                align: 'start',
+                align: 'end',
                 offset: 24,
                 font: {
-                    size: '24px',
+                    size: '20px',
                     weight: 'bold'
                 }
             }
@@ -662,16 +662,19 @@ selectMes.addEventListener('change', updateChart)
 // FIM GRAFICO MENSAL
 
 // GRAFICO SECUNDARIO
-
+const urlSec = url + '/saldo?ano='+ yearNow + '&mes=' + (monthNow +1);
 const ctxSecundario = document.querySelector('.card').getContext('2d');
+fetch(urlSec)
+        .then((resposta) => resposta.json())
+        .then((data) => {console.log(data)
 const dataSecundario = {
-    labels: ['Green', 'Red'],
+    labels: ['Receitas', 'Despesas'],
     datasets: [{
         hoverBorderWidth: 1,
-        data: [9, 19],
+        data: [data.receita, data.despesa],
         backgroundColor: [
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 99, 132, 1)'
+            '#32A40A',
+            '#E70000'
         ]
     }]
 };
@@ -720,10 +723,13 @@ const myChartSecundario = new Chart(ctxSecundario, {
                 padding: '10'
             },
             datalabels: {
-                color: '#ffffff',
+                color: '#000000',
                 anchor: 'end',
-                align: 'start',
-                offset: 14,
+                formatter: function (value) {
+                    return "R$ " + formatador.format(value);
+                },
+                align: 'end',
+                offset: 24,
                 font: {
                     size: '16px',
                     weight: 'bold'
@@ -731,6 +737,7 @@ const myChartSecundario = new Chart(ctxSecundario, {
             }
         }
     },
+});
 });
 
 // FIM GRAFICO SECUNDARIO
