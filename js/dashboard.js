@@ -608,6 +608,7 @@ const myChart = new Chart(ctx, {
                 position: 'right',
             },
             datalabels: {
+                display:false,
                 color: '#000',
                 anchor: 'end',
                 formatter: function (value) {
