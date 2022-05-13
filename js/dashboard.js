@@ -78,23 +78,14 @@ const modalTransferencia = (transferencia) => {
 
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
     <div id='main'>
-    <form id='requires'> 
+   
     <div id="borda"> 
-        <img src="./img/x.svg" alt="" class="fotoX">  
-    </div>
-        <div id="text"> 
-           
+    <div id="text"> 
         <h3>Nova ${transferencia}</h3>
         </div>
-        <div id='pendente'>
-        <h3 id='verde'>Pago</h3>
-        <!-- Rounded switch -->
-        <label class="switch">
-          <input id='pendencia' type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <h3 id='vermelho'>Pendente</h3>
-        </div>
+        <img src="./img/x.svg" alt="" class="fotoX">  
+    </div>
+    <form id='requires'> 
         <!-- conteudo da nova despesa -->
     <div id="conteudo">
             <label>Descrição</label>
@@ -113,10 +104,6 @@ const modalTransferencia = (transferencia) => {
         <select id='selectCat'>
         <option value="" selected="" disabled="">Escolha uma opcao</option>
         </select>
-        <div id='pendenciaNone'>
-       <label>Data Final da Pendencia</label>
-       <input type="date" placeholder="Até qual o ultimo dia que você quer pagar?" maxlength="500" class="date estilizacao" id='dataPendente'>
-       </div>
        </div>
        
        <!-- Div dos Botões -->
@@ -154,7 +141,7 @@ const modalTransferencia = (transferencia) => {
             </div>
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
-                <select id='selectFR'>
+                <select id='selectFR' class="estilizacao">
                 <option value="" selected="" disabled="">Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
@@ -176,7 +163,14 @@ const modalTransferencia = (transferencia) => {
                 <input type="date" placeholder="" maxlength="500" class="dateFim estilizacao">
                 </div>
             </div>
-           </div>
+            <div id="fixa">
+                <div id="baseline">
+                    <input type="checkbox" id="transFixa"><label>Transferência fixa</label>
+                </div>
+                <p id="descricaoFixa">Quando você desejar cancelar a despesa fixa, vá na tela conta e remova a transferência</p>
+            </div>
+           
+        </div>
      </div>
 
         <!-- conteudo de observação -->
@@ -461,28 +455,24 @@ const modalTransferencia = (transferencia) => {
     document.getElementById('anexo-button').addEventListener('click', opcao3)
 
     //FIM DOS BOTOES
-
-    //PENDENTE E PAGO
-    const pendencia = (event) => {
-        const pagoTxt = document.getElementById('verde')
-        const pendenteTxt = document.getElementById('vermelho')
-
-
-        if (event.currentTarget.checked) {
-            pagoTxt.style.color = '#c4c4c4'
-            pendenteTxt.style.color = '#e70000'
-            document.getElementById('pendenciaNone').style.display = 'block'
+    //TRANSFERENCIA FIXA
+    let transFixa = document.getElementById('transFixa');
+    const desabilitaCaixa = () =>{
+        const duracao = document.querySelector(".duracao"); 
+        const datefim = document.querySelector(".dateFim");
+        if (transFixa.checked){
+            duracao.disabled = true;
+            datefim.disabled = true;
         }
-        else if (!event.currentTarget.checked) {
-            pendenteTxt.style.color = '#c4c4c4'
-            pagoTxt.style.color = '#32a40a'
-            document.getElementById('pendenciaNone').style.display = 'none'
+        else{
+            duracao.disabled = false;
+            datefim.disabled = false;
         }
-
-
     }
-    //FIM PENDENTE PAGO
+    transFixa.addEventListener('change', desabilitaCaixa);
 
+
+    //FIM TRANSFERENCIA FIXA
     //FORMATACAO DO VALOR
     const format = (e) => {
         console.log(e)
@@ -504,7 +494,6 @@ const modalTransferencia = (transferencia) => {
     const enviar = () => {
         let valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
         let data = document.querySelector('.date').value
-        let pendente = document.getElementById('dataPendente').value
         let descricao = document.querySelector('.descricao').value
         let idCategoria = parseInt(document.querySelector('#selectCat').value)
         let observacao = document.querySelector('.obs').value
@@ -514,7 +503,7 @@ const modalTransferencia = (transferencia) => {
         if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 
             ws.send(JSON.stringify({
-                metodo: transferencia, arg: 'inserir', valor: valor, data: data, pendente: pendente !== '' ? pendente : null, descricao: descricao, favorito: favoritado,
+                metodo: transferencia, arg: 'inserir', valor: valor, data: data, descricao: descricao, favorito: favoritado,
                 inicioRepeticao: dataInicio.value !== '' ? dataInicio.value : null, totalParcelas: parseInt(duracao.value !== '' ? duracao : 0),
                 nomeFrequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria
             }));
@@ -525,7 +514,7 @@ const modalTransferencia = (transferencia) => {
 
     document.querySelector('.fotoX').addEventListener('click', fecharModal);
 
-    document.getElementById('pendencia').addEventListener('change', pendencia);
+
 
     document.querySelector('.valor').addEventListener('input', format);
 

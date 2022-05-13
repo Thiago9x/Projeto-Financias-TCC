@@ -2,111 +2,56 @@
     width: 100%;
     height: 40px;
     background-color: #2A356A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .fotoX{
     width: 25px;
     float: right;
     margin-right: 10px;
-    margin-top: 6px;
+
 }
 h3{
-    margin-top: 20px;
+    color: white;
     margin-left: 20px;
 }
-/* The switch - the box around the slider */
-#pendente{
-    width: 100%;
+#fixa{
+    /* background-color:#2A356A; */
     height: auto;
+
     display: flex;
     align-items: center;
-    justify-content: end;
-    padding-right: 10px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#baseline{
+    height: 20px;
     /* background-color: aqua; */
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: none;
 }
-#verde{
-    color: #32a40a;
-    font-size: 1em;
-    margin: 0px;
+#descricaoFixa{
+    /* background-color: beige; */
+    width: 200px;
+    margin-top: 10px;
+}
+#transFixa{
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
+    margin-top: 0px;
 }
-#vermelho{
-    color: #c4c4c4;
-    font-size: 1em;
-    margin: 0px;
-    margin-left: 10px;
-}
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 35px;
-    margin: 0px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #32a40a;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #e70000;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #e70000;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
- 
-#pendenciaNone{
-    display: none;
-    width: 100%;
-    margin-top: 20px;
+.descricao{
+    margin-top: 0px;
 }
 #conteudo{
     width: 90%;
-    height: 35%;
+    /* background-color: #2A356A; */
     margin-left: 5%;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -168,7 +113,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 17%;
+    margin-top: 50px;
     margin-bottom: 3%;
 }
 #selectCat{
@@ -235,7 +180,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-position-x: 99% ;
     background-position-y: 99%;
 } 
-
+.dateFim{
+        appearance: none;
+        background-position: absolute;
+        padding-right: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url(../img/calendario.svg) no-repeat center right #FFF;
+        font-size: 15px;
+        padding-right: 10px;
+        background-position-x: 99% ;
+        background-position-y: 99%;
+}
 
  /* do js */
 .repeticao{

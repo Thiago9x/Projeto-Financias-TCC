@@ -12,6 +12,7 @@
     background-color: white;
     width: 100%;
     max-width: 700px;
+    min-height: 600px;
     border-radius: 10px;
     max-height: 90%;
     overflow-y: scroll;
