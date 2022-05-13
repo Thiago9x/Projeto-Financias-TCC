@@ -497,13 +497,14 @@ const modalTransferencia = (transferencia) => {
         let descricao = document.querySelector('.descricao').value
         let idCategoria = parseInt(document.querySelector('#selectCat').value)
         let observacao = document.querySelector('.obs').value
+        let parcelaFixa = document.getElementById('transFixa').checked
         // let anexo = document.getElementById('anexos').value
 
         const confirmacaoCampos = document.getElementById('requires').reportValidity();
         if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 
             ws.send(JSON.stringify({
-                metodo: transferencia, arg: 'inserir', valor: valor, data: data, descricao: descricao, favorito: favoritado,
+                metodo: transferencia, arg: 'inserir', valor: valor, data: data, descricao: descricao, favorito: favoritado, fixa: parcelaFixa,
                 inicioRepeticao: dataInicio.value !== '' ? dataInicio.value : null, totalParcelas: parseInt(duracao.value !== '' ? duracao : 0),
                 nomeFrequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria
             }));

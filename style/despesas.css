@@ -38,6 +38,9 @@ h3{
     width: 200px;
     margin-top: 10px;
 }
+input:disabled{
+    background-color: #c4c4c4;
+}
 #transFixa{
     width: 20px;
     height: 20px;
