@@ -227,8 +227,8 @@ main {
 
 #graficoPrincipal {
     width: 100%;
-    height: auto;
-    min-height: 850px;
+    /*height: auto;*/
+    /*min-height: 850px;*/
     margin-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
@@ -595,8 +595,8 @@ select {
 
         #graficoPrincipal{
             width: 100%;
-            height: auto;
-            min-height: 850px;
+            /*height: auto;*/
+            /*min-height: 850px;*/
             margin-top: 30px;
             padding-left: 20px;
             padding-right: 20px;

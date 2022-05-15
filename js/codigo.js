@@ -8,17 +8,16 @@ const enviarCodigo = () => {
     const confirmacaoCampos = document.getElementById('main').reportValidity();
     if(confirmacaoCampos == true){
 
-    
-        let url = 'http://10.107.144.11:8080/royal/resetar';
+   
 
-        console.log(fetch(url, {method: 'POST', headers: {
+        console.log(fetch(url + '/resetar', {method: 'POST', headers: {
             // 'content-type': 'application/json', 
         }, body:JSON.stringify( {email: email,  codigo: codigo, tipo: 'USAR'}),
         })
         .then((resposta) => resposta.json())
         .then((data) => { if(data.status === Status.OK){
-            if(data.reset == true){
-                window.location.href = "../redefinicaoSenha.html?email="+email;
+            if(data.reset === true){
+                window.location.href = "./redefinicaoSenha.html?email="+email;
             }
             else{
                 alert("O código inserido é invalido ")
@@ -56,7 +55,9 @@ const digitacao = ({target, data}) => {
     // }
 
     if(/\d/.test(data)){
-            target.nextElementSibling?.focus();
+            if(target.nextElementSibling){
+				target.nextElementSibling.focus();
+			};
         } else {
             target.value = '';
         }

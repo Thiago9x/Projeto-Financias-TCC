@@ -24,9 +24,7 @@ const Login = () => {
     const confirmacaoCampos = document.getElementById('principal').reportValidity();
     if (confirmacaoCampos == true) {
 
-        let url = 'http://10.107.144.11:8080/royal/contas';
-
-        console.log(fetch(url, {
+        console.log(fetch(url + '/contas', {
             method: 'POST', headers: {
                 // 'content-type': 'application/json', 
             }, body: JSON.stringify({ email: email, senha: senha, manter: manterLogin }),
@@ -36,7 +34,7 @@ const Login = () => {
                 if (data.status === Status.OK) {
                     if(data.found === true){
                         Cookies.set('token', data.token);
-                        window.location.href='../dashboard.html';
+                        window.location.href='./dashboard.html';
 
                     }
                     else{

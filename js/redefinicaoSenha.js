@@ -41,16 +41,15 @@ const resetarSenha = () => {
     if(confirmacaoCampos == true){
         if(senhaValor === senhaValor2){
 
-            let url = 'http://10.107.144.11:8080/royal/resetar';
 
-            console.log(fetch(url, {method: 'POST', headers: {
+            console.log(fetch(url + "/resetar", {method: 'POST', headers: {
                 // 'content-type': 'application/json', 
             }, body:JSON.stringify( {email: email, senha:senhaValor, tipo: "MUDAR"}),
             })
             .then((resposta) => resposta.json())
             .then((data) => {
                 if(data.status === Status.OK){
-                   window.location.href = '../senhaConfirmada.html';
+                   window.location.href = './senhaConfirmada.html';
                 }
                 else{
                     alert('ERRO:Aconteceu algum erro')

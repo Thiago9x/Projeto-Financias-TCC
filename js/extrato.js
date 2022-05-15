@@ -6,15 +6,16 @@ document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').select
 var atual = document.getElementById("total");
 atual.value = new Date().getUTCFullYear();
 const token = Cookies.get('token');
+let backup;
 
-const urlCat = 'http://10.107.144.11:8080/royal/data/' + token + '/categorias';
+const urlCat = url + '/data/categorias/extrato-mes?k=' + token + '&ano=' + atual.value + '&mes=' + selectMes.value;
 let categoriaDespesa;
 let categoriaReceita;
 console.log(fetch(urlCat)
     .then((resposta) => resposta.json())
     .then((data1) => {
-        categoriaReceita = data1.receitas;
-        categoriaDespesa = data1.despesas;
+        categoriaReceita = data1[0].receitas;
+        categoriaDespesa = data1[0].despesas;
         let validacaoCat = false;
         if (validacaoCat === false) {
 
@@ -43,36 +44,54 @@ console.log(fetch(urlCat)
             selectCat.append(optionReceita, optionDespesa);
             validacaoCat = true;
         }
+		
+	backup = data1[1];
+	criadorConteudo(data1[1])
     })
 )
 const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const monthNames = ["Janeiro", "Feevereiro", "Março", "Abril", "Maio", "Junho",
+const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
     "Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
 ];
 const getShortMonthName = function (date) {
     return monthNames[date.getMonth()].substring(0, 3);
 }
 const extratos = () => {
-    let url = 'http://10.107.144.11:8080/royal/data/' + token + '/extrato-mes?ano=' + atual.value + '&mes=' + selectMes.value ;
-    if(selectCat.value > 0){
-        url = url + '&cat=' + selectCat.value;
-        console.log(url)
+    let url2 = url + '/data/extrato-mes?k=' + token + '&ano=' + atual.value + '&mes=' + selectMes.value ;
+    if(selectCat.value){
+        url2 = url2 + '&cat=' + selectCat.value;
     }
     
-    const boxConteudo = document.querySelector('#conteudo');
-    boxConteudo.innerHTML = '';
 
-    fetch(url)
+    fetch(url2)
         .then((resposta) => resposta.json())
         .then((data2) => {
-            let categoria;
-            console.log(data2)
+			backup = data2;
+			criadorConteudo(data2);
 
+        })
+};
+
+selectMes.addEventListener('change', extratos);
+atual.addEventListener('input', extratos);
+selectCat.addEventListener('change', ({target}) => {
+	criadorConteudo(target.value ? backup.filter(transferencia => transferencia.categoria == target.value) : backup);
+});
+
+// menos e mais da input ano 
+
+const criadorConteudo = data2 => {
+	
+				const boxConteudo = document.querySelector('#conteudo');
+				boxConteudo.innerHTML = '';
             for (let i = 0; i < data2.length; i++) {
+				
+				
                 let descricao = data2[i].descricao;
                 let idcategoria = data2[i].categoria;
                 let valor = data2[i].valor;
                 let cor;
+				let categoria;
                 let mesData = getShortMonthName(new Date(data2[i].data));
 
                 if (valor < 0) {
@@ -103,14 +122,7 @@ const extratos = () => {
 
             </div>`
             }
-        })
 };
-
-selectMes.addEventListener('change', extratos);
-atual.addEventListener('input', extratos);
-selectCat.addEventListener('change', extratos);
-extratos()
-// menos e mais da input ano 
 
 function mais() {
     var novo = atual.value - (-1); //Evitando Concatenacoes
