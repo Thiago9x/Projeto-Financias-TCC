@@ -523,7 +523,7 @@ const modalTransferencia = (transferencia) => {
 
 			ws.send(JSON.stringify({
 				metodo: transferencia, arg: 'inserir', valor: valor, data: data, descricao: descricao, favorito: favoritado, fixa: parcelaFixa,
-				inicioRepeticao: dataInicio.value !== '' ? dataInicio.value : null, totalParcelas: parseInt(duracao.value !== '' ? duracao : 0),
+				inicioRepeticao: dataInicio.value !== '' ? dataInicio.value : null, totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
 				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria, parcelada: repetido
 			}));
 			fecharModal();
