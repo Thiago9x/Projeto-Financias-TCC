@@ -4,7 +4,7 @@
     min-width: 500px;
     min-height: 60%;
     overflow-y: scroll;
-    background-color: bisque    ;
+    background-color: white;
 }
 #conteudoModal{
     width: 65%;
@@ -30,6 +30,7 @@ h3{
     margin-left: 80%;
     margin-top: -13%;
 }
+
 .editarIcone{
     width: 35%;
     height: 40%;
@@ -50,28 +51,96 @@ input{
     border: solid 1px white;
 }
 #caixas{
-    width: 80%;
+    width: 95%;
     height: auto;
-    min-height: 580;
-    margin-left: auto;
-    margin-right: auto;
+    /* min-height: 580px; */
     flex-direction: column;
     display: flex;
     flex-flow: row wrap;
+    /* background-color: aqua; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
+
 .caixa1{
     width: 90%;
     height: 100px;
-    margin-top: 45px;
     border: solid 1px whitesmoke;
     border-radius: 15px;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+    display: flex;
+ 
+}
+
+.containerInfo{
+
+    width: 80%;
+    height: 100%;
+    display: flex;
+}
+
+.containerInfoData{
+
+    width: 20%;
+    height: 100%;
+    padding-right: 15px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+    color: #2A356A;
+    font-weight: bold;
+ 
+}
+
+.containerImagem{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerText{
+ 
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 #editImgExcluir{
     width: 10px;
     height: 50px;
-    margin-left: 95%;
-    margin-top: -9%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.textCategoria, .textLugar, .textValor{
+
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.textLugar{
+
+    color: #646464;
+    font-size: 1rem;
+}
+
+.textValor{
+
+    color: #E70000;
+    font-size: 1.1rem;
+}
+
+.dataFormatacao{
+    font-size: 0.8rem;
 }
 #button1{
     width: 15%;
@@ -80,7 +149,7 @@ input{
     color: #2A356A;
     font-size: 15px;
     border: solid 1px whitesmoke;
-    margin-left: 7%;
+    margin-left: 7%; 
     margin-top: 10%;
     text-align: center;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
