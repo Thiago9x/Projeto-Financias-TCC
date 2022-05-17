@@ -119,13 +119,16 @@ h4{
     text-align: center;
 }
 .t1{
-    width: 90%;
+    width: 80%;
     height: 10%;
     display: flex;
     align-items: center;
+    margin-left: auto;
     margin-top: 15px;
-    justify-content: space-evenly;
+    margin-right: auto;
+    justify-content: space-between;
 }
+
 #conteudoMeta{
     width: 75%;
     height: 20%;
@@ -140,10 +143,9 @@ h4{
     height: 100%;
     font-size: 0.9em;
     font-weight: 500;
-    text-align: center;
     padding-top: 3px;
     display: flex;
-    justify-content: flex-start;
+    margin-left: 3px;
 }
 
 .sepa{
@@ -158,3 +160,49 @@ h4{
    height: 100%;
 
 }
+
+#containerImg{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+input[type='file'] {
+    display: none
+  }
+  
+  .input-wrapper label {
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: #fff;
+   
+  }
+  .input-wrapper{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+  }
+  label h4{
+      font-size: 1.1em;
+      margin-top: 6px;
+  }
+  
+  .cameraFoto{
+    border-radius: 63px;
+    width: 136px;
+    height: 128px;
+    margin-top: 10px;
+  }
+ .formatCamera{
+     width: 100%;
+     height: 100%;
+     border-radius: 50%;
+    
+ }

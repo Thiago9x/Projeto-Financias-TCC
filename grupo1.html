@@ -28,10 +28,21 @@
                 </div>
             </div>
 
-            <div id="conteudoImagem">
-                <div id="img">
-                    <img src="./img/camera.png"  width="100px" height="100px" >
-                </div>
+            <div id="containerImg">
+
+            <div class='input-wrapper'>
+
+                <label for=''>
+                    <div class="cameraFoto">
+
+                        <img src="./img/fotografia.png" class="formatCamera">
+                    </div>
+                </label>
+              
+                <input id='input-file' type='file'/>
+                <span id='file-name'></span>
+                    
+            </div>
             </div>
 
 
@@ -60,3 +71,27 @@
         </main>
     </body>
 </html>
+
+<script>
+    let photo = document.querySelector('.formatCamera');
+    let file = document.getElementById('input-file');
+
+    photo.addEventListener('click', () => {
+        file.click();
+    });
+
+    file.addEventListener('change', () => {
+
+        if (file.files.length <= 0) {
+            return;
+        }
+
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            photo.src = reader.result;
+        }
+
+        reader.readAsDataURL(file.files[0]);
+    });
+</script>
