@@ -98,13 +98,11 @@ select{
     margin-left: 30px;
     margin-top: -25px;
 }
-.checkbox{
-    width: 20px;
-}
+
 .edith4{
 
-    margin-left: 30px;
-    margin-top: -50px;
+    margin-left: 40px;
+    margin-top: -25px;
     font-weight: 500;
     color: rgb(83, 83, 83);
 }
@@ -137,4 +135,36 @@ select{
     justify-content: space-between;
     padding: 20px;
    
+}
+
+label{
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+input{
+    position: absolute;
+    transform: scale(0);
+}
+
+input:checked ~ .checkbox {
+
+    transform: rotate(45deg);
+    width: 10px;
+    margin-left: 16px;
+    border-color: #24c78e;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+}
+
+.checkbox{
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 1px solid #434343;
+    border-radius: 4px;
+    transition: all 0.375s;
 }
