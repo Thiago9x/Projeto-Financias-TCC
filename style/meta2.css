@@ -142,9 +142,10 @@ label{
     width: 25px;
     height: 25px;
     cursor: pointer;
+    
 }
 
-input{
+#checkbox{
     position: absolute;
     transform: scale(0);
 }
@@ -167,4 +168,5 @@ input:checked ~ .checkbox {
     border: 1px solid #434343;
     border-radius: 4px;
     transition: all 0.375s;
+    margin-top: -10;
 }
