@@ -2,11 +2,11 @@
 // CONSUMIR A API DA DASHBOARD
 const token = Cookies.get('token');
 let urlData = url + "/data";
-const monthNow = new Date().getUTCMonth();
+const monthNow = new Date().getUTCMonth() + 1;
 const yearNow = new Date().getUTCFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
-document.querySelector('#selectMes > option[value="' + (monthNow + 1) + '"]').selected = true;
+document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
@@ -16,12 +16,10 @@ const monthNames = ["Janeiro", "Feevereiro", "Março", "Abril", "Maio", "Junho",
 const getNameMonth = function (date) {
 	return monthNames[date.getMonth()];
 }
-const formatador = new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 //FECHAR MODAIS E ENVIAR INFORMACOES PARA A DASHBOARD
 ws.onmessage = ({ data }) => {
-
-	//toda vez que vc receber aquela mensagem do log, melhor n, ja te explico, vo fazer essa parte ou quer fazer?
 
 	const json = JSON.parse(data);
 
@@ -29,54 +27,55 @@ ws.onmessage = ({ data }) => {
 
 	switch (json.metodo) {
 		case 'despesa':
-		{
-			switch (json.arg) {
-				case 'remover':
-				{
-					const saldoGeral = document.getElementById('saldoGeral');
-					const despesaGeral = document.getElementById('despesa');
+			{
+				switch (json.arg) {
+					case 'remover':
+						{
+							const saldoGeral = document.getElementById('saldoGeral');
+							const despesaGeral = document.getElementById('despesa');
 
-					const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-					const valorDespesa = parseFloat(despesaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+							const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+							const valorDespesa = parseFloat(despesaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
 
-					saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
-					despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
+							saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
+							despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
 
 
 
-					break;
+							break;
+						}
 				}
+				break;
 			}
-			break;
-		}
 	}
 	switch (json.metodo) {
 		case 'receita':
-		{
-			switch (json.arg) {
-				case 'adicionar':
-				{
-					const saldoGeral = document.getElementById('saldoGeral');
-					const receitaGeral = document.getElementById('receita');
+			{
+				switch (json.arg) {
+					case 'adicionar':
+						{
+							const saldoGeral = document.getElementById('saldoGeral');
+							const receitaGeral = document.getElementById('receita');
 
-					const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-					const valorReceita = parseFloat(receitaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+							const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
+							const valorReceita = parseFloat(receitaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
 
-					saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
-					receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
+							saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
+							receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
 
 
 
-					break;
+							break;
+						}
 				}
+				break;
 			}
-			break;
-		}
-}
+	}
 }
 
 selecionarModal(document.getElementById('modalGigante'))
 //MODAL DE TRANSFERENCIA
+
 const modalTransferencia = (transferencia) => {
 	conteudoModal(` 
 
@@ -90,7 +89,7 @@ const modalTransferencia = (transferencia) => {
         <img src="./img/x.svg" alt="" class="fotoX">  
     </div>
     <form id='requires'> 
-        <!-- conteudo da nova despesa -->
+        <!-- conteudo da nova despesa --> 
     <div id="conteudo">
             <label>Descrição</label>
             <input type="text" placeholder="" maxlength="500" class="descricao estilizacao" required>
@@ -139,10 +138,6 @@ const modalTransferencia = (transferencia) => {
     <div class="repeticao" id="repeticao"> 
            <div id="conteudo2">
                 <h4>Repetição</h4>
-                <div class="caixa1">
-            <label>Data de Inicio</label>
-            <input type="date" placeholder="" maxlength="500" class="dateInicio estilizacao" >
-            </div>
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
                 <select id='selectFR' class="estilizacao">
@@ -159,7 +154,7 @@ const modalTransferencia = (transferencia) => {
             </div>
             <div id="duracaoData">
                 <div class="caixa3">
-                <label>Duração</label>
+                <label>Repetições</label>
                 <input type="text" placeholder="" maxlength="500" class="duracao estilizacao">
                 </div>
                 <div class="caixa3">
@@ -204,9 +199,13 @@ const modalTransferencia = (transferencia) => {
 </div>
 `)
 	abrirModal()
+	//DATA ATUAL
+	let data = document.querySelector('.date');
+	data.valueAsDate = new Date();
+
 	//PARTE DE REPETICAO
 	let dataFR = document.getElementById('selectFR');
-	let dataInicio = document.querySelector('.dateInicio');
+	let dataInicio = document.querySelector('.date');
 	let dataFim = document.querySelector('.dateFim');
 	let duracao = document.querySelector('.duracao');
 
@@ -261,74 +260,74 @@ const modalTransferencia = (transferencia) => {
 
 				switch (dataFR.value) {
 					case 'DIAS':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCDate(parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(parseInt(duracao.value) + dataObjeto.getUTCDate());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					}
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						}
 					case 'SEMANAS':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCDate(7 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(7 * parseInt(duracao.value) + dataObjeto.getUTCDate());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					}
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						}
 					case 'QUINZENAS':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCDate(15 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(15 * parseInt(duracao.value) + dataObjeto.getUTCDate());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					} case 'MESES':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						} case 'MESES':
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCMonth(parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(parseInt(duracao.value) + dataObjeto.getUTCMonth());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					} case 'BIMESTRES':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						} case 'BIMESTRES':
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCMonth(2 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(2 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					} case 'TRIMESTRES':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						} case 'TRIMESTRES':
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCMonth(3 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(3 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					}
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						}
 					case 'SEMESTRES':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCMonth(6 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(6 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					}
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						}
 					case 'ANOS':
-					{
-						let dataObjeto = dataInicio.valueAsDate;
+						{
+							let dataObjeto = dataInicio.valueAsDate;
 
-						dataObjeto.setUTCFullYear(parseInt(duracao.value) + dataObjeto.getUTCFullYear());
+							dataObjeto.setUTCFullYear(parseInt(duracao.value) + dataObjeto.getUTCFullYear());
 
-						dataFim.valueAsDate = dataObjeto;
-						break;
-					}
+							dataFim.valueAsDate = dataObjeto;
+							break;
+						}
 				}
 			}
 
@@ -340,82 +339,82 @@ const modalTransferencia = (transferencia) => {
 			dataFim.onchange = () => {
 				switch (dataFR.value) {
 					case 'DIAS':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA);
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA);
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'SEMANAS':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7);
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7);
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'QUINZENAS':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15);
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15);
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'MESES':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-							duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth();
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+								duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth();
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'BIMESTRES':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-							duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2;
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2;
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'TRIMESTRES':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-							duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3;
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3;
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'SEMESTRES':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-							duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6;
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6;
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 					case 'ANOS':
-					{
-						if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-							const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-							duracao.value = data.getUTCFullYear() - 1970;
-						} else {
-							duracao.value = 0;
+						{
+							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
+								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
+								duracao.value = data.getUTCFullYear() - 1970;
+							} else {
+								duracao.value = 0;
+							}
+							break;
 						}
-						break;
-					}
 
 				}
 			}
@@ -499,8 +498,8 @@ const modalTransferencia = (transferencia) => {
 		value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
 
 		const result = formatador.format(
-				parseFloat(value) / 100
-				)
+			parseFloat(value) / 100
+		)
 
 
 
@@ -511,7 +510,6 @@ const modalTransferencia = (transferencia) => {
 	//CONFIRMAR A RECEITA
 	const enviar = () => {
 		let valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
-		let data = document.querySelector('.date').value
 		let descricao = document.querySelector('.descricao').value
 		let idCategoria = parseInt(document.querySelector('#selectCat').value)
 		let observacao = document.querySelector('.obs').value
@@ -522,8 +520,8 @@ const modalTransferencia = (transferencia) => {
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 
 			ws.send(JSON.stringify({
-				metodo: transferencia, arg: 'inserir', valor: valor, data: data, descricao: descricao, favorito: favoritado, fixa: parcelaFixa,
-				inicioRepeticao: dataInicio.value !== '' ? dataInicio.value : null, totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
+				metodo: transferencia, arg: 'inserir', valor: valor, data: data.value, descricao: descricao, favorito: favoritado, fixa: parcelaFixa,
+				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
 				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria, parcelada: repetido
 			}));
 			fecharModal();
@@ -545,24 +543,24 @@ document.getElementById('receitaCont').addEventListener('click', () => modalTran
 document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa'))
 
 console.log(fetch(`${urlData}/saldo/categorias?k=${token}`)
-		.then((resposta) => resposta.json())
-		.then((data) => {
+	.then((resposta) => resposta.json())
+	.then((data) => {
 
-			const saldo = data[0].saldo;
-			const receita = data[0].receita;
-			const despesa = data[0].despesa;
-			categoriaReceita = data[1].receitas;
-			categoriaDespesa = data[1].despesas;
+		const saldo = data[0].saldo;
+		const receita = data[0].receita;
+		const despesa = data[0].despesa;
+		categoriaReceita = data[1].receitas;
+		categoriaDespesa = data[1].despesas;
 
-			document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`;
-			document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
-			document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
+		document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`;
+		document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
+		document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
 
 
-			updateChart();
+		updateChart();
 
-		})
-		);
+	})
+);
 
 // GRAFICO PINCIPAL DE BARRA
 const nomeGrafico = () => {
@@ -583,9 +581,9 @@ const myChart = new Chart(ctx, {
 		labels: [],
 		datasets: [{
 
-				data: [],
-				backgroundColor: []
-			}]
+			data: [],
+			backgroundColor: []
+		}]
 	},
 	options: {
 		scales: {
@@ -632,39 +630,39 @@ const myChart = new Chart(ctx, {
 });
 
 const updateChart = () => {
-	fetch(url + '/grafico/' + selectTransferencia.value + '?ano=' + yearNow + '&mes=' + selectMes.value + '&k='  + token)
-			.then((resposta) => resposta.json())
-			.then((data) => {
-				let labels = [];
-				let dataGrafico = [];
-				let corGrafico = [];
+	fetch(url + '/grafico/' + selectTransferencia.value + '?ano=' + yearNow + '&mes=' + selectMes.value + '&k=' + token)
+		.then((resposta) => resposta.json())
+		.then((data) => {
+			let labels = [];
+			let dataGrafico = [];
+			let corGrafico = [];
 
-				Object.entries(data).forEach((categorias) => {
-					let idCategorias = categorias[0];
-					console.log(idCategorias)
-					if (selectTransferencia.value === 'despesa') {
-						const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
-						labels.push(categoriaDespesas.nome)
-						dataGrafico.push(categorias[1])
-						corGrafico.push('#' + categoriaDespesas.cor)
-					} else if (selectTransferencia.value === 'receita') {
-						const categoriaReceitas = categoriaReceita.find(categoria => categoria.idCategoria == idCategorias);
-						labels.push(categoriaReceitas.nome)
-						dataGrafico.push(categorias[1])
-						corGrafico.push('#' + categoriaReceitas.cor)
-					}
+			Object.entries(data).forEach((categorias) => {
+				let idCategorias = categorias[0];
+				console.log(idCategorias)
+				if (selectTransferencia.value === 'despesa') {
+					const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
+					labels.push(categoriaDespesas.nome)
+					dataGrafico.push(categorias[1])
+					corGrafico.push('#' + categoriaDespesas.cor)
+				} else if (selectTransferencia.value === 'receita') {
+					const categoriaReceitas = categoriaReceita.find(categoria => categoria.idCategoria == idCategorias);
+					labels.push(categoriaReceitas.nome)
+					dataGrafico.push(categorias[1])
+					corGrafico.push('#' + categoriaReceitas.cor)
+				}
 
-				});
-
-
-				myChart.data.labels = labels;
-				myChart.data.datasets[0].data = dataGrafico;
-				myChart.data.datasets[0].backgroundColor = corGrafico;
-
-				myChart.update()
-
-				console.log(labels, dataGrafico, corGrafico)
 			});
+
+
+			myChart.data.labels = labels;
+			myChart.data.datasets[0].data = dataGrafico;
+			myChart.data.datasets[0].backgroundColor = corGrafico;
+
+			myChart.update()
+
+			console.log(labels, dataGrafico, corGrafico)
+		});
 };
 
 selectTransferencia.addEventListener('change', updateChart)
@@ -679,13 +677,13 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 	data: {
 		labels: ['Receitas', 'Despesas'],
 		datasets: [{
-				hoverBorderWidth: 1,
-				data: [0, 0],
-				backgroundColor: [
-					'#32A40A',
-					'#E70000'
-				]
-			}]
+			hoverBorderWidth: 1,
+			data: [0, 0],
+			backgroundColor: [
+				'#32A40A',
+				'#E70000'
+			]
+		}]
 	},
 	options: {
 		scales: {
@@ -722,7 +720,7 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 			title: {
 				display: true,
 				text: 'Grafico de Despesa e Receita do mês de ' + getNameMonth((new Date())),
-				font: {weight: 'bold', size: '16em'},
+				font: { weight: 'bold', size: '16em' },
 				align: 'start',
 				color: 'black',
 				padding: '10'
@@ -747,62 +745,115 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 
 console.log('dd')
 
-const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow + 1);
+const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
 fetch(urlSec)
-		.then((resposta) => resposta.json())
-		.then((data) => {
-			console.log(data)
-			const saldoMensal = document.getElementById('saldoMesValor');
-			saldoMensal.innerText = 'R$ ' + formatador.format(data.saldo);
-			const saldoMensalTXT = document.getElementById('saldo-mensal');
-			saldoMensalTXT.innerText = 'Saldo Mensal';
-			myChartSecundario.data.datasets[0].data = [data.despesa, data.receita];
-			myChartSecundario.update();
+	.then((resposta) => resposta.json())
+	.then((data) => {
+		console.log(data)
+		const saldoMensal = document.getElementById('saldoMesValor');
+		saldoMensal.innerText = 'R$ ' + formatador.format(data.saldo);
+		const saldoMensalTXT = document.getElementById('saldo-mensal');
+		saldoMensalTXT.innerText = 'Saldo Mensal';
+		myChartSecundario.data.datasets[0].data = [data.receita, data.despesa];
+		myChartSecundario.update();
 
-		});
+	});
 
 // FIM GRAFICO SECUNDARIO
 
 
 //MODAL FAVORITOS
 const modalFavoritos = () => {
-	conteudoModal(` 
-    <link rel="stylesheet" type="text/css" href="./style/favoritos.css">
-    <div id='mainfavorito'>
-        <div id="conteudoModal">
-            <img src="./img/estrelaExtrato.svg" alt class="estrela">
-            <h3>Transações Favoritas</h3>
-        </div>
-            <div id="formatAdd">
-                <input type="image" src="img/mais.svg" class="editarIcone">
-                <p>Adicionar</p>
-                <p class="edit">Favorito</p>
-            </div>
-        <div id="caixas">
-             <div class="caixa1"></div>
-             <div id="editImgExcluir"><img src="./img/excluir.svg" alt class="excluir"></div>  
-             
-             <div class="caixa1"></div>
-             <div id="editImgExcluir"><img src="./img/excluir.svg" alt class="excluir"></div>  
-             
-             <div class="caixa1"></div>
-             <div id="editImgExcluir"><img src="./img/excluir.svg" alt class="excluir"></div>
-             
-             <div class="caixa1"></div>
-             <div id="editImgExcluir"><img src="./img/excluir.svg" alt class="excluir"></div> 
-               
-             <div class="caixa1"></div>
-             <div id="editImgExcluir"><img src="./img/excluir.svg" alt class="excluir"></div>  
-             
-        </div>
-            <input id="button1" type="button" value="Voltar" class="voltar">
-            <input id="button2" type="button" value="Confirmar" class="confirmar">
-    </div>
-    `)
-	abrirModal()
+	const urlFavoritos = urlData + '/favorito?k=' + token;
+
+	fetch(urlFavoritos)
+		.then((resposta) => resposta.json())
+		.then((data) => {
+			console.log(data);
+			conteudoModal(`
+			<link rel="stylesheet" type="text/css" href="./style/favoritos.css">
+			<link rel="stylesheet" type="text/css" href="./font/icon.css">
+		<div id="mainfavorito">
+				
+				<div id="conteudoModal">
+	
+					<img src="./img/estrelaExtrato.svg" alt class="estrela">
+					<h3>Transações Favoritas</h3>
+	
+				</div>
+	
+				<div id="formatAdd">
+	
+					<input type="image" src="img/mais.svg" class="editarIcone">
+					<p>Adicionar</p>
+					<p class="edit">Favorito</p>
+	
+				</div>
+	
+	
+				<div id="caixas">
+				</div>
+
+            
+
+				<div class="botao">
+					<input id="button1" type="button" value="Voltar">
+					<input id="button2" type="button" value="Confirmar">
+				</div>
+
+
+		</div>  `
+)
+			const boxConteudo = document.getElementById('caixas');
+			for (let i = 0; i < data.length; i++) {
+				let valor = data[i].valor;
+				let descricao = data[i].descricao;
+				console.log(valor, descricao)
+				let categoria = data[i].categoria;
+				if (valor < 0) {
+					categoria = categoriaDespesa.find(categor => categoria == categor.idCategoria);
+					// cor = "vermelho";
+				}
+				else if (valor > 0) {
+					categoria = categoriaReceita.find(categor => categoria == categor.idCategoria);
+					// cor = "verde";
+				}
+				boxConteudo.innerHTML += ` 
+				
+            <div class="caixa1">  
+                    <div class="containerInfo">
+
+                        <div class="containerImagem">
+
+                        </div>
+
+                        <div class="containerText">
+                            <label class="textCategoria">${categoria}</label>
+                            <label class="textLugar">${descricao}</label>
+                            <label class="textValor" > ${'R$ ' + formatador.format(valor)} </label>
+                        </div>
+
+                    </div>
+
+                    <div class="containerInfoData">
+                        <label class="dataFormatacao"> JAN <br> 2022</label>
+                    </div>
+
+                </div>
+
+                <div id="editImgExcluir">
+                    <img src="./img/excluir.svg">
+                </div>  
+
+                
+                 `}
+		})
+	abrirModal();
 }
 
 document.getElementById('favoritosCont').addEventListener('click', modalFavoritos)
 document.getElementById('extratoCont').addEventListener('click', () => {
 	window.location.href = "./extrato.html"
 })
+
+

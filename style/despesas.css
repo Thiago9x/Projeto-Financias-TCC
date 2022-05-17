@@ -50,6 +50,9 @@ input:disabled{
 .descricao{
     margin-top: 0px;
 }
+h4{
+    margin-bottom: 10px;
+}
 #conteudo{
     width: 90%;
     /* background-color: #2A356A; */
