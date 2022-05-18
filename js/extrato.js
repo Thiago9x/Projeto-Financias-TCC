@@ -85,8 +85,6 @@ const criadorConteudo = data2 => {
 				const boxConteudo = document.querySelector('#conteudo');
 				boxConteudo.innerHTML = '';
             for (let i = 0; i < data2.length; i++) {
-				
-				
                 let descricao = data2[i].descricao;
                 let idcategoria = data2[i].categoria;
                 let valor = data2[i].valor;

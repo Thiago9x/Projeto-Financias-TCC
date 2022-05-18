@@ -67,7 +67,12 @@ ul li{
     display: flex;
 
 }
-
+.vermelho{
+    color: #E70000;
+}
+.verde {
+    color: #32A40A;
+}
 
 
 .menu{
