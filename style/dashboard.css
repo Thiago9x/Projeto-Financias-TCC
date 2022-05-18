@@ -49,6 +49,7 @@ main {
 #clima {
     font-size: 16px;
     font-weight: bold;
+    color: black;
 }
 
 #informacoes {
@@ -356,7 +357,7 @@ select {
 }
 
 .card1{
-    overflow: scroll;
+    overflow: hidden;
 }
 .titulo {
 
@@ -437,11 +438,15 @@ select {
             width:190px;
             height:auto;
             margin-top: 5px;
+            color: black;
             /* background-color: #f646f4; */
         }
         #clima{
             font-size: 16px;
             font-weight: bold;
+        }
+        #nomeCliente{
+            color: black;
         }
         #informacoes{
             width: 100%;
@@ -459,7 +464,6 @@ select {
             justify-content: center;
             /* background-color:chartreuse; */
         }
-
 
         .campoInf, .campoInf1{
 
@@ -731,4 +735,7 @@ select {
         #menuDash{
             border-left: solid 3px #fff;
             transition : 0.1s;
+        }
+        p{
+            color: black;
         }

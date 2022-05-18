@@ -7,51 +7,28 @@
     overflow-x: hidden;
     background-color: white;
 }
-#conteudoModal{
-    width: 65%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
 .estrela{
-    margin-left: 47%;
-    margin-top: -10px;
+    width: 30px;
+    height: 50px;
 }
 h3{ 
-   width: 90%;
-   height: 100px;
+   width: 210px;
+   height: 50px;
    display: flex;
    justify-content: center;
    align-items: center;
 }
-#formatAdd{
-    width: 20%;
-    height: 100px;
-    margin-left: 80%;
-    margin-top: -13%;
-}
-
 .editarIcone{
-    width: 35%;
-    height: 40%;
-    margin-left: 50%;
-    margin-top: 10px;
-    padding-left: 10px;
-}
-p{
-    text-align: center;
-    margin-left: 40%;
-    margin-top: -10%
-}
-.edit{
-    margin-left: 40%;
-    margin-top: -0%
+    width: 50px;
+    height: 50px;
 }
 input{
     height: 20%;
     border: solid 1px white;
     padding: 0px;
+}
+.im{
+    margin-bottom: 15px;
 }
 #caixas{
     width: 100%;
@@ -199,3 +176,30 @@ input{
     border: 3px solid whitesmoke;
   }
 
+#containerFavorito{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.botaoReceita{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 5px;
+}
+.tituloFavorito{
+    width: 60%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+p{
+    margin-top: -10px;
+}

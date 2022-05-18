@@ -151,6 +151,11 @@ margin-left: 8px;
     align-items: center;
 }
 
+#abrirPerfil{
+    width: 100%;
+    height: 30%;
+    color: #C4C4C4;
+}
 #perfilFoto{
 
     width: 35%;
