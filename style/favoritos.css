@@ -43,7 +43,7 @@ input{
 #caixas{
     width: 100%;
     height: auto;
-    min-height: 580px;
+    min-height: 350px;
     flex-direction: column;
     display: flex;
     flex-flow: row wrap;

@@ -782,42 +782,59 @@ const modalFavoritos = () => {
 			conteudoModal(`
 			<link rel="stylesheet" type="text/css" href="./style/favoritos.css">
 			<link rel="stylesheet" type="text/css" href="./font/icon.css">
-		<div id="mainfavorito">
-				
-				<div id="conteudoModal">
-	
-					<img src="./img/estrelaExtrato.svg" alt class="estrela">
-					<h3>Transações Favoritas</h3>
-	
-				</div>
-	
-				<div id="formatAdd">
-	
-					<input type="image" src="img/mais.svg" class="editarIcone">
-					<p>Adicionar</p>
-					<p class="edit">Favorito</p>
-	
-				</div>
-	
-	
-				<div id="caixas">
-				</div>
+			<div id="mainfavorito">
 
-            
+     
+            <div id="containerFavorito">
 
-				<div class="botao">
-					<input id="button1" type="button" value="Voltar">
-					<input id="button2" type="button" value="Confirmar">
-				</div>
+                <div class="botaoReceita" id="receitaFavorito">
+
+                    <div class="im">
+                        <img src="img/maisVerde.png" class="editarIcone">
+                    </div>
+                    
+                    <p>Adicionar<br>Receita</p>
+
+                </div>
+
+                <div class="tituloFavorito">
+
+                    <img src="./img/estrelaExtrato.svg" class="estrela">
+                    <h3>Transações Favoritas</h3>
+
+                </div>
+                <div class="botaoReceita" id='despesaFavorito'>
+
+                    <div class="im">
+                        <img src="img/menos.png" class="editarIcone">
+                    </div>
+                    <p>Adicionar<br>Despesa</p>
+
+                </div>
+            </div>
 
 
-		</div>  `
+            <div id="caixas">
+            </div>
+
+            <div class="botao">
+                <input id="button1" type="button" value="Voltar">
+                <input id="button2" type="button" value="Confirmar">
+            </div>
+         
+
+        </div>         `
 )			
-			const adicionarTransferenciaFavoritos = () => {
+			const adicionarReceitaFavoritos = () => {
+				modalTransferencia('receita','','R$ 0,00','','','',false,'','',false,1,true);
+			}
+			const adicionarDespesaFavoritos = () => {
 				modalTransferencia('despesa','','R$ 0,00','','','',false,'','',false,1,true);
 			}
-			const adicionar = document.getElementById('formatAdd');
-			adicionar.addEventListener('click',adicionarTransferenciaFavoritos);
+			const adicionarDespesa = document.getElementById('despesaFavorito');
+			const adicionarReceita = document.getElementById('receitaFavorito');
+			adicionarDespesa.addEventListener('click',adicionarDespesaFavoritos);
+			adicionarReceita.addEventListener('click',adicionarReceitaFavoritos);
 			const boxConteudo = document.getElementById('caixas');
 			for (let i = 0; i < data.length; i++) {
 				let valor = data[i].valor;
