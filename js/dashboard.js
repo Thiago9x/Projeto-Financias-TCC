@@ -43,8 +43,8 @@ ws.onmessage = ({ data }) => {
 							saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
 							despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
 
-
-
+							updateChart();	
+							updateSecundario();
 							break;
 						}
 				}
@@ -66,8 +66,8 @@ ws.onmessage = ({ data }) => {
 							saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
 							receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
 
-
-
+							updateChart();	
+							updateSecundario();
 							break;
 						}
 				}
@@ -534,8 +534,9 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
 				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido
 			}));
+			
 			fecharModal();
-			updateChart();
+			
 		}
 	}
 
@@ -590,7 +591,6 @@ const myChart = new Chart(ctx, {
 
 		labels: [],
 		datasets: [{
-
 			data: [],
 			backgroundColor: []
 		}]
@@ -625,9 +625,7 @@ const myChart = new Chart(ctx, {
 				display: false,
 				color: '#000',
 				anchor: 'end',
-				formatter: function (value) {
-					return "R$ " + formatador.format(value);
-				},
+				
 				align: 'end',
 				offset: 24,
 				font: {
@@ -670,8 +668,8 @@ const updateChart = () => {
 			myChart.data.datasets[0].backgroundColor = corGrafico;
 
 			myChart.update()
+			
 
-			console.log(labels, dataGrafico, corGrafico)
 		});
 };
 
@@ -756,7 +754,7 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 
 
 const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
-fetch(urlSec)
+const updateSecundario = () =>{fetch(urlSec)
 	.then((resposta) => resposta.json())
 	.then((data) => {
 		const saldoMensal = document.getElementById('saldoMesValor');
@@ -767,7 +765,8 @@ fetch(urlSec)
 		myChartSecundario.update();
 
 	});
-
+}
+updateSecundario();
 // FIM GRAFICO SECUNDARIO
 
 
@@ -775,12 +774,16 @@ fetch(urlSec)
 const modalFavoritos = () => {
 	const urlFavoritos = urlData + '/favorito?k=' + token;
 
+	urlFavoritos.map = () => {
+		console.log(urlFavoritos);
+	}
 	fetch(urlFavoritos)
 		.then((resposta) => resposta.json())
 		.then((data) => {
 			console.log(data);
 			conteudoModal(`
 			<link rel="stylesheet" type="text/css" href="./style/favoritos.css">
+			<link rel="stylesheet" type="text/css" href="./style/style.css">
 			<link rel="stylesheet" type="text/css" href="./font/icon.css">
 			<div id="mainfavorito">
 
@@ -835,24 +838,40 @@ const modalFavoritos = () => {
 			const adicionarReceita = document.getElementById('receitaFavorito');
 			adicionarDespesa.addEventListener('click',adicionarDespesaFavoritos);
 			adicionarReceita.addEventListener('click',adicionarReceitaFavoritos);
+			let transferencia;
+			
 			const boxConteudo = document.getElementById('caixas');
+
+		
+
 			for (let i = 0; i < data.length; i++) {
 				let valor = data[i].valor;
+				let anexo = data[i].anexo;
+				let fixa = data[i].fixa;
+				let nomeFrequencia = data[i].nomeFrequencia;
+				let observacao = data[i].observacao;
+				let parcelada = data[i].parcelada;
+				let parcelas = data[i].parcelas;
 				let descricao = data[i].descricao;
 				let cor;
+				let date = data[i].data;
+
+				console.log(data);
 				let categoria = data[i].categoria;
 				if (valor < 0) {
 					categoria = categoriaDespesa.find(categor => categoria == categor.idCategoria);
 					cor = "vermelho";
+					transferencia = "despesa"
 				}
 				else if (valor > 0) {
 					categoria = categoriaReceita.find(categor => categoria == categor.idCategoria);
 					cor = "verde";
+					transferencia = "receita";
 				}
-				
+
 				boxConteudo.innerHTML += ` 
 				
-            <div class="caixa1">  
+            <div class="caixa1 ${i}">  
                     <div class="containerInfo">
 
                         <div class="containerImagem icons">
@@ -868,7 +887,7 @@ const modalFavoritos = () => {
                     </div>
 
                     <div class="containerInfoData">
-                        <label class="dataFormatacao"> ${getShortMonthName(new Date(data[i].data))} <br> ${new Date(data[i].data).getUTCFullYear()}</label>
+                        <label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getUTCFullYear()}</label>
                     </div>
 
                 </div>
@@ -878,7 +897,16 @@ const modalFavoritos = () => {
                 </div>  
 
                 
-                 `}
+                 `
+				 
+				  const puxandoInfo = document.querySelector('.caixa1');
+				  console.log(puxandoInfo);
+				  const abrirTransfInformada = () =>{
+					modalTransferencia(transferencia,descricao,'R$ '+ formatador.format(valor), date, categoria.idCategoria, anexo,fixa,nomeFrequencia,observacao,parcelada, parcelas, false)
+					
+				  }
+				puxandoInfo.addEventListener('click', abrirTransfInformada)
+				 }
 		})
 	abrirModal();
 	

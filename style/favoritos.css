@@ -61,9 +61,9 @@ input{
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     display: flex;
     margin-top: 35px;
-
+    cursor: pointer;
 }
-.caixa1:hover{
+.caixa1 *{
     cursor: pointer;
 }
 
