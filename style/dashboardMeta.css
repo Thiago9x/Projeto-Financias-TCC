@@ -8,7 +8,7 @@ body{
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: whitesmoke ;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +16,13 @@ body{
 main{
     min-width: 1250px ;
 }
+
+#guardaTituloBotao{
+
+    width: 100%;
+    height: 13%;
+}
+
 #titulo{
 
     width: 88vw;
@@ -32,8 +39,7 @@ h1{
 }
 #criarMeta{
     width: 110px;
-    height: 120px;
-    background-color: aqua;  
+    height: 120px; 
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -48,88 +54,62 @@ h1{
 }
 
 /* Formatação das caixa despesas e receitas */
-    .tipoMeta{
-        width: 65vw;
-        height: 100px;
-        /* background-color: aqua; */
-        margin-top: 3%;
-        margin-bottom: 30px;
-    }
-    #formatCaixas{
-        min-width: 61vw;
-        width: 61vw;
-        min-height: 60px;
-        height: 60px;
-        display: flex;
-        /* background-color: aqua; */
-        justify-content: space-between;
-        margin-top: 40px;
-    }
+    
+   
     #conteudoMeta{
+      
+        width: 100%;
+        height: 90%;
         min-width: 100px;
-        width: 75vw;
-        height: 70vh;
-        /* background-color: aqua; */
         display: flex;
         justify-content: space-between;
     }
 
 
 /* formatação da caixa de despesas */
-
-.despesa{
-    min-height: 60px;
-    min-width: 60px;
-    width: 400px;
-    height: 60px;
-    margin-left: 90px;
-    background-color: #2A356A;
-    border-radius: 5px;
-}
-
-.despesa h4{
-    font-size: 1.5em;
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.receita{
-    min-height: 60px;
-    min-width: 60px;
-    width: 400px;
-    height: 60px;
-    background-color: #2A356A;
-    border-radius: 5px;
-}
-
-.receita h4{
-    font-size: 1.5em;
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-.conteudoDespesa{
-    min-width: 850px;
-    overflow-y: scroll;
-    width: 850px;
-    min-height: 67px;
-    height: 68vh;
+.conteudoReceitaDespesa{
+    width: 45%;
+    height: 100%;
+    min-width: 100px;
+    /* min-height: 67px; */
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    gap: 20px;
     flex-direction: column;
-    background-color: rgb(233, 233, 233);
 }
 
+.titulo{
+    width: 50%;
+    height: 5%;
+    min-width: 90px;
+    min-height: 50px;
+    margin-bottom: 10px;
+    background-color: #2A356A;
+    color: white;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.CaixaGuardaInfo{
+
+    width: 70%;
+    height: 90%;
+     min-width: 100px;
+    overflow-y: scroll;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 25px;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
 .caixaDespesas{
     min-width: 100px;
-    width: 620px;
+    width: 80%;
     min-height: 255px;
     height: 260px;
     border: solid 1px whitesmoke;
@@ -138,57 +118,114 @@ h1{
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 }
 
-.formatText{
-    min-width: 20px;
-    width: 100px;
-    min-height: 20px;
-    height: 160px;
-    /* background-color: #2A356A; */
-    display: flex;
-    flex-direction: column;
-    margin-top: 6px;
-    gap: 25px;
-   
-}
-.formatImgs{
-    min-height: 50px;
-    height: 166px;
-    min-width: 20px;
-    width: 60px;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    /* background-color: aqua; */
+
+.format{
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 .tituloMeta{
-    min-width: 20px;
+    min-width: 100px;
     width: 180px;
     min-height: 20px;
-    height: 50px;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.caixaTextos{
+   
+    width: 70%;
+    height: 100%;
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.divisaoInformacao{
+    width: 35%;
+    min-width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: 600;
+    margin-left: 20px;
+
+}
+
+.divisaoCategoria{
+    width: 50%;
+    min-width: 90px;
+    min-height: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 10px;
+    color: #858585;
+}
+@media screen and (min-width: 50px) {
+                               
+    .divisaoCategoria{
+        margin-left: 5px;
+    }
+  }
+  
+.imagemCate, .textoCate{
+    width: 100%;
+    min-width: 20px;
+    height: 25%;
+    margin-top: 12px;
+    display: flex;
+
+}
+
+.imagemCate{
+    justify-content: center;
+    align-items: center;
+}
+
+.caixaIcones{
+
+   
+    width: 10%;
+    height: 100%;
+    min-height: 50px;
+    min-width: 20px;
     display: flex;
     flex-direction: column;
 }
 
+.tamanhoFormatado{
+    width: 100%;
+    min-width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 .centralizar{
     width: 100%;
     height: 20%;
+    min-width:100px;
+    min-height: 70px;
     display: flex;
-    margin-top: 10px;
+    margin-top: -5px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
 }
-.tituloMeta p{
-    margin-left: 45px;
-}
+
 .editConteudosDespesa{
-    min-width: 200px;
-    width: auto;
-    min-height: 150px;
-    height: auto;
+
+    width: 100%;
+    height: 70%;
+    min-width: 90px;
     display: flex;
-    margin-top: 20px;
-    /* background-color: #2A356A; */
-    margin-left: 12px;
 }
 
  /* Formatacão da caixa de receitas */
