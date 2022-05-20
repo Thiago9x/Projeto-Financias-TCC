@@ -206,3 +206,6 @@ input[type='file'] {
      border-radius: 50%;
     
  }
+ .formatCamera:hover{
+     cursor: pointer;
+ }

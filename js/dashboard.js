@@ -10,11 +10,14 @@ document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').select
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
 let categoriaReceita;
 let categoriaDespesa;
-const monthNames = ["Janeiro", "Feevereiro", "Março", "Abril", "Maio", "Junho",
+const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
 	"Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
 ];
 const getNameMonth = function (date) {
 	return monthNames[date.getMonth()];
+}
+const getShortMonthName = function (date) {
+    return monthNames[date.getMonth()].substring(0, 3);
 }
 const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -76,7 +79,8 @@ ws.onmessage = ({ data }) => {
 selecionarModal(document.getElementById('modalGigante'))
 //MODAL DE TRANSFERENCIA
 
-const modalTransferencia = (transferencia) => {
+const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexo,fixa,nomeFrequencia,observacao,parcelada, parcelas, favoritos) => {
+	
 	conteudoModal(` 
 
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
@@ -92,15 +96,15 @@ const modalTransferencia = (transferencia) => {
         <!-- conteudo da nova despesa --> 
     <div id="conteudo">
             <label>Descrição</label>
-            <input type="text" placeholder="" maxlength="500" class="descricao estilizacao" required>
+            <input type="text" value="${descricao}" placeholder="" maxlength="500" class="descricao estilizacao" required>
         <div id="valorData">
             <div class="caixa2">
             <label>Valor</label>
-            <input type="text" value="R$ 0,00" maxlength="500" class="valor estilizacao" required>
+            <input type="text" value="${valor}" maxlength="500" class="valor estilizacao" required>
             </div>
             <div class="caixa2">
             <label>Data</label>
-            <input type="date" placeholder="" maxlength="500" class="date estilizacao" required>
+            <input type="date" placeholder="" value="${date}" maxlength="500" class="date estilizacao" required>
             </div>
         </div>
             <label >Categoria</label>
@@ -141,7 +145,7 @@ const modalTransferencia = (transferencia) => {
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
                 <select id='selectFR' class="estilizacao">
-                <option value="" selected="" disabled="">Escolha uma opcao</option>
+                <option value="${nomeFrequencia}" selected="" disabled="">Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
                     <option value='QUINZENAS'>Quinzenas</option>
@@ -164,7 +168,7 @@ const modalTransferencia = (transferencia) => {
             </div>
             <div id="fixa">
                 <div id="baseline">
-                    <input type="checkbox" id="transFixa"><label>Transferência fixa</label>
+                    <input type="checkbox" id="transFixa" ${ fixa!==true ? "" : "checked" }><label>Transferência fixa</label>
                 </div>
                 <p id="descricaoFixa">Quando você desejar cancelar a despesa fixa, vá na tela conta e remova a transferência</p>
             </div>
@@ -177,7 +181,7 @@ const modalTransferencia = (transferencia) => {
           <div  id="conteudo3">
             <div>
                 <h4>Observação</h4>
-                <textarea placeholder="" maxlength="500" class="obs estilizacao"></textarea>
+                <textarea placeholder="" maxlength="500" value="${observacao}" class="obs estilizacao"></textarea>
                 </div>
           </div>
      </div>
@@ -199,6 +203,7 @@ const modalTransferencia = (transferencia) => {
 </div>
 `)
 	abrirModal()
+	
 	//DATA ATUAL
 	let data = document.querySelector('.date');
 	data.valueAsDate = new Date();
@@ -229,6 +234,7 @@ const modalTransferencia = (transferencia) => {
 			selectCat.appendChild(option);
 		});
 	}
+	document.querySelector('#selectCat > option[value="' + (categoria) + '"]').selected = true;
 	//PARTES DAS BOLINHAS BOTOES
 
 	const btnImg1 = document.querySelector('.btnImg1');
@@ -242,7 +248,9 @@ const modalTransferencia = (transferencia) => {
 	let repetido = false;
 	let observado = false;
 	let anexado = false;
-	let favoritado = false;
+	let favoritado = !favoritos;
+
+	
 
 	btnImg1.onclick = () => {
 		if (repetido) {
@@ -256,7 +264,7 @@ const modalTransferencia = (transferencia) => {
 
 
 			dataInicio.onchange = e => {
-				console.log('teste')
+
 
 				switch (dataFR.value) {
 					case 'DIAS':
@@ -457,6 +465,8 @@ const modalTransferencia = (transferencia) => {
 		}
 	}
 
+	btnImg4.onclick();
+
 	const opcao1 = () => {
 		document.getElementById('repeticao').classList.add('aparecer')
 	}
@@ -509,10 +519,10 @@ const modalTransferencia = (transferencia) => {
 
 	//CONFIRMAR A RECEITA
 	const enviar = () => {
-		let valor = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
-		let descricao = document.querySelector('.descricao').value
+		let valorEnviar = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
+		let descricaoEnviar = document.querySelector('.descricao').value
 		let idCategoria = parseInt(document.querySelector('#selectCat').value)
-		let observacao = document.querySelector('.obs').value
+		let observacaoEnviar = document.querySelector('.obs').value
 		let parcelaFixa = document.getElementById('transFixa').checked
 		// let anexo = document.getElementById('anexos').value
 
@@ -520,9 +530,9 @@ const modalTransferencia = (transferencia) => {
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 
 			ws.send(JSON.stringify({
-				metodo: transferencia, arg: 'inserir', valor: valor, data: data.value, descricao: descricao, favorito: favoritado, fixa: parcelaFixa,
+				metodo: transferencia, arg: 'inserir', valor: valorEnviar, data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
-				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacao, idCategoria: idCategoria, parcelada: repetido
+				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido
 			}));
 			fecharModal();
 			updateChart();
@@ -539,8 +549,8 @@ const modalTransferencia = (transferencia) => {
 
 }
 //FIM DA CONFIRMACAO TRANSFERENCIA
-document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita'))
-document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa'))
+document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita','','R$ 0,00','','','',false,'','',false,1,false))
+document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa','','R$ 0,00','','','',false,'','',false,1,false))
 
 console.log(fetch(`${urlData}/saldo/categorias?k=${token}`)
 	.then((resposta) => resposta.json())
@@ -743,13 +753,12 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 	}
 });
 
-console.log('dd')
+
 
 const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
 fetch(urlSec)
 	.then((resposta) => resposta.json())
 	.then((data) => {
-		console.log(data)
 		const saldoMensal = document.getElementById('saldoMesValor');
 		saldoMensal.innerText = 'R$ ' + formatador.format(data.saldo);
 		const saldoMensalTXT = document.getElementById('saldo-mensal');
@@ -773,70 +782,93 @@ const modalFavoritos = () => {
 			conteudoModal(`
 			<link rel="stylesheet" type="text/css" href="./style/favoritos.css">
 			<link rel="stylesheet" type="text/css" href="./font/icon.css">
-		<div id="mainfavorito">
-				
-				<div id="conteudoModal">
-	
-					<img src="./img/estrelaExtrato.svg" alt class="estrela">
-					<h3>Transações Favoritas</h3>
-	
-				</div>
-	
-				<div id="formatAdd">
-	
-					<input type="image" src="img/mais.svg" class="editarIcone">
-					<p>Adicionar</p>
-					<p class="edit">Favorito</p>
-	
-				</div>
-	
-	
-				<div id="caixas">
-				</div>
+			<div id="mainfavorito">
 
-            
+     
+            <div id="containerFavorito">
 
-				<div class="botao">
-					<input id="button1" type="button" value="Voltar">
-					<input id="button2" type="button" value="Confirmar">
-				</div>
+                <div class="botaoReceita" id="receitaFavorito">
+
+                    <div class="im">
+                        <img src="img/maisVerde.png" class="editarIcone">
+                    </div>
+                    
+                    <p>Adicionar<br>Receita</p>
+
+                </div>
+
+                <div class="tituloFavorito">
+
+                    <img src="./img/estrelaExtrato.svg" class="estrela">
+                    <h3>Transações Favoritas</h3>
+
+                </div>
+                <div class="botaoReceita" id='despesaFavorito'>
+
+                    <div class="im">
+                        <img src="img/menos.png" class="editarIcone">
+                    </div>
+                    <p>Adicionar<br>Despesa</p>
+
+                </div>
+            </div>
 
 
-		</div>  `
-)
+            <div id="caixas">
+            </div>
+
+            <div class="botao">
+                <input id="button1" type="button" value="Voltar">
+                <input id="button2" type="button" value="Confirmar">
+            </div>
+         
+
+        </div>         `
+)			
+			const adicionarReceitaFavoritos = () => {
+				modalTransferencia('receita','','R$ 0,00','','','',false,'','',false,1,true);
+			}
+			const adicionarDespesaFavoritos = () => {
+				modalTransferencia('despesa','','R$ 0,00','','','',false,'','',false,1,true);
+			}
+			const adicionarDespesa = document.getElementById('despesaFavorito');
+			const adicionarReceita = document.getElementById('receitaFavorito');
+			adicionarDespesa.addEventListener('click',adicionarDespesaFavoritos);
+			adicionarReceita.addEventListener('click',adicionarReceitaFavoritos);
 			const boxConteudo = document.getElementById('caixas');
 			for (let i = 0; i < data.length; i++) {
 				let valor = data[i].valor;
 				let descricao = data[i].descricao;
-				console.log(valor, descricao)
+				let cor;
 				let categoria = data[i].categoria;
 				if (valor < 0) {
 					categoria = categoriaDespesa.find(categor => categoria == categor.idCategoria);
-					// cor = "vermelho";
+					cor = "vermelho";
 				}
 				else if (valor > 0) {
 					categoria = categoriaReceita.find(categor => categoria == categor.idCategoria);
-					// cor = "verde";
+					cor = "verde";
 				}
+				
 				boxConteudo.innerHTML += ` 
 				
             <div class="caixa1">  
                     <div class="containerInfo">
 
-                        <div class="containerImagem">
-
+                        <div class="containerImagem icons">
+							${categoria.icone}
                         </div>
 
                         <div class="containerText">
-                            <label class="textCategoria">${categoria}</label>
+                            <label class="textCategoria">${categoria.nome}</label>
                             <label class="textLugar">${descricao}</label>
-                            <label class="textValor" > ${'R$ ' + formatador.format(valor)} </label>
+                            <label class="textValor ${cor}" > ${'R$ ' + formatador.format(valor)} </label>
                         </div>
 
                     </div>
 
                     <div class="containerInfoData">
-                        <label class="dataFormatacao"> JAN <br> 2022</label>
+                        <label class="dataFormatacao"> ${getShortMonthName(new Date(data[i].data))} <br> ${new Date(data[i].data).getUTCFullYear()}</label>
                     </div>
 
                 </div>
@@ -849,6 +881,7 @@ const modalFavoritos = () => {
                  `}
 		})
 	abrirModal();
+	
 }
 
 document.getElementById('favoritosCont').addEventListener('click', modalFavoritos)
