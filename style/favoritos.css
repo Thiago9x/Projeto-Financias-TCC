@@ -63,6 +63,9 @@ input{
     margin-top: 35px;
 
 }
+.caixa1:hover{
+    cursor: pointer;
+}
 
 .containerInfo{
 
@@ -205,6 +208,9 @@ input{
     align-items: center;
     text-align: center;
     padding-top: 5px;
+}
+.botaoReceita:hover{
+    cursor: pointer;
 }
 .tituloFavorito{
     width: 60%;
