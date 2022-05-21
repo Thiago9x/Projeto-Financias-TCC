@@ -75,12 +75,13 @@ ul li{
     color: #32A40A;
 }
 
+/* MENU */
 
 .menu{
     width: 8%;
     min-width: 200px;
-    height: 100vh;
-    min-height: 1024px;
+    height: 100px;
+    min-height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -101,6 +102,7 @@ ul li{
 #menuList{
     display: flex;
     width: 100%;
+    min-height: 100px;
     height: 50%;
 
 }
