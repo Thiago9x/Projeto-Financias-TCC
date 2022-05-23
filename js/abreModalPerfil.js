@@ -22,7 +22,7 @@ const abreModal = () =>{
                 </h4> 
             </label>
 
-            <input id='input-file' type='file' value='' />
+            <input id='file-input' type='file' value='' />
             <span id='file-name'></span>
                 
         </div>

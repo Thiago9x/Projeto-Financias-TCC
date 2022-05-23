@@ -163,10 +163,16 @@ margin-left: 8px;
     width: 100%;
     height: 30%;
     color: #C4C4C4;
+    text-align: center;
 }
 #abrirPerfil:hover{
     cursor: pointer;
 }
+#fotoDoUsuario{
+    width: 100%;
+    height: 100%;
+}
+
 #perfilFoto{
 
     width: 35%;
@@ -189,8 +195,16 @@ margin-left: 8px;
 
 #cinza{
     color: #C4C4C4;
+    text-align: center;
+    width: 100%;
+    height: auto;
 }
 
 #branco{
+    width: 100%;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

@@ -5,7 +5,6 @@ const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 var atual = document.getElementById("total");
 atual.value = new Date().getUTCFullYear();
-const token = Cookies.get('token');
 let backup;
 
 const urlCat = url + '/data/categorias/extrato-mes?k=' + token + '&ano=' + atual.value + '&mes=' + selectMes.value;

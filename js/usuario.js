@@ -1,5 +1,5 @@
 let photo = document.querySelector('.usuarioFoto');
-    let file = document.getElementById('input-file');
+    let file = document.getElementById('file-input');
 
     photo.addEventListener('click', () => {
         file.click();

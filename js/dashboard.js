@@ -1,7 +1,5 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
-const token = Cookies.get('token');
-let urlData = url + "/data";
 const monthNow = new Date().getUTCMonth() + 1;
 const yearNow = new Date().getUTCFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
@@ -17,7 +15,7 @@ const getNameMonth = function (date) {
 	return monthNames[date.getMonth()];
 }
 const getShortMonthName = function (date) {
-    return monthNames[date.getMonth()].substring(0, 3);
+	return monthNames[date.getMonth()].substring(0, 3);
 }
 const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -43,7 +41,7 @@ ws.onmessage = ({ data }) => {
 							saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
 							despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
 
-							updateChart();	
+							updateChart();
 							updateSecundario();
 							break;
 						}
@@ -66,7 +64,7 @@ ws.onmessage = ({ data }) => {
 							saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
 							receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
 
-							updateChart();	
+							updateChart();
 							updateSecundario();
 							break;
 						}
@@ -79,8 +77,8 @@ ws.onmessage = ({ data }) => {
 selecionarModal(document.getElementById('modalGigante'))
 //MODAL DE TRANSFERENCIA
 
-const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexo,fixa,nomeFrequencia,observacao,parcelada, parcelas, favoritos) => {
-	
+const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexo, fixa, nomeFrequencia, observacao, parcelada, parcelas, favoritos) => {
+
 	conteudoModal(` 
 
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
@@ -145,7 +143,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
                 <select id='selectFR' class="estilizacao">
-                <option value="${nomeFrequencia}" selected="" disabled="">Escolha uma opcao</option>
+                <option value="" selected disabled="">Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
                     <option value='QUINZENAS'>Quinzenas</option>
@@ -158,8 +156,8 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
             </div>
             <div id="duracaoData">
                 <div class="caixa3">
-                <label>Repetições</label>
-                <input type="text" placeholder="" maxlength="500" class="duracao estilizacao">
+                <label>Parcelas</label>
+                <input type="text" placeholder="" maxlength="500" value='${parcelas}' maxlength='3' class="duracao estilizacao">
                 </div>
                 <div class="caixa3">
                 <label>Data Fim</label>
@@ -168,7 +166,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
             </div>
             <div id="fixa">
                 <div id="baseline">
-                    <input type="checkbox" id="transFixa" ${ fixa!==true ? "" : "checked" }><label>Transferência fixa</label>
+                    <input type="checkbox" id="transFixa" ${fixa !== true ? "" : "checked"}><label>Transferência fixa</label>
                 </div>
                 <p id="descricaoFixa">Quando você desejar cancelar a despesa fixa, vá na tela conta e remova a transferência</p>
             </div>
@@ -181,7 +179,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
           <div  id="conteudo3">
             <div>
                 <h4>Observação</h4>
-                <textarea placeholder="" maxlength="500" value="${observacao}" class="obs estilizacao"></textarea>
+                <textarea placeholder="" maxlength="500" class="obs estilizacao">${observacao}</textarea>
                 </div>
           </div>
      </div>
@@ -203,7 +201,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 </div>
 `)
 	abrirModal()
-	
+
 	//DATA ATUAL
 	let data = document.querySelector('.date');
 	data.valueAsDate = new Date();
@@ -235,6 +233,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		});
 	}
 	document.querySelector('#selectCat > option[value="' + (categoria) + '"]').selected = true;
+
 	//PARTES DAS BOLINHAS BOTOES
 
 	const btnImg1 = document.querySelector('.btnImg1');
@@ -245,12 +244,13 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 	const btnImg4 = document.querySelector('.btnImg4');
 
-	let repetido = false;
-	let observado = false;
+
+	let repetido = !parcelada;
+	let observado = !observacao;
 	let anexado = false;
 	let favoritado = !favoritos;
 
-	
+
 
 	btnImg1.onclick = () => {
 		if (repetido) {
@@ -260,6 +260,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		} else {
 			repetido = true;
 			btnImg1.src = './img/repetirr.svg'
+			document.querySelector('#selectFR > option[value="' + (nomeFrequencia) + '"]').selected = true;
 			document.getElementById('repeticao').style.display = 'block';
 
 
@@ -271,7 +272,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -280,7 +281,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(7 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(7 * parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -289,7 +290,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(15 * parseInt(duracao.value) + dataObjeto.getUTCDate());
+							dataObjeto.setUTCDate(15 * parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -297,7 +298,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -305,7 +306,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(2 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(2 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -313,7 +314,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(3 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(3 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -322,7 +323,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(6 * parseInt(duracao.value) + dataObjeto.getUTCMonth());
+							dataObjeto.setUTCMonth(6 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -331,7 +332,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCFullYear(parseInt(duracao.value) + dataObjeto.getUTCFullYear());
+							dataObjeto.setUTCFullYear(parseInt(duracao.value - 1) + dataObjeto.getUTCFullYear());
 
 							dataFim.valueAsDate = dataObjeto;
 							break;
@@ -342,6 +343,8 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			dataFR.onchange = () => dataInicio.onchange();
 			duracao.oninput = () => dataInicio.onchange();
 
+			dataInicio.onchange();
+
 			const DIA = 1000 * 60 * 60 * 24;
 
 			dataFim.onchange = () => {
@@ -349,7 +352,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 					case 'DIAS':
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA);
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA) + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -358,7 +361,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 					case 'SEMANAS':
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7);
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 7) + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -367,7 +370,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 					case 'QUINZENAS':
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
-								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15);
+								duracao.value = Math.floor((dataFim.valueAsDate - dataInicio.valueAsDate) / DIA / 15) + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -377,7 +380,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth();
+								duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth() + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -387,7 +390,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2;
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -397,7 +400,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3;
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -407,7 +410,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6;
+								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -417,7 +420,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = data.getUTCFullYear() - 1970;
+								duracao.value = data.getUTCFullYear() - 1970 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -428,7 +431,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			}
 		}
 	}
-
+	btnImg1.onclick();
 	btnImg2.onclick = () => {
 		if (observado) {
 			observado = false;
@@ -440,6 +443,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			document.getElementById('observacao').style.display = 'block';
 		}
 	}
+	btnImg2.onclick();
 
 	btnImg3.onclick = () => {
 		if (anexado) {
@@ -534,9 +538,9 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
 				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido
 			}));
-			
+
 			fecharModal();
-			
+
 		}
 	}
 
@@ -550,23 +554,23 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 }
 //FIM DA CONFIRMACAO TRANSFERENCIA
-document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita','','R$ 0,00','','','',false,'','',false,1,false))
-document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa','','R$ 0,00','','','',false,'','',false,1,false))
+document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, false))
+document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, false))
 
-console.log(fetch(`${urlData}/saldo/categorias?k=${token}`)
+console.log(fetch(`${urlData}/saldo/categorias/perfil?k=${token}`)
 	.then((resposta) => resposta.json())
 	.then((data) => {
 
-		const saldo = data[0].saldo;
-		const receita = data[0].receita;
-		const despesa = data[0].despesa;
+		let saldo = data[0].saldo;
+		let receita = data[0].receita;
+		let despesa = data[0].despesa;
 		categoriaReceita = data[1].receitas;
 		categoriaDespesa = data[1].despesas;
-
+		let nomeUsuario = data[2].nome;
+		document.getElementById('nomeCliente').innerText = nomeUsuario;
 		document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`;
 		document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
 		document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
-
 
 		updateChart();
 
@@ -625,7 +629,7 @@ const myChart = new Chart(ctx, {
 				display: false,
 				color: '#000',
 				anchor: 'end',
-				
+
 				align: 'end',
 				offset: 24,
 				font: {
@@ -668,7 +672,7 @@ const updateChart = () => {
 			myChart.data.datasets[0].backgroundColor = corGrafico;
 
 			myChart.update()
-			
+
 
 		});
 };
@@ -754,7 +758,8 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 
 
 const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
-const updateSecundario = () =>{fetch(urlSec)
+const updateSecundario = () => {
+	fetch(urlSec)
 	.then((resposta) => resposta.json())
 	.then((data) => {
 		const saldoMensal = document.getElementById('saldoMesValor');
@@ -774,9 +779,6 @@ updateSecundario();
 const modalFavoritos = () => {
 	const urlFavoritos = urlData + '/favorito?k=' + token;
 
-	urlFavoritos.map = () => {
-		console.log(urlFavoritos);
-	}
 	fetch(urlFavoritos)
 		.then((resposta) => resposta.json())
 		.then((data) => {
@@ -827,26 +829,28 @@ const modalFavoritos = () => {
          
 
         </div>         `
-)			
+			)
 			const adicionarReceitaFavoritos = () => {
-				modalTransferencia('receita','','R$ 0,00','','','',false,'','',false,1,true);
+				modalTransferencia('receita', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, true);
 			}
 			const adicionarDespesaFavoritos = () => {
-				modalTransferencia('despesa','','R$ 0,00','','','',false,'','',false,1,true);
+				modalTransferencia('despesa', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, true);
 			}
 			const adicionarDespesa = document.getElementById('despesaFavorito');
 			const adicionarReceita = document.getElementById('receitaFavorito');
-			adicionarDespesa.addEventListener('click',adicionarDespesaFavoritos);
-			adicionarReceita.addEventListener('click',adicionarReceitaFavoritos);
-			let transferencia;
-			
+			adicionarDespesa.addEventListener('click', adicionarDespesaFavoritos);
+			adicionarReceita.addEventListener('click', adicionarReceitaFavoritos);
+
+
+
 			const boxConteudo = document.getElementById('caixas');
 
-		
+
 
 			for (let i = 0; i < data.length; i++) {
 				let valor = data[i].valor;
 				let anexo = data[i].anexo;
+				let transferencia;
 				let fixa = data[i].fixa;
 				let nomeFrequencia = data[i].nomeFrequencia;
 				let observacao = data[i].observacao;
@@ -856,60 +860,61 @@ const modalFavoritos = () => {
 				let cor;
 				let date = data[i].data;
 
-				console.log(data);
+				console.log(data, valor);
 				let categoria = data[i].categoria;
-				if (valor < 0) {
-					categoria = categoriaDespesa.find(categor => categoria == categor.idCategoria);
-					cor = "vermelho";
-					transferencia = "despesa"
-				}
-				else if (valor > 0) {
+				if (valor > 0) {
 					categoria = categoriaReceita.find(categor => categoria == categor.idCategoria);
 					cor = "verde";
 					transferencia = "receita";
 				}
+				else if (valor < 0) {
+					categoria = categoriaDespesa.find(categor => categoria == categor.idCategoria);
+					cor = "vermelho";
+					transferencia = "despesa"
+				}
 
-				boxConteudo.innerHTML += ` 
-				
-            <div class="caixa1 ${i}">  
-                    <div class="containerInfo">
 
-                        <div class="containerImagem icons">
-							${categoria.icone}
-                        </div>
+				const caixa1 = document.createElement('div');
 
-                        <div class="containerText">
-                            <label class="textCategoria">${categoria.nome}</label>
-                            <label class="textLugar">${descricao}</label>
-                            <label class="textValor ${cor}" > ${'R$ ' + formatador.format(valor)} </label>
-                        </div>
+				caixa1.classList.add('caixa1');
+				caixa1.innerHTML = `<div class="containerInfo">
 
-                    </div>
+				<div class="containerImagem icons">
+					${categoria.icone}
+				</div>
 
-                    <div class="containerInfoData">
-                        <label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getUTCFullYear()}</label>
-                    </div>
+				<div class="containerText">
+					<label class="textCategoria">${categoria.nome}</label>
+					<label class="textLugar">${descricao}</label>
+					<label class="textValor ${cor}" > ${'R$ ' + formatador.format(valor)} </label>
+				</div>
 
-                </div>
+			</div>
 
-                <div id="editImgExcluir">
+			<div class="containerInfoData">
+				<label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getUTCFullYear()}</label>
+			</div>`;
+
+				const editImgExcluir = document.createElement('div');
+
+				editImgExcluir.classList.add('editImgExcluir');
+
+				editImgExcluir.innerHTML = ` 
                     <img src="./img/excluir.svg">
-                </div>  
+                 `;
 
-                
-                 `
-				 
-				  const puxandoInfo = document.querySelector('.caixa1');
-				  console.log(puxandoInfo);
-				  const abrirTransfInformada = () =>{
-					modalTransferencia(transferencia,descricao,'R$ '+ formatador.format(valor), date, categoria.idCategoria, anexo,fixa,nomeFrequencia,observacao,parcelada, parcelas, false)
-					
-				  }
-				puxandoInfo.addEventListener('click', abrirTransfInformada)
-				 }
+				const abrirTransfInformada = () => {
+					console.log(parcelada, parcelas, nomeFrequencia)
+					modalTransferencia(transferencia, descricao, 'R$ ' + formatador.format(valor), date, categoria.idCategoria, anexo, fixa, nomeFrequencia, observacao, parcelada, parcelas, false)
+
+				}
+				caixa1.addEventListener('click', abrirTransfInformada)
+
+				boxConteudo.append(caixa1, editImgExcluir);
+			}
 		})
 	abrirModal();
-	
+
 }
 
 document.getElementById('favoritosCont').addEventListener('click', modalFavoritos)

@@ -306,8 +306,6 @@ select {
 }
 
 
-
-
 /* PARTE DO GRAFICO DASHBOARD */
 
 #graficoPuro {
@@ -445,7 +443,7 @@ select {
             font-size: 16px;
             font-weight: bold;
         }
-        #nomeCliente{
+        .nomeCliente{
             color: black;
         }
         #informacoes{
