@@ -821,8 +821,7 @@ const modalFavoritos = () => {
             </div>
 
             <div class="botao">
-                <input id="button1" type="button" value="Voltar">
-                <input id="button2" type="button" value="Confirmar">
+                <input id="button1" class="voltarDash" type="button" value="Voltar">
             </div>
          
 
@@ -834,6 +833,7 @@ const modalFavoritos = () => {
 			const adicionarDespesaFavoritos = () => {
 				modalTransferencia('despesa', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, true);
 			}
+			
 			const adicionarDespesa = document.getElementById('despesaFavorito');
 			const adicionarReceita = document.getElementById('receitaFavorito');
 			adicionarDespesa.addEventListener('click', adicionarDespesaFavoritos);
@@ -894,7 +894,7 @@ const modalFavoritos = () => {
 			</div>`;
 
 				const editImgExcluir = document.createElement('div');
-
+				
 				editImgExcluir.classList.add('editImgExcluir');
 
 				editImgExcluir.innerHTML = ` 
@@ -909,9 +909,12 @@ const modalFavoritos = () => {
 				caixa1.addEventListener('click', abrirTransfInformada)
 
 				boxConteudo.append(caixa1, editImgExcluir);
+				
 			}
+			document.querySelector('.voltarDash').addEventListener('click',fecharModal);
 		})
 	abrirModal();
+	
 
 }
 

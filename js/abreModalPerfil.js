@@ -17,12 +17,12 @@ const abreModal = () =>{
 
             <label for='input-file'>
                
-                <h4 class="h4">
+                <div class="h4">
                     Selecione uma foto
-                </h4> 
+                </div> 
             </label>
 
-            <input id='file-input' type='file' value='' />
+            <input id='input-file' type='file' value='' />
             <span id='file-name'></span>
                 
         </div>
@@ -31,7 +31,7 @@ const abreModal = () =>{
 
    </div>
     <div id="conteudo">
-        <h7 class="h7">Nome Completo</h7>
+        <div class="h7">Nome Completo</div>
         <input type="text" class="edit" placeholder="digite seu nome"> 
     </div>
 
@@ -48,7 +48,7 @@ const abreModal = () =>{
 
         <div class="organize">
             
-            <label>
+            <label id="Tcheckbox">
                 <input type="checkbox" id="checkbox"/>
                 <span class="checkbox"></span>
             </label>
@@ -56,7 +56,7 @@ const abreModal = () =>{
             <div class="edith4"> <h4>Verificação de duas etapas</h4> </div>
 
         </div>  
-        <div class="t1">
+        <div class="guardaBotao">
 
             <input id="buttonSenha" type="button" value="Trocar Senha"> 
             
