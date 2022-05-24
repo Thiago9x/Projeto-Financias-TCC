@@ -12,10 +12,9 @@ let photo = document.querySelector('.usuarioFoto');
         }
 
         let reader = new FileReader();
-
         reader.onload = () => {
             photo.src = reader.result;
         }
-
+        console.log(reader);
         reader.readAsDataURL(file.files[0]);
     });
