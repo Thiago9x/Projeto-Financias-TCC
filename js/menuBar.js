@@ -8,11 +8,7 @@ document.getElementById('menuGraficos').addEventListener('click', () => { window
 
 document.getElementById('menuGrupos').addEventListener('click', () => { window.location.href = '../grupo.html' });
 
-const token = Cookies.get('token');
-
-let urlData = url + "/data";
-
-console.log(fetch(`${urlData}/perfil?k=${token}`)
+console.log(fetch(`${url}/data/perfil?k=${token}`)
     .then((resposta) => resposta.json())
     .then((data) => {
 

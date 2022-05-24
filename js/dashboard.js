@@ -6,6 +6,8 @@ let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
+const urlData = url + "/data";
+
 let categoriaReceita;
 let categoriaDespesa;
 const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -32,17 +34,7 @@ ws.onmessage = ({ data }) => {
 				switch (json.arg) {
 					case 'remover':
 						{
-							const saldoGeral = document.getElementById('saldoGeral');
-							const despesaGeral = document.getElementById('despesa');
-
-							const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-							const valorDespesa = parseFloat(despesaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-
-							saldoGeral.innerText = 'R$ ' + (valorSaldo - json.valor).toFixed(2).replace('.', ',');
-							despesaGeral.innerText = 'R$ ' + (valorDespesa + json.valor).toFixed(2).replace('.', ',');
-
-							updateChart();
-							updateSecundario();
+							atualizarSaldo();
 							break;
 						}
 				}
@@ -55,17 +47,7 @@ ws.onmessage = ({ data }) => {
 				switch (json.arg) {
 					case 'adicionar':
 						{
-							const saldoGeral = document.getElementById('saldoGeral');
-							const receitaGeral = document.getElementById('receita');
-
-							const valorSaldo = parseFloat(saldoGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-							const valorReceita = parseFloat(receitaGeral.innerText.trim().replaceAll('R$ ', '').replaceAll(',', '.'));
-
-							saldoGeral.innerText = 'R$ ' + (valorSaldo + json.valor).toFixed(2).replace('.', ',');
-							receitaGeral.innerText = 'R$ ' + (valorReceita + json.valor).toFixed(2).replace('.', ',');
-
-							updateChart();
-							updateSecundario();
+							atualizarSaldo();
 							break;
 						}
 				}
@@ -73,6 +55,22 @@ ws.onmessage = ({ data }) => {
 			}
 	}
 }
+
+const atualizarSaldo = () =>
+fetch(`${urlData}/saldo?k=${token}`)
+	.then((resposta) => resposta.json())
+	.then((data) => {
+
+		let saldo = data.saldo;
+		let receita = data.receita;
+		let despesa = data.despesa;
+		document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`;
+		document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
+		document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
+
+		updateChart();
+
+	});
 
 selecionarModal(document.getElementById('modalGigante'))
 //MODAL DE TRANSFERENCIA

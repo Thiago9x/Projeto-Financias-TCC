@@ -73,13 +73,18 @@ const extratos = () => {
 
 selectMes.addEventListener('change', extratos);
 atual.addEventListener('input', extratos);
+
 selectCat.addEventListener('change', ({target}) => {
-	criadorConteudo(target.value ? backup.filter(transferencia => transferencia.categoria == target.value) : backup);
+	criadorConteudo(backup);
 });
 
 // menos e mais da input ano 
 
 const criadorConteudo = data2 => {
+	console.log('teste')
+	if(selectCat.value){
+		data2 = data2.filter(transferencia => transferencia.categoria == selectCat.value);
+	}
 	
 				const boxConteudo = document.querySelector('#conteudo');
 				boxConteudo.innerHTML = '';
@@ -99,6 +104,12 @@ const criadorConteudo = data2 => {
                     categoria = categoriaReceita.find(categor => idcategoria == categor.idCategoria);
                     cor = "verde";
                 }
+				
+				let dataFormata = `${mesData} <br> ${atual.value}`;
+				
+				if(data2[i].indice !== null){
+					dataFormata += `<br>Parcela ${data2[i].indice + 1 }/${data2[i].parcelas}`;
+				}
 
                 boxConteudo.innerHTML += `
                 <div class="caixa1">
@@ -114,7 +125,7 @@ const criadorConteudo = data2 => {
                 </div>
 
                 <div class="containerInfo">
-                    <label class="dataFormatacao"> ${mesData} <br> ${atual.value}</label>
+                    <label class="dataFormatacao">${dataFormata}</label>
                 </div>
 
             </div>`
