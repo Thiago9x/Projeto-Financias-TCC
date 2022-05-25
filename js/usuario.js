@@ -29,3 +29,13 @@
     });    
 
 
+    console.log(fetch(`${url}/data/perfil?k=${token}`)
+    .then((resposta) => resposta.json())
+    .then((data) => {
+
+        const nomeUsuario = data.nome;
+        document.getElementById('nomeUsuario').innerText = nomeUsuario;
+       
+    })
+);
+    console.log('logo');

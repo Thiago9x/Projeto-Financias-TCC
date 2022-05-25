@@ -71,23 +71,30 @@ select{
     min-width: 100px;
     width: 70%;
     min-height: 800px;
-    height: 800px;
+    height: 900px;
     overflow-y: scroll;
     background-color: whitesmoke;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom:20px ;
+    gap: 40px;
 }
 
 .containerInfo{
     width: 50%;
     height: 80%;
     display: flex;
+    justify-content: end;
     margin: 10px;
+    /* background-color: yellowgreen; */
 }
-
+.dadosExtrato{
+    width: 100%;
+    display: flex;
+}
 .containerImagem{
     width: 20%;
     height: 100%;
@@ -126,20 +133,19 @@ select{
 
 .dataFormatacao{
 
-    width: 100%;
+    width: 100px;
     height: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     text-align: center;
     align-items: center;
-    padding-right: 30px;
     color: #CCCCCC;
+    /* background-color: aqua; */
 }
 .caixa1{
     width: 95%;
     height: 140px;
     background-color: white;
-    margin-top: 45px;
     border: solid 1px whitesmoke;
     border-radius: 15px;
     display: flex;

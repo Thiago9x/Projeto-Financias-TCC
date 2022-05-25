@@ -115,7 +115,8 @@ const criadorConteudo = data2 => {
                 <div class="caixa1">
 
                 <div class="containerInfo">
-                    <div class="containerImagem icons">${categoria.icone}</div>
+                <div class="dadosExtrato">
+                <div class="containerImagem icons">${categoria.icone}</div>
 
                     <div class="containerText">
                         <label class="textCategoria">${categoria.nome}</label>
@@ -123,7 +124,7 @@ const criadorConteudo = data2 => {
                         <label class="textValor ${cor}">${'R$ ' + formatador.format(valor)}</label>
                     </div>
                 </div>
-
+                </div>    
                 <div class="containerInfo">
                     <label class="dataFormatacao">${dataFormata}</label>
                 </div>
