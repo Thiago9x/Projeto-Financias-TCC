@@ -251,8 +251,8 @@ main{
     /* Selects */
 
 #formatSelect{
-    width: 90%;
-    height: 100px;
+    width: 100%;
+    height: auto;
     margin-top: 2%;
     display: flex;
     justify-content: center;
@@ -286,46 +286,49 @@ select{
     border: solid 2px #2A356A;
     color: #FFF;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     text-align: center;
     background: url(../img/selectbranco.svg) no-repeat center right #FFF;
     font-size: 1.2rem;
     background-position-x: 95% ;
     
 }
-
 #editSelect{
 
-    width: 45%;
-    height: 5%;
+    width: 100%;
+    min-width: 100px;
+    height: 60px;
     display: flex;
-    margin-left: 25%;
+    justify-content: center;
     margin-bottom: 10px;
     align-items: center;
     gap: 100px;
-}
 
+}
 #responsiveSelects{
     width: 90%;
-    height: 20%;
-    min-width: 500px;   
+    height: 250px;
+    min-width: 100px;   
     padding-top: 32px;
-    padding-left: 190px;
 }
-
 
     /* input 2 */
 
-#formatInput2{
-
-    min-width: 100vh;
-    width: 50%;
-    min-height: 70px;
-    height: auto;
+.editarRadios{
+    width: 90%;
+    height: 70px;
     display: flex;
     justify-content: center;
-    margin-left: 22%;
+}
 
+#formatInput2{
+
+    min-width: 100px;
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
