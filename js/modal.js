@@ -3,6 +3,7 @@ let selecionarModal;
 let conteudoModal;
 let fecharModal;
 
+
 {
     let modal;
     let main;

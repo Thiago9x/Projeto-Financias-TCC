@@ -1,8 +1,13 @@
-let photo = document.querySelector('.usuarioFoto');
+
+    let photo = document.querySelector('.usuarioFoto');
     let file = document.getElementById('input-file');
+
+
+
 
     photo.addEventListener('click', () => {
         file.click();
+        console.log(photo)
     });
 
     file.addEventListener('change', () => {
@@ -18,3 +23,9 @@ let photo = document.querySelector('.usuarioFoto');
         console.log(reader);
         reader.readAsDataURL(file.files[0]);
     });
+
+    document.querySelector('.cancelar').addEventListener('click',() => {
+        document.getElementById('modalUsuario').style.display="none"
+    });    
+
+

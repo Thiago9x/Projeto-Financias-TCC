@@ -11,6 +11,7 @@ body{
 #usuario{
     width: 50%;
     height: 150px;
+    background-color: #fff;
     margin-top: 50px;
     border: solid 1px whitesmoke;
     border-radius: 10px;
