@@ -195,6 +195,7 @@ input[type="number"] {
   input[type="number"]{
 
   height: 36px;
+    width: 100%;
 
   background-color: #2A356A;
   color: white;
@@ -227,4 +228,9 @@ input[type="number"] {
 .b{
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+}
+#total{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: solid 2px #2A356A;
 }

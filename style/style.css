@@ -6,8 +6,7 @@
 }
 
 a{
-    text-decoration: none;
-    color: black;
+    
 }
 
 #royalfinance{
@@ -42,8 +41,9 @@ label{
     margin-bottom: 5px
 }
 
-input{
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=date], input[type=button], input[type=file] {
     border: solid 2px #2A356A;
+    min-height: 40px;
     height: 40px;
     width: 100%;
     border-radius: 5px;

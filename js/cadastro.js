@@ -98,7 +98,7 @@ const fazerCadastro = () => {
         .then((resposta) => resposta.json())
         .then((data) => {
             if(data.status === Status.OK){
-                alert("Cadastro efetuado com sucesso")
+                window.location.href="../index.html"
             }
             else if(data.status === Status.EMAIL_REPETIDO){
                 alert("ERRO:Esse email ja existe")

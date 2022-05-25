@@ -175,11 +175,11 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
         <!-- conteudo de observação -->
      <div class="observacao" id="observacao"> 
           <div  id="conteudo3">
-            <div>
+            
                 <h4>Observação</h4>
                 <textarea placeholder="" maxlength="500" class="obs estilizacao">${observacao}</textarea>
                 </div>
-          </div>
+          
      </div>
         <!-- conteudo do anexo -->
      <div class="anexo" id="anexo">
