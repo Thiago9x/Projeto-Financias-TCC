@@ -69,6 +69,7 @@ fetch(`${urlData}/saldo?k=${token}`)
 		document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
 
 		updateChart();
+		updateSecundario();
 
 	});
 
