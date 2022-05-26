@@ -109,7 +109,7 @@ h1{
     background-color: whitesmoke;
 }
 .caixaDespesas{
-    min-width: 100px;
+    min-width: 300px;
     width: 80%;
     min-height: 255px;
     height: 260px;
@@ -209,7 +209,7 @@ h1{
 }
 #formatarInfos{
     min-width: 10px;
-    width: 200px;
+    width: 250px;
     height: 180px;
     display: flex;
     gap: 10px;
@@ -219,24 +219,24 @@ h1{
 
 #infoText{
     min-width: 10px;
-    width: 100px;
+    width: 150px;
     height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    gap: 37px;
     margin-left: 20px;
-    background-color: red;
+    /* background-color: red; */
 }
 #infoNumero{
     min-width: 10px;
-    width: 100px;
+    width: 150px;
     height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
-    background-color: red;
+    gap: 40px;
+    /* background-color: red; */
 }
  /* Formatacão da caixa de receitas */
  
