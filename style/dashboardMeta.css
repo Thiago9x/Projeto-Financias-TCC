@@ -77,7 +77,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .titulo{
@@ -133,16 +133,6 @@ h1{
     display: flex;
     flex-direction: column;
 }
-.caixaTextos{
-   
-    width: 70%;
-    height: 100%;
-    min-width: 80px;
-    display: flex;
-    flex-direction: column;
-    
-}
-
 .divisaoInformacao{
     width: 35%;
     min-width: 100px;
@@ -173,13 +163,11 @@ h1{
     }
   }
   
-.imagemCate, .textoCate{
-    width: 100%;
-    min-width: 20px;
+.imagemCate{
+    min-width: 50px;
     height: 25%;
     margin-top: 12px;
     display: flex;
-
 }
 
 .imagemCate{
@@ -187,24 +175,14 @@ h1{
     align-items: center;
 }
 
-.caixaIcones{
-
-   
-    width: 10%;
-    height: 100%;
-    min-height: 50px;
-    min-width: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 .tamanhoFormatado{
-    width: 100%;
+    width: 50px;
     min-width: 40px;
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    /* background-color: rebeccapurple; */
 }
 
 
@@ -223,12 +201,43 @@ h1{
 
 .editConteudosDespesa{
 
-    width: 100%;
+    min-width:300px;
     height: 70%;
     min-width: 90px;
     display: flex;
+    /* background-color: rgb(17, 212, 222); */
+}
+#formatarInfos{
+    min-width: 10px;
+    width: 200px;
+    height: 180px;
+    display: flex;
+    gap: 10px;
+    /* background-color: aqua; */
 }
 
+
+#infoText{
+    min-width: 10px;
+    width: 100px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    margin-left: 20px;
+    background-color: red;
+}
+#infoNumero{
+    min-width: 10px;
+    width: 100px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    background-color: red;
+}
  /* Formatacão da caixa de receitas */
  
 .conteudoReceita{
