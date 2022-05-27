@@ -187,7 +187,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
         <div  id="conteudo4">
             <h4>Anexo</h4>
             
-                 <input type="file" name="image" id="format anexos" accept='.jpg,.jpeg,.png,.svg'>
+                 <input type="file" class="format anexos" accept='.jpg,.jpeg,.png,.svg'>
            
         </div>
    </div>
@@ -243,10 +243,10 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 	const btnImg4 = document.querySelector('.btnImg4');
 
-
+	let anexado = !(anexo !== null);
 	let repetido = !parcelada;
 	let observado = !observacao;
-	let anexado = false;
+	
 	let favoritado = !favoritos;
 
 
@@ -455,7 +455,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			document.getElementById('anexo').style.display = 'block';
 		}
 	}
-
+	btnImg3.onclick();
 	btnImg4.onclick = () => {
 		if (favoritado) {
 			favoritado = false;
@@ -519,15 +519,23 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		e.target.value = 'R$ ' + result.replace('NaN', '0,00');
 	}
 	//FIM DA FORMATACAO
-
+	
 	//CONFIRMAR A RECEITA
-	const enviar = () => {
+	const enviar = async() => {
+		let guardarImagens = null;
+		let anexo = document.querySelector('.anexos').files[0]
+		if(anexo){
+			guardarImagens = await fetch(url + '/upload?k=' + token, {method: 'put', body: anexo}).then(r => r.text())
+		}
+
+
+
 		let valorEnviar = parseFloat(document.querySelector('.valor').value.replaceAll('R$ ', '').replaceAll('.', '').replaceAll(',', '.'))
 		let descricaoEnviar = document.querySelector('.descricao').value
 		let idCategoria = parseInt(document.querySelector('#selectCat').value)
 		let observacaoEnviar = document.querySelector('.obs').value
 		let parcelaFixa = document.getElementById('transFixa').checked
-		// let anexo = document.getElementById('anexos').value
+		
 
 		const confirmacaoCampos = document.getElementById('requires').reportValidity();
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
@@ -535,14 +543,13 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			ws.send(JSON.stringify({
 				metodo: transferencia, arg: 'inserir', valor: valorEnviar, data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
-				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido
+				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido, anexo: guardarImagens
 			}));
 
 			fecharModal();
 
 		}
 	}
-
 	document.querySelector('.fotoX').addEventListener('click', fecharModal);
 
 
@@ -553,8 +560,8 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 }
 //FIM DA CONFIRMACAO TRANSFERENCIA
-document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, false))
-document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, false))
+document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, false))
+document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, false))
 
 console.log(fetch(`${urlData}/saldo/categorias/perfil?k=${token}`)
 	.then((resposta) => resposta.json())
@@ -829,10 +836,10 @@ const modalFavoritos = () => {
         </div>         `
 			)
 			const adicionarReceitaFavoritos = () => {
-				modalTransferencia('receita', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, true);
+				modalTransferencia('receita', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, true);
 			}
 			const adicionarDespesaFavoritos = () => {
-				modalTransferencia('despesa', '', 'R$ 0,00', '', '', '', false, '', '', false, 1, true);
+				modalTransferencia('despesa', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, true);
 			}
 			
 			const adicionarDespesa = document.getElementById('despesaFavorito');
@@ -903,7 +910,7 @@ const modalFavoritos = () => {
                  `;
 
 				const abrirTransfInformada = () => {
-					console.log(parcelada, parcelas, nomeFrequencia)
+
 					modalTransferencia(transferencia, descricao, 'R$ ' + formatador.format(valor), date, categoria.idCategoria, anexo, fixa, nomeFrequencia, observacao, parcelada, parcelas, false)
 
 				}

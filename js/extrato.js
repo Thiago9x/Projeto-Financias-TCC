@@ -88,13 +88,15 @@ const criadorConteudo = data2 => {
 	
 				const boxConteudo = document.querySelector('#conteudo');
 				boxConteudo.innerHTML = '';
+                let mesData = monthNames[parseInt(selectMes.value) - 1].substring(0, 3);
+
             for (let i = 0; i < data2.length; i++) {
                 let descricao = data2[i].descricao;
                 let idcategoria = data2[i].categoria;
                 let valor = data2[i].valor;
                 let cor;
 				let categoria;
-                let mesData = getShortMonthName(new Date(data2[i].data));
+                
 
                 if (valor < 0) {
                     categoria = categoriaDespesa.find(categor => idcategoria == categor.idCategoria);
@@ -104,7 +106,9 @@ const criadorConteudo = data2 => {
                     categoria = categoriaReceita.find(categor => idcategoria == categor.idCategoria);
                     cor = "verde";
                 }
-				
+
+                console.log(data2[i].data);
+				console.log(mesData);
 				let dataFormata = `${mesData} <br> ${atual.value}`;
 				
 				if(data2[i].indice !== null){
@@ -131,6 +135,7 @@ const criadorConteudo = data2 => {
 
             </div>`
             }
+            
 };
 
 function mais() {

@@ -173,7 +173,7 @@
 
 /* formatacão do type file */
 
-input[type='file'] {
+#input-file{
     display: none
   }
   

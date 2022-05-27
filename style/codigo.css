@@ -58,22 +58,24 @@ header{
     align-items: center;
 }
 .quadrado{
-    width: 12%;
-    height: 100%;
-    background-color: whitesmoke;
-    border-radius: 10px;
-    border: solid 1px black;
-    padding-left: none;
-    text-align: center;
-    font-size: 4rem;
+    width: 12% !important;
+    height: 100% !important;
+    background-color: whitesmoke !important;
+    border-radius: 10px !important;
+    border: solid 1px black !important;
+    padding-left: 0px !important;
+    text-align: center !important;
+    font-size: 4rem !important;
+
 }
 .botao{
-    width: 500px;
-    max-width: 500px;
-    height: 60px;
-    background-color: var(--cor-Principal);
-    color: white;
-    font-size: 1.5rem;
+    width: 500px !important;
+    max-width: 500px !important;
+    height: 60px !important;
+    background-color: var(--cor-Principal) !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    border-radius: 6px !important;
 }
 #arrowleft{
     width: 100%;

@@ -38,7 +38,7 @@ label{
     margin-bottom: 5px
 }
 
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=date], input[type=button], input[type=file] {
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=date],input[type=button] {
     border: solid 2px #2A356A;
     min-height: 40px;
     height: 40px;
@@ -47,6 +47,8 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     margin-bottom: 20px;
     padding-left: 10px;
 }
+
+
 #button{
     width: 70%;
     height: 40px;

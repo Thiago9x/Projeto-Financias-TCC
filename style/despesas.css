@@ -215,7 +215,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .aparecer{
     display: flex;
 }
-
+.anexos{
+    height: auto;
+    width: auto;  
+}
 /* css de repetição*/
 
 #conteudo2{
@@ -270,7 +273,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #conteudo4{
     width: 90%;
-    height: 35%;
+    height: 100px;
     margin-left: 5%;
     display: flex;
     flex-direction: column;

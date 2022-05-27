@@ -32,10 +32,22 @@ document.querySelector('.cancelar').addEventListener('click', () => {
 console.log(fetch(`${url}/data/perfil?k=${token}`)
     .then((resposta) => resposta.json())
     .then((data) => {
-
+        console.log(data);
         const nomeUsuario = data.nome;
+        const emailUsuario = data.email;
+        const duasEtapas = data.duasetapas;
+
         document.getElementById('nomeUsuario').innerText = nomeUsuario;
 
+        let nomeCompleto = document.querySelector('.nomeCompleto')
+        nomeCompleto.value = nomeUsuario;
+        nomeCompleto.disabled = true;
+
+        let email = document.querySelector('.emailUsuario')
+        email.value = emailUsuario;
+        email.disabled = true;
+
+        document.getElementById('checkbox').checked=duasEtapas;
     })
 );
 console.log('logo');
