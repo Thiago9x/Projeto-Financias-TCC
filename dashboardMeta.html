@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
+    <link rel="stylesheet" href="./style/modal.css">
+    <link rel="stylesheet" href="./style/usuario.css">
+    <script src="/js/usuario.js" defer></script>
 
     <title>Royal Finance</title>
 </head>
@@ -66,6 +69,8 @@
             </div>
         </div>
     </div>
+
+    <main>
     <!-- FIM MENU LATERAL -->
     <div id="mainPrincipal">
 
@@ -83,132 +88,212 @@
             </div>
 
         </div>
-      
-        <!-- Conteudo de Despesa -->
+    </div> 
 
-        <div id="conteudoMeta">
-                <div class="conteudoReceitaDespesa">
+        <!-- botoes -->
+        <div id="buttons">
+            <div class="buttoDespesa">
+                <div class="formatText">Meta despesa</div>
+            </div>
+            <div class="buttoReceita">
+                <div class="formatText">Meta receita</div>
+            </div>
+        </div>
 
-                    <div class="titulo">
-                        Metas Receitas
-                    </div>
-                    <div class="CaixaGuardaInfo">
 
-                        <div class="caixaDespesas">
 
-                            <div class="centralizar">
-                               
-                                    <label class="format">Meta Exemplo</label>
-                                    <p>Despesa</p>
-                               
-                            </div>
-                            
 
-                            <div class="editConteudosDespesa">
-                                <div class="caixaIcones">
-                                    <div class="tamanhoFormatado">
-                                        
-                                        <div class="imagemCate">
-                                            <img src="img/iconeCate.svg" class="img"/> 
-                                        </div>
+    <div id="receitaDespesas">
+         <!-- Conteudo de Despesa -->
+         <div class="caixaDespesa">
+            <div class="infoDespesas">
 
-                                        <div class="imagemCate">
-                                            <img src="img/valor.svg" class="img"/> 
-                                        </div>
-
-                                        <div class="imagemCate">
-                                            <img src="img/relogio.svg" class="img"/>
-                                        </div> 
-
-                                    </div>
-                                </div>
-                                         <!--  -->
-                                <div id="formatarInfos">
-                                    <div id="infoText">
-                                        <div>Categoria:</div>
-                                        <div>Valor a pagar:</div>
-                                        <div>Duração:</div>
-                                    </div>
-    
-                                    <div id="infoNumero">
-                                        <p>Alimentacão</p>
-                                        <p>R$ 34,00</p>
-                                        <p>3 meses</p>
-                                    </div>
-                                </div>
-                               
-                               
-                            </div>
-
-                        </div>
-                    </div>
-¸
+                <div class="centralizar">
+                   
+                        <label class="format">Meta Exemplo</label>
+                        <p>Despesa</p>
+                   
                 </div>
                 
- 
-                <!-- Conteudo de Receita -->
 
-                <div class="conteudoReceitaDespesa">
-
-                    <div class="titulo">
-                        Metas Despesas
-                    </div>
-                    <div class="CaixaGuardaInfo">
-
-                        <div class="caixaDespesas">
-
-                            <div class="centralizar">
-                               
-                                    <label class="format">Meta Exemplo</label>
-                                    <p>Despesa</p>
-                               
-                            </div>
+                <div class="editConteudosDespesa">
+                    <div class="caixaIcones">
+                        <div class="tamanhoFormatado">
                             
-
-                            <div class="editConteudosDespesa">
-                                <div class="caixaIcones">
-                                    <div class="tamanhoFormatado">
-                                        
-                                        <div class="imagemCate">
-                                            <img src="img/iconeCate.svg" class="img"/> 
-                                        </div>
-
-                                        <div class="imagemCate">
-                                            <img src="img/valor.svg" class="img"/> 
-                                        </div>
-
-                                        <div class="imagemCate">
-                                            <img src="img/relogio.svg" class="img"/>
-                                        </div> 
-
-                                    </div>
-                                </div>
-
-                                <div id="formatarInfos">
-                                    <div id="infoText">
-                                        <div>Categoria:</div>
-                                        <div>Valor a pagar:</div>
-                                        <div>Duração:</div>
-                                    </div>
-    
-                                    <div id="infoNumero">
-                                        <p>Alimentacão</p>
-                                        <p>R$ 34,00</p>
-                                        <p>3 meses</p>
-                                    </div>
-                                </div>
-                               
+                            <div class="imagemCate">
+                                <img src="img/iconeCate.svg" class="img"/> 
                             </div>
 
-                            
+                            <div class="imagemCate">
+                                <img src="img/valor.svg" class="img"/> 
+                            </div>
+
+                            <div class="imagemCate">
+                                <img src="img/relogio.svg" class="img"/>
+                            </div> 
 
                         </div>
                     </div>
+                             <!--  -->
+                    <div id="formatarInfos">
+                        <div id="infoText">
+                            <div>Categoria:</div>
+                            <div>Valor a pagar:</div>
+                            <div>Duração:</div>
+                        </div>
 
-                </div>                
-       </div>
+                        <div id="infoNumero">
+                            <p>Alimentacão</p>
+                            <p>R$ 34,00</p>
+                            <p>3 meses</p>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+
+            </div>
+
+         </div>
+
+       
+            
+         <!-- Conteudo de Receita -->
+         <div class="caixaReceita">
+            <div class="infoReceitas">
+
+                <div class="centralizar">
+                   
+                        <label class="format">Meta Exemplo</label>
+                        <p>Despesa</p>
+                   
+                </div>
+                
+
+                <div class="editConteudosDespesa">
+                    <div class="caixaIcones">
+                        <div class="tamanhoFormatado">
+                            
+                            <div class="imagemCate">
+                                <img src="img/iconeCate.svg" class="img"/> 
+                            </div>
+
+                            <div class="imagemCate">
+                                <img src="img/valor.svg" class="img"/> 
+                            </div>
+
+                            <div class="imagemCate">
+                                <img src="img/relogio.svg" class="img"/>
+                            </div> 
+
+                        </div>
+                    </div>
+                             <!--  -->
+                    <div id="formatarInfos">
+                        <div id="infoText">
+                            <div>Categoria:</div>
+                            <div>Valor a pagar:</div>
+                            <div>Duração:</div>
+                        </div>
+
+                        <div id="infoNumero">
+                            <p>Alimentacão</p>
+                            <p>R$ 34,00</p>
+                            <p>3 meses</p>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+
+            </div>
+
+        </div>
     </div>
+              
 
+                 
+
+
+
+
+
+
+
+
+
+     <!-- Conteudo da modal do usuario -->
+
+     <div id="modalUsuario">
+        <div class="modalUsuarioBranco">
+            <div id="usuario">
+
+                <div class="containers">
+                     <img src="./img/usuarioPerfil.svg" class="usuarioFoto" width="90px" height="90px">
+                </div>
+                <div class="containers1">
+
+                    <h4 id="nomeUsuario"></h4>
+            
+                    <div class='input-wrapper'>
+            
+                        <label for='input-file'>
+                           
+                            <div class="h4">
+                                Selecione uma foto
+                            </div> 
+                        </label>
+            
+                        <input id='input-file' type='file' value='' />
+                        <span id='file-name'></span>
+                            
+                    </div>
+            
+                </div>
+            
+               </div>
+                <div id="conteudo">
+                    <div class="h7">Nome Completo</div>
+                    <input type="text" class="edit" placeholder="digite seu nome"> 
+                </div>
+            
+                <div id="conteudo">
+                    <h7 class="h7">Email</h7>
+                    <input type="text" class="edit" placeholder="fulano@gmail.com"> 
+                </div>
+            
+                <div id="conteudo2">
+            
+                    <!-- <h7 class="h7">Segurança</h7> -->
+            
+                    <div class="h7">Segurança</div>
+            
+                    <div class="organize">
+                        
+                        <label id="Tcheckbox">
+                            <input type="checkbox" id="checkbox"/>
+                            <span class="checkbox"></span>
+                        </label>
+                        
+                        <div class="edith4"> <h4>Verificação de duas etapas</h4> </div>
+            
+                    </div>  
+                    <div class="guardaBotao">
+            
+                        <input id="buttonSenha" type="button" value="Trocar Senha"> 
+                        
+                    </div>       
+                </div>
+                <div id="botoesSalvarCancelar">
+            
+                    <img src="./img/usuario2.svg" alt class="usuarioImg">
+            
+                    <input id="button1" class="cancelar" type="button" value="Cancelar">
+                    <input id="button2" type="button" value="Salvar">
+                </div>
+        </div>
+    </div>
+</main>
 </body>
 
 </html>
