@@ -221,6 +221,7 @@ h1{
 }
 
 
+
 #infoText{
     min-width: 10px;
     width: 150px;
@@ -272,4 +273,11 @@ h1{
   }
   
  /* Formatacão da caixa de receitas */
- 
+ #menuMetas{
+    border-left: solid 2px white;
+}
+
+#formatTagA{
+    color: black;
+    text-decoration: none;
+}

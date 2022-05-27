@@ -1,5 +1,13 @@
+#centalizarConteudoUsuario{
+    width: 100%;
+    height: 100%;
+}
+#centralizarConteudoUsuario{
+    width: 80%;
+    height: 100%;
+}
 #usuario{
-    width: 50%;
+    width: 350px;
     height: 150px;
     background-color: #fff;
     margin-top: 50px;
@@ -26,19 +34,19 @@
     text-align: center;
     color: white;
 }
-.containers, .containers1{
+.Container, .containersUsuario1{
 
     width: 50%;
     height: 100%;
    
 }
-.containers1{
+.containersUsuario1{
 
     padding-top: 20px;
     margin-right: 20px;
     padding-right: 10px;
 }
-.containers{
+.Container{
 
     display: flex;
     align-items: center;
@@ -57,8 +65,8 @@
     background-color: #E0E0E0;
     border: 0;
 }
-#conteudo{
-    width: 70%;
+#conteudoUsuario{
+    width: 100%;
     height: 10%;
     margin-top: 10px;
     margin-left: auto;
@@ -75,7 +83,7 @@
     font-size: 1.3rem;
 }
 
-.h7{
+.textH7{
 
     width: 100%;
     height: 30px;
@@ -93,12 +101,11 @@
 .checkbox{
     width: 30px;
 }
-#conteudo2{
+#conteudoUsuario2{
     width: 70%;
     height: 100%;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+   
 }
 
 .organize{
@@ -137,8 +144,8 @@
 .usuarioImg{
     width: 25%;
 }
-#button1{
-    width: 25%;
+#buttonCancelar{
+    width: 30%;
     height: 50px;
     background-color: white;
     color: #2A356A;
@@ -149,8 +156,8 @@
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     border-radius: 5px;
 }
-#button2{
-    width: 25%;
+#buttonSalvar{
+    width: 30%;
     height: 50px;
     background-color: #2A356A;
     color: white;

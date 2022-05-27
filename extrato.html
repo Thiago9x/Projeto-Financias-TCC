@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="./style/usuario.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <link rel="stylesheet" type="text/css" href="./style/extrato.css">
+    <link rel="stylesheet" type="text/css" href="./style/modal.css">
     
 
     
@@ -102,16 +103,17 @@
         </div>
 
 
-        <!-- Conteudo da modal do usuario -->
+         <!-- Conteudo da modal do usuario -->
 
-        <div id="modalUsuario">
+         <div id="modalUsuario">
             <div class="modalUsuarioBranco">
+                
                 <div id="usuario">
 
-                    <div class="containers">
+                    <div class="Container">
                          <img src="./img/usuarioPerfil.svg" class="usuarioFoto" width="90px" height="90px">
                     </div>
-                    <div class="containers1">
+                    <div class="containersUsuario1">
 
                         <h4 id="nomeUsuario"></h4>
                 
@@ -131,22 +133,23 @@
                 
                     </div>
                 
-                   </div>
-                    <div id="conteudo">
+                </div>
+                <div id="centralizarConteudoUsuario">
+                    <div id="conteudoUsuario">
                         <div class="h7">Nome Completo</div>
                         <input type="text" class="edit" placeholder="digite seu nome"> 
                     </div>
                 
-                    <div id="conteudo">
+                    <div id="conteudoUsuario">
                         <h7 class="h7">Email</h7>
                         <input type="text" class="edit" placeholder="fulano@gmail.com"> 
                     </div>
                 
-                    <div id="conteudo2">
+                    <div id="conteudoUsuario2">
                 
                         <!-- <h7 class="h7">Segurança</h7> -->
                 
-                        <div class="h7">Segurança</div>
+                        <div class="textH7">Segurança</div>
                 
                         <div class="organize">
                             
@@ -168,12 +171,12 @@
                 
                         <img src="./img/usuario2.svg" alt class="usuarioImg">
                 
-                        <input id="button1" class="cancelar" type="button" value="Cancelar">
-                        <input id="button2" type="button" value="Salvar">
+                        <input id="buttonCancelar" class="cancelar" type="button" value="Cancelar">
+                        <input id="buttonSalvar" type="button" value="Salvar">
                     </div>
+                </div>
             </div>
         </div>
-
             
     </main>
 </body>

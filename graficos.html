@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo_financas_2.svg">
-    <script src="/js/menuBar.js" defer></script>
-    <script  type="text/javascript" src="/js/menuBar.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
-    <script type="text/javascript" src="js/dashboard.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style/usuario.css">
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
+    <script type="text/javascript" src="js/dashboard.js" defer></script>
     <script src="js/chart.js"></script>
     <script src="js/grafico.js"></script>
     <script src="js/ext/chart-plugin-datalabels.js"></script>
+    <script src="/js/menuBar.js" defer></script>
+    <script src="/js/usuario.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/ext/cookie.js"></script>
+    <script src="./js/link.js"></script>
+
     <title>Royal Finance</title>
 </head>
 
@@ -210,6 +215,82 @@
                        
                     </div>
                     
+
+                     <!-- Conteudo da modal do usuario -->
+
+                        <div id="modalUsuario">
+                            <div class="modalUsuarioBranco">
+                                
+                                <div id="usuario">
+
+                                    <div class="Container">
+                                        <img src="./img/usuarioPerfil.svg" class="usuarioFoto" width="90px" height="90px">
+                                    </div>
+                                    <div class="containersUsuario1">
+
+                                        <h4 id="nomeUsuario"></h4>
+                                
+                                        <div class='input-wrapper'>
+                                
+                                            <label for='input-file'>
+                                            
+                                                <div class="h4">
+                                                    Selecione uma foto
+                                                </div> 
+                                            </label>
+                                
+                                            <input id='input-file' type='file' value='' />
+                                            <span id='file-name'></span>
+                                                
+                                        </div>
+                                
+                                    </div>
+                                
+                                </div>
+                                <div id="centralizarConteudoUsuario">
+                                    <div id="conteudoUsuario">
+                                        <div class="h7">Nome Completo</div>
+                                        <input type="text" class="edit" placeholder="digite seu nome"> 
+                                    </div>
+                                
+                                    <div id="conteudoUsuario">
+                                        <h7 class="h7">Email</h7>
+                                        <input type="text" class="edit" placeholder="fulano@gmail.com"> 
+                                    </div>
+                                
+                                    <div id="conteudoUsuario2">
+                                
+                                        <!-- <h7 class="h7">Segurança</h7> -->
+                                
+                                        <div class="textH7">Segurança</div>
+                                
+                                        <div class="organize">
+                                            
+                                            <label id="Tcheckbox">
+                                                <input type="checkbox" id="checkbox"/>
+                                                <span class="checkbox"></span>
+                                            </label>
+                                            
+                                            <div class="edith4"> <h4>Verificação de duas etapas</h4> </div>
+                                
+                                        </div>  
+                                        <div class="guardaBotao">
+                                
+                                            <input id="buttonSenha" type="button" value="Trocar Senha"> 
+                                            
+                                        </div>       
+                                    </div>
+                                    <div id="botoesSalvarCancelar">
+                                
+                                        <img src="./img/usuario2.svg" alt class="usuarioImg">
+                                
+                                        <input id="buttonCancelar" class="cancelar" type="button" value="Cancelar">
+                                        <input id="buttonSalvar" type="button" value="Salvar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                 </main>
     </body>
 </html>
