@@ -17,7 +17,13 @@ main{
     justify-content: center;
     flex-direction: column;
     background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 #categorias{
     width: 85%;
     height: 15%;

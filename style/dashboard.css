@@ -17,8 +17,12 @@ main {
     flex-direction: column;
     padding: 2%;
     overflow: scroll;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
-
+::-webkit-scrollbar {
+    width: 0px;
+}
 #acessoRapido {
     width: 100%;
     min-height: 150px;

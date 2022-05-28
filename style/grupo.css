@@ -11,7 +11,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: 2%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+::-webkit-scrollbar {
+    width: 0px;
 }
 #principalGrupo{
 
