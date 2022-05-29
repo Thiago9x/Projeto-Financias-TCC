@@ -61,6 +61,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 }
 body{
    background-color: var(--cor-Principal);
+   overflow-y: hidden;
 }
 ul li{
     display: flex;

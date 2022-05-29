@@ -215,10 +215,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .aparecer{
     display: flex;
 }
-.anexos{
-    height: auto;
-    width: auto;  
-}
+
 /* css de repetição*/
 
 #conteudo2{
@@ -273,7 +270,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #conteudo4{
     width: 90%;
-    height: 100px;
+    height: auto;
     margin-left: 5%;
     display: flex;
     flex-direction: column;
@@ -284,3 +281,51 @@ form input {
     border: #FFF; 
 }
 
+#anexos{
+    height: 125px;
+    width: auto;  
+    background-color: antiquewhite;
+    border: solid 2px #2A356A;
+    display: none;
+}
+#output{
+    width: auto;
+    height: 79%;
+    /* background-color: #2A356A; */
+}
+#imagemUpload{
+    width: 100%;
+    height: 150px;
+    /* background-color: #c4c4c4; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #2A356A;
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+}
+#addFoto{
+    width: auto;
+    height: 20%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #2A356A;
+}
+#tracejado{
+    width: 100%;
+    height: 100%;
+    border: 3px dashed #c4c4c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px;
+}

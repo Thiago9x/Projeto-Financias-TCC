@@ -12,121 +12,148 @@
 </head>
 <body>
     <main>
-        <div id="borda"> 
-            <img src="./img/x.svg" alt="" class="fotoX">  
-        </div>
-            <div id="text"> 
-               
-            <h3>Nova despesa</h3>
-            </div>
-        <input id="pendente" type="button" value="Pendente">
-        <input id="pago" type="button" value="Pago">
-
-            <!-- conteudo da nova despesa -->
-        <div id="conteudo">
-                <label>Descrição</label>
-                <input type="text" placeholder="" maxlength="500" class="descricao">
-            <div id="valorData">
-                <div class="caixa2">
-                <label>Valor</label>
-                <input type="text" placeholder="" maxlength="500" class="valor">
-                </div>
-                <div class="caixa2">
-                <label>Data</label>
-                <input type="date" placeholder="" maxlength="500" class="date">
-                </div>
-            </div>
-                <label >Categoria</label>
-            <select>
-              <option></option>
-              <option>teste</option>
-              <option>teste</option>
-              <option>teste</option>
-              <option>teste</option>
-            </select>
-           </div>
-           
-           <!-- Div dos Botões -->
        
-           <div id="botao">
-                <div id="bolinhas">
-                    <img src="./img/repetir.svg" alt="" class="repetir btnImg1" id="repetir-button">
-                    <p>Repetir</p>
-                </div>
-                <div id="bolinhas">
-                     <img src="./img/observacao.svg" alt=""  class="repetir btnImg2" id="observacao-button">
-                     <p id="obsp"> Observação</p>
-                </div>
-                <div id="bolinhas">
-                     <img src="./img/anexo.svg" alt class="repetir btnImg3" id="anexo-button">    
-                     <p>Anexo</p>
-                </div>
-                <div id="bolinhas">
-                    <img src="./img/favorito.svg" alt="" class="repetir btnImg4" id="favorito-button">  
-                    <p>Favoritos</p>
-                </div>
-           </div>
-         <div>
+    <link rel="stylesheet" type="text/css" href="./style/despesas.css">
+    <div id='main'>
+   
+    <div id="borda"> 
+    <div id="text"> 
+        <h3>Nova ${transferencia}</h3>
         </div>
-
-            <!-- Inicio dos conteudos dos botões -->
-
-            <!-- conteudo de repetição -->
-        <div class="repeticao" id="repeticao"> 
-               <div id="conteudo2">
-                    <h4>Repetição</h4>
-                    <div class="caixa3">
-                <label>Data de Inicio</label>
-                <input type="date" placeholder="" maxlength="500" class="dateInicio" >
-                </div>
-                <div class="caixa3">
-                    <label >Frequencia de repetição</label>
-                    <select>
-                      <option></option>
-                      <option>teste</option>
-                      <option>teste</option>
-                      <option>teste</option>
-                      <option>teste</option>
-                    </select>
-                </div>
-                <div id="duracaoData">
-                    <div class="caixa3">
-                    <label>Duração</label>
-                    <input type="text" placeholder="" maxlength="500" class="duracao">
-                    </div>
-                    <div class="caixa3">
-                    <label>data</label>
-                    <input type="date" placeholder="" maxlength="500" class="date">
-                    </div>
-                </div>
-               </div>
-         </div>
-
-            <!-- conteudo de observação -->
-         <div class="observacao" id="observacao"> 
-              <div  id="conteudo3">
-                <div>
-                    <h4>Observação</h4>
-                    <input type="text" placeholder="" maxlength="500" class="obs" size="20">
-                    </div>
-              </div>
-         </div>
-            <!-- conteudo do anexo -->
-         <div class="anexo" id="anexo">
-            <div  id="conteudo4">
-                <h4>Anexo</h4>
-                <form> 
-                     <input type="file" name="image" id="format">
-                </form>
+        <img src="./img/x.svg" alt="" class="fotoX">  
+    </div>
+    <form id='requires'> 
+        <!-- conteudo da nova despesa --> 
+    <div id="conteudo">
+            <label>Descrição</label>
+            <input type="text" value="${descricao}" placeholder="" maxlength="500" class="descricao estilizacao" required>
+        <div id="valorData">
+            <div class="caixa2">
+            <label>Valor</label>
+            <input type="text" value="${valor}" maxlength="500" class="valor estilizacao" required>
+            </div>
+            <div class="caixa2">
+            <label>Data</label>
+            <input type="date" placeholder="" value="${date}" maxlength="500" class="date estilizacao" required>
+            </div>
+        </div>
+            <label >Categoria</label>
+        <select id='selectCat'>
+        <option value="" selected="" disabled="">Escolha uma opcao</option>
+        </select>
+       </div>
+       
+       <!-- Div dos Botões -->
+   
+       <div id="botao">
+            <div id="bolinhas">
+                <img src="./img/repetir.svg" alt="" class="repetir btnImg1" id="repetir-button">
+                <p>Repetir</p>
+            </div>
+            <div id="bolinhas">
+                 <img src="./img/observacao.svg" alt=""  class="repetir btnImg2" id="observacao-button">
+                 <p id="obsp"> Observação</p>
+            </div>
+            <div id="bolinhas">
+                 <img src="./img/anexo.svg" alt class="repetir btnImg3" id="anexo-button">    
+                 <p>Anexo</p>
+            </div>
+            <div id="bolinhas">
+                <img src="./img/favorito.svg" alt="" class="repetir btnImg4" id="favorito-button">  
+                <p>Favoritos</p>
             </div>
        </div>
+     <div>
+    </div>
 
-            <!-- botão de confirmacão -->
-        <div id="confirmar">
-            <img src="./img/concluir.svg" alt="" class="concluir">  
-         </div>
+        <!-- Inicio dos conteudos dos botões -->
+
+        <!-- conteudo de repetição -->
+    <div class="repeticao" id="repeticao"> 
+           <div id="conteudo2">
+                <h4>Repetição</h4>
+            <div class="caixa1">
+                <label >Frequencia de repetição</label>
+                <select id='selectFR' class="estilizacao">
+                <option value="" selected disabled="">Escolha uma opcao</option>
+                    <option value='DIAS'>Dias</option>
+                    <option value='SEMANAS'>Semanas</option>
+                    <option value='QUINZENAS'>Quinzenas</option>
+                    <option value='MESES'>Meses</option>
+                    <option value='BIMESTRES'>Bimestres</option>
+                    <option value='TRIMESTRES'>Trimestres</option>
+                    <option value='SEMESTRES'>Semestres</option>
+                    <option value='ANOS'>Anos</option>
+                </select>
+            </div>
+            <div id="duracaoData">
+                <div class="caixa3">
+                <label>Parcelas</label>
+                <input type="text" placeholder="" maxlength="500" value='${parcelas}' maxlength='3' class="duracao estilizacao">
+                </div>
+                <div class="caixa3">
+                <label>Data Fim</label>
+                <input type="date" placeholder="" maxlength="500" class="dateFim estilizacao">
+                </div>
+            </div>
+            <div id="fixa">
+                <div id="baseline">
+                    <input type="checkbox" id="transFixa" ${fixa !== true ? "" : "checked"}><label>Transferência fixa</label>
+                </div>
+                <p id="descricaoFixa">Quando você desejar cancelar a despesa fixa, vá na tela conta e remova a transferência</p>
+            </div>
+           
+        </div>
+     </div>
+
+        <!-- conteudo de observação -->
+     <div class="observacao" id="observacao"> 
+          <div  id="conteudo3">
+            
+                <h4>Observação</h4>
+                <textarea placeholder="" maxlength="500" class="obs estilizacao">${observacao}</textarea>
+                </div>
+          
+     </div>
+        <!-- conteudo do anexo -->
+     <div class="anexo" id="anexo">
+        <div  id="conteudo4">
+            <h4>Anexo</h4>
+            <label id="imagemUpload" for="anexos">
+                <div id="tracejado">
+                    <img id='output' src="../img/fileUpload.svg">
+                    <h4 id="addFoto">Adicionar Foto</h4>
+                </div>
+            </label>
+            <input type="file" class="format" id="anexos" accept='.jpg,.jpeg,.png,.svg' onchange='openFile(event)'>
+                 
+           
+        </div>
+   </div>
+
+        <!-- botão de confirmacão -->
+    <div id="confirmar">
+        <img src="./img/concluir.svg" alt="" class="concluir">  
+     </div>
+     </form>
+</div>
     </main>
 </body>
 </html>
 
 <!-- enctype="multipart/form-data" -->
+
+<script>var openFile = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('output');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+  
+  
+  </script>

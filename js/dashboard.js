@@ -7,7 +7,17 @@ const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
 const urlData = url + "/data";
+var openFile = function(event) {
+	var input = event.target;
 
+	var reader = new FileReader();
+	reader.onload = function(){
+	var dataURL = reader.result;
+	var output = document.getElementById('output');
+	output.src = dataURL;
+	};
+	reader.readAsDataURL(input.files[0]);
+};
 let categoriaReceita;
 let categoriaDespesa;
 const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -76,8 +86,8 @@ fetch(`${urlData}/saldo?k=${token}`)
 selecionarModal(document.getElementById('modalGigante'))
 //MODAL DE TRANSFERENCIA
 
-const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexo, fixa, nomeFrequencia, observacao, parcelada, parcelas, favoritos) => {
-
+const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexoValue, fixa, nomeFrequencia, observacao, parcelada, parcelas, favoritos) => {
+	
 	conteudoModal(` 
 
     <link rel="stylesheet" type="text/css" href="./style/despesas.css">
@@ -186,9 +196,13 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
      <div class="anexo" id="anexo">
         <div  id="conteudo4">
             <h4>Anexo</h4>
-            
-                 <input type="file" class="format anexos" accept='.jpg,.jpeg,.png,.svg'>
-           
+			<label id="imagemUpload" for="anexos">
+                <div id="tracejado">
+                    <img id='output' src="../img/fileUpload.svg">
+                    <h4 id="addFoto">Adicionar Foto</h4>
+                </div>
+            </label>
+            <input type="file" class="format" id="anexos" accept='.jpg,.jpeg,.png,.svg' onchange='openFile(event)'>
         </div>
    </div>
 
@@ -198,9 +212,16 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
      </div>
      </form>
 </div>
+
+
 `)
 	abrirModal()
-
+	if(anexoValue){
+		document.getElementById('output').src = url + '/upload/' + anexoValue;
+	}else{
+		document.getElementById('output').src ="../img/fileUpload.svg"
+	}
+	console.log(anexoValue)
 	//DATA ATUAL
 	let data = document.querySelector('.date');
 	data.valueAsDate = new Date();
@@ -243,7 +264,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 	const btnImg4 = document.querySelector('.btnImg4');
 
-	let anexado = !(anexo !== null);
+	let anexado = !(anexoValue !== null);
 	let repetido = !parcelada;
 	let observado = !observacao;
 	
@@ -465,6 +486,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 			favoritado = true;
 			btnImg4.src = 'img/favoritoo.svg'
 
+			
 		}
 	}
 
@@ -503,6 +525,21 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 
 	//FIM TRANSFERENCIA FIXA
+
+	//COMEÇO ANEXO TRANSFERENCIA
+	var openFile = function(event) {
+		var input = event.target;
+	
+		var reader = new FileReader();
+		reader.onload = function(){
+		  var dataURL = reader.result;
+		  var output = document.getElementById('output');
+		  output.src = dataURL;
+		};
+		reader.readAsDataURL(input.files[0]);
+	  };
+	//FIM ANEXO TRANSFERENCIA
+
 	//FORMATACAO DO VALOR
 	const format = (e) => {
 		console.log(e)
@@ -523,7 +560,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	//CONFIRMAR A RECEITA
 	const enviar = async() => {
 		let guardarImagens = null;
-		let anexo = document.querySelector('.anexos').files[0]
+		let anexo = document.querySelector('#anexos').files[0]
 		if(anexo){
 			guardarImagens = await fetch(url + '/upload?k=' + token, {method: 'put', body: anexo}).then(r => r.text())
 		}
@@ -541,7 +578,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 
 			ws.send(JSON.stringify({
-				metodo: transferencia, arg: 'inserir', valor: valorEnviar, data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
+				metodo: transferencia, arg: 'inserir', valor: Math.abs(valorEnviar), data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
 				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido, anexo: guardarImagens
 			}));
