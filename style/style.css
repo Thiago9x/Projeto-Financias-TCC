@@ -230,3 +230,7 @@ margin-left: 8px;
     justify-content: center;
     align-items: center;
 }
+
+input:disabled{
+    background-color: whitesmoke !important;
+}

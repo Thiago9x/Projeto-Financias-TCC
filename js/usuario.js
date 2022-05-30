@@ -58,7 +58,7 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
 console.log('logo');
 
 // ABRE A MODAL DE USUARIO
-const abreModalUsuario = (event) => {
+const abreModalUsuario = () => {
     
 
    var modal = document.getElementById('modalUsuario');

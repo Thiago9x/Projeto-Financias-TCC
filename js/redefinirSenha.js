@@ -1,7 +1,8 @@
-
 const modalRedefinirSenha = () => {
 	
-	conteudoModal(`  <div id="tituloSenha">
+	conteudoModal(`  
+    <link rel="stylesheet" type="text/css" href="../style/redefinirSenha.css">
+    <div id="tituloSenha">
     <div class="editarTitulo">Redifinir Senha</div>
 </div>
 <div id="paiDasCaixas">
@@ -28,6 +29,8 @@ const modalRedefinirSenha = () => {
 <div id="editarTagA">Cancelar</div>
 </div> `);
 
+var modal = document.getElementById('modalUsuario');
+modal.style.display = 'none';
 abrirModal()
 }
 
