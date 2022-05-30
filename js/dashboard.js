@@ -7,6 +7,7 @@ const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
 const urlData = url + "/data";
+
 var openFile = function(event) {
 	var input = event.target;
 
@@ -116,7 +117,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
         </div>
             <label >Categoria</label>
         <select id='selectCat'>
-        <option value="" selected="" disabled="">Escolha uma opcao</option>
+        <option value="" selected="" disabled>Escolha uma opcao</option>
         </select>
        </div>
        
@@ -152,7 +153,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
             <div class="caixa1">
                 <label >Frequencia de repetição</label>
                 <select id='selectFR' class="estilizacao">
-                <option value="" selected disabled="">Escolha uma opcao</option>
+                <option value="" selected disabled>Escolha uma opcao</option>
                     <option value='DIAS'>Dias</option>
                     <option value='SEMANAS'>Semanas</option>
                     <option value='QUINZENAS'>Quinzenas</option>
@@ -623,11 +624,11 @@ console.log(fetch(`${urlData}/saldo/categorias/perfil?k=${token}`)
 // GRAFICO PINCIPAL DE BARRA
 const nomeGrafico = () => {
 	let nome = document.getElementById('tituloInfor');
-	nome.innerText = 'Lista de maiores ' + selectTransferencia.value + 's'
+	nome.innerText = 'Grafico de maiores ' + selectTransferencia.value + 's'
 }
 document.getElementById('selectTrans').addEventListener('change', nomeGrafico)
 
-
+const titleMaioresTransferenciasSecundario = document.querySelector('.titulo').innerText = 'Lista de maiores ' + selectTransferencia.value + 's'
 
 const ctx = document.getElementById('graficoPuro').getContext('2d');
 
