@@ -47,7 +47,10 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     margin-bottom: 20px;
     padding-left: 10px;
 }
+#editarAsInputsUsuario{
+    height: 55px;
 
+}
 
 #button{
     width: 70%;
