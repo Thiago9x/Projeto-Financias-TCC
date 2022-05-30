@@ -53,4 +53,7 @@ const Login = () => {
 
 
 }
+
+document.querySelector('.senha').onkeypress = (e) => {if(e.key === 'Enter'){document.getElementById('button').click()}}
+document.querySelector('#email').onkeypress = (e) => {if(e.key === 'Enter'){document.getElementById('button').click()}}
 document.getElementById("button").addEventListener("click", Login);

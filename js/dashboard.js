@@ -528,17 +528,17 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	//FIM TRANSFERENCIA FIXA
 
 	//COMEÇO ANEXO TRANSFERENCIA
-	var openFile = function(event) {
-		var input = event.target;
+	// var openFile = function(event) {
+	// 	var input = event.target;
 	
-		var reader = new FileReader();
-		reader.onload = function(){
-		  var dataURL = reader.result;
-		  var output = document.getElementById('output');
-		  output.src = dataURL;
-		};
-		reader.readAsDataURL(input.files[0]);
-	  };
+	// 	var reader = new FileReader();
+	// 	reader.onload = function(){
+	// 	  var dataURL = reader.result;
+	// 	  var output = document.getElementById('output');
+	// 	  output.src = dataURL;
+	// 	};
+	// 	reader.readAsDataURL(input.files[0]);
+	//   };
 	//FIM ANEXO TRANSFERENCIA
 
 	//FORMATACAO DO VALOR
@@ -901,8 +901,10 @@ const modalFavoritos = () => {
 				let parcelada = data[i].parcelada;
 				let parcelas = data[i].parcelas;
 				let descricao = data[i].descricao;
+				console.log(data[i]);
 				let cor;
 				let date = data[i].data;
+				let id = data[i].id;
 
 				console.log(data, valor);
 				let categoria = data[i].categoria;
@@ -939,7 +941,13 @@ const modalFavoritos = () => {
 				<label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getUTCFullYear()}</label>
 			</div>`;
 
-				const editImgExcluir = document.createElement('div');
+				const editImgExcluir = document.createElement('div')
+				editImgExcluir.addEventListener('click', ({target}) => {
+					target.parentElement.previousElementSibling.remove()
+					target.remove()
+					
+					fetch(urlData + '/desfavoritar?k=' + token,{method:'POST',body: JSON.stringify({id: id})}).then(r => r.json()).then(j => console.log(j)) 
+				});
 				
 				editImgExcluir.classList.add('editImgExcluir');
 
