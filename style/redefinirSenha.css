@@ -43,7 +43,7 @@
     align-items: center;
     padding-left: 20px;
     border: solid 1px #2A356A;
-    color: rgb(165, 165, 165);
+    /* color: rgb(165, 165, 165); */
 }
 #buttonRedefinirSenha{
     width: 50%;
@@ -73,4 +73,21 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.paiInput{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+ /* olhinhooo */
+ .editarIcone {
+    width: 25px;
+    height: 25px;
+    margin-left: -45px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.Cancelar{
+    cursor: pointer;
 }

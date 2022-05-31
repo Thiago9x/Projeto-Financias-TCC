@@ -3,8 +3,6 @@ let photo = document.querySelector('.usuarioFoto');
 let file = document.getElementById('input-file');
 
 
-
-
 photo.addEventListener('click', () => {
     file.click();
     console.log(photo)

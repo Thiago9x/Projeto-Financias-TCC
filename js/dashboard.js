@@ -84,7 +84,7 @@ fetch(`${urlData}/saldo?k=${token}`)
 
 	});
 
-selecionarModal(document.getElementById('modalGigante'))
+criarModal()
 //MODAL DE TRANSFERENCIA
 
 const modalTransferencia = (transferencia, descricao, valor, date, categoria, anexoValue, fixa, nomeFrequencia, observacao, parcelada, parcelas, favoritos) => {
