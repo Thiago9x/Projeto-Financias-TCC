@@ -905,6 +905,7 @@ const modalFavoritos = () => {
 				let cor;
 				let date = data[i].data;
 				let id = data[i].id;
+				console.log(id)
 
 				console.log(data, valor);
 				let categoria = data[i].categoria;
@@ -944,7 +945,7 @@ const modalFavoritos = () => {
 				const editImgExcluir = document.createElement('div')
 				editImgExcluir.addEventListener('click', ({target}) => {
 					target.parentElement.previousElementSibling.remove()
-					target.remove()
+					target.parentElement.remove()
 					
 					fetch(urlData + '/desfavoritar?k=' + token,{method:'POST',body: JSON.stringify({id: id})}).then(r => r.json()).then(j => console.log(j)) 
 				});

@@ -1,6 +1,4 @@
 const modalRedefinirSenha = () => {
-    criarModal();
-	
 	conteudoModal(`  
     <link rel="stylesheet" type="text/css" href="./style/redefinirSenha.css">
     
@@ -107,4 +105,4 @@ btn3.onclick = () => {
 
 }
 
-document.getElementById('buttonSenha').addEventListener('click' ,modalRedefinirSenha); 
+
