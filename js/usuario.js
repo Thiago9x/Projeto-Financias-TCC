@@ -73,7 +73,34 @@ const abreModalUsuario = () => {
     }
     abre();
 
-
 }
+
 document.getElementById('abrirPerfil').addEventListener('click', abreModalUsuario);
+
+
+
+// //FUNÇAO DE VALIDACAO PARA FAZER O POST
+// console.log(fetch(url + '/perfil', { // '/data/perfil' {nome: nome, foto: null, duasetapas: duasetapas}
+//     method: 'POST', headers: {
+//         // 'content-type': 'application/json', 
+//     }, body: JSON.stringify({nome: nome, foto: null, duasetapas: duasetapas}),
+// })
+
+
+function teste(){
+    alert("aaa")
+}
+
+
+document.getElementById("editarAsInputsUsuario").addEventListener("click", teste)
+
+
+function aqui(){
+    alert("aqui nao tem mundial");
+    
+}
+
+
+
+
 

@@ -24,7 +24,7 @@ const Login = () => {
     const confirmacaoCampos = document.getElementById('principal').reportValidity();
     if (confirmacaoCampos == true) {
 
-        console.log(fetch(url + '/contas', {
+        console.log(fetch(url + '/contas', { // '/data/perfil' {nome: nome, foto: null, duasetapas: duasetapas}
             method: 'POST', headers: {
                 // 'content-type': 'application/json', 
             }, body: JSON.stringify({ email: email, senha: senha, manter: manterLogin }),

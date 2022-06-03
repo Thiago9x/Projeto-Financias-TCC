@@ -130,6 +130,7 @@
     text-align: center;
     margin-top: 20px;
     border-radius: 6px;
+    cursor: pointer;edi
 }
 #conteudo3{
     width: 85%;
@@ -155,6 +156,7 @@
     margin-left: 10%;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     border-radius: 5px;
+    cursor: pointer;
 }
 #buttonSalvar{
     width: 30%;
@@ -165,6 +167,7 @@
     text-align: center;
     margin-left: 10%;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #button1:hover, #button2:hover{

@@ -13,7 +13,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Senha atual</div>
 
     <div class="paiInput">
-    <input type="password" id="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha">
+    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha">
     <img src="img/Hide.svg" class="editarIcone btn">
     </div>
 
@@ -24,7 +24,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Nova senha</div>
 
     <div class="paiInput">
-    <input type="password" id="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha2">
+    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha2">
     <img src="img/Hide.svg" class="editarIcone btn2">
     </div>
 
@@ -35,7 +35,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Confirme sua senha</div>
 
     <div class="paiInput">
-    <input type="password" id="caixaSenhaAtual" placeholder="****************" class="olhinhoSenha3">
+    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha3">
     <img src="img/Hide.svg" class="editarIcone btn3">
     </div>
 
