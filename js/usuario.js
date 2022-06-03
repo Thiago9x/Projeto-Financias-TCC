@@ -118,6 +118,10 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         }
         let nomeCompleto = document.querySelector('.nomeCompleto')
         nomeCompleto.value = nomeUsuario;
+        
+
+        console.log(`http://10.107.144.10:8080/royal/upload/${fotoUsuario}`);
+
 
         let email = document.querySelector('.emailUsuario')
         email.value = emailUsuario;
@@ -143,6 +147,10 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         document.getElementById('buttonSalvar').addEventListener('click', enviarUsuario)
     })
 );
+
+
+
+
 console.log('logo');
 document.getElementById('buttonSenha').addEventListener('click' ,modalRedefinirSenha); 
 document.getElementById('buttonCancelar').addEventListener('click' ,fecharModal); 
