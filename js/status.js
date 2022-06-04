@@ -26,5 +26,9 @@ Object.defineProperties(Status,
             value: 69,
             writable: false
         },
+        SENHA_INCORRETA: {
+            value: 17,
+            writable: false
+        },
      }
 );

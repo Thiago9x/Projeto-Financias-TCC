@@ -2,11 +2,9 @@ document.getElementById('menuDash').addEventListener('click', () => { window.loc
 
 document.getElementById('menuExtratos').addEventListener('click', () => { window.location.href = '../extrato.html' });
 
-document.getElementById('menuMetas').addEventListener('click', () => { window.location.href = '../dashboardMeta.html' });
 
 document.getElementById('menuGraficos').addEventListener('click', () => { window.location.href = '../graficos.html' });
 
-document.getElementById('menuGrupos').addEventListener('click', () => { window.location.href = '../grupo.html' });
 
 console.log(fetch(`${url}/data/perfil?k=${token}`)
     .then((resposta) => resposta.json())
@@ -15,8 +13,11 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         const nomeUsuario = data.nome;
         document.getElementById('branco').innerText = nomeUsuario;
         const fotoUsuario = data.foto;
+        
         if (fotoUsuario) {
-
+        const perfilFoto = document.getElementById('perfilFoto')
+		perfilFoto.innerHTML=`<img class="fotinha" src="${url}/upload/${fotoUsuario}">`
+        perfilFoto.style.border = "none";
         } else {
             document.getElementById("perfilFoto").innerHTML = '<img id="fotoDoUsuario" src="../img/usuarioPerfil.svg">'
         }

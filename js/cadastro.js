@@ -98,6 +98,7 @@ const fazerCadastro = () => {
         .then((resposta) => resposta.json())
         .then((data) => {
             if(data.status === Status.OK){
+                alert('Seu cadastro foi efetuado com sucesso!!!')
                 window.location.href="../index.html"
             }
             else if(data.status === Status.EMAIL_REPETIDO){
@@ -121,3 +122,4 @@ else{
 }
 document.getElementById("button").addEventListener("click", fazerCadastro);
 
+document.querySelector('.senhaCadastro2').onkeypress = (e) => {if(e.key === 'Enter'){document.getElementById('button').click()}}

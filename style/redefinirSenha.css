@@ -35,14 +35,14 @@
     color: #2A356A;
     margin-bottom: 10px;
 }
-#caixaSenhaAtual{
-    width: 100%;
-    height: 55px;
+.caixaSenhaAtual{
+    width: 100% !important;
+    height: 55px !important;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    border: solid 1px #2A356A;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 20px !important;
+    border: solid 1px #2A356A !important;
     /* color: rgb(165, 165, 165); */
 }
 #buttonRedefinirSenha{

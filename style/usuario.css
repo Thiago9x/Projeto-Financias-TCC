@@ -130,7 +130,7 @@
     text-align: center;
     margin-top: 20px;
     border-radius: 6px;
-    cursor: pointer;edi
+    cursor: pointer;
 }
 #conteudo3{
     width: 85%;
@@ -156,11 +156,8 @@
     margin-left: 10%;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     border-radius: 5px;
-<<<<<<< HEAD
     cursor: pointer;
-=======
     padding: 0px !important;
->>>>>>> c3da005fa05cd28a455abdd644d317b235213302
 }
 #buttonSalvar{
     width: 30%;
@@ -171,11 +168,8 @@
     text-align: center;
     margin-left: 10%;
     border-radius: 5px;
-<<<<<<< HEAD
     cursor: pointer;
-=======
     padding: 0px !important;
->>>>>>> c3da005fa05cd28a455abdd644d317b235213302
 }
 
 #button1:hover, #button2:hover{

@@ -33,7 +33,7 @@ const abreModalUsuario = () => {
         <div id="centralizarConteudoUsuario">
             <div id="conteudoUsuario">
                 <div class="h7">Nome Completo</div>
-                <input id="editarAsInputsUsuario" type="text" class="edit nomeCompleto" placeholder="Digite seu nome" > 
+                <input id="editarAsInputsUsuario" type="text" class="edit nomeCliente" placeholder="Digite seu nome" > 
             </div>
         
             <div id="conteudoUsuario">
@@ -96,6 +96,7 @@ file.addEventListener('change', () => {
     reader.readAsDataURL(file.files[0]);
 });
 
+
 //FECHAR A MODAL
 document.querySelector('.cancelar').addEventListener('click', () => {
     document.getElementById('modalUsuario').style.display = "none"
@@ -116,8 +117,11 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         }else{
             document.querySelector('.usuarioFoto').src ="./img/usuarioPerfil.svg"
         }
-        let nomeCompleto = document.querySelector('.nomeCompleto')
-        nomeCompleto.value = nomeUsuario;
+        
+        document.querySelectorAll('.nomeCliente').forEach((nome) => {
+            nome.value = nomeUsuario
+            nome.innerText = nomeUsuario
+        }) 
         
 
         console.log(`http://10.107.144.10:8080/royal/upload/${fotoUsuario}`);
@@ -130,19 +134,30 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         document.querySelector('#checkbox').checked = duasEtapas
 
         document.getElementById('checkbox').checked=duasEtapas;
+
         const enviarUsuario = async () => {
-            nomeUsuario = nomeCompleto.value;
+            nomeUsuario = document.querySelector('#editarAsInputsUsuario').value;
             let fotoFinal = document.querySelector('#input-file').files[0]
             let duasEtapasFinal = document.querySelector('#checkbox').checked
             let guardarImagens = null;
             
             if(fotoFinal){
                 guardarImagens = await fetch(url + '/upload?k=' + token, {method: 'put', body: fotoFinal}).then(r => r.text())
+                const perfilFoto = document.getElementById('perfilFoto')
+		        perfilFoto.innerHTML=`<img class="fotinha" src="${url}/upload/${guardarImagens}">`
+                perfilFoto.style.border = "none";
             }
-
+            else if(fotoUsuario){
+                guardarImagens = fotoUsuario
+            }
+            document.querySelectorAll('.nomeCliente').forEach((nome) => {
+                nome.value = nomeUsuario
+                nome.innerText = nomeUsuario
+            }) 
 
             console.log('corno' + JSON.stringify({nome: nomeUsuario,duasetapas: duasEtapasFinal, foto: guardarImagens}))
             fetch(urlData + '/perfil?k=' + token,{method:'POST',body: JSON.stringify({nome: nomeUsuario,duasetapas: duasEtapasFinal, foto: guardarImagens})}).then(r => r.json()).then(j => console.log(j))
+            fecharModal()
         }
         document.getElementById('buttonSalvar').addEventListener('click', enviarUsuario)
     })
@@ -153,22 +168,9 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
 
 console.log('logo');
 document.getElementById('buttonSenha').addEventListener('click' ,modalRedefinirSenha); 
-document.getElementById('buttonCancelar').addEventListener('click' ,fecharModal); 
+document.getElementById('buttonCancelar').addEventListener('click' ,fecharModal);
+
 
 }
 
 document.getElementById('abrirPerfil').addEventListener('click', abreModalUsuario);
-
-// var modal = document.getElementById('modalUsuario');
-//     modal.addEventListener('click', function(e) {
-//     if (e.target == this) fecha();
-//     });
-
-//     function abre() {
-//     modal.style.display = 'flex';
-//     }
-
-//     function fecha() {
-//     modal.style.display = 'none';
-//     }
-//     abre();

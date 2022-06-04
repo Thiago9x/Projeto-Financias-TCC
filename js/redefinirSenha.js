@@ -1,3 +1,4 @@
+
 const modalRedefinirSenha = () => {
 	conteudoModal(`  
     <link rel="stylesheet" type="text/css" href="./style/redefinirSenha.css">
@@ -11,7 +12,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Senha atual</div>
 
     <div class="paiInput">
-    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha">
+    <input type="password" class="caixaSenhaAtual" id="senha1" placeholder="Digite sua senha atual" class="olhinhoSenha">
     <img src="img/Hide.svg" class="editarIcone btn">
     </div>
 
@@ -22,7 +23,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Nova senha</div>
 
     <div class="paiInput">
-    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha2">
+    <input type="password" class="caixaSenhaAtual" id="senha2" placeholder="Digite sua nova senha" class="olhinhoSenha2">
     <img src="img/Hide.svg" class="editarIcone btn2">
     </div>
 
@@ -33,7 +34,7 @@ const modalRedefinirSenha = () => {
     <div id="senhaAtual">Confirme sua senha</div>
 
     <div class="paiInput">
-    <input type="password" class="caixaSenhaAtual" placeholder="Digite sua senha" class="olhinhoSenha3">
+    <input type="password" class="caixaSenhaAtual" id="senha3" placeholder="Confirme sua senha" class="olhinhoSenha3">
     <img src="img/Hide.svg" class="editarIcone btn3">
     </div>
 
@@ -50,18 +51,15 @@ const modalRedefinirSenha = () => {
 </div> 
 </div>`);
 
+abrirModal()
 //FECHAR A MODAL
 document.querySelector('.Cancelar').addEventListener('click',fecharModal);
 
 
-var modal = document.getElementById('modalUsuario');
-modal.style.display = 'none';
-abrirModal()
-
 
 // Fazendo Script para os olhinhos de senha ( 22/ mar /2022 )
 
-const senhaAtual = document.querySelector('.olhinhoSenha');
+const senhaAtual = document.querySelector('#senha1');
 const btn = document.querySelector('.btn');
 
 btn.onclick = () => {
@@ -75,7 +73,7 @@ btn.onclick = () => {
     }
 }
 
-const novaSenha = document.querySelector('.olhinhoSenha2');
+const novaSenha = document.querySelector('#senha2');
 const btn2 = document.querySelector('.btn2');
 
 btn2.onclick = () => {
@@ -89,8 +87,11 @@ btn2.onclick = () => {
     }
 }
 
-const confirmarSenha = document.querySelector('.olhinhoSenha3');
+const confirmarSenha = document.querySelector('#senha3');
 const btn3 = document.querySelector('.btn3');
+
+
+confirmarSenha.onkeypress = (e) => {if(e.key === 'Enter'){document.getElementById('buttonRedefinirSenha').click()}}
 
 btn3.onclick = () => {
     if (confirmarSenha.type === 'text') {
@@ -102,7 +103,24 @@ btn3.onclick = () => {
         btn3.src = 'img/MostrarSenha.svg'
     }
 }
-
+const confirmarEnviarSenha = () => {
+    const senha1 = document.getElementById('senha1')
+    const senha2 = document.getElementById('senha2')
+    const senha3 = document.getElementById('senha3')
+if(senha2.value === senha3.value){
+    fetch(urlData + '/senha?k=' + token,{method:'POST',body: JSON.stringify({antiga: senha1.value, nova: senha3.value})})
+    .then(r => r.json()).
+    then(j => {if(j.status === 17){
+        alert("Sua senha atual está incorreta!!!")
+    }
+    else{
+        fecharModal()
+        alert('Sua senha foi alterada com sucesso!!!')
+    }}) 
 }
 
-
+else{alert('As senhas não estão iguais!!!')
+senha3.focus()}
+}
+document.getElementById('buttonRedefinirSenha').addEventListener('click',confirmarEnviarSenha)
+}

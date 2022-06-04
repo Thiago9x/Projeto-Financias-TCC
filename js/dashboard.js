@@ -601,7 +601,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 document.getElementById('receitaCont').addEventListener('click', () => modalTransferencia('receita', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, false))
 document.getElementById('despesaCont').addEventListener('click', () => modalTransferencia('despesa', '', 'R$ 0,00', '', '', null, false, '', '', false, 1, false))
 
-console.log(fetch(`${urlData}/saldo/categorias/perfil?k=${token}`)
+console.log(fetch(`${urlData}/saldo/categorias?k=${token}`)
 	.then((resposta) => resposta.json())
 	.then((data) => {
 
@@ -610,14 +610,12 @@ console.log(fetch(`${urlData}/saldo/categorias/perfil?k=${token}`)
 		let despesa = data[0].despesa;
 		categoriaReceita = data[1].receitas;
 		categoriaDespesa = data[1].despesas;
-		let nomeUsuario = data[2].nome;
-		document.getElementById('nomeCliente').innerText = nomeUsuario;
 		document.getElementById('saldoGeral').innerText = `R$ ${formatador.format(saldo)}`;
 		document.getElementById('receita').innerText = `R$ ${formatador.format(receita)}`;
 		document.getElementById('despesa').innerText = `R$ ${formatador.format(despesa)}`;
 
+		
 		updateChart();
-
 	})
 );
 
