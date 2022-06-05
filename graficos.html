@@ -11,13 +11,10 @@
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
-    <script type="text/javascript" src="js/dashboard.js" defer></script>
-    <script src="js/chart.js"></script>
-    <script src="js/grafico.js"></script>
-    <script src="js/ext/chart-plugin-datalabels.js"></script>
+    <script src="js/ext/chart.js"></script>
+    <script src="js/grafico.js" defer></script>
     <script src="/js/menuBar.js" defer></script>
     <script src="/js/usuario.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/ext/cookie.js"></script>
     <script src="./js/link.js"></script>
 
@@ -46,10 +43,6 @@
                     </li>
 
 
-                    <li id="menuMetas">
-                        <img src="img/iconeMeta.svg" class="img"  width="10px"/> 
-                        <label class="on"> Metas </label>
-                    </li>
 
                     <li id="menuGraficos">
                         <img src="img/iconeGrafico.svg" class="img"/> 
@@ -57,10 +50,6 @@
                             
                     </li>
 
-                    <li id="menuGrupos">
-                        <img src="img/iconeGrupo.svg" class="img"/> 
-                        <label class="on">Grupos</label>
-                    </li>
                 </ul>
             </div>
             <div class="perfil">
@@ -113,8 +102,8 @@
                                     <div class="inpu">
                                         <div class="custom-radio">
 
-                                            <input id="radio-1" name="question" value="0" type="radio" >
-                                            <label for="radio-1" class="label">Gráfico Anual</label>
+                                            <input id="graficoAnual" name="question" value="0" type="radio">
+                                            <label for="graficoAnual" class="label">Gráfico Anual</label>
 
                                         </div>
                                     </div>
@@ -122,8 +111,8 @@
                                     <div class="inpu">
                                         <div class="custom-radio">
 
-                                            <input id="radio-2" name="question" value="1" type="radio">
-                                            <label for="radio-2" class="label">Gráfico Mensal</label>
+                                            <input id="graficoMensal" name="question" value="1" type="radio">
+                                            <label for="graficoMensal" class="label">Gráfico Mensal</label>
 
                                         </div>
                                     </div>  
@@ -141,44 +130,26 @@
                     <div id="responsiveSelects">
                         <div id="formatSelect">
 
-                            <select class="select">
+                            <select class="select" id="selectCategoria">
     
-                                <option>Categoria</option>
-                                <option>Categoria1</option>
-                                <option>Categoria2</option>
-                                <option>Categoria3</option>
-    
-    
+                                <option selected value="">Categorias</option>
+                                
                             </select>
+                            
+                            <div id="anoAtual">
+                                <input min=0 max="9999" id="total" type="number"><button onclick="menos()" class="a">-</button><button onclick="mais()" class="b">+</button>
+                            </div>
     
-                            <select class="select">
-    
-                                <option>Tipo Transferência</option>
-    
-                            </select>
-    
-                            <select class="select">
-    
-                                <option>Ano</option>
-    
-                            </select>
+                           
 
                         </div>
 
 
                             <div id="editSelect" >
-
-                                <select class="select"> 
         
-                                    <option>Valor Mínimo</option>
-        
-                                </select>
-        
-                                <select class="select">
-        
-                                     <option>Valor Máximo</option>
-        
-                                </select>
+                                <input type="number" class="valores" placeholder="Valor Mínimo" id="valorMinimo">
+                                
+                                <input type="number" class="valores" placeholder="Valor Máximo" id="valorMaximo">
         
                             </div>
     
@@ -190,15 +161,15 @@
 
                             <div class="inpu">
                                 <div class="custom-radio">
-                                    <input id="radio-3" name="question" value="3" type="radio" >
-                                    <label for="radio-3" class="label">Despesa padrão</label>
+                                    <input id="chkTransfDefault" name="question" value="3" type="checkbox" >
+                                    <label for="chkTransfDefault" class="label">Transferência padrão</label>
                                </div>
                             </div>
                                
                             <div class="inpu">
                                 <div class="custom-radio">
-                                    <input id="radio-4" name="question" value="4" type="radio" >
-                                    <label for="radio-4" class="label">Favoritos</label>
+                                    <input id="chkTransfFavoritado" name="question" value="4" type="checkbox" >
+                                    <label for="chkTransfFavoritado" class="label"> Transferências favoritas</label>
                                </div>
                             </div>
                             
@@ -206,90 +177,15 @@
                       </div>
 
                     
-
                     <div id="grafico">
+                        <canvas id="graficoCanvas">
                         
 
+                        </canvas>
                     </div>
                     <div class="final">
                        
                     </div>
-                    
-
-                     <!-- Conteudo da modal do usuario -->
-
-                        <div id="modalUsuario">
-                            <div class="modalUsuarioBranco">
-                                
-                                <div id="usuario">
-
-                                    <div class="Container">
-                                        <img src="./img/usuarioPerfil.svg" class="usuarioFoto" width="90px" height="90px">
-                                    </div>
-                                    <div class="containersUsuario1">
-
-                                        <h4 id="nomeUsuario"></h4>
-                                
-                                        <div class='input-wrapper'>
-                                
-                                            <label for='input-file'>
-                                            
-                                                <div class="h4">
-                                                    Selecione uma foto
-                                                </div> 
-                                            </label>
-                                
-                                            <input id='input-file' type='file' value='' />
-                                            <span id='file-name'></span>
-                                                
-                                        </div>
-                                
-                                    </div>
-                                
-                                </div>
-                                <div id="centralizarConteudoUsuario">
-                                    <div id="conteudoUsuario">
-                                        <div class="h7">Nome Completo</div>
-                                        <input type="text" class="edit" placeholder="digite seu nome"> 
-                                    </div>
-                                
-                                    <div id="conteudoUsuario">
-                                        <h7 class="h7">Email</h7>
-                                        <input type="text" class="edit" placeholder="fulano@gmail.com"> 
-                                    </div>
-                                
-                                    <div id="conteudoUsuario2">
-                                
-                                        <!-- <h7 class="h7">Segurança</h7> -->
-                                
-                                        <div class="textH7">Segurança</div>
-                                
-                                        <div class="organize">
-                                            
-                                            <label id="Tcheckbox">
-                                                <input type="checkbox" id="checkbox"/>
-                                                <span class="checkbox"></span>
-                                            </label>
-                                            
-                                            <div class="edith4"> <h4>Verificação de duas etapas</h4> </div>
-                                
-                                        </div>  
-                                        <div class="guardaBotao">
-                                
-                                            <input id="buttonSenha" type="button" value="Trocar Senha"> 
-                                            
-                                        </div>       
-                                    </div>
-                                    <div id="botoesSalvarCancelar">
-                                
-                                        <img src="./img/usuario2.svg" alt class="usuarioImg">
-                                
-                                        <input id="buttonCancelar" class="cancelar" type="button" value="Cancelar">
-                                        <input id="buttonSalvar" type="button" value="Salvar">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                 </main>
     </body>

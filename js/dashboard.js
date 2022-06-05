@@ -577,11 +577,11 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 
 		const confirmacaoCampos = document.getElementById('requires').reportValidity();
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
-
+			
 			ws.send(JSON.stringify({
 				metodo: transferencia, arg: 'inserir', valor: Math.abs(valorEnviar), data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
 				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
-				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido, anexo: guardarImagens
+				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido && !parcelaFixa, anexo: guardarImagens
 			}));
 
 			fecharModal();
@@ -626,7 +626,7 @@ const nomeGrafico = () => {
 }
 document.getElementById('selectTrans').addEventListener('change', nomeGrafico)
 
-const titleMaioresTransferenciasSecundario = document.querySelector('.titulo').innerText = 'Lista de maiores ' + selectTransferencia.value + 's'
+const titleMaioresTransferenciasSecundario = document.querySelector('.titulo').innerText = 'Lista de transferências fixas'
 
 const ctx = document.getElementById('graficoPuro').getContext('2d');
 
@@ -942,10 +942,12 @@ const modalFavoritos = () => {
 
 				const editImgExcluir = document.createElement('div')
 				editImgExcluir.addEventListener('click', ({target}) => {
+					if(confirm('Tem certeza que deseja desfavoritar a sua transferência ?')){
 					target.parentElement.previousElementSibling.remove()
 					target.parentElement.remove()
 					
 					fetch(urlData + '/desfavoritar?k=' + token,{method:'POST',body: JSON.stringify({id: id})}).then(r => r.json()).then(j => console.log(j)) 
+					}
 				});
 				
 				editImgExcluir.classList.add('editImgExcluir');

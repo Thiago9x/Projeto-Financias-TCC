@@ -8,7 +8,8 @@ body{
 }
 
 
-main{
+#main{
+    overflow-y: scroll;
     min-width: 1200px;
     min-height: 800px;
     height: 100%;
@@ -20,7 +21,6 @@ main{
     background-color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    overflow-y: scroll;
 }
 
 
@@ -110,11 +110,7 @@ select{
     align-items: center;
 
 }
-#anoAtual{
-    color: #ffff;
-    font-size: 1.2em;
-    text-align: center;
-}
+
 .containerText{
 
     width: 40%;
@@ -187,7 +183,11 @@ select{
     width: 270px;
     /* background-color: #E70000; */
     display: flex;
+    color: #ffff;
+    font-size: 1.2em;
+    text-align: center;
 }
+
 /* input de ano  */
 input[type="number"] {
     -webkit-appearance: textfield;
@@ -240,6 +240,4 @@ input[type="number"] {
     border-bottom-left-radius: 6px;
     border: solid 2px #2A356A;
 }
-
-
 

@@ -309,7 +309,9 @@ select {
     cursor: pointer;
 }
 
-
+#saldo-mensal{
+    color: black;
+}
 /* PARTE DO GRAFICO DASHBOARD */
 
 #graficoPuro {
