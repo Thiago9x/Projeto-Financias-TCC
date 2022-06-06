@@ -124,8 +124,7 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         }) 
         
 
-        console.log(`http://10.107.144.10:8080/royal/upload/${fotoUsuario}`);
-
+      
 
         let email = document.querySelector('.emailUsuario')
         email.value = emailUsuario;
@@ -165,8 +164,6 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
 
 
 
-
-console.log('logo');
 document.getElementById('buttonSenha').addEventListener('click' ,modalRedefinirSenha); 
 document.getElementById('buttonCancelar').addEventListener('click' ,fecharModal);
 

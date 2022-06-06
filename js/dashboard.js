@@ -626,7 +626,7 @@ console.log(fetch(`${urlData}/saldo/categorias?k=${token}`)
 // GRAFICO PINCIPAL DE BARRA
 const nomeGrafico = () => {
 	let nome = document.getElementById('tituloInfor');
-	nome.innerText = 'Grafico de maiores ' + selectTransferencia.value + 's'
+	nome.innerText = 'Grafico de ' + selectTransferencia.value + 's mensais'
 }
 document.getElementById('selectTrans').addEventListener('change', nomeGrafico)
 
@@ -654,19 +654,31 @@ const myChart = new Chart(ctx, {
 			x: {
 				grid: {
 					display: false
-				}
+				},
+				ticks: {
+					font:{
+						size: 20,
+					}
+				},
 			},
 			y: {
 				grid: {
 					display: false
-				}
+				},
+				ticks: {
+					font:{
+						size: 20,
+						weight: "bold",
+					}
+				},
 			}
 		},
 		indexAxis: 'y',
 		elements: {
 			bar: {
-				borderWidth: 2,
-			}
+				borderWidth: 0,
+			},
+			
 		},
 		responsive: true,
 		maintainAspectRatio: false,
@@ -769,7 +781,13 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 			y: {
 				grid: {
 					display: false
-				}
+				},
+				ticks: {
+					font:{
+						size: 20,
+						weight: "bold"
+					}
+				},
 			}
 		},
 		indexAxis: 'y',
@@ -791,7 +809,7 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 			title: {
 				display: true,
 				text: 'Grafico de Despesa e Receita do mês de ' + getNameMonth((new Date())),
-				font: { weight: 'bold', size: '16em' },
+				font: { weight: 'bold', size: 24 },
 				align: 'start',
 				color: 'black',
 				padding: '10'
@@ -823,8 +841,10 @@ const updateSecundario = () => {
 	.then((data) => {
 		const saldoMensal = document.getElementById('saldoMesValor');
 		saldoMensal.innerText = 'R$ ' + formatador.format(data.saldo);
+		saldoMensal.style.fontSize = "24px"
 		const saldoMensalTXT = document.getElementById('saldo-mensal');
-		saldoMensalTXT.innerText = 'Saldo Mensal';
+		saldoMensalTXT.innerHTML = `Saldo </br> Mensal`;
+		saldoMensalTXT.style.textAlign = "center"
 		myChartSecundario.data.datasets[0].data = [data.receita, data.despesa];
 		myChartSecundario.update();
 

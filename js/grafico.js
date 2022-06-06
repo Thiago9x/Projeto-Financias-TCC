@@ -80,12 +80,23 @@ const graficoAnual = new Chart(ctx, {
 			x: {
 				grid: {
 					display: false
-				}
+				},
+				ticks: {
+					font:{
+						size: 20,
+						weight: "bold",
+					}
+				},
 			},
 			y: {
 				grid: {
 					display: false
-				}
+				},
+				ticks: {
+					font:{
+						size: 20,
+					}
+				},
 			}
 		},
 		indexAxis: 'x',
