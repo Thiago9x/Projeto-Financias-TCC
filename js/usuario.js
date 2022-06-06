@@ -1,4 +1,5 @@
 // ABRE A MODAL DE USUARIO
+criarModal()
 const abreModalUsuario = () => {
     
     conteudoModal(`
@@ -98,9 +99,7 @@ file.addEventListener('change', () => {
 
 
 //FECHAR A MODAL
-document.querySelector('.cancelar').addEventListener('click', () => {
-    document.getElementById('modalUsuario').style.display = "none"
-});
+document.querySelector('.cancelar').addEventListener('click', fecharModal);
 
 //CONEXÃO COM A API
 console.log(fetch(`${url}/data/perfil?k=${token}`)

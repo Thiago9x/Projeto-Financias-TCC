@@ -10,6 +10,10 @@ const iptValorMax = document.getElementById('valorMaximo')
 var atual = document.getElementById("total");
 atual.value = new Date().getUTCFullYear();
 
+document.getElementById('graficoMensal').addEventListener('change',()=>{
+	window.location.href = "../grafico2.html";
+})
+
 const urlCat = url + '/data/categorias?k=' + token + '&ano=' + atual.value 
 let categoriaDespesa;
 let categoriaReceita;
@@ -130,8 +134,18 @@ const graficoAnual = new Chart(ctx, {
 
 const grafico = async () =>{
     let labels = monthNames
-    let dataGraficoDespesa = await fetch(url + '/grafico/despesa?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano').then(r => r.json())
-    let dataGraficoReceita =  await fetch(url + '/grafico/receita?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano').then(r => r.json())
+	let urlDespesa = url + '/grafico/despesa?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano'
+	let urlReceita = url + '/grafico/receita?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano'
+    
+	if(selectCategoria.value){
+		
+		urlDespesa = urlDespesa + '&cat=' + selectCategoria.value;
+		urlReceita = urlReceita + '&cat=' + selectCategoria.value;
+
+	}
+	let dataGraficoDespesa = await fetch(urlDespesa).then(r => r.json())
+    let dataGraficoReceita =  await fetch(urlReceita).then(r => r.json())
+	
 
             graficoAnual.data.labels = labels;
 			graficoAnual.data.datasets[0].data = dataGraficoDespesa;

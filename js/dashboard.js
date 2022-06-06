@@ -6,7 +6,7 @@ let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
-const urlData = url + "/data";
+
 
 var openFile = function(event) {
 	var input = event.target;
@@ -65,6 +65,10 @@ ws.onmessage = ({ data }) => {
 				break;
 			}
 	}
+}
+
+ws.onclose = () => {
+	console.log('ws caiu');
 }
 
 const atualizarSaldo = () =>
