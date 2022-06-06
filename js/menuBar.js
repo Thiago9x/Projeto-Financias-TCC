@@ -13,6 +13,11 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         const nomeUsuario = data.nome;
         document.getElementById('branco').innerText = nomeUsuario;
         const fotoUsuario = data.foto;
+
+        document.querySelectorAll('.nomeCliente').forEach((nome) => {
+            nome.value = nomeUsuario
+            nome.innerText = nomeUsuario
+        }) 
         
         if (fotoUsuario) {
         const perfilFoto = document.getElementById('perfilFoto')

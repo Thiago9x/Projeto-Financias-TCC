@@ -6,10 +6,7 @@ const rdoGraficoMensal = document.getElementById('graficoMensal')
 const selectCategoria = document.getElementById('selectCategoria')
 const iptValorMin = document.getElementById('valorMinimo')
 const iptValorMax = document.getElementById('valorMaximo')
-const chkTransfPadrao = document.getElementById('chkTransfDefault')
-chkTransfPadrao.checked = true
-const chkTransfFavoritado = document.getElementById('chkTransfFavoritado')
-chkTransfFavoritado.checked = true
+
 var atual = document.getElementById("total");
 atual.value = new Date().getUTCFullYear();
 

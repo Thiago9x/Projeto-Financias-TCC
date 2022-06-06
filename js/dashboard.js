@@ -266,7 +266,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	const btnImg4 = document.querySelector('.btnImg4');
 
 	let anexado = !(anexoValue !== null);
-	let repetido = !parcelada;
+	let repetido = !(parcelada || fixa);
 	let observado = !observacao;
 	
 	let favoritado = !favoritos;
@@ -508,6 +508,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	}
 	document.getElementById('anexo-button').addEventListener('click', opcao3)
 
+	
 	//FIM DOS BOTOES
 	//TRANSFERENCIA FIXA
 	let transFixa = document.getElementById('transFixa');
@@ -524,6 +525,9 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	}
 	transFixa.addEventListener('change', desabilitaCaixa);
 
+	if(fixa){
+		desabilitaCaixa()
+	}
 
 	//FIM TRANSFERENCIA FIXA
 
@@ -643,6 +647,10 @@ const myChart = new Chart(ctx, {
 	},
 	options: {
 		scales: {
+			
+				// pointLabels: {
+				//   fontSize: 20,
+				// },
 			x: {
 				grid: {
 					display: false
@@ -666,7 +674,16 @@ const myChart = new Chart(ctx, {
 			legend: {
 				display: false,
 				position: 'right',
+				labels: {
+					font:{
+					display:true,
+					color: "#e70000"
+					}
+				},
 			},
+
+			
+			
 			datalabels: {
 				display: false,
 				color: '#000',
@@ -675,7 +692,7 @@ const myChart = new Chart(ctx, {
 				align: 'end',
 				offset: 24,
 				font: {
-					size: '20px',
+					size: '50px',
 					weight: 'bold'
 				}
 			}
