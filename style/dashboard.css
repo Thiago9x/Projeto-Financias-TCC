@@ -376,7 +376,10 @@ select {
     justify-content: center;
    
 }
-
+.formatarImgExcluir{
+    width: 30px;
+    height: 30px;
+}
 .t1 ,.valor{
     width: 100%;
     height: 50%;
