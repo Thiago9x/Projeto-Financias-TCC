@@ -6,71 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo_financas_2.svg">
     <script type="text/javascript" src="" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style/grafico2.css">
-    <link rel="stylesheet" type="text/css" href="./style/graficos.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
-    <!-- <script type="text/javascript" src="./js/dashboard.js" defer></script> -->
     <link rel="stylesheet" href="./font/baskervville.css">
     <link rel="stylesheet" href="./font/icon.css">
     <link rel="stylesheet" href="./font/roboto.css">
-    <script src="./js/chart.js"></script>
+    <script src="./js/ext/chart.js"></script>
+    <script src="./js/menuBar.js" defer></script>
+    <script src="./js/grafico2.js" defer></script>
     <script src="./js/ext/chart-plugin-datalabels.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style/usuario.css">
+    <link rel="stylesheet" type="text/css" href="./style/modal.css">
+    <script src="./js/usuario.js" defer></script>
+    <script src="./js/modal.js" ></script>
+    <script src="./js/redefinirSenha.js" ></script>
+    <script src="./js/ext/cookie.js"></script>
+    <script src="./js/link.js"></script>
+
     <title>Royal Finance</title>
 </head>
 
         <body>
 
-                         <!-- INICIO MENU LATERAL -->
-        <div class="menu">
+                <!-- INICIO MENU LATERAL -->
+                    <div class="menu">
 
-            <div id="nomeEmpresa">
-            Royal </br>Finance
-            </div>
-
-            <div id="menuList">
-                <ul>
-                    <li class="list">
-                        <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
-                        <label class="on"> Visão Geral </label>
-                    </li>
-
-                    <li>
-                        <img src="img/iconeExtrato.svg" class="img"  width="10px"/> 
-                        <label class="on"> Extratos </label>
-                    </li>
-
-                    
-
-                    <li>
-                        <img src="img/iconeGrafico.svg" class="img"/> 
-                        <label class="on"> Gráficos </label>
-                            
-                    </li>
-
-                    
-                </ul>
-            </div>
-            <div class="perfil">
-                <div id="perfilFoto"></div>
-                <div id="perfilTexto">
-                    <h4 id="branco">Nome Usuario</h4>
-                    <p id="cinza">Ver perfil</p>
-                </div>
-            </div>
-        </div>
-                        <!-- FIM MENU LATERAL -->
-
-                <!-- INICIO DO SCRIPT PARA A ANIMACAO DO MENU -->
-                    <script>
-                        $(`#menuList>ul>li`).click(function(){
-                            $(`#menuList>ul>li`).css("border-left", "none");
-                            $(`#menuList>ul>li:nth-of-type(${$(this).index()+1})`).css({"border-left": "solid 3px #fff", "transition" : "0.1s"});
-                        })
-                    </script>
-                <!-- FIM DO SCRIPT PARA A ANIMACAO DO MENU -->
-
-    
+                            <div id="nomeEmpresa">
+                            Royal </br>Finance
+                            </div>
+                
+                            <div id="menuList">
+                                <ul>
+                                    <li id="menuDash">
+                                        <img src="img/iconeCasinha.svg" class="img" width="10px"/> 
+                                        <label class="on"> Visão Geral </label>
+                                    </li>
+                
+                                    <li id="menuExtratos">
+                                        <img src="img/iconeExtrato.svg" class="img"  width="10px"/> 
+                                        <label class="on"> Extratos </label>
+                                    </li>
+                
+                
+                
+                                    <li id="menuGraficos">
+                                        <img src="img/iconeGrafico.svg" class="img"/> 
+                                        <label class="on"> Gráficos </label>
+                                            
+                                    </li>
+                
+                                </ul>
+                            </div>
+                            <div class="perfil">
+                                <div id="perfilFoto"></div>
+                                <div id="perfilTexto">
+                                    <div id="branco" class="nomeCliente"></div>
+                
+                                    <div id="abrirPerfil">Ver perfil</div>
+                                </div>
+                            </div>
+                    </div>
+                <!-- FIM MENU LATERAL -->
                 <!-- INICIO CONTEUDO Grafico -->
                 <main>
                     <div id="PrimeiraCaixa">
@@ -107,8 +103,8 @@
                                      <div class="inpu">
                                         <div class="custom-radio">
 
-                                            <input id="radio-1" name="question" value="0" type="radio" >
-                                            <label for="radio-1" class="label">Gráfico Anual</label>
+                                            <input id="graficoAnual" name="question" value="0" type="radio" >
+                                            <label for="graficoAnual" class="label">Gráfico Anual</label>
 
                                         </div>
                                     </div>
@@ -116,8 +112,8 @@
                                     <div class="inpu">
                                         <div class="custom-radio">
 
-                                            <input id="radio-2" name="question" value="1" type="radio">
-                                            <label for="radio-2" class="label">Gráfico Mensal</label>
+                                            <input id="graficoMensal" name="question" value="1" type="radio" checked>
+                                            <label for="graficoMensal" class="label" >Gráfico Mensal</label>
 
                                         </div>
                                     </div>  
@@ -141,14 +137,14 @@
                             <div class="formatSelect">
 
                                 <select class="select"> 
+                                    <option>Tipo Transferência</option>
+                                </select>
+                                <select class="select"> 
+        
                                     <option>Categoria</option>
+        
                                 </select>
-                                <select class="select">
-                                    <option>Valor Mínimo </option>
-                                </select>
-                                <select class="select">
-                                    <option>Valor Máximo</option>
-                                </select>
+                                
                             </div>
 
                         </div>
@@ -157,17 +153,11 @@
 
                             <div class="formatSelect">
     
-                                <select class="select"> 
+
         
-                                    <option>Tipo Transferência</option>
-        
-                                </select>
-        
-                                <select class="select">
-        
-                                     <option>Ano</option>
-        
-                                </select>
+                                <div id="anoAtual">
+                                    <input min=0 max="9999" id="total" type="number"><button onclick="menos()" class="a">-</button><button onclick="mais()" class="b">+</button>
+                                </div>
         
                                 <select class="select">
         
@@ -178,25 +168,6 @@
 
                         </div>
                         
-                        <!-- CONTEUDO GRAFICO -->
-
-                        <div id="formatInput2">
-
-                            <div class="inpu">
-                                <div class="custom-radio">
-                                    <input id="radio-3" name="question" value="3" type="radio" >
-                                    <label for="radio-3" class="label">Despesa padrão</label>
-                               </div>
-                            </div>
-                               
-                            <div class="inpu">
-                                <div class="custom-radio">
-                                    <input id="radio-4" name="question" value="4" type="radio" >
-                                    <label for="radio-4" class="label">Favoritos</label>
-                               </div>
-                            </div>
-                            
-                        </div>
 
                         <!-- informacoes -->
 
@@ -237,7 +208,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -253,7 +224,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -269,7 +240,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -285,7 +256,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,7 +272,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -317,7 +288,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -333,7 +304,7 @@
                 
                                                 <div class="teste">
                                                     <div class="info">
-                                                        <h4 class="h4">R$ 230,00</h4>
+                                                        <h4 class="valorTransf">R$ 230,00</h4>
                                                     </div>
                                                 </div>
                                             </div>

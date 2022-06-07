@@ -1,9 +1,10 @@
 //PEGANDO AS INPUTS E AS SELECTS
 
 const rdoGraficoAnual = document.getElementById('graficoAnual')
-rdoGraficoAnual.checked = "true"
+// rdoGraficoAnual.checked = "true"
 const rdoGraficoMensal = document.getElementById('graficoMensal')
-const selectCategoria = document.getElementById('selectCategoria')
+const selectCategoriaReceita = document.getElementById('selectCategoriaReceita')
+const selectCategoriaDespesa = document.getElementById('selectCategoriaDespesa')
 const iptValorMin = document.getElementById('valorMinimo')
 const iptValorMax = document.getElementById('valorMaximo')
 
@@ -47,7 +48,8 @@ console.log(fetch(urlCat)
 
                 optionDespesa.appendChild(option);
             })
-            selectCategoria.append(optionReceita, optionDespesa);
+            selectCategoriaReceita.append(optionReceita);
+			selectCategoriaDespesa.append(optionDespesa);
             validacaoCat = true;
         }
     })
@@ -137,12 +139,13 @@ const grafico = async () =>{
 	let urlDespesa = url + '/grafico/despesa?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano'
 	let urlReceita = url + '/grafico/receita?k='+ token +'&ano='+atual.value+'&modo=lista&periodo=mes-ano'
     
-	if(selectCategoria.value){
-		
-		urlDespesa = urlDespesa + '&cat=' + selectCategoria.value;
-		urlReceita = urlReceita + '&cat=' + selectCategoria.value;
-
+	if(selectCategoriaDespesa.value){
+		urlDespesa = urlDespesa + '&cat=' + selectCategoriaDespesa.value;
 	}
+	if(selectCategoriaReceita.value){
+		urlReceita = urlReceita + '&cat=' + selectCategoriaReceita.value;
+	}
+
 	let dataGraficoDespesa = await fetch(urlDespesa).then(r => r.json())
     let dataGraficoReceita =  await fetch(urlReceita).then(r => r.json())
 	
@@ -154,8 +157,8 @@ const grafico = async () =>{
 
 }
 grafico()
-
-
+selectCategoriaDespesa.addEventListener('change', grafico)
+selectCategoriaReceita.addEventListener('change', grafico)
 
 // FIM GRAFICO MENSAL
 

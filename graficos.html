@@ -105,7 +105,7 @@
                                     <div class="inpu">
                                         <div class="custom-radio">
 
-                                            <input id="graficoAnual" name="question" value="0" type="radio">
+                                            <input id="graficoAnual" name="question" value="0" type="radio" checked>
                                             <label for="graficoAnual" class="label">Gráfico Anual</label>
 
                                         </div>
@@ -133,12 +133,16 @@
                     <div id="responsiveSelects">
                         <div id="formatSelect">
 
-                            <select class="select" id="selectCategoria">
+                            <select class="select" id="selectCategoriaDespesa">
     
-                                <option selected value="">Categorias</option>
+                                <option selected value="">Categorias Despesas</option>
                                 
                             </select>
-                            
+                            <select class="select" id="selectCategoriaReceita">
+    
+                                <option selected value="">Categorias Receitas</option>
+                                
+                            </select>
                             <div id="anoAtual">
                                 <input min=0 max="9999" id="total" type="number"><button onclick="menos()" class="a">-</button><button onclick="mais()" class="b">+</button>
                             </div>
@@ -146,15 +150,6 @@
                            
 
                         </div>
-
-
-                            <div id="editSelect" >
-        
-                                <input type="number" class="valores" placeholder="Valor Mínimo" id="valorMinimo">
-                                
-                                <input type="number" class="valores" placeholder="Valor Máximo" id="valorMaximo">
-        
-                            </div>
     
                         
                       </div>

@@ -6,12 +6,16 @@ body {
     overflow-y: hidden;
 }
 
+#menuGraficos {
+    border-left: solid 3px white;
+}
+
 /********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
 
 main {
-    width: auto;
+    width: 100%;
     min-width: 1850px;
-    height: auto;
+    height: 100vh;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -22,21 +26,122 @@ main {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
+
 ::-webkit-scrollbar {
     width: 0px;
 }
 
 #PrimeiraCaixa {
 
-    width: 90%;
-    height: 180px;
-    min-width: 1300px;
-    min-height: 200px;
+    width: 100%;
+    height: 200px;
+    min-width: 800px;
     background-color: white;
     border-radius: 10px;
     border: transparent;
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
     display: flex;
+}
+
+#ilustrationGraphic {
+
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ilustrationIformation {
+    width: 75%;
+    height: 100%;
+    /* background-color: #444444; */
+    display: flex;
+    flex-direction: column;
+}
+
+.divInforLetra,
+.divInforRadios {
+    width: 100%;
+    height: 50%;
+    /* background-color: aqua; */
+
+}
+
+#formatacaoLetra {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 500;
+    color: #444444;
+    text-align: center;
+
+    /* background-color: #2A356A; */
+}
+
+#formatacaoRadio {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.label {
+
+    margin-left: 10px;
+    color: #444444;
+    font-weight: 600;
+    font-size: 24px;
+
+}
+
+#agregaConteudoSelects {
+
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #5AD4AB; */
+}
+
+.containerSeletcs {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: beige; */
+}
+
+.formatSelect {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+select {
+    width: 310px;
+    height: 50px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: solid 2px #2A356A;
+    color: #FFF;
+    text-align: center;
+    border-radius: 5px;
+    background: url(../img/selectbranco.svg) no-repeat center right #FFF;
+    font-size: 20px;
+    background-position-x: 95%;
+
 }
 
 .divisaoInformacoes {
@@ -48,13 +153,14 @@ main {
 
 }
 
+
 .campoInf1 {
     width: 60%;
     height: 80px;
 }
 
 .formImg {
-   
+
     height: 70px;
     width: 70px;
 }
@@ -63,6 +169,7 @@ main {
     height: 80px;
     width: 80px;
 }
+
 .sobreConteudo {
 
     width: 100%;
@@ -73,7 +180,7 @@ main {
     color: #999999;
     font-family: roboto;
     font-size: 16px;
-  
+
 }
 
 .sobreConteudo h3 {
@@ -95,16 +202,6 @@ main {
     color: #444444;
 }
 
-
-#ilustrationGraphic{
-
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #conteudo {
     width: 100%;
     height: 100%;
@@ -123,7 +220,7 @@ main {
     display: flex;
 }
 
-#ilustrationInfo{
+#ilustrationInfo {
     width: 65%;
     height: 100%;
     display: flex;
@@ -138,7 +235,7 @@ main {
     justify-content: center;
 }
 
-#subSeparacao{
+#subSeparacao {
 
     width: 60%;
     height: 100%;
@@ -169,14 +266,7 @@ main {
     justify-content: center;
 }
 
-.label {
 
-    margin-left: 10px;
-    color: #444444;
-    font-weight: 600;
-    font-size: 1.2rem;
-
-}
 
 .input {
 
@@ -195,7 +285,7 @@ main {
 }
 
 
-.custom-radio input + label:before {
+.custom-radio input+label:before {
 
     content: '';
     width: 20px;
@@ -209,7 +299,7 @@ main {
     background-color: white;
 }
 
-.custom-radio input:checked + label:before {
+.custom-radio input:checked+label:before {
 
     background-color: #5AD4AB;
     border: 8px solid #5AD4AB;
@@ -217,76 +307,17 @@ main {
     padding: 3px;
 }
 
-#formatSelect {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 70px;
-    margin-top: 10px;
-  
-}
 
-#agregaConteudoSelects{
 
-    width: 90%;
-    height: auto;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-}
 
-.containerSeletcs{
-    width: 100%;
-    height: 50%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-}
+
 
 .select {
     background-color: #2A356A;
-    margin-left: 15px;
 }
 
-select {
-    width: 310px;
-    height: 50px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: solid 2px #2A356A;
-    color: #FFF;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    background: url(../img/selectbranco.svg) no-repeat center right #FFF;
-    font-size: 1rem;
-    background-position-x: 95%;
 
-}
 
-/* input 2 */
-
-#formatInput2 {
-    width: 50%;
-    height: 85px;
-    display: flex;
-    justify-content: center;
-    margin-left: 18%;
-    margin-top: 1.2%;
-
-}
-
-#formatInput2 h3 {
-    width: 200px;
-    height: 40px;
-    font-size: 1.3em;
-    margin-left: -45%;
-    display: flex;
-    align-items: center;
-}
 
 .editar {
     margin-left: -30%;
@@ -299,11 +330,11 @@ select {
     height: 100%;
     display: flex;
     margin-top: 50px;
-   
+
 }
 
-.lugarGrafico{
-  
+.lugarGrafico {
+
     width: 50%;
     height: 100%;
     border-radius: 10px;
@@ -312,9 +343,10 @@ select {
     box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
 
 }
+
 #receita {
     min-width: 640px;
-    width:50%;
+    width: 50%;
     min-height: 55vh;
     height: 100%;
     margin-left: 8%;
@@ -328,8 +360,8 @@ select {
     padding: 10px;
 }
 
-.titulo{
-    
+.titulo {
+
     width: 100%;
     height: 10%;
     font-size: 1.5rem;
@@ -337,26 +369,26 @@ select {
     text-align: center;
 }
 
-.dividir{
+.dividir {
     width: 100%;
     height: auto;
 
 }
 
-.teste{
+.teste {
     width: 50%;
     height: 90%;
 
 }
 
-.agregaInformacoes{
+.agregaInformacoes {
 
     width: 100%;
     height: 20%;
     display: flex
 }
 
-.agregaValores{
+.agregaValores {
     width: 100%;
     height: 90%;
     display: flex;
@@ -377,7 +409,7 @@ select {
     border-radius: 5px;
     border: solid 1px whitesmoke;
     display: flex;
-    color:black;
+    color: black;
     font-weight: 500;
     font-size: 1.4rem;
     justify-content: center;
@@ -385,29 +417,32 @@ select {
     box-shadow: 0 4px 5px -2px rgb(190, 205, 255);
 }
 
-.info{
+.info {
     width: 100%;
     height: 15%;
     margin-top: 15px;
     display: flex;
     justify-content: center;
 }
-.h4 {
+
+.valorTransf {
     width: inherit;
     height: inherit;
-    color: #2A356A;
+    color: #2A356A !important;
     font-weight: 500;
     font-size: 1.3rem;
     padding-top: 20px;
     padding-right: 40px;
     text-align: center;
 }
-.imagem{
+
+.imagem {
     width: 15%;
     height: 100%;
     margin: 8px;
 }
- .p{
+
+.p {
     color: #2A356A;
     font-weight: 500;
     font-size: 1.3rem;
@@ -417,4 +452,75 @@ select {
     justify-content: center;
     align-items: center;
     font-size: 1.3em;
- }
+}
+
+#anoAtual {
+    height: 47px;
+    width: 320px;
+    /* background-color: #E70000; */
+    display: flex;
+    color: #ffff;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* input de ano  */
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+
+    height: 46px;
+    width: 220px;
+    margin-left: 2px;
+    background-color: #2A356A;
+    color: white;
+    font-size: larger;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    text-align: center;
+    padding-left: 30px;
+    outline: none;
+}
+
+label,
+input,
+button {
+    font-size: inherit;
+
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+button {
+    height: 50px;
+
+    background-color: #2A356A;
+    border: none;
+    padding-left: 2%;
+    padding-right: 4%;
+    outline: none;
+    cursor: pointer;
+    color: white;
+
+}
+
+.b {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#total {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: solid 2px #2A356A;
+}
