@@ -1,10 +1,10 @@
 'use strict'
-const monthNow = new Date().getUTCMonth() + 1;
-const yearNow = new Date().getUTCFullYear();
+const monthNow = new Date().getMonth() + 1;
+const yearNow = new Date().getFullYear();
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 var atual = document.getElementById("total");
-atual.value = new Date().getUTCFullYear();
+atual.value = new Date().getFullYear();
 let backup;
 
 const urlCat = url + '/data/categorias/extrato-mes?k=' + token + '&ano=' + atual.value + '&mes=' + selectMes.value;

@@ -633,7 +633,7 @@ select {
 
         #tituloSelect{
             /* background-color: tomato; */
-            width: 310px;
+            width: 30%;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -641,15 +641,15 @@ select {
         }
         #tituloInfor{
             /* background-color: slateblue; */
-            width: inherit;
+            width: 100%;
             height: 30%;
             text-align: center;
             font-weight: bold;
-            font-size: 22px;
+            font-size: 28px;
         }
         #selects{
             /* background-color: yellow; */
-            width: 80%;
+            width: 70%;
             height: 100%;
             display: flex;
             

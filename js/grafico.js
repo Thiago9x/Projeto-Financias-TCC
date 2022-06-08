@@ -9,7 +9,7 @@ const iptValorMin = document.getElementById('valorMinimo')
 const iptValorMax = document.getElementById('valorMaximo')
 
 var atual = document.getElementById("total");
-atual.value = new Date().getUTCFullYear();
+atual.value = new Date().getFullYear();
 
 document.getElementById('graficoMensal').addEventListener('change',()=>{
 	window.location.href = "../grafico2.html";
@@ -24,19 +24,13 @@ console.log(fetch(urlCat)
         console.log(data1);
         categoriaReceita = data1.receitas;
         categoriaDespesa = data1.despesas;
-        let validacaoCat = false;
-        if (validacaoCat === false) {
 
-            const optionReceita = document.createElement('optgroup')
-            optionReceita.label = "Receitas"
-            const optionDespesa = document.createElement('optgroup')
-            optionDespesa.label = 'Despesas'
             categoriaReceita.forEach(categoria => {
                 const option = document.createElement("option");
                 option.value = categoria.idCategoria;
                 option.innerText = categoria.nome;
 
-                optionReceita.appendChild(option);
+                selectCategoriaReceita.appendChild(option);
 
             })
 
@@ -46,12 +40,10 @@ console.log(fetch(urlCat)
                 option.value = categoria.idCategoria;
                 option.innerText = categoria.nome;
 
-                optionDespesa.appendChild(option);
+                selectCategoriaDespesa.appendChild(option);
             })
-            selectCategoriaReceita.append(optionReceita);
-			selectCategoriaDespesa.append(optionDespesa);
-            validacaoCat = true;
-        }
+
+            
     })
 )
 

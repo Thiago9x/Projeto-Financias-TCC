@@ -136,12 +136,11 @@
 
                             <div class="formatSelect">
 
-                                <select class="select"> 
-                                    <option>Tipo Transferência</option>
+                                <select class="select" id="tipoTransf"> 
+                                    <option value="despesa" selected>Despesas</option>
+                                    <option value="receita">Receitas</option>
                                 </select>
-                                <select class="select"> 
-        
-                                    <option>Categoria</option>
+                                <select class="select" id="selectCat"> 
         
                                 </select>
                                 
@@ -159,10 +158,19 @@
                                     <input min=0 max="9999" id="total" type="number"><button onclick="menos()" class="a">-</button><button onclick="mais()" class="b">+</button>
                                 </div>
         
-                                <select class="select">
-        
-                                    <option>Mês</option>
-        
+                                <select class="select" id="selectMes">
+                                    <option value="1">Janeiro</option>
+                                    <option value="2">Fevereiro</option>
+                                    <option value="3">Março</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Maio</option>
+                                    <option value="6">Junho</option>
+                                    <option value="7">Julho</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Setembro</option>
+                                    <option value="10">Outubro</option>
+                                    <option value="11">Novembro</option>
+                                    <option value="12">Dezembro</option>
                                </select>
                             </div> 
 
@@ -174,7 +182,9 @@
                         <div id="editDivs">
 
                             <div class="lugarGrafico">
-                               
+                               <canvas id="graficoMensalCanvas">
+
+                               </canvas>
                             </div>
 
                             <div id="receita">
@@ -315,7 +325,7 @@
                            
                         </div>
 
-                    </div>
+                        </div>
                     
                 </main>
     </body>

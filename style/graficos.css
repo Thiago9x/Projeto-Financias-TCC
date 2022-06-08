@@ -7,33 +7,92 @@ body{
 }
         /********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
 
-main{
-    width: 100%;
-    min-width: 1300px;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    padding: 1%;
-    padding-left: 5%;
-    overflow: scroll;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-}
-::-webkit-scrollbar {
-    width: 0px;
-}
-
-#PrimeiraCaixa{
-    width: 95%;
-    height: 180px;
-    border-radius: 8px;
-    background-color: white;
-    justify-content: center;
-    border:transparent;
-    box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
-    display: flex;
-}
+        main {
+            width: 100%;
+            min-width: 1300px;
+            height: 100vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 30px;
+            overflow: scroll;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        #PrimeiraCaixa {
+        
+            width: 100%;
+            min-height: 180px;
+            background-color: white;
+            border-radius: 10px;
+            border: transparent;
+            box-shadow: 0 4px 5px -2px rgb(140, 164, 243);
+            display: flex;
+        }
+        
+        .ilustrationGraphic {
+        
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ilustrationIformation {
+            width: 75%;
+            height: 100%;
+            /* background-color: #444444; */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .divInforLetra,
+        .divInforRadios {
+            width: 100%;
+            height: 50%;
+            /* background-color: aqua; */
+        
+        }
+        
+        #formatacaoLetra {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #444444;
+            text-align: center;
+        
+            /* background-color: #2A356A; */
+        }
+        
+        #formatacaoRadio {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+        
+        .label {
+        
+            margin-left: 10px;
+            color: #444444;
+            font-weight: 600;
+            font-size: 1.2rem;
+        
+        }
 .divisaoInformacoes{
     width: 30%;
     height: 100%;
@@ -44,48 +103,8 @@ main{
 }
 
 
-.ilustrationGraphic{
 
-    width: 30%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-}   
-
-.ilustrationIformation{
-
-    width: 70%;
-    height: 100%;
-
-}
-.divInforLetra, .divInforRadios{
-
-    width: 100%;
-    height: 50%;
-    margin-left: 100px;
-
-}
-
-#formatacaoLetra{
-    width: 50%;
-    height: 100%;
-    min-width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.7rem;
-    font-weight: 500;
-    color: #444444;
- 
-}
-
-#formatacaoRadio{
-    width: 50%;
-    height: 100%;
-    display: flex;
-}
 
 /*  conteudos da PrimeiraCaixa  */
 
@@ -155,7 +174,7 @@ main{
 }
 
 .campoInf1{
-    width: 60%;
+    width: 80%;
     height: 80px;
 }
 .formImg{
@@ -218,27 +237,13 @@ main{
 
 }
 
-.inpu{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .inpu1{
     width: 50%;
     height: 100%;
   
 }
 
-.label{
-
-  margin-left: 10px;
-  color: #444444;
-  font-weight: 600;
-  font-size: 1.2rem;
-
-}
 
 .input{
 
@@ -327,7 +332,7 @@ select{
     /* background-color: #2e9a00; */
 }
 #responsiveSelects{
-    width: 95%;
+    width: 100%;
     height: 250px;
     padding-top: 10px;
     /* background-color: #44444; */
@@ -361,13 +366,13 @@ select{
     /* Grafico  */
 
 #grafico{
-    width: 95%;
+    width: 100%;
     height: 60%;
-    box-shadow: 0 0 0.5em rgb(175, 208, 241);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFF;
+    box-shadow: 0 0 0.5em rgb(175, 208, 241);
 }
 
 #menuGraficos{

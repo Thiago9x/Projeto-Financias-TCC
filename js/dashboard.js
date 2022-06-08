@@ -1,12 +1,25 @@
 'use strict';
 // CONSUMIR A API DA DASHBOARD
-const monthNow = new Date().getUTCMonth() + 1;
-const yearNow = new Date().getUTCFullYear();
+const monthNow = new Date().getMonth() + 1;
+const yearNow = new Date().getFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const ws = new WebSocket(wsUrl + '/dashboard/' + token);
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 var openFile = function(event) {
 	var input = event.target;
@@ -229,7 +242,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	console.log(anexoValue)
 	//DATA ATUAL
 	let data = document.querySelector('.date');
-	data.valueAsDate = new Date();
+	data.value = formatDate(new Date());
 
 	//PARTE DE REPETICAO
 	let dataFR = document.getElementById('selectFR');
@@ -297,69 +310,69 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
+							dataObjeto.setDate(parseInt(duracao.value - 1) + dataObjeto.getDate());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						}
 					case 'SEMANAS':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(7 * parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
+							dataObjeto.setDate(7 * parseInt(duracao.value - 1) + dataObjeto.getDate());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						}
 					case 'QUINZENAS':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCDate(15 * parseInt(duracao.value - 1) + dataObjeto.getUTCDate());
+							dataObjeto.setDate(15 * parseInt(duracao.value - 1) + dataObjeto.getDate());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						} case 'MESES':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
+							dataObjeto.setMonth(parseInt(duracao.value - 1) + dataObjeto.getMonth());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						} case 'BIMESTRES':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(2 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
+							dataObjeto.setMonth(2 * parseInt(duracao.value - 1) + dataObjeto.getMonth());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						} case 'TRIMESTRES':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(3 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
+							dataObjeto.setMonth(3 * parseInt(duracao.value - 1) + dataObjeto.getMonth());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						}
 					case 'SEMESTRES':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCMonth(6 * parseInt(duracao.value - 1) + dataObjeto.getUTCMonth());
+							dataObjeto.setMonth(6 * parseInt(duracao.value - 1) + dataObjeto.getMonth());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						}
 					case 'ANOS':
 						{
 							let dataObjeto = dataInicio.valueAsDate;
 
-							dataObjeto.setUTCFullYear(parseInt(duracao.value - 1) + dataObjeto.getUTCFullYear());
+							dataObjeto.setFullYear(parseInt(duracao.value - 1) + dataObjeto.getFullYear());
 
-							dataFim.valueAsDate = dataObjeto;
+							dataFim.value = formatDate(dataObjeto);
 							break;
 						}
 				}
@@ -405,7 +418,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = ((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth() + 1;
+								duracao.value = ((data.getFullYear() - 1970) * 12) + data.getMonth() + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -415,7 +428,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 2 + 1;
+								duracao.value = (((data.getFullYear() - 1970) * 12) + data.getMonth()) / 2 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -425,7 +438,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 3 + 1;
+								duracao.value = (((data.getFullYear() - 1970) * 12) + data.getMonth()) / 3 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -435,7 +448,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = (((data.getUTCFullYear() - 1970) * 12) + data.getUTCMonth()) / 6 + 1;
+								duracao.value = (((data.getFullYear() - 1970) * 12) + data.getMonth()) / 6 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -445,7 +458,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 						{
 							if (dataFim.valueAsNumber >= dataInicio.valueAsNumber) {
 								const data = new Date(dataFim.valueAsDate - dataInicio.valueAsDate);
-								duracao.value = data.getUTCFullYear() - 1970 + 1;
+								duracao.value = data.getFullYear() - 1970 + 1;
 							} else {
 								duracao.value = 0;
 							}
@@ -838,7 +851,7 @@ const myChartSecundario = new Chart(document.querySelector('.card').getContext('
 
 
 
-const urlSec = urlData + '/saldo?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
+const urlSec = urlData + '/saldo-bruto?k=' + token + '&ano=' + yearNow + '&mes=' + (monthNow);
 const updateSecundario = () => {
 	fetch(urlSec)
 	.then((resposta) => resposta.json())
@@ -978,7 +991,7 @@ const modalFavoritos = () => {
 			</div>
 
 			<div class="containerInfoData">
-				<label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getUTCFullYear()}</label>
+				<label class="dataFormatacao"> ${getShortMonthName(new Date(date))} <br> ${new Date(date).getFullYear()}</label>
 			</div>`;
 
 				const editImgExcluir = document.createElement('div')
