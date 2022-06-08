@@ -155,23 +155,7 @@ select{
    
 }
 /* format da barra de rolagem */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #E9E9E9 whitesmoke;
-  }
-  *::-webkit-scrollbar {
-    width: 20px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: orgb(230, 230, 230);
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #E9E9E9;
-    border-radius: 20px;
-    border: 3px solid whitesmoke;
-  }
+
 
 #menuExtratos{
     border-left: solid 3px #fff;

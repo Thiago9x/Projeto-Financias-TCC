@@ -15,7 +15,7 @@ body {
 main {
     width: 100%;
     min-width: 1300px;
-    height: 100vh;
+    min-height: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -27,9 +27,7 @@ main {
     border-bottom-left-radius: 50px;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-}
+
 
 #PrimeiraCaixa {
 
@@ -321,7 +319,7 @@ select {
 
 #editDivs {
     width: 100%;
-    height: 100%;
+    height: 800px;
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
@@ -417,19 +415,21 @@ select {
 
 .valorTransf {
     width: inherit;
-    height: inherit;
+    height: 100%;
     color: #2A356A !important;
     font-weight: 500;
     font-size: 1.3rem;
-    padding-top: 20px;
-    padding-right: 40px;
+    margin-top: 8px;
     text-align: center;
 }
 
 .imagem {
-    width: 15%;
+    width: auto;
+    height: auto;
+    font-size:50px;
+}
+.nomeCatLista{
     height: 100%;
-    margin: 8px;
 }
 
 .p {

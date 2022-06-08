@@ -20,9 +20,7 @@ main {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
-::-webkit-scrollbar {
-    width: 0px;
-}
+
 #acessoRapido {
     width: 100%;
     min-height: 150px;
@@ -404,16 +402,7 @@ select {
 }
         /********************** INICIO ESTILIZACOES ACESSO RAPIDO ***********************/
 
-        main{
-            width: 100%;
-            min-width: 1000px;
-            height: 100%;
-            background-color: rgb(255, 255, 255);
-            display: flex;
-            flex-direction: column;
-            padding: 2%;
-            overflow: scroll;
-        }
+      
         #acessoRapido{
             width: 100%;
             min-height: 150px;

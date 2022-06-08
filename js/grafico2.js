@@ -9,9 +9,17 @@ const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 const selectCat = document.getElementById('selectCat');
 const selectTipoTransf = document.getElementById('tipoTransf')
+
 const urlCat = url + '/data/categorias?k=' + token + '&ano=' + atual.value 
 let categoriaDespesa;
 let categoriaReceita;
+
+
+const tituloLista = document.querySelector('.titulo')
+const imagemLista = document.querySelector('.imagem')
+const nomeCatLista = document.querySelector('.nomeCatLista')
+const valorLista = document.querySelector('.valorTransf')
+
 const categorias = () =>{
     selectCat.innerHTML = '<option selected disabled value="">Categorias</option>';
     if(selectTipoTransf.value === "receita"){
@@ -52,17 +60,14 @@ const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun",
 const ctx = document.getElementById('graficoMensalCanvas').getContext('2d');
 
 const graficoMensal = new Chart(ctx, {
-	type: 'pie',
+	type: 'doughnut',
 	data: {
 
 		labels: [],
 		datasets: [{
+			labels: [],
 			data: [],
-			backgroundColor: '#e70000'
-		},
-		{
-			data: [],
-			backgroundColor: '#32A40A'
+			backgroundColor: []
 		}]
 	},
 	
@@ -92,12 +97,7 @@ const graficoMensal = new Chart(ctx, {
 				},
 			}
 		},
-		indexAxis: 'x',
-		elements: {
-			bar: {
-				borderWidth: 2,
-			}
-		},
+		
 		responsive: true,
 		maintainAspectRatio: false,
 		plugins: {
@@ -105,18 +105,15 @@ const graficoMensal = new Chart(ctx, {
 				display: false,
 				position: 'right',
 			},
-			datalabels: {
-				display: false,
-				color: '#000',
-				anchor: 'end',
-
-				align: 'end',
-				offset: 24,
-				font: {
-					size: '20px',
-					weight: 'bold'
-				}
-			}
+			title:{
+				display: true,
+				text: "",
+				font:{
+					size: "24px",
+					
+				},
+				color: "#000000"
+			},
 		}
 	},
 });
@@ -125,23 +122,51 @@ const grafico = async () =>{
     let labels = []
 	let urlTipoTransf = url + '/grafico/' +  selectTipoTransf.value + '?k='+ token +'&ano='+atual.value+'&mes=' + selectMes.value + '&modo=categoria'
     let corGrafico = [];
+	let dataGrafico = [];
 	if(selectCat.value){
 		urlTipoTransf = urlTipoTransf + '&cat=' + selectCat.value;
 	}
 	
     let dataGraficoTipoTransf =  await fetch(urlTipoTransf).then(r => r.json())
 
-            graficoMensal.data.labels = labels;
-			graficoMensal.data.datasets[0].data = dataGraficoTipoTransf;
+            
+			Object.entries(dataGraficoTipoTransf).forEach((categorias) => {
+				let idCategorias = categorias[0];
+				console.log(idCategorias)
+				if (selectTipoTransf.value === 'despesa') {
+					const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
+					labels.push(categoriaDespesas.nome)
+					dataGrafico.push(categorias[1])
+					corGrafico.push('#' + categoriaDespesas.cor)
+					imagemLista.innerText = categoriaDespesas.icone
+					nomeCatLista.innerText = categoriaDespesa[0].nome
+					valorLista.innerText = categoriaDespesa.valor
+					console.log(categoriaDespesa[0].nome);
+				} else if (selectTipoTransf.value === 'receita') {
+					const categoriaReceitas = categoriaReceita.find(categoria => categoria.idCategoria == idCategorias);
+					labels.push(categoriaReceitas.nome)
+					dataGrafico.push(categorias[1])
+					corGrafico.push('#' + categoriaReceitas.cor)
+				}
+
+			});
+
+			graficoMensal.data.labels = labels;
+			graficoMensal.data.datasets[0].data = dataGrafico;
             console.log(graficoMensal.data)
+		    graficoMensal.data.datasets[0].backgroundColor = corGrafico;
+			graficoMensal.options.plugins.title.text = "Grafico de " + selectTipoTransf.value + "s",
+			
+			
+			tituloLista.innerText = 'Lista de ' + selectTipoTransf.value
+			
 			graficoMensal.update()
-           
-    graficoMensal.data.datasets[0].backgroundColor = corGrafico;
-
-
 }
 grafico()
 
+selectTipoTransf.addEventListener('change',grafico)
+selectCat.addEventListener('change',grafico)
+selectMes.addEventListener('change',grafico)
 
 function mais() {
     var novo = atual.value - (-1); //Evitando Concatenacoes
@@ -160,3 +185,10 @@ function menos() {
 atual.addEventListener('input', () => {
     atual.value = atual.value.substring(0, 4);
 });
+
+
+
+
+
+//listagem
+
