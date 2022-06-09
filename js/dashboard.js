@@ -298,9 +298,11 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		} else {
 			repetido = true;
 			btnImg1.src = './img/repetirr.svg'
-			document.querySelector('#selectFR > option[value="' + (nomeFrequencia) + '"]').selected = true;
+			console.log(nomeFrequencia);
+			if(nomeFrequencia){
+			document.querySelector('#selectFR > option[value="' +(nomeFrequencia) + '"]').selected = true;}
 			document.getElementById('repeticao').style.display = 'block';
-
+			
 
 			dataInicio.onchange = e => {
 

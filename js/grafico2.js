@@ -14,11 +14,12 @@ const urlCat = url + '/data/categorias?k=' + token + '&ano=' + atual.value
 let categoriaDespesa;
 let categoriaReceita;
 
-
+const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const tituloLista = document.querySelector('.titulo')
 const imagemLista = document.querySelector('.imagem')
 const nomeCatLista = document.querySelector('.nomeCatLista')
 const valorLista = document.querySelector('.valorTransf')
+const lista = document.querySelector("#lista")
 
 const categorias = () =>{
     selectCat.innerHTML = '<option selected disabled value="">Categorias</option>';
@@ -129,24 +130,58 @@ const grafico = async () =>{
 	
     let dataGraficoTipoTransf =  await fetch(urlTipoTransf).then(r => r.json())
 
-            
+            lista.innerHTML = ""
 			Object.entries(dataGraficoTipoTransf).forEach((categorias) => {
 				let idCategorias = categorias[0];
 				console.log(idCategorias)
+				const criarDiv = document.createElement("div")
+				lista.appendChild(criarDiv)
 				if (selectTipoTransf.value === 'despesa') {
 					const categoriaDespesas = categoriaDespesa.find(categoria => categoria.idCategoria == idCategorias);
 					labels.push(categoriaDespesas.nome)
 					dataGrafico.push(categorias[1])
 					corGrafico.push('#' + categoriaDespesas.cor)
-					imagemLista.innerText = categoriaDespesas.icone
-					nomeCatLista.innerText = categoriaDespesa[0].nome
-					valorLista.innerText = categoriaDespesa.valor
-					console.log(categoriaDespesa[0].nome);
+					
+					criarDiv.outerHTML = `<div class="agregaValores">
+
+					<div class="teste">
+						<div class="info">
+							<div class="imagem icons">${categoriaDespesas.icone}</div>
+							<p class="p nomeCatLista">${categoriaDespesas.nome}</p>
+						</div>
+					</div>
+
+					<div class="teste">
+						<div class="info">
+							<h4 class="valorTransf">${"R$ " + formatador.format(categorias[1]).replace("NaN", "R$ " + categorias[1] + ",00")}</h4>
+						</div>
+					</div>
+				</div>`
+					
+
 				} else if (selectTipoTransf.value === 'receita') {
 					const categoriaReceitas = categoriaReceita.find(categoria => categoria.idCategoria == idCategorias);
 					labels.push(categoriaReceitas.nome)
 					dataGrafico.push(categorias[1])
 					corGrafico.push('#' + categoriaReceitas.cor)
+	
+					criarDiv.outerHTML = `<div class="agregaValores">
+
+					<div class="teste">
+						<div class="info">
+							<div class="imagem icons">${categoriaReceitas.icone}</div>
+							<p class="p nomeCatLista">${categoriaReceitas.nome}</p>
+						</div>
+					</div>
+
+					<div class="teste">
+						<div class="info">
+							<h4 class="valorTransf">${"R$ " + formatador.format(categorias[1]).replace("NaN", "R$ " + categorias[1] + ",00")}</h4>
+						</div>
+					</div>
+				</div>`
+
+					
 				}
 
 			});
@@ -158,7 +193,7 @@ const grafico = async () =>{
 			graficoMensal.options.plugins.title.text = "Grafico de " + selectTipoTransf.value + "s",
 			
 			
-			tituloLista.innerText = 'Lista de ' + selectTipoTransf.value
+			tituloLista.innerText = 'Lista de ' + selectTipoTransf.value + "s"
 			
 			graficoMensal.update()
 }

@@ -109,7 +109,7 @@ main {
 
 .containerSeletcs {
     width: 100%;
-    height: 50%;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,7 +319,8 @@ select {
 
 #editDivs {
     width: 100%;
-    height: 800px;
+    height: 70%;
+    min-height: 500px;
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
@@ -424,12 +425,16 @@ select {
 }
 
 .imagem {
-    width: auto;
+    width: 25%;
     height: auto;
     font-size:50px;
 }
 .nomeCatLista{
     height: 100%;
+    width: 75%;
+    text-align: start;
+    display: flex;
+    justify-content: left !important;
 }
 
 .p {
