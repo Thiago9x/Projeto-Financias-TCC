@@ -4,7 +4,7 @@ const abreModalUsuario = () => {
     
     conteudoModal(`
     <div class="modalUsuarioBranco">
-        
+    
         <div id="usuario">
 
             <div class="Container">
@@ -65,12 +65,13 @@ const abreModalUsuario = () => {
                 </div>       
             </div>
             <div id="botoesSalvarCancelar">
-        
-                <img src="./img/usuario2.svg" alt class="usuarioImg">
-        
+
                 <input id="buttonCancelar" class="cancelar" type="button" value="Cancelar">
                 <input id="buttonSalvar" type="button" value="Salvar">
             </div>
+        </div>
+        <div id="caixaLogout">
+            <a href="./index.html" id="logout">Log-out</a>
         </div>
     </div>`)
 abrirModal()
