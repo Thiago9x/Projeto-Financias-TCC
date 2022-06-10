@@ -5,7 +5,7 @@ const yearNow = new Date().getFullYear();
 let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
-const ws = new WebSocket(wsUrl + '/dashboard/' + token);
+let ws = novoWebSocket();
 
 function formatDate(date) {
     var d = new Date(date),
@@ -32,21 +32,16 @@ var openFile = function(event) {
 	};
 	reader.readAsDataURL(input.files[0]);
 };
-let categoriaReceita;
-let categoriaDespesa;
-const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-	"Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
-];
-const getNameMonth = function (date) {
-	return monthNames[date.getMonth()];
-}
-const getShortMonthName = function (date) {
-	return monthNames[date.getMonth()].substring(0, 3);
-}
-const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-//FECHAR MODAIS E ENVIAR INFORMACOES PARA A DASHBOARD
-ws.onmessage = ({ data }) => {
+function novoWebSocket(){
+	const ws1 = new WebSocket(wsUrl + '/dashboard/' + token);
+	
+	ws1.onopen = (e) => {
+		console.log(e);
+		console.log("ws subiu");
+	}
+	
+	ws1.onmessage = ({ data }) => {
 
 	const json = JSON.parse(data);
 
@@ -80,9 +75,39 @@ ws.onmessage = ({ data }) => {
 	}
 }
 
-ws.onclose = () => {
-	console.log('ws caiu');
+
+	ws1.onclose = (e) => {
+		console.log(e);
+		console.log('ws caiu');
+		
+		ws = novoWebSocket();
+	}
+	
+	ws1.onerror = (e) => {
+		console.log(e);
+		console.log('ws erroua');
+	}
+
+	return ws1;
 }
+
+let categoriaReceita;
+let categoriaDespesa;
+const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+	"Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro"
+];
+const getNameMonth = function (date) {
+	return monthNames[date.getMonth()];
+}
+const getShortMonthName = function (date) {
+	return monthNames[date.getMonth()].substring(0, 3);
+}
+const formatador = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+//FECHAR MODAIS E ENVIAR INFORMACOES PARA A DASHBOARD
+
+
+
 
 const atualizarSaldo = () =>
 fetch(`${urlData}/saldo?k=${token}`)
