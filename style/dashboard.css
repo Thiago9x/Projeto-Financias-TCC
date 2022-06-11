@@ -361,17 +361,17 @@ select {
 }
 
 .despesaPendente{
-    width: 100%;
-    background-color: yellow;
-    height: 25%;
-    margin-top: 2px;
+    width: 98%;
+    /* background-color: yellow; */
+    height: 30%;
+    margin-top: 5px;
     display: flex;
     align-items: center;
 }
 .icone{
-    width: 5%;
+    width: 10%;
     height: 100%;
-    background-color: violet;
+    /* background-color: violet; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,31 +380,47 @@ select {
 .principalMeio{
     width: 90%;
     height: 100%;
-    background-color: #4D64B1;
+    /* background-color: #4D64B1; */
 }
 .valorPendente{
-    width: 100%;
+    width: 50%;
     height: 50%;
-    padding-left: 20px;
-    background-color: blue;
+    /* background-color: blue; */
+    font-size: 1.2rem;
+    text-align: center;
 }
 .formatarImgExcluir{
     width: 30px;
     height: 30px;
 }
 .t1{
-    background-color: #32A40A;
-    font-weight: 600;
+    width: 50%;
+    height: 50%;
+    /* background-color: #32A40A; */
     font-size: 1.2rem;
-    padding-bottom: 5px;
+    text-align: center;
 }
-.t1 ,.valor{
+.valor{
     width: 100%;
     height: 50%;
     padding-left: 20px;
     
 }
-
+#parteCima{
+    width: 100%;
+    display: flex;
+}
+#parteBaixa{
+    width: 100%;
+    display: flex;
+}
+.iconsFixa{
+    padding: 0px;
+    font-size: 50px;
+}
+#fixaConteudo{
+    overflow-y: sroll;  
+}
 
 
 

@@ -24,7 +24,7 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
 		perfilFoto.innerHTML=`<img class="fotinha" src="${url}/upload/${fotoUsuario}">`
         perfilFoto.style.border = "none";
         } else {
-            document.getElementById("perfilFoto").innerHTML = '<img id="fotoDoUsuario" src="../img/usuarioPerfil.svg">'
+            document.getElementById("perfilFoto").innerHTML = '<img id="fotoDoUsuario" src="../img/usuarioPerfil.png">'
         }
     })
 );

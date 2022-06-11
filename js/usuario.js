@@ -48,16 +48,7 @@ const abreModalUsuario = () => {
         
                 <div class="textH7">Segurança</div>
         
-                <div class="organize">
-                    
-                    <label id="Tcheckbox">
-                        <input type="checkbox" id="checkbox"/>
-                        <label for="checkbox" class="checkbox"></label>
-                    </label>
-                    
-                    <div class="edith4"> <h4>Verificação de duas etapas</h4> </div>
-        
-                </div>  
+               
                 <div class="guardaBotao">
         
                     <input id="buttonSenha" type="button" value="Trocar Senha"> 
@@ -71,10 +62,18 @@ const abreModalUsuario = () => {
             </div>
         </div>
         <div id="caixaLogout">
-            <a href="./index.html" id="logout">Log-out</a>
+            <div id="logout">Log-out</div>
         </div>
     </div>`)
 abrirModal()
+document.querySelector('#logout').addEventListener('click', () => {
+    if(confirm("Tem certeza que deseja sair da sua conta ?"))
+    {
+        window.location.href = "../index.html"
+    }
+    else{}
+})
+
 let photo = document.querySelector('.usuarioFoto');
 let file = document.getElementById('input-file');
 
@@ -109,7 +108,6 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         console.log(data);
         let nomeUsuario = data.nome;
         const emailUsuario = data.email;
-        const duasEtapas = data.duasetapas;
         const fotoUsuario = data.foto;
         document.getElementById('nomeUsuario').innerText = nomeUsuario;
         if(fotoUsuario){
@@ -130,14 +128,10 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
         email.value = emailUsuario;
         email.disabled = true;
 
-        document.querySelector('#checkbox').checked = duasEtapas
-
-        document.getElementById('checkbox').checked=duasEtapas;
-
+       
         const enviarUsuario = async () => {
             nomeUsuario = document.querySelector('#editarAsInputsUsuario').value;
             let fotoFinal = document.querySelector('#input-file').files[0]
-            let duasEtapasFinal = document.querySelector('#checkbox').checked
             let guardarImagens = null;
             
             if(fotoFinal){
@@ -154,8 +148,7 @@ console.log(fetch(`${url}/data/perfil?k=${token}`)
                 nome.innerText = nomeUsuario
             }) 
 
-            console.log('corno' + JSON.stringify({nome: nomeUsuario,duasetapas: duasEtapasFinal, foto: guardarImagens}))
-            fetch(urlData + '/perfil?k=' + token,{method:'POST',body: JSON.stringify({nome: nomeUsuario,duasetapas: duasEtapasFinal, foto: guardarImagens})}).then(r => r.json()).then(j => console.log(j))
+           fetch(urlData + '/perfil?k=' + token,{method:'POST',body: JSON.stringify({nome: nomeUsuario,duasetapas: false, foto: guardarImagens})}).then(r => r.json()).then(j => console.log(j))
             fecharModal()
         }
         document.getElementById('buttonSalvar').addEventListener('click', enviarUsuario)
@@ -171,3 +164,4 @@ document.getElementById('buttonCancelar').addEventListener('click' ,fecharModal)
 }
 
 document.getElementById('abrirPerfil').addEventListener('click', abreModalUsuario);
+
