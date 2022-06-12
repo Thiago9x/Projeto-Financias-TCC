@@ -885,7 +885,7 @@ const updateSecundario = () => {
 	.then((data) => {
 		const saldoMensal = document.getElementById('saldoMesValor');
 		saldoMensal.innerText = 'R$ ' + formatador.format(data.saldo);
-		saldoMensal.style.fontSize = "24px"
+		saldoMensal.style.fontSize = "18px"
 		const saldoMensalTXT = document.getElementById('saldo-mensal');
 		saldoMensalTXT.innerHTML = `Saldo </br> Mensal`;
 		saldoMensalTXT.style.textAlign = "center"
