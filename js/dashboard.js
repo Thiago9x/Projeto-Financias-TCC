@@ -6,6 +6,8 @@ let selectTransferencia = document.getElementById('selectTrans')
 const selectMes = document.getElementById('selectMes');
 document.querySelector('#selectMes > option[value="' + (monthNow) + '"]').selected = true;
 let ws = novoWebSocket();
+let websocketTaOn = false;
+let websocketJaCaiu = false;
 
 function formatDate(date) {
     var d = new Date(date),
@@ -39,6 +41,7 @@ function novoWebSocket(){
 	ws1.onopen = (e) => {
 		console.log(e);
 		console.log("ws subiu");
+		websocketTaOn = true;
 	}
 	
 	ws1.onmessage = ({ data }) => {
@@ -80,12 +83,21 @@ function novoWebSocket(){
 		console.log(e);
 		console.log('ws caiu');
 		
-		ws = novoWebSocket();
+		websocketTaOn = false;
+		document.getElementById("aovivocaiu").style.display = "block";
+		
+//		ws = novoWebSocket();
 	}
 	
 	ws1.onerror = (e) => {
 		console.log(e);
 		console.log('ws erroua');
+		
+		websocketTaOn = false;
+		
+		websocketJaCaiu = true;
+		
+		document.getElementById("aovivocaiu").style.display = "block";
 	}
 
 	return ws1;
@@ -626,11 +638,18 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 		const confirmacaoCampos = document.getElementById('requires').reportValidity();
 		if (confirmacaoCampos == true && !isNaN(idCategoria)) {
 			
-			ws.send(JSON.stringify({
-				metodo: transferencia, arg: 'inserir', valor: Math.abs(valorEnviar), data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
-				totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
-				frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido && !parcelaFixa, anexo: guardarImagens
-			}));
+			await fetch(url + "/transferencia?k=" + token, {
+				method: "post",
+				body: JSON.stringify({
+					metodo: transferencia, arg: 'inserir', valor: Math.abs(valorEnviar), data: data.value, descricao: descricaoEnviar, favorito: favoritado, fixa: parcelaFixa,
+					totalParcelas: (repetido && duracao.value ? parseInt(duracao.value) : null),
+					frequencia: dataFR.value !== '' ? dataFR.value : null, observacao: observacaoEnviar, idCategoria: idCategoria, parcelada: repetido && !parcelaFixa, anexo: guardarImagens
+				})
+			});
+			
+			if(!websocketTaOn){
+				atualizarSaldo(); //atualiza manualmente
+			}
 
 			fecharModal();
 

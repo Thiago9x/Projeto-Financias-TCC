@@ -38,7 +38,16 @@ main {
 .divideAcesso {
     width: 60%;
     height: 100%;
+	position: relative;
 
+}
+
+#aovivocaiu {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: red;
+	display: none;
 }
 
 #saudacao {
