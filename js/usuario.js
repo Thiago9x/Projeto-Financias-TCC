@@ -69,7 +69,7 @@ abrirModal()
 document.querySelector('#logout').addEventListener('click', () => {
     if(confirm("Tem certeza que deseja sair da sua conta ?"))
     {
-        window.location.href = "../index.html"
+        window.location.href = "./index.html"
     }
     else{}
 })

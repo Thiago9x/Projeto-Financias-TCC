@@ -1,4 +1,4 @@
-const url = "http://tomcat.studiotr.io:9090/royal";
+const url = "https://tomcat.studiotr.io/royalapi";
 const wsUrl = "ws" + url.substring(4);
 const urlData = url + "/data";
 

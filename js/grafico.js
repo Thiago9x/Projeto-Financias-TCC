@@ -12,7 +12,7 @@ var atual = document.getElementById("total");
 atual.value = new Date().getFullYear();
 
 document.getElementById('graficoMensal').addEventListener('change',()=>{
-	window.location.href = "../grafico2.html";
+	window.location.href = "./grafico2.html";
 })
 
 const urlCat = url + '/data/categorias?k=' + token + '&ano=' + atual.value 

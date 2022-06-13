@@ -99,7 +99,7 @@ const fazerCadastro = () => {
         .then((data) => {
             if(data.status === Status.OK){
                 alert('Seu cadastro foi efetuado com sucesso!!!')
-                window.location.href="../index.html"
+                window.location.href="./index.html"
             }
             else if(data.status === Status.EMAIL_REPETIDO){
                 alert("ERRO:Esse email ja existe")

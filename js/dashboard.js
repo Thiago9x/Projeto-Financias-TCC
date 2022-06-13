@@ -253,7 +253,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
             <h4>Anexo</h4>
 			<label id="imagemUpload" for="anexos">
                 <div id="tracejado">
-                    <img id='output' src="../img/fileUpload.svg">
+                    <img id='output' src="./img/fileUpload.svg">
                     <h4 id="addFoto">Adicionar Foto</h4>
                 </div>
             </label>
@@ -274,7 +274,7 @@ const modalTransferencia = (transferencia, descricao, valor, date, categoria, an
 	if(anexoValue){
 		document.getElementById('output').src = url + '/upload/' + anexoValue;
 	}else{
-		document.getElementById('output').src ="../img/fileUpload.svg"
+		document.getElementById('output').src ="./img/fileUpload.svg"
 	}
 	console.log(anexoValue)
 	//DATA ATUAL
